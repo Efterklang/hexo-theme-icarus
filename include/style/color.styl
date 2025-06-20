@@ -1,0 +1,312 @@
+$latte = {
+    rosewater: #dc8a78,
+    flamingo: #dd7878,
+    pink: #ea76cb,
+    mauve: #8839ef,
+    red: #d20f39,
+    maroon: #e64553,
+    peach: #fe640b,
+    yellow: #df8e1d,
+    green: #40a02b,
+    teal: #179299,
+    sky: #04a5e5,
+    sapphire: #209fb5,
+    blue: #1e66f5,
+    lavender: #7287fd,
+    text: #4c4f69,
+    subtext1: #5c5f77,
+    subtext0: #6c6f85,
+    overlay2: #7c7f93,
+    overlay1: #8c8fa1,
+    overlay0: #9ca0b0,
+    surface2: #acb0be,
+    surface1: #bcc0cc,
+    surface0: #ccd0da,
+    base: #eff1f5,
+    mantle: #e6e9ef,
+    crust: #dce0e8,
+    card_bg: rgba(239, 241, 245, 0.4),
+    card_bg_hover: rgba(255, 255, 255, 0.95),
+    card_content_bg: rgba(255, 255, 255, 0.9),
+    card_header_bg: rgba(239, 241, 245, 0.8)
+};
+$mocha = {
+    rosewater: #f5e0dc,
+    flamingo: #f2cdcd,
+    pink: #f5c2e7,
+    mauve: #cba6f7,
+    red: #f38ba8,
+    maroon: #eba0ac,
+    peach: #fab387,
+    yellow: #f9e2af,
+    green: #a6e3a1,
+    teal: #94e2d5,
+    sky: #89dceb,
+    sapphire: #74c7ec,
+    blue: #89b4fa,
+    lavender: #b4befe,
+    text: #cdd6f4,
+    subtext1: #bac2de,
+    subtext0: #a6adc8,
+    overlay2: #9399b2,
+    overlay1: #7f849c,
+    overlay0: #6c7086,
+    surface2: #585b70,
+    surface1: #45475a,
+    surface0: #313244,
+    base: #1e1e2e,
+    mantle: #181825,
+    crust: #11111b,
+    card_bg: rgba(24, 24, 37, 0.4),
+    card_bg_hover: rgba(24, 24, 37, 0.6),
+    card_content_bg: rgba(30, 30, 46, 0.5),
+    card_header_bg: rgba(49, 50, 68, 0.6)
+};
+
+content-colors($colors)
+    .content
+        h1
+            color: $colors.red;
+        h2
+            color: $colors.peach;
+        h3
+            color: $colors.yellow;
+        h4
+            color: $colors.green;
+        h5
+            color: $colors.blue;
+        h6
+            color: $colors.mauve;
+        a
+            color: $colors.sky;
+            &:hover
+                color: $colors.text;
+        strong
+            color: $colors.pink;
+        blockquote
+            background-color: $colors.surface0;
+            border-color: $colors.crust;
+        table
+            background-color: $colors.base;
+            border: 1px solid $colors.surface0;
+            th
+                background-color: $colors.mantle;
+                color: $colors.text;
+                border-bottom-color: $colors.surface0 !important;    
+            td
+                color: $colors.text;
+                border-bottom-color: $colors.surface0 !important;
+                
+            tbody tr
+                &:nth-child(even)
+                    background-color: $colors.mantle;
+                    
+                &:hover
+                    background-color: $colors.surface0;
+    // Code block colors
+    code:not(.shiki)
+        background-color: $colors.surface0
+        color: $colors.subtext1;
+        border: 1px solid $colors.surface1;
+    pre
+        background-color transparent;
+article-colors($colors)
+    article
+        &.media
+            color $colors.subtext1, a
+                color inherit;
+                &:hover
+                    color: $colors.blue;
+        &.article
+            .article-meta
+                color: $colors.subtext1;
+        .article-licensing
+            color: $colors.subtext1;
+            background-color: $colors.base;
+
+    .article, article.media
+        .title a
+            color: $colors.text;
+            background-image: linear-gradient(transparent calc(100% - 1px), $colors.lavender 2px)
+        .title:hover a
+            color: $colors.text !important
+
+button-colors($colors)
+    .button.is-primary, .button.is-light, .button.is-small, .cc-window .cc-compliance > .cc-btn
+        background-color: $colors.lavender;
+        color: $colors.base;
+        &:hover, &.is-hovered
+            color: $colors.base;
+            background-color: $colors.mauve;
+        &:active, &.is-active
+            color: $colors.text;
+            background-color: $colors.mauve;
+    .button.is-white, .button.is-transparent
+        background-color transparent;
+        color: $colors.text;
+        &:hover
+            background-color: $colors.surface0;
+    .button.is-link
+        background-color: $colors.blue;
+    .button.is-link:hover, .button.is-link.is-hovered
+        background-color: $colors.sapphire
+
+    .button.is-link:active, .button.is-link.is-active
+        background-color: $colors.sapphire
+
+navbar-colors($colors)
+    .navbar-main
+        .navbar-item.is-active
+            background-color transparent;
+            color: $colors.lavender;
+        .navbar-menu .navbar-item
+            &:hover, &:focus
+                color: $colors.lavender;
+                background-color: $colors.surface0;
+    .navbar
+        background-color: $colors.crust;
+        backdrop-filter blur(10px);
+        -webkit-backdrop-filter blur(10px);
+        border-bottom 1px solid $colors.crust;
+        box-shadow 0 2px 4px rgba(0, 0, 0, 0.1);
+
+widget-colors($colors)
+    .widget
+        .menu-list
+            a
+                &:hover, &.is-active
+                    background-color: $colors.surface0;
+            li ul
+                border-color: $colors.surface0;
+
+tag-colors($colors)
+    .tag:not(body).is-primary, .widget .menu-list .tag
+        color: $colors.text;
+        background-color: $colors.surface0;
+
+    // "tag" element in categories widget or arhive widget which looks like a button
+    .widget .menu-list .tag
+        &:hover
+            color: $colors.base;
+            background-color: $colors.mauve;
+
+    // "tag" element in tags widget & tags page
+    .tags.has-addons .tag
+        color: $colors.text;
+        border-color: $colors.surface0;
+        &:first-child
+            background: $colors.base;
+        &:last-child
+            background: $colors.mantle;
+
+timeline-colors($colors)
+    .timeline
+        border-left 1px solid $colors.overlay1, .media
+            &:before
+                background: $colors.overlay1;
+            &:last-child:after
+                background: $colors.base;
+    .timeline a, .twikoo-new-container a, [data-type='recent-posts'] a
+        color $colors.text, &:hover
+            color: $colors.text;
+
+ui-elements-colors($colors)
+    body, time, .title, .footer, .card, .navbar-item, .navbar-link, .menu-label, .level-item, .button.is-white, .button.is-transparent, .v *
+        color: $colors.text;
+    .media-content, .has-text-grey, .link-muted, .cc-window
+        color: $colors.text;
+    .link-muted:hover
+        color: $colors.mauve !important;
+    .input, .textarea
+        background-color: $colors.crust;
+        border-color: $colors.surface0;
+        color: $colors.text;
+    .footer, .footer:before
+        background-color: $colors.mantle;
+        opacity: 0.8 !important;
+    // Horizontal rule
+    hr
+        background-color: $colors.surface0;
+    // Selection colors
+    ::selection
+        color: $colors.base;
+        background-color: $colors.lavender;
+    ::-moz-selection
+        color: $colors.text;
+        background-color: $colors.overlay0;
+    // Form autofill
+    input:-webkit-autofill
+        -webkit-text-fill-color: $colors.text;
+        box-shadow 0 0 0px 1000px $colors.surface0 inset;
+    // Plugin colors
+    .gallery-item .caption
+        color: $colors.overlay1;
+    .pace .pace-progress
+        background: $colors.blue;
+cookie-consent-colors($colors)
+    .cc-window
+        color $colors.text, background-color $colors.base, &.cc-banner
+            background-color: $colors.mantle;
+        .cc-compliance > .cc-btn
+            color $colors.base, background-color $colors.blue, &:hover, &:focus
+                background-color: $colors.sapphire;
+            &.cc-deny:hover
+                color: $colors.blue;
+    .cc-revoke
+        color $colors.base, background-color $colors.blue, &:hover
+            background-color: $colors.sapphire;
+            
+pagination-colors($colors)
+    .pagination-next, .pagination-previous, .pagination-link, .pagination-ellipsis
+        background: $colors.mantle;
+        color: $colors.text;
+        a
+            color: $colors.text
+        &:hover, &.is-hovered
+            background-color: $colors.lavender;
+            color: $colors.base;
+            a
+                color: $colors.base;
+    .pagination-link.is-current
+        background-color: $colors.lavender;
+        color: $colors.base;
+    .post-navigation
+        color: $colors.subtext0;
+
+card-colors($colors)
+    .card
+        background-color: $colors.card_bg;
+        
+        &:hover
+            box-shadow: $card-shadow-light-hover;
+        
+        .card-header
+            background-color: $colors.card_header_bg; 
+            border-bottom: 1px solid $colors.surface1;            
+
+apply-theme-mixins($colors)
+    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag'
+    for $mixin in $colorMixins
+        {$mixin + '-colors'}($colors)
+
+apply-theme-mixins($latte);
+
+body.night
+    apply-theme-mixins($mocha);
+
+body.night
+    .card
+        border: 1px solid rgba(69, 71, 90, 0.3);
+    .post-navigation
+        color: $mocha.subtext0;
+    // Search box
+    .searchbox
+        .searchbox-container, .searchbox-header, .searchbox-header .searchbox-input, .searchbox-header .searchbox-close, .searchbox-body, .searchbox-result-section, .searchbox-result-item
+            color: $mocha.lavender;
+            background-color: $mocha.crust;
+            border-color: $mocha.surface0;
+            backdrop-filter blur(10px);
+        .searchbox-container .searchbox-result-section .searchbox-result-item:hover, .searchbox-container .searchbox-result-section .searchbox-result-item.active, .searchbox-container .searchbox-header .searchbox-close:hover
+            color: $mocha.blue;
+            background-color: $mocha.surface0;
+            backdrop-filter blur(10px);

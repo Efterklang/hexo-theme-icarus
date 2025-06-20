@@ -1,0 +1,21 @@
+/* ---------------------------------
+ *  Pagination and Post Navigation
+ * --------------------------------- */
+$pagination-box-shadow ?= $card-shadow
+
+.pagination
+    @extend .pagination.is-centered
+    margin-top: 1.5rem
+
+    .pagination-link,
+    .pagination-previous,
+    .pagination-next
+        border: none
+    font-family: lxgw 
+
+.post-navigation
+    color: $post-navigation-fg
+    flex-wrap: wrap
+    justify-content: space-around
+    .level-item
+        margin-bottom: 0

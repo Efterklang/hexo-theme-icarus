@@ -1,0 +1,67 @@
+common:
+    archive:
+        one: 'ARCHIVE'
+        other: 'ARCHIVE'
+    category:
+        one: 'CATEGORY'
+        other: 'CATEGORY'
+    tag:
+        one: 'TAGS'
+        other: 'TAGS'
+    post:
+        one: 'POST'
+        other: 'POST'
+    page:
+        one: 'PAGE'
+        other: 'PAGE'
+    prev: '上一页'
+    next: '下一页'
+widget:
+    follow: 'Follow'
+    recents: 'POST'
+    links: '链接'
+    catalogue: '目录'
+    subscribe_email: '订阅更新'
+    subscribe: '订阅'
+    adsense: '广告'
+    followit: 'follow.it'
+article:
+    created_at: '%s发表'
+    updated_at: '%s更新'
+    more: '阅读更多'
+    comments: '评论'
+    read_time: '%s读完'
+    edited: '编辑于'
+    word_count:
+        one: '约%d字'
+        other: '约%d字'
+    licensing:
+        author: '作者'
+        created_at: '发布于'
+        updated_at: '更新于'
+        licensed_under: '许可协议'
+donate:
+    title: '喜欢这篇文章？打赏一下作者吧'
+    afdian: '爱发电'
+    alipay: '支付宝'
+    wechat: '微信'
+    paypal: 'Paypal'
+    patreon: 'Patreon'
+    buymeacoffee: '送我杯咖啡'
+plugin:
+    backtotop: '回到顶端'
+    visit_count: 'Views: %s' # post页面显示的page view次数
+    visitor_count: 'Views: &nbsp;<span id="busuanzi_value_site_pv">-</span>&nbsp;&nbsp;&nbsp;Visitors: &nbsp;<span id="busuanzi_value_site_uv">-</span>&nbsp;'
+    cookie_consent:
+      message: 此网站使用 Cookie，以启用评论系统和分析功能。
+      dismiss: 知道了
+      allow: 允许使用Cookie
+      deny: 拒绝
+      link: 了解更多
+      policy: Cookie政策
+search:
+    search: '搜索'
+    hint: '想要查找什么...(Ctrl+K)'
+    no_result: '未找到搜索结果'
+    untitled: '(无标题)'
+    empty_preview: '(无内容预览)'

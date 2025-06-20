@@ -1,0 +1,154 @@
+.card {
+    overflow: visible;
+    border-radius: $card-radius !important;
+    position: relative;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    // 字体设置
+    .menu {
+        font-family: paris2024, lxgw, Maple Hand;
+    }
+
+    // 间距设置
+    & + .card, & + .column-right-shadow {
+        margin-top: 1.5rem;
+    }
+
+    // 图片区域
+    .card-image {
+        overflow: hidden;
+        border-top-left-radius: $card-radius;
+        border-top-right-radius: $card-radius;
+        position: relative; 
+    }
+
+    // 头部区域
+    .card-header {
+        border-radius: $card-radius $card-radius 0 0;
+        padding: 1rem 1.25rem;
+        
+        .card-header-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .card-header-icon {
+            padding: 0.75rem;
+        }
+    }
+
+    // 内容区域
+    .card-content {
+        padding: 1.25rem;
+        border-radius: 0;
+        
+        &:last-child {
+            border-radius: 0 0 $card-radius $card-radius;
+        }
+        
+        .content {
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    // 底部区域
+    .card-footer {
+        border-radius: 0 0 $card-radius $card-radius;
+        padding: 0.75rem 1.25rem;
+        
+        .card-footer-item {
+            padding: 0.5rem;
+            
+            &:not(:last-child) {
+                border-right: 1px solid;
+            }
+        }
+    }
+
+    // 媒体元素
+    .media + .media {
+        border: none;
+        margin-top: 0;
+        padding-top: 1rem;
+    }
+
+    // 特殊效果
+    &.is-hoverable {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        
+        .card-image {
+            overflow: hidden;
+            
+            img {
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+        }
+        
+        &:hover {
+            border-color: rgba(0, 0, 0, 0.1);
+            
+            .card-image img {
+                filter: contrast(1.05) brightness(1.05);
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    // 响应式设计
+    +mobile() {
+        margin: 0 0 1.5rem 0;
+        
+        .card-header,
+        .card-content,
+        .card-footer {
+            padding: 1rem;
+        }
+    }
+}
+
+// 动画定义
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+// 卡片组
+.card-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    
+    .card {
+        flex: 1;
+        min-width: 300px;
+        margin-top: 0;
+    }
+    
+    +mobile() {
+        flex-direction: column;
+        
+        .card {
+            min-width: auto;
+        }
+    }
+}
+
+// 紧凑型卡片
+.card.is-compact {
+    .card-header,
+    .card-content,
+    .card-footer {
+        padding: 0.75rem 1rem;
+    }
+}
+
+// 无边框卡片
+.card.is-borderless {
+    border: none !important;
+    box-shadow: none !important;
+}

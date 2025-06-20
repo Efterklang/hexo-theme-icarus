@@ -1,0 +1,178 @@
+screen-tablet = 769px;
+screen-desktop = 1088px;
+screen-widescreen = 1280px;
+screen-fullhd = 1472px;
+screen-onek = 1700px;
+
+@media screen and (min-width screen-onek)
+    .container
+        max-width 1600px;
+        width 1600px;
+
+        .column.is-3-widescreen
+            width 22%;
+
+        .column.is-6-widescreen
+            width 56%;
+
+// Background image
+body
+    background-color transparent;
+
+body:before
+    content '';
+    position fixed;
+    z-index -1;
+    top 0;
+    right 0;
+    bottom 0;
+    left 0;
+    opacity 0.6;
+    // transition: opacity 1s
+    background url('/img/background.webp');
+    background-size cover;
+
+.navbar-main
+    @media screen and (min-width screen-desktop)
+        .navbar-menu
+            .navbar-start
+                margin-left 2em;
+
+    @media screen and (max-width screen-tablet - 1)
+        .navbar-menu
+            flex-direction column;
+
+            .navbar-start, .navbar-end
+                justify-content center;
+                flex-wrap wrap; // 移动端菜单自动换行
+
+                .navbar-item
+                    padding 0.5rem;
+
+            .navbar-end
+                padding-bottom 0.5rem;
+
+// Card fixes
+.card
+    overflow visible;
+    transition background-color 0.5s ease;
+
+    &.card-transparent
+        background-color transparent !important;
+
+        .level-start, .level-end
+            overflow hidden;
+
+@media screen and (min-width screen-tablet)
+    .column-main, .column-left, .column-right, .column-right-shadow
+        &.is-sticky
+            top 70px;
+
+    .navbar
+        z-index 100;
+        position sticky;
+        top 0;
+
+.code
+    text-align left;
+
+// Article horizontal scroll bar
+.article
+    .content
+        overflow auto;
+
+// Section fixes
+.section .container .columns
+    -webkit-justify-content center;
+    justify-content center;
+
+article.article
+    .article-meta
+        overflow-y hidden;
+
+    .title
+        width fit-content;
+
+// Fix fontawsome icon 不等宽
+.navbar-main .navbar-menu .navbar-end .navbar-item
+    min-width 35px;
+    justify-content center;
+    -webkit-justify-content center;
+
+#busuanzi_container_page_pv
+    display none !important;
+
+.card .v .vlist .vcard .vcontent
+    text-align inherit;
+
+.searchbox
+    .searchbox-pinyin
+        display flex;
+        align-items center;
+        user-select none;
+
+        input
+            vertical-align middle;
+
+        span
+            position relative;
+            top 1px;
+
+.button.link-more
+    margin-top 0.75rem;
+
+.post-navigation
+    .level-item
+        flex-shrink 1;
+
+.twikoo-new-content
+    display -webkit-box;
+    -webkit-line-clamp 2;
+    -webkit-box-orient vertical;
+    overflow hidden;
+
+.twikoo code .tag
+    display inline;
+    padding 0;
+
+.heimu
+    color #1e1e2e;
+    background-color #1e1e2e;
+
+    &:hover
+        color #cdd6f4;
+
+.poem
+    font-family 'outi', 'KaiTi';
+    font-style bold;
+    font-size 30px;
+    text-align center;
+    background-color rgba(210, 180, 140, 0.05);
+    border 3px solid rgba(0, 0, 0, 0.1); /* 更改边框颜色和透明度 */
+    padding 20px;
+    margin 10px;
+    width auto;
+    border-radius 10px;
+    box-shadow 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition-duration 0.5s;
+
+    &:hover
+        background-color rgba(210, 180, 140, 0.1);
+        box-shadow 0 8px 16px rgba(0, 0, 0, 0.3);
+        transform translateY(-2px);
+
+.article img
+    display block;
+    margin 0 auto;
+
+.medium-zoom-overlay
+    backdrop-filter blur(8px); /* 添加 8px 模糊效果 */
+    -webkit-backdrop-filter blur(8px); /* 兼容 Safari */
+    z-index 9998 !important; /* 提升蒙层层级 */
+
+img.medium-zoom-image
+    border-radius 5px;
+
+.medium-zoom-image--opened
+    z-index 9999;
+    position fixed;

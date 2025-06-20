@@ -1,0 +1,39 @@
+/* ---------------------------------
+ *            Page Footer
+ * --------------------------------- */
+.footer
+    backdrop-filter: blur(10px)
+    -webkit-backdrop-filter: blur(10px)
+    position: relative
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+.footer a:not(.button)
+    color: inherit
+    &:hover
+        text-decoration: underline
+
+footer.footer
+    .level-start
+        +mobile()
+            text-align: center
+
+    .level-end
+        .field
+            flex-wrap: wrap
+            align-items: center
+
+            +mobile()
+                justify-content: center
+                margin-top: 1rem
+
+    font-family: lxgw
+
+.footer-logo
+    img
+        max-height: 2rem
