@@ -2,17 +2,21 @@
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14-brightgreen.svg)](https://nodejs.org/)
 [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D7.0-blue.svg)](https://hexo.io/)
 
-> [!danger]
+> [!CAUTION]
 >
-> 此仓库用作`Efterklang.github.io`的 git submodule，拆分`blog source`和`theme`，方便个人维护
+> 仓库用作`Efterklang.github.io`的 git submodule，以便于分别为post和theme做版本控制
 >
-> theme可能存在硬编码
+> 此外，theme可能存在硬编码
 
 ## Features
 
-- Asoul live2d 
-- Catppuccin theme
-- callout, mermaid style，shiki(需要自行下载依赖)
+相比原主题做了部分修改
+
+- 个人不用的文件直接删除了，比如`highlight.js` & `prism.js`，目前使用的为`hexo-shiki-highlight`
+- 魔改icarus样式，包括tag, code, widget, card etc.
+- 为一些插件加了自定义的样式，包括callout, mermaid etc.
+- 添加Asoul live2d model, 支持light/dark mode, use Catppuccin color scheme
+- 默认字体换用`lxgw zhenkai`, `Maple Mono NF CN`
 
 ## Installation
 
@@ -83,4 +87,3 @@ My `package.json`'s  dependencies section looks like this(some are optional)
   }
 }
 ```
-
