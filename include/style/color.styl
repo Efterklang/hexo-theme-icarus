@@ -78,9 +78,9 @@ content-colors($colors)
         h6
             color: $colors.mauve;
         a
-            color: $colors.sky;
+            color: $colors.lavender;
             &:hover
-                color: $colors.text;
+                color: $colors.blue;
         strong
             color: $colors.pink;
         blockquote
@@ -95,8 +95,7 @@ content-colors($colors)
                 border-bottom-color: $colors.surface0 !important;    
             td
                 color: $colors.text;
-                border-bottom-color: $colors.surface0 !important;
-                
+                border-bottom-color: $colors.surface0 !important;   
             tbody tr
                 &:nth-child(even)
                     background-color: $colors.mantle;
@@ -105,16 +104,17 @@ content-colors($colors)
                     background-color: $colors.surface0;
     // Code block colors
     code:not(.shiki)
-        background-color: $colors.surface0
+        background-color: $colors.surface0;
         color: $colors.subtext1;
         border: 1px solid $colors.surface1;
     pre
-        background-color transparent;
+        background-color: transparent;
 article-colors($colors)
     article
         &.media
-            color $colors.subtext1, a
-                color inherit;
+            color: $colors.subtext1;
+            a
+                color: inherit;
                 &:hover
                     color: $colors.blue;
         &.article
@@ -142,22 +142,22 @@ button-colors($colors)
             color: $colors.text;
             background-color: $colors.mauve;
     .button.is-white, .button.is-transparent
-        background-color transparent;
+        background-color: transparent;
         color: $colors.text;
         &:hover
             background-color: $colors.surface0;
     .button.is-link
         background-color: $colors.blue;
     .button.is-link:hover, .button.is-link.is-hovered
-        background-color: $colors.sapphire
+        background-color: $colors.sapphire;
 
     .button.is-link:active, .button.is-link.is-active
-        background-color: $colors.sapphire
+        background-color: $colors.sapphire;
 
 navbar-colors($colors)
     .navbar-main
         .navbar-item.is-active
-            background-color transparent;
+            background-color: transparent;
             color: $colors.lavender;
         .navbar-menu .navbar-item
             &:hover, &:focus
@@ -165,10 +165,10 @@ navbar-colors($colors)
                 background-color: $colors.surface0;
     .navbar
         background-color: $colors.crust;
-        backdrop-filter blur(10px);
-        -webkit-backdrop-filter blur(10px);
-        border-bottom 1px solid $colors.crust;
-        box-shadow 0 2px 4px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid $colors.crust;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 widget-colors($colors)
     .widget
@@ -201,13 +201,15 @@ tag-colors($colors)
 
 timeline-colors($colors)
     .timeline
-        border-left 1px solid $colors.overlay1, .media
+        border-left: 1px solid $colors.overlay1;
+        .media
             &:before
                 background: $colors.overlay1;
             &:last-child:after
                 background: $colors.base;
     .timeline a, .twikoo-new-container a, [data-type='recent-posts'] a
-        color $colors.text, &:hover
+        color: $colors.text;
+        &:hover
             color: $colors.text;
 
 ui-elements-colors($colors)
@@ -245,15 +247,21 @@ ui-elements-colors($colors)
         background: $colors.blue;
 cookie-consent-colors($colors)
     .cc-window
-        color $colors.text, background-color $colors.base, &.cc-banner
+        color: $colors.text;
+        background-color: $colors.base;
+        &.cc-banner
             background-color: $colors.mantle;
         .cc-compliance > .cc-btn
-            color $colors.base, background-color $colors.blue, &:hover, &:focus
+            color: $colors.base;
+            background-color: $colors.blue;
+            &:hover, &:focus
                 background-color: $colors.sapphire;
             &.cc-deny:hover
                 color: $colors.blue;
     .cc-revoke
-        color $colors.base, background-color $colors.blue, &:hover
+        color: $colors.base;
+        background-color: $colors.blue;
+        &:hover
             background-color: $colors.sapphire;
             
 pagination-colors($colors)
@@ -261,7 +269,7 @@ pagination-colors($colors)
         background: $colors.mantle;
         color: $colors.text;
         a
-            color: $colors.text
+            color: $colors.text;
         &:hover, &.is-hovered
             background-color: $colors.lavender;
             color: $colors.base;
@@ -276,6 +284,7 @@ pagination-colors($colors)
 card-colors($colors)
     .card
         background-color: $colors.card_bg;
+        box-shadow: $card-shadow-light;
         
         &:hover
             box-shadow: $card-shadow-light-hover;
@@ -305,8 +314,8 @@ body.night
             color: $mocha.lavender;
             background-color: $mocha.crust;
             border-color: $mocha.surface0;
-            backdrop-filter blur(10px);
+            backdrop-filter: blur(10px);
         .searchbox-container .searchbox-result-section .searchbox-result-item:hover, .searchbox-container .searchbox-result-section .searchbox-result-item.active, .searchbox-container .searchbox-header .searchbox-close:hover
             color: $mocha.blue;
             background-color: $mocha.surface0;
-            backdrop-filter blur(10px);
+            backdrop-filter: blur(10px);
