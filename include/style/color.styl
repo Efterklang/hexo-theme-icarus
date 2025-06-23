@@ -293,29 +293,26 @@ card-colors($colors)
             background-color: $colors.card_header_bg; 
             border-bottom: 1px solid $colors.surface1;            
 
+searchbox-colors($colors)
+    .searchbox
+        .searchbox-container
+            background-color: $colors.card_bg;
+            border: 2px solid $colors.surface0;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); 
+        .searchbox-header, .searchbox-header .searchbox-input, .searchbox-header .searchbox-close, .searchbox-body, .searchbox-result-section, .searchbox-result-item, .searchbox-pinyin
+            color: $colors.lavender;
+            background-color: $colors.mantle;
+            border-color: $colors.surface0;
+        .searchbox-container .searchbox-result-section .searchbox-result-item:hover, .searchbox-container .searchbox-result-section .searchbox-result-item.active, .searchbox-container .searchbox-header .searchbox-close:hover
+            color: $colors.blue;
+
 apply-theme-mixins($colors)
-    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag'
+    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox'
     for $mixin in $colorMixins
         {$mixin + '-colors'}($colors)
 
 apply-theme-mixins($latte);
-
 body.night
     apply-theme-mixins($mocha);
-
-body.night
     .card
         border: 1px solid rgba(69, 71, 90, 0.3);
-    .post-navigation
-        color: $mocha.subtext0;
-    // Search box
-    .searchbox
-        .searchbox-container, .searchbox-header, .searchbox-header .searchbox-input, .searchbox-header .searchbox-close, .searchbox-body, .searchbox-result-section, .searchbox-result-item
-            color: $mocha.lavender;
-            background-color: $mocha.crust;
-            border-color: $mocha.surface0;
-            backdrop-filter: blur(10px);
-        .searchbox-container .searchbox-result-section .searchbox-result-item:hover, .searchbox-container .searchbox-result-section .searchbox-result-item.active, .searchbox-container .searchbox-header .searchbox-close:hover
-            color: $mocha.blue;
-            background-color: $mocha.surface0;
-            backdrop-filter: blur(10px);
