@@ -12,7 +12,7 @@ $searchbox-border-radius ?= 15px
 $searchbox-border ?= $border
 
 .searchbox
-    display: none
+    position: fixed
     top: 0
     left: 0
     width: 100%
@@ -20,9 +20,14 @@ $searchbox-border ?= $border
     z-index: 100
     font-size: 1rem
     line-height: 0
+    opacity: 0
+    visibility: hidden
+    display: flex
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out
 
     &.show
-        display: flex
+        opacity: 1
+        visibility: visible
 
     a, a:hover
         text-decoration: none
@@ -51,6 +56,11 @@ $searchbox-border ?= $border
         bottom: $searchbox-container-margin
         backdrop-filter: blur(10px)
         -webkit-backdrop-filter: blur(10px)
+        transform: scale(0.95)
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out
+
+    &.show .searchbox-container
+        transform: scale(1)
 
     .searchbox-header, .searchbox-body, .searchbox-footer
         width: 100%

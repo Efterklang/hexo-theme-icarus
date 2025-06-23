@@ -170,16 +170,16 @@ function loadInsight(config, translation) { // eslint-disable-line no-unused-var
 
     function filterFactory(keywords) {
         return {
-            post: function(obj) {
+            post: function (obj) {
                 return filter(keywords, obj, ['title', 'text']);
             },
-            page: function(obj) {
+            page: function (obj) {
                 return filter(keywords, obj, ['title', 'text']);
             },
-            category: function(obj) {
+            category: function (obj) {
                 return filter(keywords, obj, ['name', 'slug']);
             },
-            tag: function(obj) {
+            tag: function (obj) {
                 return filter(keywords, obj, ['name', 'slug']);
             }
         };
@@ -207,16 +207,16 @@ function loadInsight(config, translation) { // eslint-disable-line no-unused-var
 
     function weightFactory(keywords) {
         return {
-            post: function(obj) {
+            post: function (obj) {
                 return weight(keywords, obj, ['title', 'text'], [3, 1]);
             },
-            page: function(obj) {
+            page: function (obj) {
                 return weight(keywords, obj, ['title', 'text'], [3, 1]);
             },
-            category: function(obj) {
+            category: function (obj) {
                 return weight(keywords, obj, ['name', 'slug'], [1, 1]);
             },
-            tag: function(obj) {
+            tag: function (obj) {
                 return weight(keywords, obj, ['name', 'slug'], [1, 1]);
             }
         };
@@ -293,16 +293,22 @@ function loadInsight(config, translation) { // eslint-disable-line no-unused-var
     });
 
     let touch = false;
-    $(document).on('click focus', '.navbar-main .search', () => {
-        $main.addClass('show');
-        $main.find('.searchbox-input').focus();
-    }).on('click touchend', '.searchbox-result-item', function(e) {
+    $(document).on('click focus', '.navbar-main .search', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        $main.toggleClass('show');
+        if ($main.hasClass('show')) {
+            $main.find('.searchbox-input').focus();
+        }
+    }).on('click touchend', '.searchbox-result-item', function (e) {
         if (e.type !== 'click' && !touch) {
             return;
         }
         gotoLink($(this));
         touch = false;
     }).on('click touchend', '.searchbox-close', e => {
+        e.preventDefault();
+        e.stopPropagation();
         if (e.type !== 'click' && !touch) {
             return;
         }
@@ -312,6 +318,14 @@ function loadInsight(config, translation) { // eslint-disable-line no-unused-var
         }, 400);
         $main.removeClass('show');
         touch = false;
+    }).on('click touchend', '.searchbox-container', e => {
+        // 点击搜索框容器内部时阻止事件冒泡，避免意外关闭
+        e.stopPropagation();
+    }).on('click touchend', '.searchbox', e => {
+        // 点击搜索框背景（外部区域）时隐藏搜索框
+        if (e.target === e.currentTarget && $main.hasClass('show')) {
+            $main.removeClass('show');
+        }
     }).on('keydown', e => {
         if (!$main.hasClass('show')) return;
         switch (e.keyCode) {
