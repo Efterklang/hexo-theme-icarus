@@ -154,6 +154,19 @@ button-colors($colors)
     .button.is-link:active, .button.is-link.is-active
         background-color: $colors.sapphire;
 
+toc-colors($colors)
+    .floating-toc-button
+        background-color: $colors.base
+        color: $colors.surface2
+        border: 1px solid $colors.surface0
+    .floating-toc-container .widget
+        border: 1px solid $colors.surface0;
+        .menu-list a 
+            color: $colors.text;
+            &:hover
+                color: $colors.mauve;
+                background-color: transparent;
+
 navbar-colors($colors)
     .navbar-main
         .navbar-item.is-active
@@ -312,7 +325,7 @@ searchbox-colors($colors)
             color: $colors.blue;
 
 apply-theme-mixins($colors)
-    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox'
+    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc'
     for $mixin in $colorMixins
         {$mixin + '-colors'}($colors)
 
