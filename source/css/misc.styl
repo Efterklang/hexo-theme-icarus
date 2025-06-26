@@ -161,10 +161,12 @@ article.article
         box-shadow 0 8px 16px rgba(0, 0, 0, 0.3);
         transform translateY(-2px);
 
-.article img
+.article img, video
     display block;
     margin 0 auto;
     margin-bottom: 1.5rem;
+    &:hover
+        cursor pointer
 
 .medium-zoom-overlay
     backdrop-filter blur(8px); /* 添加 8px 模糊效果 */
