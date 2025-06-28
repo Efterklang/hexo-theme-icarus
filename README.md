@@ -1,3 +1,5 @@
+# Hexo Theme Icarus
+
 [![npm version](https://img.shields.io/npm/v/hexo-theme-icarus.svg)](https://www.npmjs.com/package/hexo-theme-icarus)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14-brightgreen.svg)](https://nodejs.org/)
 [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D7.0-blue.svg)](https://hexo.io/)
@@ -9,6 +11,8 @@
 > 此外，theme可能存在硬编码
 
 ## Features Preview
+
+[vluv's space](https://vluv.space/)
 
 - 个人不用的文件直接删除了，比如`highlight.js` & `prism.js`，目前使用的为`hexo-shiki-highlight`
 - 魔改icarus样式，包括tag, code, widget, card etc.
@@ -23,12 +27,14 @@
 
 ### Shiki Highlight
 
-> Require [Efterklang/hexo-shiki-highlight: shiki highlighter for hexo](https://github.com/Efterklang/hexo-shiki-highlight) 
+> Require [Efterklang/hexo-shiki-highlight: shiki highlighter for hexo](https://github.com/Efterklang/hexo-shiki-highlight)
 
 | ![image](https://github.com/user-attachments/assets/bc88dd30-e9f6-41d7-885c-b1c2a47cb45d) | ![image](https://github.com/user-attachments/assets/48a35dce-1304-4059-8ef1-6a929056e837) |
 | ---   | ---  |
 
 ### Floating TOC
+
+为更好的阅读体验(主要体现在移动端)，这里将TOC改成浮动组件
 
 ```yaml
 # _config.post.yml
@@ -45,7 +51,8 @@ widgets:
     collapsed: false
 ```
 
-![image](https://github.com/user-attachments/assets/81145544-ed01-4886-a340-9fd4533fbeca)
+| ![image](https://github.com/user-attachments/assets/81145544-ed01-4886-a340-9fd4533fbeca) | ![image](https://github.com/user-attachments/assets/02d3e616-5b5b-4b32-b5d4-dbf5e23f0a3a) |
+| ---   | ---  |
 
 ### Table
 
@@ -63,9 +70,9 @@ widgets:
 Step 1: Install hexo and initialize a new blog project:
 
 ```bash
-$ mkdir blog
-$ bun i -g hexo
-$ bunx hexo init --no-clone
+mkdir blog
+bun i -g hexo
+bunx hexo init --no-clone
 ```
 
 Step 2: Clone theme repository into `themes/icarus` directory:
