@@ -27,6 +27,22 @@
     }
 
 	document.addEventListener('pjax:complete', () => {
+	       // Fix column layout after pjax loaded
+	       document.body.className = document.body.className.replace(/is-\d-column/g, '');
+	       const left = document.querySelector('.column-left');
+	       const right = document.querySelector('.column-right');
+	       let count = 1;
+	       if (left && right) {
+	           count = 3;
+	       } else if (left || right) {
+	           count = 2;
+	       }
+	       document.body.classList.add('is-' + count + '-column');
+
+	       if (typeof Icarus_column_resize === 'function') {
+	           Icarus_column_resize();
+	       }
+
 		// Plugin [MathJax] reload logic
 		if (window.MathJax) {
 			try {
