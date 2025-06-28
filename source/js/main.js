@@ -15,6 +15,9 @@
         // https://javascript.info/keyboard-events
         if (e.ctrlKey && e.code == "KeyK") {
             document.querySelector("a.navbar-item.search").click();
+            setTimeout(() => {
+                document.querySelector('.searchbox-input').focus();
+            }, 100);
             e.preventDefault();
         }
     };
