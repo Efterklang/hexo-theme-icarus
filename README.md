@@ -1,3 +1,5 @@
+# Hexo Theme Icarus
+
 [![npm version](https://img.shields.io/npm/v/hexo-theme-icarus.svg)](https://www.npmjs.com/package/hexo-theme-icarus)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14-brightgreen.svg)](https://nodejs.org/)
 [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D7.0-blue.svg)](https://hexo.io/)
@@ -8,9 +10,9 @@
 >
 > 此外，theme可能存在硬编码
 
-## Features
+## Features Preview
 
-相比原主题做了部分修改
+[vluv's space](https://vluv.space/)
 
 - 个人不用的文件直接删除了，比如`highlight.js` & `prism.js`，目前使用的为`hexo-shiki-highlight`
 - 魔改icarus样式，包括tag, code, widget, card etc.
@@ -18,14 +20,59 @@
 - 添加Asoul live2d model, 支持light/dark mode, use Catppuccin color scheme
 - 默认字体换用`lxgw zhenkai`, `Maple Mono NF CN`
 
+### Light/Night Theme Support
+
+| ![image](https://github.com/user-attachments/assets/da9c8019-9a0d-4eb8-927a-3c970947c371) | ![image](https://github.com/user-attachments/assets/466eab7e-208c-4bc6-9003-799809bfd6f8) |
+| ---   | ---  |
+
+### Shiki Highlight
+
+> Require [Efterklang/hexo-shiki-highlight: shiki highlighter for hexo](https://github.com/Efterklang/hexo-shiki-highlight)
+
+| ![image](https://github.com/user-attachments/assets/bc88dd30-e9f6-41d7-885c-b1c2a47cb45d) | ![image](https://github.com/user-attachments/assets/48a35dce-1304-4059-8ef1-6a929056e837) |
+| ---   | ---  |
+
+### Floating TOC
+
+为更好的阅读体验(主要体现在移动端)，这里将TOC改成浮动组件
+
+```yaml
+# _config.post.yml
+sidebar:
+  left:
+    sticky: false
+  right:
+    sticky: true
+
+widgets:
+  - position: right
+    type: toc
+    index: true
+    collapsed: false
+```
+
+| ![image](https://github.com/user-attachments/assets/81145544-ed01-4886-a340-9fd4533fbeca) | ![image](https://github.com/user-attachments/assets/02d3e616-5b5b-4b32-b5d4-dbf5e23f0a3a) |
+| ---   | ---  |
+
+### Table
+
+| ![image](https://github.com/user-attachments/assets/f06ea615-a4eb-4e5f-b1ed-65823120b08e) | ![image](https://github.com/user-attachments/assets/d9a1ac05-aed7-4b0e-880e-0d5455b54e16) |
+| -- | -- |
+
+### Quote
+
+| ![image](https://github.com/user-attachments/assets/648d7463-70a9-47c7-b364-56c8a26cca37) |
+| -- |
+| ![image](https://github.com/user-attachments/assets/bd1ac620-79b0-43da-aee9-a724cf40190e) |
+
 ## Installation
 
 Step 1: Install hexo and initialize a new blog project:
 
 ```bash
-$ mkdir blog
-$ bun i -g hexo
-$ bunx hexo init --no-clone
+mkdir blog
+bun i -g hexo
+bunx hexo init --no-clone
 ```
 
 Step 2: Clone theme repository into `themes/icarus` directory:
@@ -77,7 +124,6 @@ My `package.json`'s  dependencies section looks like this(some are optional)
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
     "hexo-shiki-highlight": "^1.1.9",
-    "hexo-theme-landscape": "^1.0.0",
     "hexo-util": "^3.3.0",
     "inferno": "^9.0.3",
     "inferno-create-element": "^9.0.3",
