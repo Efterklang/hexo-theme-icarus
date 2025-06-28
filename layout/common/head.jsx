@@ -196,6 +196,7 @@ module.exports = class extends Component {
           />
         ) : null}
         {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
+        {page.cover ? <link rel="preload" as="image" href={url_for(page.cover)} imagesrcset={`${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1'))} 128w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1'))} 256w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1'))} 800w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1'))} 1500w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1'))} 2000w, ${url_for(page.cover)} 6144w`} imagesizes="(max-width: 768px) 100vw, 50vw" /> : null}
         <link rel="stylesheet" href={iconcdn()} />
 		{/* <link rel="stylesheet" href="//code.z01.com/zico.min.css"></link> */}
 			

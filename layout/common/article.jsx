@@ -39,9 +39,9 @@ module.exports = class extends Component {
                 {/* Thumbnail */}
                 {cover ? <div class="card-image">
                     {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
-                        <img class="fill" src={cover} alt={page.title || cover} referrerpolicy="no-referrer" />
+                        <img class="fill" src={cover} alt={page.title || cover} srcset={`${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1')} 128w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1')} 256w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1')} 800w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1')} 1500w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1')} 2000w, ${cover} 6144w`} sizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high" referrerpolicy="no-referrer" />
                     </a> : <span class="image is-7by3">
-                        <img class="fill" src={cover} alt={page.title || cover} referrerpolicy="no-referrer" />
+                        <img class="fill" src={cover} alt={page.title || cover} srcset={`${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1')} 128w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1')} 256w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1')} 800w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1')} 1500w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1')} 2000w, ${cover} 6144w`} sizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high" referrerpolicy="no-referrer" />
                     </span>}
                 </div> : null}
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
