@@ -34,8 +34,7 @@
    * @param {boolean} isNight - true 表示夜间模式，false 表示日间模式。
    */
   function applyTheme(isNight) {
-    // 如果 body 还不存在，直接在 html 元素上设置 class
-    const targetElement = document.body || document.documentElement;
+    const targetElement = document.documentElement;
     
     if (!targetElement) {
       console.error('Error: Neither document.body nor document.documentElement is available.');
@@ -106,7 +105,7 @@
     } catch (error) {
       console.error('Error accessing localStorage or applying theme:', error);
       // 如果 localStorage 不可用，至少尝试应用主题（非持久化）
-      const targetElement = document.body || document.documentElement;
+      const targetElement = document.documentElement;
       const currentBodyIsNight = targetElement.classList.contains(NIGHT_MODE_CLASS);
       applyTheme(!currentBodyIsNight);
     }

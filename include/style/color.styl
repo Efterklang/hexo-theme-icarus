@@ -420,14 +420,29 @@ callout-colors($colors)
         .callout-title .callout-fold
             background-color: $colors.lavender;
 
+scrollbar-colors($colors)
+    ::-webkit-scrollbar
+        width 12px
+        background $colors.base
+
+    ::-webkit-scrollbar-thumb
+        background-color $colors.overlay1
+        border-radius 10px
+        border 3px solid $colors.base
+
+    ::-webkit-scrollbar-thumb:hover
+        background-color $colors.red
+
+    ::-webkit-scrollbar-corner
+        background-color $colors.base
 
 apply-theme-mixins($colors)
-    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'callout'
+    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'callout' 'scrollbar'
     for $mixin in $colorMixins
         {$mixin + '-colors'}($colors)
 
 apply-theme-mixins($latte);
-body.night
+html.night
     apply-theme-mixins($mocha);
     .card
         border: 1px solid rgba(69, 71, 90, 0.3);
