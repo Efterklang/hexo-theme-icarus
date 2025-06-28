@@ -2,6 +2,7 @@
   font-family: "lxgw";
   font-style: normal;
   font-weight: 400;
+  font-display: auto;
   src: url(/css/font/MISC/LXGWWenKaiLite-Medium.subset.woff2) format("woff2");
 }
 
@@ -14,22 +15,37 @@
   font-family: "Maple Mono";
   font-style: normal;
   font-weight: 400;
+  font-display: auto;
+  src: local("Maple Mono") url(/css/font/MapleFont/MapleMono/MapleMono-Regular.woff2) format("woff2");
+  /* 拉丁字母以及 */
+  unicode-range: U+0000-00FF;
+}
+
+@font-face {
+  font-family: "Maple Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: auto;
   src: local("Maple Mono"),
     url(/css/font/MapleFont/MapleMono-Italic.woff2) format("woff2");
+  unicode-range: U+0000-00FF;
 }
 
 @font-face {
   font-family: "Maple Mono";
   font-style: normal;
   font-weight: 400;
+  font-display: auto;
   src: local("Maple Mono"),
     url(/css/font/MapleFont/MapleMono-NF-CN-Regular.subset.woff2) format("woff2");
+  unicode-range: U+2000-9FFF;
 }
 
 @font-face {
   font-family: "Paris2024";
   font-style: normal;
   font-weight: 400;
+  font-display: auto;
   src: local("paris2024"),
     url(/css/font/MISC/Paris2024-Variable.woff2) format("woff2");
 }
