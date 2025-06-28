@@ -2,36 +2,12 @@
   font-family: "lxgw";
   font-style: normal;
   font-weight: 400;
-  src: url(/css/font/heading/LXGWZhenKai.woff2) format("woff2");
+  src: url(/css/font/MISC/LXGWWenKaiLite-Medium.subset.woff2) format("woff2");
 }
 
 @font-face {
   font-family: "outi";
-  src: url(/css/font/heading/outi_kaishu.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Maple Hand";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Maple Hand"),
-    url(/css/font/MapleFont/MapleHand-Regular.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Maple Hand";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Maple Hand"),
-    url(/css/font/MapleFont/MapleHand-Bold.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Maple Mono";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Maple Mono"),
-    url(/css/font/MapleFont/MapleMono-NF-CN-Regular.woff2) format("woff2");
+  src: url(/css/font/MISC/outi_kaishu.woff2) format("woff2");
 }
 
 @font-face {
@@ -43,9 +19,17 @@
 }
 
 @font-face {
+  font-family: "Maple Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Maple Mono"),
+    url(/css/font/MapleFont/MapleMono-NF-CN-Regular.subset.woff2) format("woff2");
+}
+
+@font-face {
   font-family: "Paris2024";
   font-style: normal;
   font-weight: 400;
   src: local("paris2024"),
-    url(/css/font/heading/Paris2024-Variable.woff2) format("woff2");
+    url(/css/font/MISC/Paris2024-Variable.woff2) format("woff2");
 }
