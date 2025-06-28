@@ -324,8 +324,105 @@ searchbox-colors($colors)
         .searchbox-container .searchbox-result-section .searchbox-result-item:hover, .searchbox-container .searchbox-result-section .searchbox-result-item.active, .searchbox-container .searchbox-header .searchbox-close:hover
             color: $colors.blue;
 
+callout-colors($colors)
+    $callout-background-opacity ?= 0.2
+    $callout-border-opacity ?= 0.5
+    
+    // Default callout
+    .callout
+        border-color: rgba($colors.blue, $callout-border-opacity);
+        background-color: rgba($colors.blue, $callout-background-opacity);
+        .callout-title
+            color: $colors.blue;
+        .callout-title .callout-fold
+            background-color: $colors.blue;
+    .callout .callout-content
+        background-color: transparent
+
+    // Info callout
+    .callout[data-callout="info"], .callout[data-callout="todo"]
+        border-color: rgba($colors.sapphire, $callout-border-opacity);
+        background-color: rgba($colors.sapphire, $callout-background-opacity);
+        .callout-title
+            color: $colors.sapphire;
+        .callout-title .callout-fold
+            background-color: $colors.sapphire;
+    
+    // Success callout
+    .callout[data-callout="success"], .callout[data-callout="check"], .callout[data-callout="done"]
+        border-color: rgba($colors.green, $callout-border-opacity);
+        background-color: rgba($colors.green, $callout-background-opacity);
+        .callout-title
+            color: $colors.green;
+        .callout-title .callout-fold
+            background-color: $colors.green;
+    
+    // Warning callout
+    .callout[data-callout="warning"], .callout[data-callout="caution"], .callout[data-callout="attention"]
+        border-color: rgba($colors.peach, $callout-border-opacity);
+        background-color: rgba($colors.peach, $callout-background-opacity);
+        .callout-title
+            color: $colors.peach;
+        .callout-title .callout-fold
+            background-color: $colors.peach;
+    
+    // Question callout
+    .callout[data-callout="question"], .callout[data-callout="help"], .callout[data-callout="faq"]
+        border-color: rgba($colors.yellow, $callout-border-opacity);
+        background-color: rgba($colors.yellow, $callout-background-opacity);
+        .callout-title
+            color: $colors.yellow;
+        .callout-title .callout-fold
+            background-color: $colors.yellow;
+    
+    // Error/Danger callout
+    .callout[data-callout="danger"], .callout[data-callout="error"], .callout[data-callout="bug"], .callout[data-callout="failure"], .callout[data-callout="fail"], .callout[data-callout="missing"]
+        border-color: rgba($colors.red, $callout-border-opacity);
+        background-color: rgba($colors.red, $callout-background-opacity);
+        .callout-title
+            color: $colors.red;
+        .callout-title .callout-fold
+            background-color: $colors.red;
+    
+    // Tip callout
+    .callout[data-callout="tip"], .callout[data-callout="hint"], .callout[data-callout="important"]
+        border-color: rgba($colors.pink, $callout-border-opacity);
+        background-color: rgba($colors.pink, $callout-background-opacity);
+        .callout-title
+            color: $colors.pink;
+        .callout-title .callout-fold
+            background-color: $colors.pink;
+    
+    // Example callout
+    .callout[data-callout="example"]
+        border-color: rgba($colors.mauve, $callout-border-opacity);
+        background-color: rgba($colors.mauve, $callout-background-opacity);
+        .callout-title
+            color: $colors.mauve;
+        .callout-title .callout-fold
+            background-color: $colors.mauve;
+    
+    // Summary callout
+    .callout[data-callout="abstract"], .callout[data-callout="summary"], .callout[data-callout="tldr"]
+        border-color: rgba($colors.teal, $callout-border-opacity);
+        background-color: rgba($colors.teal, $callout-background-opacity);
+        .callout-title
+            color: $colors.teal;
+        .callout-title .callout-fold
+            background-color: $colors.teal;
+    
+    // Quote callout
+    .callout[data-callout="quote"], .callout[data-callout="cite"]
+        border-color: rgba($colors.lavender, $callout-border-opacity);
+        background-color: rgba($colors.lavender, $callout-background-opacity);
+        .callout-title
+            color: $colors.lavender;
+        .callout-title .callout-fold
+            background-color: $colors.lavender;
+
+
 apply-theme-mixins($colors)
-    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc'
+    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'callout'
     for $mixin in $colorMixins
         {$mixin + '-colors'}($colors)
 
