@@ -34,21 +34,22 @@ module.exports = class extends Component {
         const isUpdated = page.updated && !moment(page.date).isSame(moment(page.updated));
         const shouldShowUpdated = page.updated && ((updateTime === 'auto' && isUpdated) || updateTime === true);
 
-        const imageSrcset = useResponsiveImages ? `${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1')} 128w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1')} 256w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1')} 800w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1')} 1500w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1')} 2000w, ${cover} 6144w` : null;
-        const imageSizes = useResponsiveImages ? '(max-width: 768px) 100vw, 50vw' : null;
-        const CoverImage = <img class="fill" src={cover} alt={page.title || cover} srcset={imageSrcset} sizes={imageSizes} fetchpriority="high" referrerpolicy="no-referrer" />;
-
         return <Fragment>
             {/* Main content */}
             <div class="card">
                 {/* Cover image */}
-                {cover ? <div class="card-image">
-                    {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
-                        {CoverImage}
-                    </a> : <span class="image is-7by3">
-                        {CoverImage}
-                    </span>}
-                </div> : null}
+                {cover ? (() => {
+                    const imageSrcset = useResponsiveImages ? `${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1')} 128w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1')} 256w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1')} 800w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1')} 1500w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1')} 2000w, ${cover} 6144w` : null;
+                    const imageSizes = useResponsiveImages ? '(max-width: 768px) 100vw, 50vw' : null;
+                    const CoverImage = <img class="fill" src={cover} alt={page.title || cover} srcset={imageSrcset} sizes={imageSizes} fetchpriority="high" referrerpolicy="no-referrer" />;
+                    return <div class="card-image">
+                        {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
+                            {CoverImage}
+                        </a> : <span class="image is-7by3">
+                            {CoverImage}
+                        </span>}
+                    </div>;
+                })() : null}
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Metadata */}
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
