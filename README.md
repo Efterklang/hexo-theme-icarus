@@ -7,8 +7,6 @@
 > [!CAUTION]
 >
 > 仓库用作`Efterklang.github.io`的 git submodule，以便于分别为post和theme做版本控制
->
-> 此外，theme可能存在硬编码
 
 ## Features Preview
 
@@ -16,9 +14,9 @@
 
 - 个人不用的文件直接删除了，比如`highlight.js` & `prism.js`，目前使用的为`hexo-shiki-highlight`
 - 魔改icarus样式，包括tag, code, widget, card etc.
-- 为一些插件加了自定义的样式，包括callout, mermaid etc.
+- 为一些插件加了自定义的样式，callout e.g
 - 添加Asoul live2d model, 支持light/dark mode, use Catppuccin color scheme
-- 默认字体换用`lxgw zhenkai`, `Maple Mono NF CN`
+- 默认字体换用`落霞孤鹜`, `Maple Mono NF CN`，这里使用fonttools移出了繁体，仅保留拉丁字母以及简体中文等的subset
 
 ### Light/Night Theme Support
 
@@ -31,6 +29,13 @@
 
 | ![image](https://github.com/user-attachments/assets/bc88dd30-e9f6-41d7-885c-b1c2a47cb45d) | ![image](https://github.com/user-attachments/assets/48a35dce-1304-4059-8ef1-6a929056e837) |
 | ---   | ---  |
+
+### Mermaid Filter
+
+> Require [Efterklang/hexo-mermaid-diagram](https://github.com/Efterklang/hexo-mermaid-diagram)
+> 🚧 Dark mode WIP...
+
+![image](https://github.com/user-attachments/assets/3bd2d897-721d-4505-8194-6a592bbceb31)
 
 ### Floating TOC
 
@@ -107,7 +112,6 @@ My `package.json`'s  dependencies section looks like this(some are optional)
     "hexo-blog-encrypt": "^3.1.9",
     "hexo-cli": "^4.3.2",
     "hexo-component-inferno": "^3.1.2",
-    "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-filter-titlebased-link": "^0.2.6",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
@@ -115,6 +119,7 @@ My `package.json`'s  dependencies section looks like this(some are optional)
     "hexo-generator-index-custom": "^1.0.1",
     "hexo-generator-sitemap": "^3.0.1",
     "hexo-generator-tag": "^2.0.0",
+    "hexo-mermaid-diagram": "^1.0.0",
     "hexo-migrator-rss": "^1.1.0",
     "hexo-native-lazy-load": "^1.1.2",
     "hexo-pagination": "^3.0.0",
@@ -123,13 +128,15 @@ My `package.json`'s  dependencies section looks like this(some are optional)
     "hexo-renderer-markdown-it-plus": "^1.0.6",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-shiki-highlight": "^1.1.9",
+    "hexo-shiki-highlight": "^1.2.4",
     "hexo-util": "^3.3.0",
     "inferno": "^9.0.3",
     "inferno-create-element": "^9.0.3",
+    "markdown-it-merge-cells": "^2.0.0",
     "markdown-it-obsidian-callouts": "^0.3.1",
     "markdown-it-task-lists": "^2.1.1",
-    "semver": "7.5.4"
+    "semver": "7.5.4",
+    "sharp": "^0.34.2"
   }
 }
 ```
