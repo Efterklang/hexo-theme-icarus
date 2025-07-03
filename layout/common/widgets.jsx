@@ -95,7 +95,7 @@ class Widgets extends Component {
         const { site, config, helper, page, position } = this.props;
         const widgets = formatWidgets(config.widgets)[position] || [];
         const columnCount = getColumnCount(config.widgets, config, page);
-        const showToc = (config.toc === true) && ['page', 'post'].includes(page.layout) && helper.toc(page.content);
+        const showToc = (page.toc !== false && config.toc !== false) && ['page', 'post'].includes(page.layout) && helper.toc(page.content);
 
         const columnWidgets = widgets.filter(widget => widget.type !== 'toc');
 
