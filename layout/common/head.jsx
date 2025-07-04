@@ -52,9 +52,6 @@ module.exports = class extends Component {
     const noIndex = helper.is_archive() || helper.is_category() || helper.is_tag();
 
     const language = page.lang || page.language || config.language;
-    const fontCssUrl = {
-      default: fontcdn('Ubuntu:wght@400;600&family=Source+Code+Pro', 'css2')
-    };
 
     let hlTheme, images;
     if (highlight && highlight.enable === false) {
@@ -198,7 +195,6 @@ module.exports = class extends Component {
         {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
         {page.cover ? <link rel="preload" as="image" href={url_for(page.cover)} imagesrcset={`${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1'))} 128w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1'))} 256w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1'))} 800w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1'))} 1500w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1'))} 2000w, ${url_for(page.cover)} 6144w`} imagesizes="(max-width: 768px) 100vw, 50vw" /> : null}
         <link rel="stylesheet" href={iconcdn()} />
-		{/* <link rel="stylesheet" href="//code.z01.com/zico.min.css"></link> */}
 			
         {hlTheme ? (
           <link
@@ -216,8 +212,7 @@ module.exports = class extends Component {
           rel="stylesheet"
           href={url_for("/css/" + variant + ".css")}
         />
-        <link rel="dns-prefetch" href="https://vluv.space" />
-        <link rel="dns-prefetch" href="https://loli.net" />
+        <link rel="dns-prefetch" href="https://use.fontawesome.com" />
         <Plugins
           site={site}
           config={config}
