@@ -92,14 +92,14 @@ content-colors($colors)
             th
                 background-color: $colors.mantle;
                 color: $colors.text;
-                border-bottom-color: $colors.surface0 !important;    
+                border-bottom-color: $colors.surface0 !important;
             td
                 color: $colors.text;
-                border-bottom-color: $colors.surface0 !important;   
+                border-bottom-color: $colors.surface0 !important;
             tbody tr
                 &:nth-child(even)
                     background-color: $colors.mantle;
-                    
+
                 &:hover
                     background-color: $colors.surface0;
     // Code block colors
@@ -161,7 +161,7 @@ toc-colors($colors)
         border: 1px solid $colors.surface0
     .floating-toc-container .widget
         border: 1px solid $colors.surface0;
-        .menu-list a 
+        .menu-list a
             color: $colors.text;
             &:hover
                 color: $colors.mauve;
@@ -263,25 +263,28 @@ ui-elements-colors($colors)
             color: $colors.lavender;
         li.is-active a
             color: $colors.subtext1;
+
 cookie-consent-colors($colors)
     .cc-window
         color: $colors.text;
         background-color: $colors.base;
+        border: 1px solid $colors.surface0;
         &.cc-banner
             background-color: $colors.mantle;
         .cc-compliance > .cc-btn
             color: $colors.base;
-            background-color: $colors.blue;
+            background-color: $colors.lavender;
+            backdrop-filter: blur(10px);
             &:hover, &:focus
-                background-color: $colors.sapphire;
+                background-color: $colors.mauve;
             &.cc-deny:hover
-                color: $colors.blue;
+                color: $colors.lavender;
     .cc-revoke
         color: $colors.base;
-        background-color: $colors.blue;
+        background-color: $colors.lavender;
         &:hover
-            background-color: $colors.sapphire;
-            
+            background-color: $colors.mauve;
+
 pagination-colors($colors)
     .pagination-next, .pagination-previous, .pagination-link, .pagination-ellipsis
         background: $colors.mantle;
@@ -303,20 +306,20 @@ card-colors($colors)
     .card
         background-color: $colors.card_bg;
         box-shadow: $card-shadow-light;
-        
+
         &:hover
             box-shadow: $card-shadow-light-hover;
-        
+
         .card-header
-            background-color: $colors.card_header_bg; 
-            border-bottom: 1px solid $colors.surface1;            
+            background-color: $colors.card_header_bg;
+            border-bottom: 1px solid $colors.surface1;
 
 searchbox-colors($colors)
     .searchbox
         .searchbox-container
             background-color: $colors.card_bg;
             border: 2px solid $colors.surface0;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); 
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
         .searchbox-header, .searchbox-header .searchbox-input, .searchbox-header .searchbox-close, .searchbox-body, .searchbox-result-section, .searchbox-result-item, .searchbox-pinyin
             color: $colors.lavender;
             background-color: $colors.mantle;
@@ -327,7 +330,7 @@ searchbox-colors($colors)
 callout-colors($colors)
     $callout-background-opacity ?= 0.2
     $callout-border-opacity ?= 0.5
-    
+
     // Default callout
     .callout
         border-color: rgba($colors.blue, $callout-border-opacity);
@@ -347,7 +350,7 @@ callout-colors($colors)
             color: $colors.sapphire;
         .callout-title .callout-fold
             background-color: $colors.sapphire;
-    
+
     // Success callout
     .callout[data-callout="success"], .callout[data-callout="check"], .callout[data-callout="done"]
         border-color: rgba($colors.green, $callout-border-opacity);
@@ -356,7 +359,7 @@ callout-colors($colors)
             color: $colors.green;
         .callout-title .callout-fold
             background-color: $colors.green;
-    
+
     // Warning callout
     .callout[data-callout="warning"], .callout[data-callout="caution"], .callout[data-callout="attention"]
         border-color: rgba($colors.peach, $callout-border-opacity);
@@ -365,7 +368,7 @@ callout-colors($colors)
             color: $colors.peach;
         .callout-title .callout-fold
             background-color: $colors.peach;
-    
+
     // Question callout
     .callout[data-callout="question"], .callout[data-callout="help"], .callout[data-callout="faq"]
         border-color: rgba($colors.yellow, $callout-border-opacity);
@@ -374,7 +377,7 @@ callout-colors($colors)
             color: $colors.yellow;
         .callout-title .callout-fold
             background-color: $colors.yellow;
-    
+
     // Error/Danger callout
     .callout[data-callout="danger"], .callout[data-callout="error"], .callout[data-callout="bug"], .callout[data-callout="failure"], .callout[data-callout="fail"], .callout[data-callout="missing"]
         border-color: rgba($colors.red, $callout-border-opacity);
@@ -383,7 +386,7 @@ callout-colors($colors)
             color: $colors.red;
         .callout-title .callout-fold
             background-color: $colors.red;
-    
+
     // Tip callout
     .callout[data-callout="tip"], .callout[data-callout="hint"], .callout[data-callout="important"]
         border-color: rgba($colors.pink, $callout-border-opacity);
@@ -392,7 +395,7 @@ callout-colors($colors)
             color: $colors.pink;
         .callout-title .callout-fold
             background-color: $colors.pink;
-    
+
     // Example callout
     .callout[data-callout="example"]
         border-color: rgba($colors.mauve, $callout-border-opacity);
@@ -401,7 +404,7 @@ callout-colors($colors)
             color: $colors.mauve;
         .callout-title .callout-fold
             background-color: $colors.mauve;
-    
+
     // Summary callout
     .callout[data-callout="abstract"], .callout[data-callout="summary"], .callout[data-callout="tldr"]
         border-color: rgba($colors.teal, $callout-border-opacity);
@@ -410,7 +413,7 @@ callout-colors($colors)
             color: $colors.teal;
         .callout-title .callout-fold
             background-color: $colors.teal;
-    
+
     // Quote callout
     .callout[data-callout="quote"], .callout[data-callout="cite"]
         border-color: rgba($colors.lavender, $callout-border-opacity);
