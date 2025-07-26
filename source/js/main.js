@@ -9,7 +9,7 @@
         }
         $('.justified-gallery').justifiedGallery();
     }
-   
+
     // [INFO] 给搜索设置快捷键
     document.onkeydown = function (e) {
         // https://javascript.info/keyboard-events
@@ -138,8 +138,4 @@
         $mask.on('click', toggleToc);
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
-    // [INFO] hide tags and archives on mobile
-    $('div.container div.card[data-type=tags]').addClass('is-hidden-mobile');
-	$('div.container div.card[data-type=archives]').addClass('is-hidden-mobile');
-	$('div.container div.card[data-type=categories]').addClass('is-hidden-mobile');
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
