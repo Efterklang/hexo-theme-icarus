@@ -127,9 +127,13 @@ article-colors($colors)
     .article, article.media
         .title a
             color: $colors.text;
-            background-image: linear-gradient(transparent calc(100% - 1px), $colors.lavender 2px)
-        .title:hover a
-            color: $colors.text !important
+            &:hover
+                background: linear-gradient(to right, $colors.pink, $colors.blue, $colors.lavender)
+                -webkit-background-clip: text
+                background-clip: text
+                -webkit-text-fill-color: transparent
+            &:after
+                background: linear-gradient(to right, $colors.pink, $colors.blue, $colors.lavender)
 
 button-colors($colors)
     .button.is-primary, .button.is-light, .button.is-small, .cc-window .cc-compliance > .cc-btn
@@ -230,8 +234,6 @@ ui-elements-colors($colors)
         color: $colors.text;
     .media-content, .has-text-grey, .link-muted, .cc-window
         color: $colors.text;
-    .link-muted:hover
-        color: $colors.mauve !important;
     .input, .textarea
         background-color: $colors.crust;
         border-color: $colors.surface0;
