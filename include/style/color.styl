@@ -449,3 +449,12 @@ html.night
     apply-theme-mixins($mocha);
     .card
         border: 1px solid rgba(69, 71, 90, 0.3);
+
+// Inject color variables, so you can use var(--ctp-{color}) in css
+:root
+    for $key, $value in $latte
+        --ctp-{$key}: $value
+
+html.night
+    for $key, $value in $mocha
+        --ctp-{$key}: $value
