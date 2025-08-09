@@ -1,4 +1,12 @@
 @font-face {
+  font-family: "doto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url(/css/font/MISC/doto.woff2) format("woff2");
+}
+
+@font-face {
   font-family: "lxgw";
   font-style: normal;
   font-weight: 400;
