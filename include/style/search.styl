@@ -8,8 +8,6 @@ $searchbox-breakpoint-width ?= 559px
 $searchbox-breakpoint-height ?= 479px
 // overlay and container styles
 $searchbox-box-shadow ?= $card-shadow
-$searchbox-border-radius ?= 15px
-$searchbox-border ?= $border
 
 .searchbox
     position: fixed
@@ -19,6 +17,7 @@ $searchbox-border ?= $border
     height: 100%
     z-index: 100
     font-size: 1rem
+    font-family: $serif-font
     line-height: 0
     opacity: 0
     visibility: hidden
@@ -33,6 +32,7 @@ $searchbox-border ?= $border
         text-decoration: none
 
     input
+        font-family: $code-font
         font-size: 1rem
         border: none
         outline: none
@@ -50,7 +50,7 @@ $searchbox-border ?= $border
         display: flex
         overflow: hidden
         box-shadow: $searchbox-box-shadow
-        border-radius: $searchbox-border-radius
+        border-radius: $card-radius
         width: $searchbox-container-width
         top: $searchbox-container-margin
         bottom: $searchbox-container-margin
@@ -90,13 +90,13 @@ $searchbox-border ?= $border
     .searchbox-body
         flex-grow: 1
         overflow-y: auto
-        border-top: 1px solid $searchbox-border
+        border-top: 1px solid var(--ctp-surface0)
 
     .searchbox-result-section header, .searchbox-result-item
         padding: .75em 1em
 
     .searchbox-result-section
-        border-bottom: 1px solid $searchbox-border
+        border-bottom: 1px solid var(--ctp-surface0)
 
     .searchbox-result-item
         display: flex
@@ -136,7 +136,7 @@ $searchbox-border ?= $border
             overflow: hidden
             padding: .5em .8em
             box-shadow: $searchbox-box-shadow
-            border-radius: $searchbox-border-radius
+            border-radius: $card-radius
 
         .searchbox-pagination-item.disabled
             .searchbox-pagination-link

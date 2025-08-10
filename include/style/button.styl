@@ -2,6 +2,16 @@
  *            Buttons
  * --------------------------------- */
 .button
+    &.is-small
+        border-radius: 48px
+        font-weight: bolder
+        transition: all .2s ease-in-out
+        padding-left: 1.2em
+        padding-right: 1.2em
+
+        &:hover
+            transform: translateY(-2px)
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1)
     &.is-transparent
         color: inherit
         background: transparent

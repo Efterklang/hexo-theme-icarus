@@ -2,13 +2,13 @@ $tag-radius ?= 5px;
 $tag-border-width ?= 1px;
 
 .tag
-    font-family: Maple Mono;
+    font-family: $code-font;
 
 .tags.has-addons
     display: inline-flex;
     align-items: center;
     transition: all 0.3s ease;
-    
+
     &:hover
         transform: translateY(-2px);
 
@@ -27,7 +27,7 @@ $tag-border-width ?= 1px;
                 content: '#';
                 opacity: 0.7;
                 margin-right: 0.25em;
-        
+
         &:last-child
             border-width: $tag-border-width $tag-border-width $tag-border-width 0;
             border-radius: 0 $tag-radius $tag-radius 0;

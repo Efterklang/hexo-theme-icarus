@@ -1,7 +1,6 @@
 /* ---------------------------------
  *    Article Summary and Content
  * --------------------------------- */
-$article-font-size ?= 1.1rem
 
 article
     .title a
@@ -65,26 +64,30 @@ article
         .article-more
             @extend .button.is-light
 
+        h1.title
+            font-size: 45px
+            font-weight: bolder
+
         .content
             word-wrap: break-word
-            font-size: $article-font-size
+            font-size: 1.15rem
+            font-family: $serif-font
 
-            font-family: lxgw
-
-            h1,h2,h3,h4,h5,h6
-                font-family: lxgw
-                font-weight: bold
+            h2,h3,h4,h5,h6
+                font-weight: bolder
+            h2
+                font-size 35px
 
             pre
                 font-size: .85em
 
             em
-                font-family: 'Times New Roman', lxgw, Times, serif
+                font-style: italic
 
             code
-                font-family 'Maple Mono NF CN', 'Google Sans Mono', monospace;
-                border-radius 6px;
-                padding 1px 6px;
+                font-family: $code-font
+                border-radius: 6px
+                padding: 1px 6px
 
             blockquote
                 position: relative
@@ -92,7 +95,7 @@ article
                 margin: 1.5rem 0
                 border-left: 4px solid
                 border-radius: 0 8px 8px 0
-                font-family: 'Times New Roman', lxgw, Times, serif
+                font-family: Google Sans, lxgw, Times, serif
                 font-weight: bolder
                 font-style: italic
                 font-size: 1.05rem
@@ -108,7 +111,6 @@ article
                     font-weight: bold
                     opacity: 0.3
                     line-height: 1
-                    font-family: serif
 
                 &:after
                     content: '"'
@@ -119,7 +121,6 @@ article
                     font-weight: bold
                     opacity: 0.3
                     line-height: 1
-                    font-family: serif
 
                 &.pullquote
                     float: right
