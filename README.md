@@ -75,68 +75,38 @@ widgets:
 Step 1: Install hexo and initialize a new blog project:
 
 ```bash
-mkdir blog
-bun i -g hexo
-bunx hexo init --no-clone
+$ mkdir blog
+$ cd blog
+$ hexo init --no-clone
+INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git
+INFO  Install dependencies
+INFO  Start blogging with Hexo
 ```
 
 Step 2: Clone theme repository into `themes/icarus` directory:
 
 ```shell
 $ git init
-Initialized empty Git repository in /Users/gjx/Library/CloudStorage/OneDrive-Personal/Documents/vlu/.git/
-
+Initialized empty Git repository in /Users/gjx/Projects/blog/.git/
 $ git submodule add https://github.com/Efterklang/hexo-theme-icarus.git themes/icarus
-Cloning into '/Users/gjx/Library/CloudStorage/OneDrive-Personal/Documents/vlu/themes/icarus'...
-remote: Enumerating objects: 216, done.
-remote: Counting objects: 100% (8/8), done.
-remote: Compressing objects: 100% (8/8), done.
-remote: Total 216 (delta 0), reused 0 (delta 0), pack-reused 208 (from 1)
-Receiving objects: 100% (216/216), 30.15 MiB | 9.89 MiB/s, done.
-Resolving deltas: 100% (21/21), done.
+Cloning into '/Users/gjx/Projects/blog/themes/icarus'...
+remote: Enumerating objects: 433, done.
+remote: Counting objects: 100% (225/225), done.
+remote: Compressing objects: 100% (156/156), done.
+remote: Total 433 (delta 122), reused 147 (delta 69), pack-reused 208 (from 1)
+Receiving objects: 100% (433/433), 33.33 MiB | 10.11 MiB/s, done.
+Resolving deltas: 100% (143/143), done.
 ```
 
 Step 3: Install dependencies for blog project
 
-My `package.json`'s  dependencies section looks like this(some are optional)
+```shell
+$ cd themes/icarus
+$ bun install
+```
 
-```json
-{
-  "denpendencies": {
-    "bulma-stylus": "^0.8.0",
-    "gulp": "^5.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-html-minifier-terser": "^7.1.0",
-    "gulp-uglify-es": "^3.0.0",
-    "hexo": "^7.2.0",
-    "hexo-blog-encrypt": "^3.1.9",
-    "hexo-cli": "^4.3.2",
-    "hexo-component-inferno": "^3.1.2",
-    "hexo-filter-titlebased-link": "^0.2.6",
-    "hexo-generator-archive": "^2.0.0",
-    "hexo-generator-category": "^2.0.0",
-    "hexo-generator-feed": "^3.0.0",
-    "hexo-generator-index-custom": "^1.0.1",
-    "hexo-generator-sitemap": "^3.0.1",
-    "hexo-generator-tag": "^2.0.0",
-    "hexo-mermaid-diagram": "^1.0.0",
-    "hexo-migrator-rss": "^1.1.0",
-    "hexo-native-lazy-load": "^1.1.2",
-    "hexo-pagination": "^3.0.0",
-    "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-inferno": "^1.0.2",
-    "hexo-renderer-markdown-it-plus": "^1.0.6",
-    "hexo-renderer-stylus": "^3.0.1",
-    "hexo-server": "^3.0.0",
-    "hexo-shiki-highlight": "^1.2.4",
-    "hexo-util": "^3.3.0",
-    "inferno": "^9.0.3",
-    "inferno-create-element": "^9.0.3",
-    "markdown-it-merge-cells": "^2.0.0",
-    "markdown-it-obsidian-callouts": "^0.3.1",
-    "markdown-it-task-lists": "^2.1.1",
-    "semver": "7.5.4",
-    "sharp": "^0.34.2"
-  }
-}
+### Configs
+
+```yaml
+
 ```
