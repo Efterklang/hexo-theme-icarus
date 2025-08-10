@@ -10,10 +10,10 @@
         $('.justified-gallery').justifiedGallery();
     }
 
-    // [INFO] 给搜索设置快捷键
     document.onkeydown = function (e) {
         // https://javascript.info/keyboard-events
-        if (e.ctrlKey && e.code == "KeyK") {
+        // ctrl/cmd + k
+        if ((e.ctrlKey || e.metaKey) && e.code == "KeyK") {
             document.querySelector("a.navbar-item.search").click();
             setTimeout(() => {
                 document.querySelector('.searchbox-input').focus();

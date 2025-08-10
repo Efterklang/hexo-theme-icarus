@@ -61,7 +61,7 @@ plugin:
       policy: Cookie Policy
 search:
     search: 'Search'
-    hint: 'Search(Ctrl + K)'
+    hint: 'Search(Ctrl/󰘳 + K)'
     no_result: 'No results for'
     untitled: '(Untitled)'
     empty_preview: '(No preview)'
