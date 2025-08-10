@@ -1,44 +1,40 @@
-const { Component } = require('inferno');
-const MetaTags = require('hexo-component-inferno/lib/view/misc/meta');
-const WebApp = require('hexo-component-inferno/lib/view/misc/web_app');
-const OpenGraph = require('hexo-component-inferno/lib/view/misc/open_graph');
-const StructuredData = require('hexo-component-inferno/lib/view/misc/structured_data');
-const Plugins = require('./plugins');
+const { Component } = require("inferno");
+const MetaTags = require("hexo-component-inferno/lib/view/misc/meta");
+const WebApp = require("hexo-component-inferno/lib/view/misc/web_app");
+const OpenGraph = require("hexo-component-inferno/lib/view/misc/open_graph");
+const StructuredData = require("hexo-component-inferno/lib/view/misc/structured_data");
+const Plugins = require("./plugins");
 
 function getPageTitle(page, siteTitle, helper) {
   let title = page.title;
 
   if (helper.is_archive()) {
-    title = helper._p('common.archive', Infinity);
+    title = helper._p("common.archive", Infinity);
     if (helper.is_month()) {
-      title += ': ' + page.year + '/' + page.month;
+      title += ": " + page.year + "/" + page.month;
     } else if (helper.is_year()) {
-      title += ': ' + page.year;
+      title += ": " + page.year;
     }
   } else if (helper.is_category()) {
-    title = helper._p('common.category', 1) + ': ' + page.category;
+    title = helper._p("common.category", 1) + ": " + page.category;
   } else if (helper.is_tag()) {
-    title = helper._p('common.tag', 1) + ': ' + page.tag;
+    title = helper._p("common.tag", 1) + ": " + page.tag;
   } else if (helper.is_categories()) {
-    title = helper._p('common.category', Infinity);
+    title = helper._p("common.category", Infinity);
   } else if (helper.is_tags()) {
-    title = helper._p('common.tag', Infinity);
+    title = helper._p("common.tag", Infinity);
   }
 
-  return [title, siteTitle].filter(str => typeof str !== 'undefined' && str.trim() !== '').join(' - ');
+  return [title, siteTitle]
+    .filter((str) => typeof str !== "undefined" && str.trim() !== "")
+    .join(" - ");
 }
 
 module.exports = class extends Component {
   render() {
     const { site, config, helper, page } = this.props;
     const { url_for, cdn, fontcdn, iconcdn, is_post } = helper;
-    const {
-      url,
-      head = {},
-      article,
-      highlight,
-      variant = 'default'
-    } = config;
+    const { url, head = {}, article, highlight, variant = "default" } = config;
     const {
       meta = [],
       manifest = {},
@@ -46,10 +42,11 @@ module.exports = class extends Component {
       structured_data = {},
       canonical_url = page.permalink,
       rss,
-      favicon
+      favicon,
     } = head;
 
-    const noIndex = helper.is_archive() || helper.is_category() || helper.is_tag();
+    const noIndex =
+      helper.is_archive() || helper.is_category() || helper.is_tag();
 
     const language = page.lang || page.language || config.language;
 
@@ -59,18 +56,18 @@ module.exports = class extends Component {
     } else if (article && article.highlight && article.highlight.theme) {
       hlTheme = article.highlight.theme;
     } else {
-      hlTheme = 'atom-one-light';
+      hlTheme = "atom-one-light";
     }
 
-    if (typeof page.og_image === 'string') {
+    if (typeof page.og_image === "string") {
       images = [page.og_image];
-    } else if (typeof page.cover === 'string') {
+    } else if (typeof page.cover === "string") {
       images = [url_for(page.cover)];
-    } else if (typeof page.thumbnail === 'string') {
+    } else if (typeof page.thumbnail === "string") {
       images = [url_for(page.thumbnail)];
-    } else if (article && typeof article.og_image === 'string') {
+    } else if (article && typeof article.og_image === "string") {
       images = [article.og_image];
-    } else if (page.content && page.content.includes('<img')) {
+    } else if (page.content && page.content.includes("<img")) {
       let img;
       images = [];
       const imgPattern = /<img [^>]*src=['"]([^'"]+)([^>]*>)/gi;
@@ -78,36 +75,53 @@ module.exports = class extends Component {
         images.push(img[1]);
       }
     } else {
-      images = [url_for('/img/og_image.png')];
+      images = [url_for("/img/og_image.png")];
     }
 
     let adsenseClientId = null;
     if (Array.isArray(config.widgets)) {
-      const widget = config.widgets.find(widget => widget.type === 'adsense');
+      const widget = config.widgets.find((widget) => widget.type === "adsense");
       if (widget) {
         adsenseClientId = widget.client_id;
       }
     }
 
     let openGraphImages = images;
-    if ((typeof open_graph === 'object' && open_graph !== null)
-      && ((Array.isArray(open_graph.image) && open_graph.image.length > 0) || typeof open_graph.image === 'string')) {
+    if (
+      typeof open_graph === "object" &&
+      open_graph !== null &&
+      ((Array.isArray(open_graph.image) && open_graph.image.length > 0) ||
+        typeof open_graph.image === "string")
+    ) {
       openGraphImages = open_graph.image;
-    } else if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
+    } else if (
+      (Array.isArray(page.photos) && page.photos.length > 0) ||
+      typeof page.photos === "string"
+    ) {
       openGraphImages = page.photos;
     }
 
     let structuredImages = images;
-    if ((typeof structured_data === 'object' && structured_data !== null)
-      && ((Array.isArray(structured_data.image) && structured_data.image.length > 0) || typeof structured_data.image === 'string')) {
+    if (
+      typeof structured_data === "object" &&
+      structured_data !== null &&
+      ((Array.isArray(structured_data.image) &&
+        structured_data.image.length > 0) ||
+        typeof structured_data.image === "string")
+    ) {
       structuredImages = structured_data.image;
-    } else if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
+    } else if (
+      (Array.isArray(page.photos) && page.photos.length > 0) ||
+      typeof page.photos === "string"
+    ) {
       structuredImages = page.photos;
     }
 
     let followItVerificationCode = null;
     if (Array.isArray(config.widgets)) {
-      const widget = config.widgets.find(widget => widget.type === 'followit');
+      const widget = config.widgets.find(
+        (widget) => widget.type === "followit"
+      );
       if (widget) {
         followItVerificationCode = widget.verification_code;
       }
@@ -132,9 +146,7 @@ module.exports = class extends Component {
         />
         {typeof open_graph === "object" && open_graph !== null ? (
           <OpenGraph
-            type={
-              open_graph.type || (is_post(page) ? "article" : "website")
-            }
+            type={open_graph.type || (is_post(page) ? "article" : "website")}
             title={open_graph.title || page.title || config.title}
             date={page.date}
             updated={page.updated}
@@ -181,9 +193,7 @@ module.exports = class extends Component {
             images={structuredImages}
           />
         ) : null}
-        {canonical_url ? (
-          <link rel="canonical" href={canonical_url} />
-        ) : null}
+        {canonical_url ? <link rel="canonical" href={canonical_url} /> : null}
         {rss ? (
           <link
             rel="alternate"
@@ -193,26 +203,43 @@ module.exports = class extends Component {
           />
         ) : null}
         {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
-        {page.cover ? <link rel="preload" as="image" href={url_for(page.cover)} imagesrcset={`${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1'))} 128w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1'))} 256w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1'))} 800w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1'))} 1500w, ${url_for(page.cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1'))} 2000w, ${url_for(page.cover)} 6144w`} imagesizes="(max-width: 768px) 100vw, 50vw" /> : null}
-        <link rel="stylesheet" href={iconcdn()} />
-			
-        {hlTheme ? (
+        {page.cover ? (
           <link
-            data-pjax
-            rel="stylesheet"
-            href={cdn(
-              "highlight.js",
-              "11.7.0",
-              "styles/" + hlTheme + ".css"
-            )}
+            rel="preload"
+            as="image"
+            href={url_for(page.cover)}
+            imagesrcset={`${url_for(
+              page.cover.replace(/\.(webp|jpg|jpeg|png)$/, "-128w.$1")
+            )} 128w, ${url_for(
+              page.cover.replace(/\.(webp|jpg|jpeg|png)$/, "-256w.$1")
+            )} 256w, ${url_for(
+              page.cover.replace(/\.(webp|jpg|jpeg|png)$/, "-800w.$1")
+            )} 800w, ${url_for(
+              page.cover.replace(/\.(webp|jpg|jpeg|png)$/, "-1500w.$1")
+            )} 1500w, ${url_for(
+              page.cover.replace(/\.(webp|jpg|jpeg|png)$/, "-2000w.$1")
+            )} 2000w, ${url_for(page.cover)} 6144w`}
+            imagesizes="(max-width: 768px) 100vw, 50vw"
           />
+        ) : null}
+        <link rel="stylesheet" href={iconcdn()} />
+
+        {hlTheme ? (
+          <link data-pjax rel="stylesheet" href={cdn("highlight.js", "11.7.0", "styles/" + hlTheme + ".css")} />
         ) : null}
         <link
           // BUG data-pjax
           rel="stylesheet"
           href={url_for("/css/" + variant + ".css")}
         />
+        {/* 思源黑体 */}
         <link rel="dns-prefetch" href="https://use.fontawesome.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+        {/* Maple Mono CN */}
+        <link rel="preconnect" href="https://chinese-fonts-cdn.deno.dev" />
+        <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css' />
         <Plugins
           site={site}
           config={config}
