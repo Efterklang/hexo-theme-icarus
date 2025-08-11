@@ -203,6 +203,8 @@ module.exports = class extends Component {
           />
         ) : null}
         {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
+        {/* 预加载背景图 */}
+        <link rel="preload" as="image" href={url_for("/img/background.webp")} fetchpriority="high" />
         {page.cover ? (
           <link
             rel="preload"

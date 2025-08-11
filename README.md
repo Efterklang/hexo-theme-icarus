@@ -1,22 +1,8 @@
 # Hexo Theme Icarus
 
-[![npm version](https://img.shields.io/npm/v/hexo-theme-icarus.svg)](https://www.npmjs.com/package/hexo-theme-icarus)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D14-brightgreen.svg)](https://nodejs.org/)
-[![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D7.0-blue.svg)](https://hexo.io/)
-
-> [!CAUTION]
->
-> 仓库用作`Efterklang.github.io`的 git submodule，以便于分别为post和theme做版本控制
-
-## Features Preview
+## Demo & Preview
 
 [vluv's space](https://vluv.space/)
-
-- 个人不用的文件直接删除了，比如`highlight.js` & `prism.js`，目前使用的为`hexo-shiki-highlight`
-- 魔改icarus样式，包括tag, code, widget, card etc.
-- 为一些插件加了自定义的样式，callout e.g
-- 添加Asoul live2d model, 支持light/dark mode, use Catppuccin color scheme
-- 默认字体换用`落霞孤鹜`, `Maple Mono NF CN`，这里使用fonttools移出了繁体，仅保留拉丁字母以及简体中文等的subset
 
 ### Light/Night Theme Support
 
@@ -72,41 +58,7 @@ widgets:
 
 ## Installation
 
-Step 1: Install hexo and initialize a new blog project:
-
-```bash
-$ mkdir blog
-$ cd blog
-$ hexo init --no-clone
-INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git
-INFO  Install dependencies
-INFO  Start blogging with Hexo
-```
-
-Step 2: Clone theme repository into `themes/icarus` directory:
-
 ```shell
-$ git init
-Initialized empty Git repository in /Users/gjx/Projects/blog/.git/
-$ git submodule add https://github.com/Efterklang/hexo-theme-icarus.git themes/icarus
-Cloning into '/Users/gjx/Projects/blog/themes/icarus'...
-remote: Enumerating objects: 433, done.
-remote: Counting objects: 100% (225/225), done.
-remote: Compressing objects: 100% (156/156), done.
-remote: Total 433 (delta 122), reused 147 (delta 69), pack-reused 208 (from 1)
-Receiving objects: 100% (433/433), 33.33 MiB | 10.11 MiB/s, done.
-Resolving deltas: 100% (143/143), done.
-```
-
-Step 3: Install dependencies for blog project
-
-```shell
-$ cd themes/icarus
-$ bun install
-```
-
-### Configs
-
-```yaml
-
+$ bun add git+https://github.com/Efterklang/hexo-theme-icarus
+$ hexo config theme icarus
 ```
