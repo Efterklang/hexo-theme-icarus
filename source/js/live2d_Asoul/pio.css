@@ -85,7 +85,7 @@
 }
 
 .pio-action span {
-  color: #cdd6f4;
+  color: var(--ctp-lavender);
   width: 2em;
   height: 2em;
   margin-bottom: 0.6em;
@@ -122,13 +122,14 @@
   z-index: -1;
   font-size: 0.8em;
   min-width: 12em;
-  background: #cdd6f4;
+  color: var(--ctp-text);
+  background: var(--ctp-base);
   padding: 0.75em 1em;
   border-radius: 1em;
   visibility: hidden;
   position: absolute;
   word-break: break-all;
-  border: 1px solid #eee;
+  border: 1px solid var(--ctp-overlay0);
   transition: opacity 0.3s, visibility 0.3s;
 }
 
