@@ -1,4 +1,4 @@
-(function(window, document, localStorage) {
+(function (window, document, localStorage) {
   'use strict';
 
   const NIGHT_MODE_CLASS = 'night';
@@ -52,12 +52,15 @@
 
   applyTheme(getThemePreference());
 
-  document.addEventListener('click', function(event) {
+  document.addEventListener('click', function (event) {
     const nightNavButton = event.target.closest('#' + NIGHT_NAV_ID);
     if (nightNavButton) {
       event.preventDefault();
       toggleNightMode();
     }
   });
+
+  // 将 toggleNightMode 暴露到全局作用域，供 live2d 等其他组件使用
+  window.toggleNightMode = toggleNightMode;
 
 }(window, document, window.localStorage));
