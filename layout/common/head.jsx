@@ -132,7 +132,7 @@ module.exports = class extends Component {
         <meta charset="utf-8" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         {noIndex ? <meta name="robots" content="noindex" /> : null}
         {meta && meta.length ? <MetaTags meta={meta} /> : null}
