@@ -21,7 +21,8 @@ function getWordCount(content) {
 module.exports = class extends Component {
     render() {
         const { config, helper, page, index } = this.props;
-        const useResponsiveImages = process.env.RESPONSIVE_IMAGES === 'true';
+        // const useResponsiveImages = process.env.RESPONSIVE_IMAGES === 'true';
+        const useResponsiveImages = true;
         const { article, plugins } = config;
         const { url_for, date, date_xml, __, _p } = helper;
 
@@ -39,7 +40,7 @@ module.exports = class extends Component {
             <div class="card">
                 {/* Cover image */}
                 {cover ? (() => {
-                    const imageSrcset = useResponsiveImages ? `${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-128w.$1')} 128w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-256w.$1')} 256w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-800w.$1')} 800w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-1500w.$1')} 1500w, ${cover.replace(/\.(webp|jpg|jpeg|png)$/, '-2000w.$1')} 2000w, ${cover} 6144w` : null;
+                    const imageSrcset = useResponsiveImages ? `${cover}?w=128 128w, ${cover}?w=256 256w, ${cover}?w=800 800w, ${cover}?w=1500 1500w, ${cover}?w=2000 2000w, ${cover}?fmt=avif 6144w` : null;
                     const imageSizes = useResponsiveImages ? '(max-width: 768px) 100vw, 50vw' : null;
                     const CoverImage = <img class="fill" src={cover} alt={page.title || cover} srcset={imageSrcset} sizes={imageSizes} fetchpriority="high" referrerpolicy="no-referrer" />;
                     return <div class="card-image">
