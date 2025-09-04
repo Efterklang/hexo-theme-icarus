@@ -20,6 +20,7 @@ function getWordCount(content) {
 
 module.exports = class extends Component {
     render() {
+        // index: true if in article list, false if in article page
         const { config, helper, page, index } = this.props;
         // const useResponsiveImages = process.env.RESPONSIVE_IMAGES === 'true';
         const useResponsiveImages = true;
@@ -42,12 +43,15 @@ module.exports = class extends Component {
                 {cover ? (() => {
                     const imageSrcset = useResponsiveImages ? `${cover}?w=128 128w, ${cover}?w=256 256w, ${cover}?w=800 800w, ${cover}?w=1500 1500w, ${cover}?w=2000 2000w, ${cover}?fmt=avif 6144w` : null;
                     const imageSizes = useResponsiveImages ? '(max-width: 768px) 100vw, 50vw' : null;
-                    const CoverImage = <img class="fill" src={cover} alt={page.title || cover} srcset={imageSrcset} sizes={imageSizes} fetchpriority="high" referrerpolicy="no-referrer" />;
+                    const coverLQIP = <img class="cover-lqip" src={`${cover}?q=10&blur=25`} fetchpriority="high" />;
+                    const CoverImage = <img class="fill" src={cover} alt={page.title || cover} onLoad={"this.classList.add('loaded')"} srcset={imageSrcset} sizes={imageSizes} fetchpriority="high" referrerpolicy="no-referrer" />;
                     return <div class="card-image">
                         {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
                             {CoverImage}
+                            {coverLQIP}
                         </a> : <span class="image is-7by3">
                             {CoverImage}
+                            {coverLQIP}
                         </span>}
                     </div>;
                 })() : null}
@@ -110,7 +114,7 @@ module.exports = class extends Component {
                         })}
                     </div> : null}
                     {/* "Read more" button */}
-                    {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}>{__('article.more')}</a> : null}
+                    {/* {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}>{__('article.more')}</a> : null} */}
                     {/* Share button */}
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}
                 </article>
