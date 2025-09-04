@@ -58,6 +58,34 @@ widgets:
 
 ## Installation
 
+### Using git submodule(Recommended)
+
+Using git submodule instead of bun add is recommended if you want to make any customizations to the theme
+
+```shell
+$ git submodule add https://github.com/Efterklang/hexo-theme-icarus themes/icarus
+$ hexo config theme icarus
+```
+
+```diff package.json
+{
+  "dependencies": {
++   "bulma-stylus": "0.8.0",
++   "deepmerge": "^4.3.1",
++   "hexo-component-inferno": "^3.1.2",
++   "hexo-log": "^4.1.0",
++   "hexo-pagination": "^3.0.0",
++   "hexo-renderer-inferno": "^1.0.2",
++   "hexo-renderer-stylus": "^3.0.1",
++   "moment": "^2.30.1",
++   "inferno": "^9.0.3",
++   "inferno-create-element": "^9.0.3"
+  }
+}
+```
+
+### Using Bun
+
 ```shell
 $ bun add git+https://github.com/Efterklang/hexo-theme-icarus
 $ hexo config theme icarus
