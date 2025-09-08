@@ -203,7 +203,7 @@ widget-colors($colors)
 tag-colors($colors)
     .tag:not(body).is-primary, .widget .menu-list .tag
         color: $colors.text;
-        background-color: $colors.surface0;
+        background-color: $colors.surface1;
 
     // "tag" element in categories widget or arhive widget which looks like a button
     .widget .menu-list .tag
@@ -429,8 +429,111 @@ callout-colors($colors)
         .callout-title .callout-fold
             background-color: $colors.lavender;
 
+twikoo-colors($colors)
+    .twikoo
+        color: $colors.text
+
+        svg
+            fill: $colors.lavender
+
+        a
+            color: $colors.lavender
+            &:hover
+                color: $colors.mauve
+        // 展开按钮颜色
+        .tk-expand
+            color: $colors.subtext1
+            background-color: rgba($colors.surface0, 0.5)
+            border: 1px solid rgba($colors.surface1, 0.6)
+
+            &:hover
+                color: $colors.text
+                background-color: rgba($colors.surface1, 0.8)
+                border-color: $colors.surface2
+
+            &:active
+                background-color: rgba($colors.surface2, 0.9)
+
+        // Element UI 输入框颜色
+        .el-input__inner,
+        .el-textarea__inner
+            background-color: rgba($colors.surface0, 0.3)
+            border-color: rgba($colors.surface1, 0.6)
+            color: $colors.text
+
+            &::placeholder
+                color: $colors.overlay1
+
+            &:hover
+                border-color: rgba($colors.surface2, 0.8)
+                background-color: rgba($colors.surface0, 0.5)
+
+            &:focus
+                border-color: $colors.blue
+                background-color: rgba($colors.surface0, 0.7)
+
+        // 输入框组合元素颜色
+        .el-input-group__append,
+        .el-input-group__prepend
+            background-color: rgba($colors.surface1, 0.4)
+            border-color: rgba($colors.surface1, 0.6)
+            color: $colors.subtext1
+
+        .el-button--text
+            color: $colors.lavender
+
+        // 按钮颜色
+        .el-button:not(.el-button--primary):not(.el-button--text)
+            color: $colors.text
+            background-color: rgba($colors.surface0, 0.4)
+            border-color: rgba($colors.surface1, 0.5)
+
+            &:hover,
+            &:focus,
+            &:active
+                color: $colors.blue
+                background-color: rgba($colors.blue, 0.1)
+                border-color: rgba($colors.blue, 0.6)
+
+        // 主要按钮
+        .el-button--primary
+            background-color: $colors.blue
+            border-color: $colors.blue
+            color: $colors.base
+
+            &:hover,
+            &:focus
+                background-color: $colors.sapphire
+                border-color: $colors.sapphire
+
+            &.is-disabled
+                &,
+                &:active,
+                &:focus,
+                &:hover
+                    color: rgba($colors.base, 0.7)
+                    background-color: rgba($colors.blue, 0.5)
+                    border-color: transparent
+
+        // 加载遮罩
+        .el-loading-mask
+            background-color: rgba($colors.base, 0.1)
+
+        // 文本域字数统计
+        .el-textarea .el-input__count
+            color: $colors.overlay1
+
+    // 管理员警告框
+    .tk-admin-warn
+        background-color: rgba($colors.yellow, 0.15)
+        border-left-color: $colors.yellow
+        color: $colors.text
+
+        &::before
+            background: linear-gradient(90deg, $colors.yellow, transparent)
+
 apply-theme-mixins($colors)
-    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'callout'
+    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'callout' 'twikoo'
     for $mixin in $colorMixins
         {$mixin + '-colors'}($colors)
 

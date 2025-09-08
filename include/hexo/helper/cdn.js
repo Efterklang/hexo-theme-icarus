@@ -25,8 +25,8 @@
   },
   ICON: {
     host: '/css/font/fontawesome/css/all.min.css',
-    loli: 'https://cdnjs.loli.net/ajax/libs/font-awesome/6.7.2/css/all.min.css',
-    fontawesome: 'https://use.fontawesome.com/releases/v6.7.2/css/all.css',
+    loli: 'https://cdnjs.loli.net/ajax/libs/font-awesome/7.0.0/css/all.min.css',
+    fontawesome: 'https://use.fontawesome.com/releases/v7.0.0/css/all.css',
   },
 };
 
