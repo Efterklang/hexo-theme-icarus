@@ -47,8 +47,8 @@ module.exports = class extends Component {
 
                 <script type="text/javascript" src="/js/imaegoo/imaegoo.js"></script>
                 <script type="text/javascript" src="/js/imaegoo/universe.js"></script>
+                <script src="/js/host/medium-zoom/dist/medium-zoom.min.js"></script>
                 {/* live2d_Asoul */}
-                <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
                 <script src="/js/live2d_Asoul/TweenLite.js" defer></script>
                 <script src="/js/live2d_Asoul/live2dcubismcore.min.js" defer></script>
                 <script src="/js/live2d_Asoul/pixi.min.js" defer></script>

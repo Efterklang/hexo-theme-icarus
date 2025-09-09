@@ -9,7 +9,7 @@
  */
  const PROVIDERS = {
   LIBRARY: {
-    host: '/js/imaegoo/${ package }/${ version }/${ filename }',
+    host: '/js/host/${ package }/${ version }/${ filename }',
     cdnjs: '[cdnjs]https://cdnjs.cloudflare.com/ajax/libs/${ package }/${ version }/${ filename }',
     loli: '[cdnjs]https://cdnjs.loli.net/ajax/libs/${ package }/${ version }/${ filename }',
     jsdelivr: 'https://cdn.jsdelivr.net/npm/${ package }@${ version }/${ filename }',
