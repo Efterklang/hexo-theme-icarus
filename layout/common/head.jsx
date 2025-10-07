@@ -224,11 +224,7 @@ module.exports = class extends Component {
           rel="stylesheet"
           href={url_for("/css/" + variant + ".css")}
         />
-        {/* 思源黑体 */}
         <link rel="dns-prefetch" href="https://use.fontawesome.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
         {/* Maple Mono CN */}
         <link rel="preconnect" href="https://chinese-fonts-cdn.deno.dev" />
         <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css' />
