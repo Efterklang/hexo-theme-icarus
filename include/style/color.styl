@@ -175,6 +175,47 @@ toc-colors($colors)
                 color: $colors.mauve;
                 background-color: inherit
 
+// Tabs component theme colors
+tabs-colors($colors)
+    .tabs
+        color: $colors.text
+        ul
+            border-bottom-color: $colors.surface0
+        a
+            border-bottom-color: $colors.surface0
+            color: $colors.text
+            &:hover
+                border-bottom-color: $colors.lavender
+                color: $colors.lavender
+        li.is-active a
+            border-bottom-color: $colors.blue
+            color: $colors.blue
+        // Boxed style
+        &.is-boxed
+            a
+                background: transparent
+                border: 1px solid transparent
+                &:hover
+                    background-color: $colors.surface1
+                    border-bottom-color: $colors.surface0
+            li.is-active a
+                background-color: $colors.base
+                border-color: $colors.surface0
+                border-bottom-color: transparent !important
+        &.is-toggle
+            a
+                border: 1px solid $colors.surface0
+                background: transparent
+                color: $colors.text
+                &:hover
+                    background-color: $colors.surface1
+                    border-color: $colors.overlay1
+                    color: $colors.lavender
+            li.is-active a
+                background-color: $colors.blue
+                border-color: $colors.blue
+                color: $colors.base
+
 navbar-colors($colors)
     .navbar-main
         .navbar-item.is-active
@@ -533,7 +574,7 @@ twikoo-colors($colors)
             background: linear-gradient(90deg, $colors.yellow, transparent)
 
 apply-theme-mixins($colors)
-    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'callout' 'twikoo'
+    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'tabs' 'callout' 'twikoo'
     for $mixin in $colorMixins
         {$mixin + '-colors'}($colors)
 
