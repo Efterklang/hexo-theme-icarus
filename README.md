@@ -10,18 +10,18 @@
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 
 
-### Shiki Highlight
+### Shiki Highlight [^1]
 
-> Require [Efterklang/hexo-shiki-highlight: shiki highlighter for hexo](https://github.com/Efterklang/hexo-shiki-highlight)
+[^1]: See [Efterklang/hexo-shiki-highlight: shiki highlighter for hexo](https://github.com/Efterklang/hexo-shiki-highlight)
 
-| ![image](https://github.com/user-attachments/assets/bc88dd30-e9f6-41d7-885c-b1c2a47cb45d) | ![image](https://github.com/user-attachments/assets/48a35dce-1304-4059-8ef1-6a929056e837) |
+| <img width="1386" height="720" alt="image" src="https://github.com/user-attachments/assets/f0435c12-5140-4ca4-86bb-e5237039cc2d" /> | <img width="1394" height="736" alt="image" src="https://github.com/user-attachments/assets/406a656f-9e99-4fb7-bb34-a2e1078451e4" /> |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 
 
-### Mermaid Filter
+### Mermaid Filter [^2]
 
-> Require [Efterklang/hexo-mermaid-diagram](https://github.com/Efterklang/hexo-mermaid-diagram)
-> 🚧 Dark mode WIP...
+[^2]: Require [Efterklang/hexo-mermaid-diagram](https://github.com/Efterklang/hexo-mermaid-diagram)
+    🚧 Dark mode WIP...
 
 ![image](https://github.com/user-attachments/assets/3bd2d897-721d-4505-8194-6a592bbceb31)
 
