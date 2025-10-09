@@ -226,8 +226,7 @@ module.exports = class extends Component {
         />
         <link rel="dns-prefetch" href="https://use.fontawesome.com" />
         {/* Maple Mono CN */}
-        <link rel="preconnect" href="https://chinese-fonts-cdn.deno.dev" />
-        <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css' />
+        <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" />
         <Plugins
           site={site}
           config={config}

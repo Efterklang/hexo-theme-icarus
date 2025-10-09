@@ -1,6 +1,4 @@
-bulma-stylus-root = '../../../../node_modules/bulma-stylus/stylus'; /* ---------------------------------
- *   Override Bulma CSS Framework
- * --------------------------------- */
+bulma-stylus-root = '../../../../node_modules/bulma-stylus/stylus';
 $body-size ?= 14px;
 
 @import '../../source/css/font/font.css';
@@ -24,7 +22,6 @@ $card-shadow ?= $shadow, 0 0 1px rgba(0, 0, 0, 0.1);
 $content-heading-weight ?= $weight-normal;
 $logo-height ?= 1.75rem;
 
-// FIXME: https://github.com/groenroos/bulma-stylus/issues/11
 @import (((bulma-stylus-root + '/utilities/initial-variables')));
 @import (((bulma-stylus-root + '/utilities/functions')));
 @import (((bulma-stylus-root + '/utilities/derived-variables')));
@@ -81,14 +78,4 @@ body {
 
 body > .section {
     flex-grow: 1;
-}
-
-+desktop() {
-    ::-webkit-scrollbar {
-        width: 12px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-    }
 }
