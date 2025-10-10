@@ -127,6 +127,10 @@ article-colors($colors)
         .article-licensing
             color: $colors.subtext1;
             background-color: $colors.base;
+            a
+                color: $colors.lavender;
+                &:hover
+                    color: $colors.blue;
 
     .article, article.media
         .title a
@@ -277,7 +281,7 @@ timeline-colors($colors)
 ui-elements-colors($colors)
     body, time, .title, .footer, .card, .navbar-item, .navbar-link, .menu-label, .level-item, .button.is-white, .button.is-transparent, .v *
         color: $colors.text;
-    .media-content, .has-text-grey, .link-muted, .cc-window
+    .media-content, .link-muted, .cc-window
         color: $colors.text;
     .input, .textarea
         background-color: $colors.crust;
@@ -303,8 +307,6 @@ ui-elements-colors($colors)
     // Plugin colors
     .gallery-item .caption
         color: $colors.overlay1;
-    .pace .pace-progress
-        background: $colors.blue;
     .breadcrumb
         a
             color: $colors.lavender;

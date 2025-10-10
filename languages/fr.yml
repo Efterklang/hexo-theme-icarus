@@ -39,14 +39,6 @@ article:
         created_at: 'Posté le'
         updated_at: 'Mis à jour le'
         licensed_under: 'Licencié sous'
-donate:
-    title: "Vous aimez cet article? Soutenez l'auteur avec"
-    afdian: 'Afdian.net'
-    alipay: 'Alipay'
-    wechat: 'Wechat'
-    paypal: 'Paypal'
-    patreon: 'Patreon'
-    buymeacoffee: 'Achetez-moi un café'
 plugin:
     backtotop: 'Retour en haut'
     visit_count: '%s&nbsp;visites'

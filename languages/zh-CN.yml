@@ -40,14 +40,6 @@ article:
     created_at: "发布于"
     updated_at: "更新于"
     licensed_under: "许可协议"
-donate:
-  title: "喜欢这篇文章？打赏一下作者吧"
-  afdian: "爱发电"
-  alipay: "支付宝"
-  wechat: "微信"
-  paypal: "Paypal"
-  patreon: "Patreon"
-  buymeacoffee: "送我杯咖啡"
 plugin:
   backtotop: "回到顶端"
   visit_count: "%s views" # post页面显示的page view次数

@@ -1,0 +1,235 @@
+$navbar-height ?= 3.25rem
+$navbar-padding-vertical ?= 1rem
+$navbar-padding-horizontal ?= 2rem
+$navbar-z ?= 30
+$navbar-fixed-z ?= 30
+
+$navbar-item-img-max-height ?= 1.75rem
+
+$navbar-item-padding-v ?= 1.25rem
+$navbar-item-padding-h ?= .75rem
+$navbar-item-margin-v ?= 0
+$navbar-item-margin-h ?= 0
+
+$navbar-bottom-box-shadow-size ?= 0 -2px 0 0
+$navbar-breakpoint ?= $desktop
+
+navbar-fixed()
+  left 0
+  position fixed
+  right 0
+  z-index $navbar-fixed-z
+
+.navbar
+  min-height $navbar-height
+  position relative
+  z-index $navbar-z
+  font-family: $family-sans-serif
+  font-weight: bold
+  backdrop-filter: blur(10px)
+  -webkit-backdrop-filter: blur(10px)
+  & > .container
+    align-items stretch
+    display flex
+    min-height $navbar-height
+    width 100%
+  &.is-fixed-bottom,
+  &.is-fixed-top
+    navbar-fixed()
+  &.is-fixed-bottom
+    bottom 0
+  &.is-fixed-top
+    top 0
+
+html,
+body
+  &.has-navbar-fixed-top
+    padding-top $navbar-height
+  &.has-navbar-fixed-bottom
+    padding-bottom $navbar-height
+
+.navbar-brand,
+  align-items stretch
+  display flex
+  flex-shrink 0
+  min-height $navbar-height
+//
+.navbar-menu
+  display none
+
+.navbar-item,
+.navbar-link
+  display block
+  line-height 1.5
+  padding 0.5rem 0.75rem
+  position relative
+  .icon
+    &:only-child
+      margin-left -0.25rem
+      margin-right -0.25rem
+
+.navbar-item
+  display block
+  flex-grow 0
+  flex-shrink 0
+  img
+    max-height $navbar-item-img-max-height
+
+.navbar-content
+  flex-grow 1
+  flex-shrink 1
+
+.navbar-logo
+  img
+    max-height: $logo-height
+
+// Navbar main container styles
+.navbar-main
+  box-shadow: $shadow
+
+  .navbar-container
+    overflow-x: auto
+
+  .navbar-menu, .navbar-start, .navbar-end
+    align-items: stretch
+    display: flex
+    padding: 0
+    flex-shrink: 0
+
+  .navbar-menu
+    flex-grow: 1
+    flex-shrink: 0
+    overflow-x: auto
+    background-color: transparent
+
+  .navbar-start
+    justify-content: flex-start
+    margin-right: auto
+
+  .navbar-end
+    justify-content: flex-end
+    margin-left: auto
+
+  .navbar-item
+    display: flex
+    align-items: center
+    padding: $navbar-item-padding-v $navbar-item-padding-h
+    margin: $navbar-item-margin-v $navbar-item-margin-h
+    &.is-active
+      color: inherit
+      font-weight: bold
+
++until($navbar-breakpoint)
+  .navbar > .container
+    display block
+  .navbar-brand,
+    .navbar-item
+      align-items center
+      display flex
+  .navbar-menu
+    padding 0.5rem 0
+    &.is-active
+      display block
+  .navbar-main
+    .navbar-menu
+      justify-content: center
+      box-shadow: none
+    .navbar-start
+      margin-right: 0
+    .navbar-end
+      margin-left: 0
+  // Fixed navbar
+  .navbar
+    &.is-fixed-bottom-touch,
+    &.is-fixed-top-touch
+      navbar-fixed()
+    &.is-fixed-bottom-touch
+      bottom 0
+      &.has-shadow
+        box-shadow 0 -2px 3px rgba($scheme-invert, 0.1)
+    &.is-fixed-top-touch
+      top 0
+    &.is-fixed-top,
+    &.is-fixed-top-touch
+      .navbar-menu
+        overflow-touch()
+        max-height "calc(100vh - %s)" % $navbar-height
+        overflow auto
+  html,
+  body
+    &.has-navbar-fixed-top-touch
+      padding-top $navbar-height
+    &.has-navbar-fixed-bottom-touch
+      padding-bottom $navbar-height
+
++from($navbar-breakpoint)
+  .navbar,
+  .navbar-menu,
+  .navbar-start,
+  .navbar-end
+    align-items stretch
+    display flex
+  .navbar
+    min-height $navbar-height
+    &.is-spaced
+      padding $navbar-padding-vertical $navbar-padding-horizontal
+      .navbar-start,
+      .navbar-end
+        align-items center
+      a.navbar-item,
+      .navbar-link
+        border-radius $radius
+  .navbar-item,
+  .navbar-link
+    align-items center
+    display flex
+  .navbar-item
+    display flex
+  .navbar-menu
+    flex-grow 1
+    flex-shrink 0
+  .navbar-start
+    justify-content flex-start
+    margin-right auto
+  .navbar-end
+    justify-content flex-end
+    margin-left auto
+  .navbar-divider
+    display block
+  .navbar > .container,
+  .container > .navbar
+    .navbar-brand
+      margin-left -.75rem
+    .navbar-menu
+      margin-right -.75rem
+  // Fixed navbar
+  .navbar
+    &.is-fixed-bottom-desktop,
+    &.is-fixed-top-desktop
+      navbar-fixed()
+    &.is-fixed-bottom-desktop
+      bottom 0
+      &.has-shadow
+        box-shadow 0 -2px 3px rgba($scheme-invert, 0.1)
+    &.is-fixed-top-desktop
+      top 0
+  html,
+  body
+    &.has-navbar-fixed-top-desktop
+      padding-top $navbar-height
+    &.has-navbar-fixed-bottom-desktop
+      padding-bottom $navbar-height
+    &.has-spaced-navbar-fixed-top
+      padding-top $navbar-height + ($navbar-padding-vertical * 2)
+    &.has-spaced-navbar-fixed-bottom
+      padding-bottom $navbar-height + ($navbar-padding-vertical * 2)
+
+@media screen and (min-width: $desktop)
+  .navbar > .container .navbar-menu, .container > .navbar .navbar-menu
+    margin-right: 0rem
+
+// Combination
+
+.hero
+  &.is-fullheight-with-navbar
+    min-height "calc(100vh - %s)" % $navbar-height

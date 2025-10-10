@@ -1,0 +1,121 @@
+$button-border-width ?= $control-border-width
+$button-padding-vertical ?= "calc(0.5em - %s)" % $button-border-width
+$button-padding-horizontal ?= 1em
+
+// The button sizes use mixins so they can be used at different breakpoints
+button-small()
+  border-radius $radius-small
+  font-size $size-small
+button-normal()
+  font-size $size-normal
+button-medium()
+  font-size $size-medium
+button-large()
+  font-size $size-large
+
+.button
+  @extend $control
+  @extend $unselectable
+  cursor pointer
+  justify-content center
+  padding-bottom $button-padding-vertical
+  padding-left $button-padding-horizontal
+  padding-right $button-padding-horizontal
+  padding-top $button-padding-vertical
+  text-align center
+  white-space nowrap
+  .icon
+    &,
+    &.is-small,
+    &.is-medium,
+    &.is-large
+      height 1.5em
+      width 1.5em
+    &:first-child:not(:last-child)
+      margin-left "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
+      margin-right ($button-padding-horizontal / 4)
+    &:last-child:not(:first-child)
+      margin-left ($button-padding-horizontal / 4)
+      margin-right "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
+    &:first-child:last-child
+      margin-left "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
+      margin-right "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
+  &.is-small
+    button-small()
+  &.is-normal
+    button-normal()
+  &.is-medium
+    button-medium()
+  &.is-large
+    button-large()
+  &.is-fullwidth
+    display flex
+    width 100%
+  &.is-static
+    box-shadow none
+    pointer-events none
+  &.is-rounded
+    border-radius $radius-rounded
+    padding-left "calc(%s + 0.25em)" % $button-padding-horizontal
+    padding-right "calc(%s + 0.25em)" % $button-padding-horizontal
+
+.buttons
+  align-items center
+  display flex
+  flex-wrap wrap
+  justify-content flex-start
+  .button
+    margin-bottom 0.5rem
+    &:not(:last-child):not(.is-fullwidth)
+      margin-right 0.5rem
+  &:last-child
+    margin-bottom -0.5rem
+  &:not(:last-child)
+    margin-bottom 1rem
+  // Sizes
+  &.are-small
+    .button:not(.is-normal):not(.is-medium):not(.is-large)
+      button-small()
+  &.are-medium
+    .button:not(.is-small):not(.is-normal):not(.is-large)
+      button-medium()
+  &.are-large
+    .button:not(.is-small):not(.is-normal):not(.is-medium)
+      button-large()
+  &.has-addons
+    .button
+      &:not(:first-child)
+        border-bottom-left-radius 0
+        border-top-left-radius 0
+      &:not(:last-child)
+        border-bottom-right-radius 0
+        border-top-right-radius 0
+        margin-right -1px
+      &:last-child
+        margin-right 0
+      &:hover,
+      &.is-hovered
+        z-index 2
+      &:focus,
+      &.is-focused,
+      &:active,
+      &.is-active,
+      &.is-selected
+        z-index 3
+        &:hover
+          z-index 4
+      &.is-expanded
+        flex-grow 1
+        flex-shrink 1
+  &.is-centered
+    justify-content center
+    &:not(.has-addons)
+      .button:not(.is-fullwidth)
+        margin-left 0.25rem
+        margin-right 0.25rem
+  &.is-right
+    justify-content flex-end
+    &:not(.has-addons)
+      .button:not(.is-fullwidth)
+        margin-left 0.25rem
+        margin-right 0.25rem

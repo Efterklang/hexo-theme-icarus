@@ -1,0 +1,24 @@
+$table-head-cell-border-width ?= 0 0 2px
+$table-foot-cell-border-width ?= 2px 0 0
+
+.table
+  @extend $block
+  td,
+  th
+    vertical-align top
+  th
+    &:not([align])
+      text-align left
+  &.is-fullwidth
+    width 100%
+  &.is-narrow
+    td,
+    th
+      padding 0.25em 0.5em
+
+.table-container
+  @extend $block
+  overflow-touch()
+  overflow auto
+  overflow-y hidden
+  max-width 100%

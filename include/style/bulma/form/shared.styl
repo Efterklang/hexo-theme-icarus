@@ -1,0 +1,11 @@
+$input-radius ?= $radius
+
+input()
+  @extend $control
+  border-radius $input-radius
+  &[disabled],
+  fieldset[disabled] &
+    box-shadow none
+
+$input
+  input()

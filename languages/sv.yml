@@ -39,14 +39,6 @@ article:
         created_at: 'Publicerad'
         updated_at: 'Uppdaterad'
         licensed_under: 'Licensierad under'
-donate:
-    title: 'Tycker du om den här artikeln? Stöd författaren genom'
-    afdian: 'Afdian.net'
-    alipay: 'Alipay'
-    wechat: 'Wechat'
-    paypal: 'Paypal'
-    patreon: 'Patreon'
-    buymeacoffee: 'Köp mig en kaffe'
 plugin:
     backtotop: 'Tillbaka till början'
     visit_count: '%s&nbsp;besök'
