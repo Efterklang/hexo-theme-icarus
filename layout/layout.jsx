@@ -45,9 +45,9 @@ module.exports = class extends Component {
                 <Scripts site={site} config={config} helper={helper} page={page} />
                 <Search config={config} helper={helper} />
 
-                <script type="text/javascript" src="/js/imaegoo/imaegoo.js"></script>
                 <script type="text/javascript" src="/js/imaegoo/universe.js"></script>
-                <script src="/js/host/medium-zoom/dist/medium-zoom.min.js"></script>
+                <script type="text/javascript" src="/js/imaegoo/imaegoo.js" defer></script>
+                <script src="/js/host/medium-zoom/dist/medium-zoom.min.js" defer></script>
                 {/* live2d_Asoul */}
                 <script src="/js/live2d_Asoul/TweenLite.js" defer></script>
                 <script src="/js/live2d_Asoul/live2dcubismcore.min.js" defer></script>
