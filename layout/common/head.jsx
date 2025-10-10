@@ -206,9 +206,8 @@ module.exports = class extends Component {
         <link rel="stylesheet" href={iconcdn()} />
 
         <link rel="stylesheet" href={url_for("/css/default.css")} />
-        <link rel="dns-prefetch" href="https://use.fontawesome.com" />
         {/* Maple Mono CN */}
-        <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" />
+        <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" media="print" onLoad="this.media='all'" />
         <Plugins
           site={site}
           config={config}
