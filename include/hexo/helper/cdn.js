@@ -41,13 +41,6 @@ const CDNJS_FIXTURES = {
     ver,
     fname.startsWith('outdatedbrowser/') ? fname.substr(16) : fname,
   ],
-  'highlight.js': (ver, fname) => [
-    'highlight.js',
-    ver,
-    fname.endsWith('.css') && fname.indexOf('.min.') === -1
-      ? fname.substr(0, fname.length - 4) + '.min.css'
-      : fname,
-  ],
   mathjax: (ver, fname) => [
     'mathjax',
     ver,

@@ -33,8 +33,8 @@ function getPageTitle(page, siteTitle, helper) {
 module.exports = class extends Component {
   render() {
     const { site, config, helper, page } = this.props;
-    const { url_for, cdn, fontcdn, iconcdn, is_post } = helper;
-    const { url, head = {}, article, highlight, variant = "default" } = config;
+    const { url_for, iconcdn, is_post } = helper;
+    const { url, head = {}, article } = config;
     const {
       meta = [],
       manifest = {},
@@ -50,15 +50,7 @@ module.exports = class extends Component {
 
     const language = page.lang || page.language || config.language;
 
-    let hlTheme, images;
-    if (highlight && highlight.enable === false) {
-      hlTheme = null;
-    } else if (article && article.highlight && article.highlight.theme) {
-      hlTheme = article.highlight.theme;
-    } else {
-      hlTheme = "atom-one-light";
-    }
-
+    let images;
     if (typeof page.og_image === "string") {
       images = [page.og_image];
     } else if (typeof page.cover === "string") {
@@ -216,14 +208,7 @@ module.exports = class extends Component {
         ) : null}
         <link rel="stylesheet" href={iconcdn()} />
 
-        {hlTheme ? (
-          <link data-pjax rel="stylesheet" href={cdn("highlight.js", "11.7.0", "styles/" + hlTheme + ".css")} />
-        ) : null}
-        <link
-          // BUG data-pjax
-          rel="stylesheet"
-          href={url_for("/css/" + variant + ".css")}
-        />
+        <link rel="stylesheet" href={url_for("/css/default.css")} />
         <link rel="dns-prefetch" href="https://use.fontawesome.com" />
         {/* Maple Mono CN */}
         <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" />
