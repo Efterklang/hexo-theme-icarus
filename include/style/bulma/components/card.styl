@@ -1,45 +1,36 @@
 $card-shadow ?= 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02)
-$card-header-padding ?= 0.75rem 1rem
+$card-header-padding ?= 1rem 1.25rem
 $card-header-shadow ?= 0 0.125em 0.25em rgba($scheme-invert, 0.1)
 $card-header-weight ?= $weight-bold
-$card-content-padding ?= 1.5rem
-$card-footer-padding ?= 0.75rem
+$card-content-padding ?= 1.25rem
+$card-footer-padding ?= 0.75rem 1.25rem
 $card-media-margin ?= $block-spacing
+$card-radius ?= 24px
 
 .card
   box-shadow $card-shadow
   max-width 100%
   position relative
-
-.card-header
-  align-items stretch
-  box-shadow $card-header-shadow
-  display flex
-
-.card-header-title
-  align-items center
-  display flex
-  flex-grow 1
-  font-weight $card-header-weight
-  padding $card-header-padding
-  &.is-centered
-    justify-content center
-
-.card-header-icon
-  align-items center
-  cursor pointer
-  display flex
-  justify-content center
-  padding $card-header-padding
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: $card-radius;
+  overflow: visible;
+  &:hover
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  & + .card, & + .column-right-shadow
+      margin-top: 1.5rem;
 
 .card-image
   display block
   position relative
+  border-radius: $card-radius
 
 .card-content
   padding $card-content-padding
+  border-radius: 0;
 
 .card-footer
+  border-radius: 0 0 $card-radius $card-radius;
   align-items stretch
   display flex
 

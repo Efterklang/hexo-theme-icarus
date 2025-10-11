@@ -203,9 +203,10 @@ module.exports = class extends Component {
             imagesizes="(max-width: 768px) 100vw, 50vw"
           />
         ) : null}
-        <link rel="stylesheet" href={iconcdn()} />
 
         <link rel="stylesheet" href={url_for("/css/default.css")} />
+        {/* Font Awesome */}
+        <link rel="stylesheet" href={iconcdn()} media="print" onLoad="this.media='all'"/>
         {/* Maple Mono CN */}
         <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" media="print" onLoad="this.media='all'" />
         <Plugins

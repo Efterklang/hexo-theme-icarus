@@ -29,8 +29,7 @@
 
 为更好的阅读体验(主要体现在移动端)，这里将 TOC 改成浮动组件
 
-```yaml
-# _config.post.yml
+```yaml _config.post.yml
 sidebar:
   left:
     sticky: false
@@ -74,13 +73,10 @@ $ hexo config theme icarus
 ```diff package.json
 {
   "dependencies": {
-+   "bulma-stylus": "0.8.0",
 +   "deepmerge": "^4.3.1",
 +   "hexo": "^7.2.0",
-+   "hexo-bitiful-toolkit": "git+https://github.com/Efterklang/Bitiful_Responsive_And_Progressive_Image",
 +   "hexo-cli": "^4.3.2",
 +   "hexo-component-inferno": "^3.1.2",
-+   "hexo-filter-titlebased-link": "^0.2.6",
 +   "hexo-generator-archive": "^2.0.0",
 +   "hexo-generator-category": "^2.0.0",
 +   "hexo-generator-feed": "^3.0.0",
