@@ -51,7 +51,6 @@ const CDNJS_FIXTURES = {
   ],
   katex: (ver, fname) => ['KaTeX', ver, fname],
   'pace-js': (ver, fname) => ['pace', ver, fname],
-  clipboard: (ver, fname) => ['clipboard.js', ver, fname],
   // disqusjs is not hosted on CDN.js
   disqusjs: (ver, fname) => [],
   cookieconsent: (ver, fname) => [

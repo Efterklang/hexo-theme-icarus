@@ -50,31 +50,7 @@ $help-size ?= $size-small
         .select select
           border-bottom-left-radius 0
           border-top-left-radius 0
-      .button,
-      .input,
-      .select select
-        &:not([disabled])
-          &:hover,
-          &.is-hovered
-            z-index 2
-          &:focus,
-          &.is-focused,
-          &:active,
-          &.is-active
-            z-index 3
-            &:hover
-              z-index 4
-      &.is-expanded
-        flex-grow 1
-        flex-shrink 1
-    &.has-addons-centered
-      justify-content center
-    &.has-addons-right
-      justify-content flex-end
-    &.has-addons-fullwidth
-      .control
-        flex-grow 1
-        flex-shrink 0
+
   &.is-grouped
     display flex
     justify-content flex-start
@@ -83,13 +59,6 @@ $help-size ?= $size-small
       &:not(:last-child)
         margin-bottom 0
         margin-right 0.75rem
-      &.is-expanded
-        flex-grow 1
-        flex-shrink 1
-    &.is-grouped-centered
-      justify-content center
-    &.is-grouped-right
-      justify-content flex-end
     &.is-grouped-multiline
       flex-wrap wrap
       & > .control
