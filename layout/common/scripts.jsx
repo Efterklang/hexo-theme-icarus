@@ -9,13 +9,13 @@ module.exports = class extends Component {
         const language = toMomentLocale(page.lang || page.language || config.language || 'en');
 
         return <Fragment>
-            <script src={cdn('jquery', '3.3.1', 'dist/jquery.min.js')}></script>
-            <script src={cdn('moment', '2.22.2', 'min/moment-with-locales.min.js')}></script>
-            {config.comment?.js_url && <script src={config.comment.js_url}></script>}
+            <script defer src={cdn('jquery', '3.3.1', 'dist/jquery.min.js')}></script>
+            <script defer src={cdn('moment', '2.22.2', 'min/moment-with-locales.min.js')}></script>
+            {config.comment?.js_url && <script defer src={config.comment.js_url}></script>}
             <script dangerouslySetInnerHTML={{ __html: `moment.locale("${language}");` }}></script>
-            <script data-pjax src={url_for('/js/column.js')}></script>
+            <script async data-pjax src={url_for('/js/column.js')}></script>
             <Plugins site={site} config={config} page={page} helper={helper} head={false} />
-            <script data-pjax src={url_for('/js/main.js')} defer></script>
+            <script defer data-pjax src={url_for('/js/main.js')} ></script>
         </Fragment>;
     }
 };

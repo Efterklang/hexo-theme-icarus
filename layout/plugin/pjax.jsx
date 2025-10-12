@@ -9,8 +9,8 @@ class Pjax extends Component {
         const { url_for, cdn } = helper;
 
         return <Fragment>
-            <script src={cdn('pjax', '0.2.8', 'pjax.min.js')}></script>
-            <script src={url_for('/js/pjax.js')}></script>
+            <script defer src={cdn('pjax', '0.2.8', 'pjax.min.js')}></script>
+            <script defer src={url_for('/js/pjax.js')}></script>
         </Fragment>;
     }
 }

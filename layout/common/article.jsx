@@ -43,7 +43,7 @@ module.exports = class extends Component {
                     const imageSrcset = useResponsiveImages ? `${cover}?w=128 128w, ${cover}?w=256 256w, ${cover}?w=800 800w, ${cover}?w=1500 1500w, ${cover}?w=2000 2000w, ${cover}?fmt=avif 6144w` : null;
                     const imageSizes = useResponsiveImages ? '(max-width: 768px) 100vw, 50vw' : null;
                     const coverLQIP = <img class="cover-lqip" alt="lqip" src={`${cover}?q=10&blur=25`} fetchpriority="high" />;
-                    const CoverImage = <img class="fill" src={cover} alt={page.title || cover} onLoad={"this.classList.add('loaded')"} srcset={imageSrcset} sizes={imageSizes} fetchpriority="high" referrerpolicy="no-referrer" />;
+                    const CoverImage = <img class="fill" src={cover} alt={page.title || cover} onLoad={"this.classList.add('loaded')"} srcset={imageSrcset} sizes={imageSizes} referrerpolicy="no-referrer" />;
                     return <div class="card-image">
                         {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
                             {CoverImage}

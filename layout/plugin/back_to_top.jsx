@@ -9,7 +9,7 @@ class BackToTop extends Component {
             <a id="back-to-top" title={title} href="javascript:;">
                 <i class="fas fa-chevron-up"></i>
             </a>
-            <script data-pjax src={jsUrl} defer></script>
+            <script defer data-pjax src={jsUrl}></script>
         </Fragment>;
 
     }

@@ -17,8 +17,8 @@ class Netlify extends Component {
             return null;
         }
         return <Fragment>
-            <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-            <script dangerouslySetInnerHTML={{ __html: netlifyJs }}></script>
+            <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+            <script defer dangerouslySetInnerHTML={{ __html: netlifyJs }}></script>
         </Fragment>;
 
     }

@@ -52,7 +52,7 @@ class Twikoo extends Component {
     return (
       <Fragment>
         <div id="twikoo" class="content twikoo"></div>
-        <script src={jsUrl}></script>
+        <script defer src={jsUrl}></script>
         <script dangerouslySetInnerHTML={{ __html: js }}></script>
       </Fragment>
     );
