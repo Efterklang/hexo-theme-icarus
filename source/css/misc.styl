@@ -15,10 +15,6 @@ screen-onek = 1700px;
         .column.is-6-widescreen
             width 56%;
 
-// Background image
-body
-    background-color transparent;
-
 body:before
     content '';
     position fixed;
@@ -28,7 +24,6 @@ body:before
     bottom 0;
     left 0;
     opacity 0.6;
-    // transition: opacity 1s
     background url('/img/background.webp');
     background-size cover;
 
@@ -52,17 +47,6 @@ body:before
             .navbar-end
                 padding-bottom 0.5rem;
 
-// Card fixes
-.card
-    overflow visible;
-    transition background-color 0.5s ease;
-
-    &.card-transparent
-        background-color transparent !important;
-
-        .level-start, .level-end
-            overflow hidden;
-
 @media screen and (min-width screen-tablet)
     .column-main, .column-left, .column-right, .column-right-shadow
         &.is-sticky
@@ -73,8 +57,6 @@ body:before
         position sticky;
         top 0;
 
-.code
-    text-align left;
 
 // Article horizontal scroll bar
 .article
