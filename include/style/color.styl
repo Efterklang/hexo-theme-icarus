@@ -28,7 +28,42 @@ $latte = {
     card_bg: rgba(239, 241, 245, 0.2),
     card_bg_hover: rgba(220,218,245, 0.1),
     card_content_bg: rgba(255, 255, 255, 0.9),
-    card_header_bg: rgba(239, 241, 245, 0.8)
+    card_header_bg: rgba(239, 241, 245, 0.8),
+    // Callout colors with opacity
+    blue_opacity_2: rgba(30, 102, 245, 0.2),
+    blue_opacity_5: rgba(30, 102, 245, 0.5),
+    sapphire_opacity_2: rgba(32, 159, 181, 0.2),
+    sapphire_opacity_5: rgba(32, 159, 181, 0.5),
+    green_opacity_2: rgba(64, 160, 43, 0.2),
+    green_opacity_5: rgba(64, 160, 43, 0.5),
+    peach_opacity_2: rgba(254, 100, 11, 0.2),
+    peach_opacity_5: rgba(254, 100, 11, 0.5),
+    yellow_opacity_2: rgba(223, 142, 29, 0.2),
+    yellow_opacity_5: rgba(223, 142, 29, 0.5),
+    red_opacity_2: rgba(210, 15, 57, 0.2),
+    red_opacity_5: rgba(210, 15, 57, 0.5),
+    pink_opacity_2: rgba(234, 118, 203, 0.2),
+    pink_opacity_5: rgba(234, 118, 203, 0.5),
+    mauve_opacity_2: rgba(136, 57, 239, 0.2),
+    mauve_opacity_5: rgba(136, 57, 239, 0.5),
+    teal_opacity_2: rgba(23, 146, 153, 0.2),
+    teal_opacity_5: rgba(23, 146, 153, 0.5),
+    lavender_opacity_2: rgba(114, 135, 253, 0.2),
+    lavender_opacity_5: rgba(114, 135, 253, 0.5),
+    // Surface colors with opacity for twikoo
+    surface0_opacity_3: rgba(204, 208, 218, 0.3),
+    surface0_opacity_5: rgba(204, 208, 218, 0.5),
+    surface0_opacity_7: rgba(204, 208, 218, 0.7),
+    surface1_opacity_4: rgba(188, 192, 204, 0.4),
+    surface1_opacity_5: rgba(188, 192, 204, 0.5),
+    surface1_opacity_6: rgba(188, 192, 204, 0.6),
+    surface1_opacity_8: rgba(188, 192, 204, 0.8),
+    surface2_opacity_8: rgba(172, 176, 190, 0.8),
+    surface2_opacity_9: rgba(172, 176, 190, 0.9),
+    blue_opacity_6: rgba(30, 102, 245, 0.6),
+    base_opacity_1: rgba(239, 241, 245, 0.1),
+    base_opacity_7: rgba(239, 241, 245, 0.7),
+    yellow_opacity_15: rgba(223, 142, 29, 0.15)
 };
 $mocha = {
     rosewater: #f5e0dc,
@@ -60,537 +95,583 @@ $mocha = {
     card_bg: rgba(24, 24, 37, 0.4),
     card_bg_hover: rgba( 69, 69, 90, 0.1),
     card_content_bg: rgba(30, 30, 46, 0.5),
-    card_header_bg: rgba(49, 50, 68, 0.6)
+    card_header_bg: rgba(49, 50, 68, 0.6),
+    // Callout colors with opacity
+    blue_opacity_2: rgba(137, 180, 250, 0.2),
+    blue_opacity_5: rgba(137, 180, 250, 0.5),
+    sapphire_opacity_2: rgba(116, 199, 236, 0.2),
+    sapphire_opacity_5: rgba(116, 199, 236, 0.5),
+    green_opacity_2: rgba(166, 227, 161, 0.2),
+    green_opacity_5: rgba(166, 227, 161, 0.5),
+    peach_opacity_2: rgba(250, 179, 135, 0.2),
+    peach_opacity_5: rgba(250, 179, 135, 0.5),
+    yellow_opacity_2: rgba(249, 226, 175, 0.2),
+    yellow_opacity_5: rgba(249, 226, 175, 0.5),
+    red_opacity_2: rgba(243, 139, 168, 0.2),
+    red_opacity_5: rgba(243, 139, 168, 0.5),
+    pink_opacity_2: rgba(245, 194, 231, 0.2),
+    pink_opacity_5: rgba(245, 194, 231, 0.5),
+    mauve_opacity_2: rgba(203, 166, 247, 0.2),
+    mauve_opacity_5: rgba(203, 166, 247, 0.5),
+    teal_opacity_2: rgba(148, 226, 213, 0.2),
+    teal_opacity_5: rgba(148, 226, 213, 0.5),
+    lavender_opacity_2: rgba(180, 190, 254, 0.2),
+    lavender_opacity_5: rgba(180, 190, 254, 0.5),
+    // Surface colors with opacity for twikoo
+    surface0_opacity_3: rgba(49, 50, 68, 0.3),
+    surface0_opacity_5: rgba(49, 50, 68, 0.5),
+    surface0_opacity_7: rgba(49, 50, 68, 0.7),
+    surface1_opacity_4: rgba(69, 71, 90, 0.4),
+    surface1_opacity_5: rgba(69, 71, 90, 0.5),
+    surface1_opacity_6: rgba(69, 71, 90, 0.6),
+    surface1_opacity_8: rgba(69, 71, 90, 0.8),
+    surface2_opacity_8: rgba(88, 91, 112, 0.8),
+    surface2_opacity_9: rgba(88, 91, 112, 0.9),
+    blue_opacity_6: rgba(137, 180, 250, 0.6),
+    base_opacity_1: rgba(30, 30, 46, 0.1),
+    base_opacity_7: rgba(30, 30, 46, 0.7),
+    yellow_opacity_15: rgba(249, 226, 175, 0.15)
 };
 
-content-colors($colors)
+
+content-colors()
     h1.title
-        color: $colors.lavender
+        color: var(--lavender)
     .content
         h2
-            color: $colors.peach;
+            color: var(--peach)
         h3
-            color: $colors.yellow;
+            color: var(--yellow);
         h4
-            color: $colors.green;
+            color: var(--green);
         h5
-            color: $colors.blue;
+            color: var(--blue);
         h6
-            color: $colors.mauve;
+            color: var(--mauve);
         a
-            color: $colors.lavender;
+            color: var(--lavender);
             &:hover
-                color: $colors.blue;
+                color: var(--blue);
         strong
-            color: $colors.pink;
+            color: var(--pink);
         blockquote
-            background-color: $colors.surface0;
-            border-color: $colors.crust;
+            background-color: var(--surface0);
+            border-color: var(--crust);
         table
-            background-color: $colors.base;
-            border: 1px solid $colors.surface0;
+            background-color: var(--base);
+            border: 1px solid var(--surface0);
             th
-                background-color: $colors.mantle;
-                color: $colors.text;
-                border-bottom-color: $colors.surface0 !important;
+                background-color: var(--mantle);
+                color: var(--text);
+                border-bottom-color: var(--surface0) !important;
             td
-                color: $colors.text;
-                border-bottom-color: $colors.surface0 !important;
+                color: var(--text);
+                border-bottom-color: var(--surface0) !important;
             tbody tr
                 &:nth-child(even)
-                    background-color: $colors.mantle;
+                    background-color: var(--mantle);
 
                 &:hover
-                    background-color: $colors.surface0;
+                    background-color: var(--surface0);
     // Code block colors
     code
-        background-color: $colors.surface0;
-        color: $colors.subtext1;
-        border: 1px solid $colors.surface1;
+        background-color: var(--surface0);
+        color: var(--subtext1);
+        border: 1px solid var(--surface1);
     .level-left
         span, a, time
-            color: $colors.overlay1;
+            color: var(--overlay1);
         a
             &:hover
-                color: $colors.blue;
-article-colors($colors)
+                color: var(--blue);
+article-colors()
     article
         &.media
-            color: $colors.subtext1;
+            color: var(--subtext1);
             a
                 color: inherit;
                 &:hover
-                    color: $colors.blue;
+                    color: var(--blue);
         &.article
             .article-meta
-                color: $colors.subtext1;
+                color: var(--subtext1);
         .article-licensing
-            color: $colors.subtext1;
-            background-color: $colors.base;
+            color: var(--subtext1);
+            background-color: var(--base);
             a
-                color: $colors.lavender;
+                color: var(--lavender);
                 &:hover
-                    color: $colors.blue;
+                    color: var(--blue);
 
     .article, article.media
         .title a
-            color: $colors.text;
+            color: var(--text);
             &:hover
-                background: linear-gradient(to right, $colors.pink, $colors.blue, $colors.lavender)
+                background: linear-gradient(to right, var(--pink), var(--blue), var(--lavender))
                 -webkit-background-clip: text
                 background-clip: text
                 -webkit-text-fill-color: transparent
             &:after
-                background: linear-gradient(to right, $colors.pink, $colors.blue, $colors.lavender)
+                background: linear-gradient(to right, var(--pink), var(--blue), var(--lavender))
 
-button-colors($colors)
+button-colors()
     .button.is-primary, .button.is-light, .button.is-small, .cc-window .cc-compliance > .cc-btn
-        background-color: $colors.lavender;
-        color: $colors.base;
+        background-color: var(--lavender);
+        color: var(--base);
         &:hover, &.is-hovered
-            color: $colors.base;
-            background-color: $colors.mauve;
+            color: var(--base);
+            background-color: var(--mauve);
         &:active, &.is-active
-            color: $colors.text;
-            background-color: $colors.mauve;
+            color: var(--text);
+            background-color: var(--mauve);
     .button.is-white, .button.is-transparent
         background-color: transparent;
-        color: $colors.text;
+        color: var(--text);
         &:hover
-            background-color: $colors.surface0;
+            background-color: var(--surface0);
     .button.is-link
-        background-color: $colors.blue;
+        background-color: var(--blue);
     .button.is-link:hover, .button.is-link.is-hovered
-        background-color: $colors.sapphire;
+        background-color: var(--sapphire);
 
     .button.is-link:active, .button.is-link.is-active
-        background-color: $colors.sapphire;
+        background-color: var(--sapphire);
 
-toc-colors($colors)
+toc-colors()
     .floating-toc-button
-        background-color: $colors.base
-        color: $colors.text
-        border: 2px solid $colors.surface0
+        background-color: var(--base)
+        color: var(--text)
+        border: 2px solid var(--surface0)
     .floating-toc-container .widget
-        border: 1px solid $colors.card_bg
+        border: 1px solid var(--card_bg)
         .menu-list a
-            color: $colors.text;
+            color: var(--text);
             &:hover
-                color: $colors.mauve;
+                color: var(--mauve);
                 background-color: inherit
 
 // Tabs component theme colors
-tabs-colors($colors)
+tabs-colors()
     .tabs
-        color: $colors.text
+        color: var(--text)
         ul
-            border-bottom-color: $colors.surface0
+            border-bottom-color: var(--surface0)
         a
-            border-bottom-color: $colors.surface0
-            color: $colors.text
+            border-bottom-color: var(--surface0)
+            color: var(--text)
             &:hover
-                border-bottom-color: $colors.lavender
-                color: $colors.lavender
+                border-bottom-color: var(--lavender)
+                color: var(--lavender)
         li.is-active a
-            border-bottom-color: $colors.blue
-            color: $colors.blue
+            border-bottom-color: var(--blue)
+            color: var(--blue)
         // Boxed style
         &.is-boxed
             a
                 background: transparent
                 border: 1px solid transparent
                 &:hover
-                    background-color: $colors.surface1
-                    border-bottom-color: $colors.surface0
+                    background-color: var(--surface1)
+                    border-bottom-color: var(--surface0)
             li.is-active a
-                background-color: $colors.base
-                border-color: $colors.surface0
+                background-color: var(--base)
+                border-color: var(--surface0)
                 border-bottom-color: transparent !important
         &.is-toggle
             a
-                border: 1px solid $colors.surface0
+                border: 1px solid var(--surface0)
                 background: transparent
-                color: $colors.text
+                color: var(--text)
                 &:hover
-                    background-color: $colors.surface1
-                    border-color: $colors.overlay1
-                    color: $colors.lavender
+                    background-color: var(--surface1)
+                    border-color: var(--overlay1)
+                    color: var(--lavender)
             li.is-active a
-                background-color: $colors.blue
-                border-color: $colors.blue
-                color: $colors.base
+                background-color: var(--blue)
+                border-color: var(--blue)
+                color: var(--base)
 
-navbar-colors($colors)
+navbar-colors()
     .navbar-main
         .navbar-item.is-active
             background-color: transparent;
-            color: $colors.lavender;
+            color: var(--lavender);
         .navbar-menu .navbar-item
             &:hover, &:focus
-                color: $colors.lavender;
-                background-color: $colors.surface0;
+                color: var(--lavender);
+                background-color: var(--surface0);
     .navbar
-        background-color: $colors.crust;
+        background-color: var(--crust);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid $colors.crust;
+        border-bottom: 1px solid var(--crust);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-widget-colors($colors)
+widget-colors()
     .widget
         .menu-list
             a
                 &:hover, &.is-active
-                    background-color: $colors.surface0;
+                    background-color: var(--surface0);
             li ul
-                border-color: $colors.surface0;
+                border-color: var(--surface0);
 
-tag-colors($colors)
+tag-colors()
     .tag:not(body).is-primary, .widget .menu-list .tag
-        color: $colors.text;
-        background-color: $colors.surface1;
+        color: var(--text);
+        background-color: var(--surface1);
 
     // "tag" element in categories widget or arhive widget which looks like a button
     .widget .menu-list .tag
         &:hover
-            color: $colors.base;
-            background-color: $colors.mauve;
+            color: var(--base);
+            background-color: var(--mauve);
 
     // "tag" element in tags widget & tags page
     .tags.has-addons .tag
-        color: $colors.text;
-        border-color: $colors.surface0;
+        color: var(--text);
+        border-color: var(--surface0);
         &:first-child
-            background: $colors.base;
+            background: var(--base);
         &:last-child
-            background: $colors.mantle;
+            background: var(--mantle);
 
-timeline-colors($colors)
+timeline-colors()
     .timeline
-        border-left: 1px solid $colors.overlay1;
+        border-left: 1px solid var(--overlay1);
         .media
             &:before
-                background: $colors.overlay1;
+                background: var(--overlay1);
             &:last-child:after
-                background: $colors.base;
+                background: var(--base);
     .timeline a, .twikoo-new-container a, [data-type='recent-posts'] a
-        color: $colors.text;
+        color: var(--text);
         &:hover
-            color: $colors.text;
+            color: var(--text);
 
-ui-elements-colors($colors)
+ui-elements-colors()
     body, time, .title, .footer, .card, .navbar-item, .navbar-link, .menu-label, .level-item, .button.is-white, .button.is-transparent, .v *
-        color: $colors.text;
+        color: var(--text);
     .media-content, .link-muted, .cc-window
-        color: $colors.text;
+        color: var(--text);
     .input, .textarea
-        background-color: $colors.crust;
-        border-color: $colors.surface0;
-        color: $colors.text;
+        background-color: var(--crust);
+        border-color: var(--surface0);
+        color: var(--text);
     .footer, .footer:before
-        background-color: $colors.mantle;
+        background-color: var(--mantle);
         opacity: 0.8 !important;
     // Horizontal rule
     hr
-        background-color: $colors.surface0;
+        background-color: var(--surface0);
     // Selection colors
     ::selection
-        color: $colors.base;
-        background-color: $colors.lavender;
+        color: var(--base);
+        background-color: var(--lavender);
     ::-moz-selection
-        color: $colors.text;
-        background-color: $colors.overlay0;
+        color: var(--text);
+        background-color: var(--overlay0);
     // Form autofill
     input:-webkit-autofill
-        -webkit-text-fill-color: $colors.text;
-        box-shadow 0 0 0px 1000px $colors.surface0 inset;
+        -webkit-text-fill-color: var(--text);
+        box-shadow 0 0 0px 1000px var(--surface0) inset;
     // Plugin colors
     .gallery-item .caption
-        color: $colors.overlay1;
+        color: var(--overlay1);
     .breadcrumb
         a
-            color: $colors.lavender;
+            color: var(--lavender);
         li.is-active a
-            color: $colors.subtext1;
+            color: var(--subtext1);
 
-cookie-consent-colors($colors)
+cookie-consent-colors()
     .cc-window
-        color: $colors.text;
-        background-color: $colors.base;
-        border: 1px solid $colors.surface0;
+        color: var(--text);
+        background-color: var(--base);
+        border: 1px solid var(--surface0);
         &.cc-banner
-            background-color: $colors.mantle;
+            background-color: var(--mantle);
         .cc-compliance > .cc-btn
-            color: $colors.base;
-            background-color: $colors.lavender;
+            color: var(--base);
+            background-color: var(--lavender);
             backdrop-filter: blur(10px);
             &:hover, &:focus
-                background-color: $colors.mauve;
+                background-color: var(--mauve);
             &.cc-deny:hover
-                color: $colors.lavender;
+                color: var(--lavender);
     .cc-revoke
-        color: $colors.base;
-        background-color: $colors.lavender;
+        color: var(--base);
+        background-color: var(--lavender);
         &:hover
-            background-color: $colors.mauve;
+            background-color: var(--mauve);
 
-pagination-colors($colors)
+pagination-colors()
     .pagination-next, .pagination-previous, .pagination-link, .pagination-ellipsis
-        background: $colors.mantle;
-        color: $colors.text;
+        background: var(--mantle);
+        color: var(--text);
         a
-            color: $colors.text;
+            color: var(--text);
         &:hover, &.is-hovered
-            background-color: $colors.lavender;
-            color: $colors.base;
+            background-color: var(--lavender);
+            color: var(--base);
             a
-                color: $colors.base;
+                color: var(--base);
     .pagination-link.is-current
-        background-color: $colors.lavender;
-        color: $colors.base;
+        background-color: var(--lavender);
+        color: var(--base);
     .post-navigation
-        color: $colors.subtext0;
+        color: var(--subtext0);
 
-card-colors($colors)
+card-colors()
     .card
-        background-color: $colors.card_bg;
+        background-color: var(--card_bg);
         box-shadow: $card-shadow-light;
 
         &:hover
             box-shadow: $card-shadow-light-hover;
 
         .card-header
-            background-color: $colors.card_header_bg;
-            border-bottom: 1px solid $colors.surface1;
+            background-color: var(--card_header_bg);
+            border-bottom: 1px solid var(--surface1);
 
-searchbox-colors($colors)
+searchbox-colors()
     .searchbox
         .searchbox-container
-            background-color: $colors.card_bg;
-            border: 2px solid $colors.surface0;
+            background-color: var(--card_bg);
+            border: 2px solid var(--surface0);
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
         .searchbox-header, .searchbox-header .searchbox-input, .searchbox-header .searchbox-close, .searchbox-body, .searchbox-result-section, .searchbox-result-item, .searchbox-pinyin
-            color: $colors.subtext1;
-            background-color: $colors.mantle;
-            border-color: $colors.surface0;
+            color: var(--subtext1);
+            background-color: var(--mantle);
+            border-color: var(--surface0);
         .searchbox-container .searchbox-result-section .searchbox-result-item:hover, .searchbox-container .searchbox-result-section .searchbox-result-item.active, .searchbox-container .searchbox-header .searchbox-close:hover
-            color: $colors.blue;
+            color: var(--blue);
 
-callout-colors($colors)
-    $callout-background-opacity ?= 0.2
-    $callout-border-opacity ?= 0.5
-
+callout-colors()
     // Default callout
     .callout
-        border-color: rgba($colors.blue, $callout-border-opacity);
-        background-color: rgba($colors.blue, $callout-background-opacity);
+        border-color: var(--blue_opacity_5)
+        background-color: var(--blue_opacity_2)
         .callout-title
-            color: $colors.blue;
+            color: var(--blue)
         .callout-title .callout-fold
-            background-color: $colors.blue;
+            background-color: var(--blue)
     .callout .callout-content
         background-color: transparent
 
     // Info callout
     .callout[data-callout="info"], .callout[data-callout="todo"]
-        border-color: rgba($colors.sapphire, $callout-border-opacity);
-        background-color: rgba($colors.sapphire, $callout-background-opacity);
+        border-color: var(--sapphire_opacity_5)
+        background-color: var(--sapphire_opacity_2)
         .callout-title
-            color: $colors.sapphire;
+            color: var(--sapphire)
         .callout-title .callout-fold
-            background-color: $colors.sapphire;
+            background-color: var(--sapphire)
 
     // Success callout
     .callout[data-callout="success"], .callout[data-callout="check"], .callout[data-callout="done"]
-        border-color: rgba($colors.green, $callout-border-opacity);
-        background-color: rgba($colors.green, $callout-background-opacity);
+        border-color: var(--green_opacity_5)
+        background-color: var(--green_opacity_2)
         .callout-title
-            color: $colors.green;
+            color: var(--green)
         .callout-title .callout-fold
-            background-color: $colors.green;
+            background-color: var(--green)
 
     // Warning callout
     .callout[data-callout="warning"], .callout[data-callout="caution"], .callout[data-callout="attention"]
-        border-color: rgba($colors.peach, $callout-border-opacity);
-        background-color: rgba($colors.peach, $callout-background-opacity);
+        border-color: var(--peach_opacity_5)
+        background-color: var(--peach_opacity_2)
         .callout-title
-            color: $colors.peach;
+            color: var(--peach)
         .callout-title .callout-fold
-            background-color: $colors.peach;
+            background-color: var(--peach)
 
     // Question callout
     .callout[data-callout="question"], .callout[data-callout="help"], .callout[data-callout="faq"]
-        border-color: rgba($colors.yellow, $callout-border-opacity);
-        background-color: rgba($colors.yellow, $callout-background-opacity);
+        border-color: var(--yellow_opacity_5)
+        background-color: var(--yellow_opacity_2)
         .callout-title
-            color: $colors.yellow;
+            color: var(--yellow)
         .callout-title .callout-fold
-            background-color: $colors.yellow;
+            background-color: var(--yellow)
 
     // Error/Danger callout
     .callout[data-callout="danger"], .callout[data-callout="error"], .callout[data-callout="bug"], .callout[data-callout="failure"], .callout[data-callout="fail"], .callout[data-callout="missing"]
-        border-color: rgba($colors.red, $callout-border-opacity);
-        background-color: rgba($colors.red, $callout-background-opacity);
+        border-color: var(--red_opacity_5)
+        background-color: var(--red_opacity_2)
         .callout-title
-            color: $colors.red;
+            color: var(--red)
         .callout-title .callout-fold
-            background-color: $colors.red;
+            background-color: var(--red)
 
     // Tip callout
     .callout[data-callout="tip"], .callout[data-callout="hint"], .callout[data-callout="important"]
-        border-color: rgba($colors.pink, $callout-border-opacity);
-        background-color: rgba($colors.pink, $callout-background-opacity);
+        border-color: var(--pink_opacity_5)
+        background-color: var(--pink_opacity_2)
         .callout-title
-            color: $colors.pink;
+            color: var(--pink)
         .callout-title .callout-fold
-            background-color: $colors.pink;
+            background-color: var(--pink)
 
     // Example callout
     .callout[data-callout="example"]
-        border-color: rgba($colors.mauve, $callout-border-opacity);
-        background-color: rgba($colors.mauve, $callout-background-opacity);
+        border-color: var(--mauve_opacity_5)
+        background-color: var(--mauve_opacity_2)
         .callout-title
-            color: $colors.mauve;
+            color: var(--mauve)
         .callout-title .callout-fold
-            background-color: $colors.mauve;
+            background-color: var(--mauve)
 
     // Summary callout
     .callout[data-callout="abstract"], .callout[data-callout="summary"], .callout[data-callout="tldr"]
-        border-color: rgba($colors.teal, $callout-border-opacity);
-        background-color: rgba($colors.teal, $callout-background-opacity);
+        border-color: var(--teal_opacity_5)
+        background-color: var(--teal_opacity_2)
         .callout-title
-            color: $colors.teal;
+            color: var(--teal)
         .callout-title .callout-fold
-            background-color: $colors.teal;
+            background-color: var(--teal)
 
     // Quote callout
     .callout[data-callout="quote"], .callout[data-callout="cite"]
-        border-color: rgba($colors.lavender, $callout-border-opacity);
-        background-color: rgba($colors.lavender, $callout-background-opacity);
+        border-color: var(--lavender_opacity_5)
+        background-color: var(--lavender_opacity_2)
         .callout-title
-            color: $colors.lavender;
+            color: var(--lavender)
         .callout-title .callout-fold
-            background-color: $colors.lavender;
+            background-color: var(--lavender)
 
-twikoo-colors($colors)
+twikoo-colors()
     .twikoo
-        color: $colors.text
+        color: var(--text)
 
         svg
-            fill: $colors.lavender
+            fill: var(--lavender)
 
         a
-            color: $colors.lavender
+            color: var(--lavender)
             &:hover
-                color: $colors.mauve
+                color: var(--mauve)
         // 展开按钮颜色
         .tk-expand
-            color: $colors.subtext1
-            background-color: rgba($colors.surface0, 0.5)
-            border: 1px solid rgba($colors.surface1, 0.6)
+            color: var(--subtext1)
+            background-color: var(--surface0_opacity_5)
+            border: 1px solid var(--surface1_opacity_6)
 
             &:hover
-                color: $colors.text
-                background-color: rgba($colors.surface1, 0.8)
-                border-color: $colors.surface2
+                color: var(--text)
+                background-color: var(--surface1_opacity_8)
+                border-color: var(--surface2)
 
             &:active
-                background-color: rgba($colors.surface2, 0.9)
+                background-color: var(--surface2_opacity_9)
 
         // Element UI 输入框颜色
         .el-input__inner,
         .el-textarea__inner
-            background-color: rgba($colors.surface0, 0.3)
-            border-color: rgba($colors.surface1, 0.6)
-            color: $colors.text
+            background-color: var(--surface0_opacity_3)
+            border-color: var(--surface1_opacity_6)
+            color: var(--text)
 
             &::placeholder
-                color: $colors.overlay1
+                color: var(--overlay1)
 
             &:hover
-                border-color: rgba($colors.surface2, 0.8)
-                background-color: rgba($colors.surface0, 0.5)
+                border-color: var(--surface2_opacity_8)
+                background-color: var(--surface0_opacity_5)
 
             &:focus
-                border-color: $colors.blue
-                background-color: rgba($colors.surface0, 0.7)
+                border-color: var(--blue)
+                background-color: var(--surface0_opacity_7)
 
         // 输入框组合元素颜色
         .el-input-group__append,
         .el-input-group__prepend
-            background-color: rgba($colors.surface1, 0.4)
-            border-color: rgba($colors.surface1, 0.6)
-            color: $colors.subtext1
+            background-color: var(--surface1_opacity_4)
+            border-color: var(--surface1_opacity_6)
+            color: var(--subtext1)
 
         .el-button--text
-            color: $colors.lavender
+            color: var(--lavender)
 
         // 按钮颜色
         .el-button:not(.el-button--primary):not(.el-button--text)
-            color: $colors.text
-            background-color: rgba($colors.surface0, 0.4)
-            border-color: rgba($colors.surface1, 0.5)
+            color: var(--text)
+            background-color: var(--surface1_opacity_4)
+            border-color: var(--surface1_opacity_5)
 
             &:hover,
             &:focus,
             &:active
-                color: $colors.blue
-                background-color: rgba($colors.blue, 0.1)
-                border-color: rgba($colors.blue, 0.6)
+                color: var(--blue)
+                background-color: var(--blue_opacity_2)
+                border-color: var(--blue_opacity_6)
 
         // 主要按钮
         .el-button--primary
-            background-color: $colors.blue
-            border-color: $colors.blue
-            color: $colors.base
+            background-color: var(--blue)
+            border-color: var(--blue)
+            color: var(--base)
 
             &:hover,
             &:focus
-                background-color: $colors.sapphire
-                border-color: $colors.sapphire
+                background-color: var(--sapphire)
+                border-color: var(--sapphire)
 
             &.is-disabled
                 &,
                 &:active,
                 &:focus,
                 &:hover
-                    color: rgba($colors.base, 0.7)
-                    background-color: rgba($colors.blue, 0.5)
+                    color: var(--base_opacity_7)
+                    background-color: var(--blue_opacity_5)
                     border-color: transparent
 
         // 加载遮罩
         .el-loading-mask
-            background-color: rgba($colors.base, 0.1)
+            background-color: var(--base_opacity_1)
 
         // 文本域字数统计
         .el-textarea .el-input__count
-            color: $colors.overlay1
+            color: var(--overlay1)
 
     // 管理员警告框
     .tk-admin-warn
-        background-color: rgba($colors.yellow, 0.15)
-        border-left-color: $colors.yellow
-        color: $colors.text
+        // background-color: rgb(from var(--yellow) r g b / 0.15)
+        background-color: var(--yellow_opacity_15)
+        border-left-color: var(--yellow)
+        color: var(--text)
 
         &::before
-            background: linear-gradient(90deg, $colors.yellow, transparent)
+            background: linear-gradient(90deg, var(--yellow), transparent)
 
-apply-theme-mixins($colors)
-    $colorMixins = 'content' 'article' 'button' 'navbar' 'widget' 'timeline' 'ui-elements' 'cookie-consent' 'pagination' 'card' 'tag' 'searchbox' 'toc' 'tabs' 'callout' 'twikoo'
-    for $mixin in $colorMixins
-        {$mixin + '-colors'}($colors)
+// Apply all styles using CSS variables
+content-colors()
+article-colors()
+button-colors()
+navbar-colors()
+widget-colors()
+tag-colors()
+timeline-colors()
+ui-elements-colors()
+cookie-consent-colors()
+pagination-colors()
+card-colors()
+searchbox-colors()
+toc-colors()
+tabs-colors()
+callout-colors()
+twikoo-colors()
 
-apply-theme-mixins($latte);
+// Night mode specific styles
 html.night
-    apply-theme-mixins($mocha);
     .card
-        border: 1px solid rgba(69, 71, 90, 0.3);
+        border: 1px solid rgba(69, 71, 90, 0.3)
 
-// Inject color variables, so you can use var(--ctp-{color}) in css
+// Inject color variables, so you can use var(--{color}) in css
 :root
     for $key, $value in $latte
-        --ctp-{$key}: $value
+        {unquote('--' + $key)}: $value
 
 html.night
     for $key, $value in $mocha
-        --ctp-{$key}: $value
+        {unquote('--' + $key)}: $value
