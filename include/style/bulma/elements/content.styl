@@ -96,16 +96,6 @@ $content-pre-padding ?= 1.25em 1.5em
     list-style-position outside
     margin-left 2em
     margin-top 1em
-    &:not([type])
-      list-style-type decimal
-      &.is-lower-alpha
-        list-style-type lower-alpha
-      &.is-lower-roman
-        list-style-type lower-roman
-      &.is-upper-alpha
-        list-style-type upper-alpha
-      &.is-upper-roman
-        list-style-type upper-roman
   ul
     list-style disc outside
     margin-left 2em
@@ -149,3 +139,31 @@ $content-pre-padding ?= 1.25em 1.5em
     font-size $size-medium
   &.is-large
     font-size $size-large
+
+  $link-icons = {
+    "github": " ",
+    "wikipedia": "󰖬 ",
+    "youtube": " ",
+    "apple": " ",
+    "mozilla": "󰬔 ",
+    "man7": " ",
+    "/": " ",
+    "vluv": " "
+  }
+
+  a[href*="github"], a[href*="wikipedia"], a[href*="youtube"],
+  a[href*="apple"], a[href*="mozilla"], a[href*="man7"],
+  a[href^="/"],a[href*="vluv"]
+    &::before
+      font-family: "Maple Mono NF CN"
+      font-size: 1em
+      padding-left: .5em
+      color: var(--lavender)
+
+  for $site, $icon in $link-icons
+    if $site == "/"
+      a[href^="/"]::before
+        content: $icon
+    else
+      a[href*={unquote($site)}]::before
+        content: $icon
