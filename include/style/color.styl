@@ -448,7 +448,6 @@ searchbox-colors()
             color: var(--blue);
 
 callout-colors()
-    // Default callout
     .callout
         border-color: var(--blue_opacity_5)
         background-color: var(--blue_opacity_2)
@@ -459,7 +458,6 @@ callout-colors()
     .callout .callout-content
         background-color: transparent
 
-    // Info callout
     .callout[data-callout="info"], .callout[data-callout="todo"]
         border-color: var(--sapphire_opacity_5)
         background-color: var(--sapphire_opacity_2)
@@ -468,7 +466,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--sapphire)
 
-    // Success callout
     .callout[data-callout="success"], .callout[data-callout="check"], .callout[data-callout="done"]
         border-color: var(--green_opacity_5)
         background-color: var(--green_opacity_2)
@@ -477,7 +474,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--green)
 
-    // Warning callout
     .callout[data-callout="warning"], .callout[data-callout="caution"], .callout[data-callout="attention"]
         border-color: var(--peach_opacity_5)
         background-color: var(--peach_opacity_2)
@@ -486,7 +482,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--peach)
 
-    // Question callout
     .callout[data-callout="question"], .callout[data-callout="help"], .callout[data-callout="faq"]
         border-color: var(--yellow_opacity_5)
         background-color: var(--yellow_opacity_2)
@@ -495,7 +490,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--yellow)
 
-    // Error/Danger callout
     .callout[data-callout="danger"], .callout[data-callout="error"], .callout[data-callout="bug"], .callout[data-callout="failure"], .callout[data-callout="fail"], .callout[data-callout="missing"]
         border-color: var(--red_opacity_5)
         background-color: var(--red_opacity_2)
@@ -504,7 +498,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--red)
 
-    // Tip callout
     .callout[data-callout="tip"], .callout[data-callout="hint"], .callout[data-callout="important"]
         border-color: var(--pink_opacity_5)
         background-color: var(--pink_opacity_2)
@@ -513,7 +506,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--pink)
 
-    // Example callout
     .callout[data-callout="example"]
         border-color: var(--mauve_opacity_5)
         background-color: var(--mauve_opacity_2)
@@ -522,7 +514,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--mauve)
 
-    // Summary callout
     .callout[data-callout="abstract"], .callout[data-callout="summary"], .callout[data-callout="tldr"]
         border-color: var(--teal_opacity_5)
         background-color: var(--teal_opacity_2)
@@ -531,7 +522,6 @@ callout-colors()
         .callout-title .callout-fold
             background-color: var(--teal)
 
-    // Quote callout
     .callout[data-callout="quote"], .callout[data-callout="cite"]
         border-color: var(--lavender_opacity_5)
         background-color: var(--lavender_opacity_2)
@@ -545,7 +535,7 @@ twikoo-colors()
         color: var(--text)
 
         svg
-            fill: var(--lavender)
+            fill: var(--lavender) !important
 
         a
             color: var(--lavender)

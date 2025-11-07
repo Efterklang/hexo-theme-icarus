@@ -3,8 +3,6 @@ $card-header-padding ?= 1rem 1.25rem
 $card-header-shadow ?= 0 0.125em 0.25em rgba($scheme-invert, 0.1)
 $card-header-weight ?= $weight-bold
 $card-content-padding ?= 1.25rem
-$card-footer-padding ?= 0.75rem 1.25rem
-$card-media-margin ?= $block-spacing
 $card-radius ?= 24px
 
 .card
@@ -29,23 +27,3 @@ $card-radius ?= 24px
 .card-content
   padding $card-content-padding
   border-radius: 0;
-
-.card-footer
-  border-radius: 0 0 $card-radius $card-radius;
-  align-items stretch
-  display flex
-
-.card-footer-item
-  align-items center
-  display flex
-  flex-basis 0
-  flex-grow 1
-  flex-shrink 0
-  justify-content center
-  padding $card-footer-padding
-
-// Combinations
-
-.card
-  .media:not(:last-child)
-    margin-bottom $card-media-margin

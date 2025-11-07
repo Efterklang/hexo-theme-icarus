@@ -119,7 +119,7 @@ module.exports = class extends Component {
                 </article>
             </div>
             {/* Post navigation */}
-            {!index && (page.prev || page.next) ? <div class="card"><nav class="post-navigation mt-4 level is-mobile card-content">
+            {!index && (page.prev || page.next) ? <div class="card"><nav class="post-navigation level is-mobile card-content">
                 {page.prev ? <div class="level-start">
                     <a class={`article-nav-prev level level-item${!page.prev ? ' is-hidden-mobile' : ''} link-muted`} href={url_for(page.prev.path)}>
                         <i class="level-item fas fa-chevron-left"></i>
