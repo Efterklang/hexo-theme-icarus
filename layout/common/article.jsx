@@ -57,9 +57,9 @@ module.exports = class extends Component {
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Metadata */}
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
-						<div class="level-left">
-							{/* PIN Icon */}
-							{page.top ? <i class="fas fa-thumbtack level-item" title="Pinned"></i> : null}
+                        <div class="level-left">
+                            {/* PIN Icon */}
+                            {page.top ? <i class="fas fa-thumbtack level-item" title="Pinned"></i> : null}
                             {/* Creation Date */}
                             {page.date && <span class="level-item" dangerouslySetInnerHTML={{
                                 __html: _p('article.created_at', `<time dateTime="${date_xml(page.date)}" title="${new Date(page.date).toLocaleString()}">${date(page.date)}</time>`)
@@ -106,10 +106,12 @@ module.exports = class extends Component {
                     {!index && article && article.licenses && Object.keys(article.licenses)
                         ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
                     {/* Tags */}
-                    {!index && page.tags && page.tags.length ? <div class="article-tags is-size-7 mb-4">
-                        <span class="mr-2">#</span>
+                    {!index && page.tags && page.tags.length ? <div class="article-tags">
                         {page.tags.map(tag => {
-                            return <a class="link-muted mr-2" rel="tag" href={url_for(tag.path)}>{tag.name}</a>;
+                            return <a class="tags has-addons mr-2" rel="tag" href={url_for(tag.path)}>
+                                <span class="tag">{tag.name}</span>
+                                <span class="tag">{tag.length}</span>
+                            </a>;
                         })}
                     </div> : null}
                     {/* "Read more" button */}
@@ -119,20 +121,18 @@ module.exports = class extends Component {
                 </article>
             </div>
             {/* Post navigation */}
-            {!index && (page.prev || page.next) ? <div class="card"><nav class="post-navigation level is-mobile card-content">
-                {page.prev ? <div class="level-start">
+            {!index && (page.prev || page.next) ? <nav class="post-navigation level is-mobile card-content pl-0 pr-0 pb-0">
+                {page.prev ?
                     <a class={`article-nav-prev level level-item${!page.prev ? ' is-hidden-mobile' : ''} link-muted`} href={url_for(page.prev.path)}>
-                        <i class="level-item fas fa-chevron-left"></i>
-                        <span class="level-item">{page.prev.title}</span>
+                        <i class="fas fa-chevron-left pr-4"></i>{page.prev.title}
                     </a>
-                </div> : null}
-                {page.next ? <div class="level-end">
+                    : null}
+                {page.next ?
                     <a class={`article-nav-next level level-item${!page.next ? ' is-hidden-mobile' : ''} link-muted`} href={url_for(page.next.path)}>
-                        <span class="level-item">{page.next.title}</span>
-                        <i class="level-item fas fa-chevron-right"></i>
+                        {page.next.title}<i class="fas fa-chevron-right pl-2"></i>
                     </a>
-                </div> : null}
-            </nav></div> : null}
+                    : null}
+            </nav> : null}
             {/* Comment */}
             {!index ? <Comment config={config} page={page} helper={helper} /> : null}
         </Fragment>;

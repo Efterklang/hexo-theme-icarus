@@ -420,7 +420,10 @@ pagination-colors()
         background-color: var(--lavender);
         color: var(--base);
     .post-navigation
-        color: var(--subtext0);
+        & > a
+            color: var(--lavender);
+        & > a:hover
+            color: var(--mauve);
 
 card-colors()
     .card

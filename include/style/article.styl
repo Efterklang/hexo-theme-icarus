@@ -84,7 +84,6 @@ article
                 border-radius: 6px
                 padding: 1px 6px
 
-
             table
                 width: 100%;
                 border-collapse: separate;
@@ -127,10 +126,6 @@ article
                     th, td
                         padding: 8px 12px;
 
-        .article-tags
-            display: flex
-            flex-wrap: wrap
-
 .rtl
     direction: rtl
 
@@ -166,9 +161,14 @@ article
 
 .article-licensing
     position: relative
+    width: calc(100% + 2.5rem)
+    margin-left: -1.25rem
+    margin-right: -1.25rem
+    padding-left: 2rem
+    padding-right: 2rem
     z-index: 0
+    border-radius: 0
     box-shadow: none
-    border-radius: $radius
     overflow: hidden
 
     &:after

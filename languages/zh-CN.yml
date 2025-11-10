@@ -14,8 +14,8 @@ common:
   page:
     one: "PAGE"
     other: "PAGE"
-  prev: "上一页"
-  next: "下一页"
+  prev: "Previous"
+  next: "Next"
 widget:
   follow: "Follow"
   recents: "POST"

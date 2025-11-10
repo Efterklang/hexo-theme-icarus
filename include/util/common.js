@@ -18,10 +18,10 @@ module.exports = {
     classname,
     cacheComponent,
     logger,
-    
+
     // 常用的工具函数
     createLogger: () => logger, // 返回单例logger
-    
+
     // 通用的错误处理函数
     handleWidgetError: (widgetType, error) => {
         logger.w(`Icarus cannot load widget "${widgetType}"`);
@@ -29,7 +29,7 @@ module.exports = {
             logger.error(error);
         }
     },
-    
+
     // 通用的组件加载函数
     loadComponent: (componentPath, fallback = null) => {
         try {
