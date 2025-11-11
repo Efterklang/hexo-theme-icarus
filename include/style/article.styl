@@ -164,12 +164,20 @@ article
     width: calc(100% + 2.5rem)
     margin-left: -1.25rem
     margin-right: -1.25rem
-    padding-left: 2rem
-    padding-right: 2rem
+    padding-left: 1.25rem
+    padding-right: 1.25rem
     z-index: 0
     border-radius: 0
     box-shadow: none
     overflow: hidden
+
+    // Responsive: 移动端时 padding 为 1rem
+    +mobile()
+        width: calc(100% + 2rem)
+        margin-left: -1rem
+        margin-right: -1rem
+        padding-left: 1rem
+        padding-right: 1rem
 
     &:after
         position: absolute
