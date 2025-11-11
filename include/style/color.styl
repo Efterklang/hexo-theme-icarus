@@ -137,6 +137,10 @@ $mocha = {
 content-colors()
     h1.title
         color: var(--lavender)
+    a
+        color: var(--lavender);
+        &:hover
+            color: var(--blue);
     .content
         h2
             color: var(--peach)
@@ -148,10 +152,6 @@ content-colors()
             color: var(--blue);
         h6
             color: var(--mauve);
-        a
-            color: var(--lavender);
-            &:hover
-                color: var(--blue);
         strong
             color: var(--pink);
         blockquote
@@ -182,28 +182,18 @@ content-colors()
     .level-left
         span, a, time
             color: var(--overlay1);
-        a
-            &:hover
-                color: var(--blue);
 article-colors()
     article
         &.media
             color: var(--subtext1);
             a
                 color: inherit;
-                &:hover
-                    color: var(--blue);
         &.article
             .article-meta
                 color: var(--subtext1);
         .article-licensing
             color: var(--subtext1);
             background-color: var(--base);
-            a
-                color: var(--lavender);
-                &:hover
-                    color: var(--blue);
-
     .article, article.media
         .title a
             color: var(--text);
@@ -225,11 +215,6 @@ button-colors()
         &:active, &.is-active
             color: var(--text);
             background-color: var(--mauve);
-    .button.is-white, .button.is-transparent
-        background-color: transparent;
-        color: var(--text);
-        &:hover
-            background-color: var(--surface0);
     .button.is-link
         background-color: var(--blue);
     .button.is-link:hover, .button.is-link.is-hovered
@@ -351,7 +336,7 @@ timeline-colors()
             color: var(--text);
 
 ui-elements-colors()
-    body, time, .title, .footer, .card, .navbar-item, .navbar-link, .menu-label, .level-item, .button.is-white, .button.is-transparent, .v *
+    body, time, .title, .footer, .card, .navbar-item, .navbar-link, .menu-label, .level-item, .v *
         color: var(--text);
     .media-content, .link-muted, .cc-window
         color: var(--text);
@@ -541,10 +526,6 @@ twikoo-colors()
         svg
             fill: var(--lavender) !important
 
-        a
-            color: var(--lavender)
-            &:hover
-                color: var(--mauve)
         // 展开按钮颜色
         .tk-expand
             color: var(--subtext1)
