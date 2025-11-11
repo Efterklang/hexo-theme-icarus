@@ -42,55 +42,6 @@ $content-pre-padding ?= 1.25em 1.5em
   h6
     font-size 1em
     margin-bottom 1em
-  blockquote
-    position: relative
-    padding: 1.5rem 2rem 1.5rem 3rem
-    margin: 1.5rem 0
-    border-left: 4px solid
-    border-radius: 0 8px 8px 0
-    font-weight: bolder
-    font-style: italic
-    font-size: 1.05rem
-    line-height: 1.6
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
-
-    &:before
-      content: '"'
-      position: absolute
-      left: 0.5rem
-      top: 0.2rem
-      font-size: 3rem
-      font-weight: bold
-      opacity: 0.3
-      line-height: 1
-
-    &:after
-      content: '"'
-      position: absolute
-      right: 0.5rem
-      bottom: -0.5rem
-      font-size: 3rem
-      font-weight: bold
-      opacity: 0.3
-      line-height: 1
-
-    &.pullquote
-      float: right
-      max-width: 50%
-      font-size: 1.15rem
-      position: relative
-
-    footer
-      font-style: normal
-      font-size: 0.9rem
-      margin-top: 1rem
-      opacity: 0.8
-
-      strong + cite
-          margin-left: .5em
-
-    p:last-child
-        margin-bottom: 0
 
   ol
     list-style-position outside
@@ -167,3 +118,33 @@ $content-pre-padding ?= 1.25em 1.5em
     else
       a[href*={unquote($site)}]::before
         content: $icon
+
+blockquote
+  position: relative
+  padding: 1.5rem 2rem 1.5rem 3rem
+  margin: 1.5rem 0
+  border-left: 4px solid
+  border-radius: 0 8px 8px 0
+  font-weight: bolder
+  font-style: italic
+  font-size: 1.05rem
+  line-height: 1.6
+
+  &:before
+    content: '"'
+    position: absolute
+    left: 0.5rem
+    top: 0.2rem
+    font-size: 3rem
+    font-weight: bold
+    opacity: 0.3
+    line-height: 1
+
+  footer
+    font-style: normal
+    font-size: 0.9rem
+    margin-top: 1rem
+    opacity: 0.8
+
+    strong + cite
+        margin-left: .5em
