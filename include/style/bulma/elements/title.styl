@@ -6,15 +6,7 @@ $title-strong-weight ?= inherit
 $title-sub-size ?= 0.75em
 $title-sup-size ?= 0.75em
 
-$subtitle-family ?= false
-$subtitle-size ?= $size-5
-$subtitle-weight ?= $weight-normal
-$subtitle-line-height ?= 1.25
-$subtitle-strong-weight ?= $weight-semibold
-$subtitle-negative-margin ?= -1.25rem
-
-.title,
-.subtitle
+.title
   @extend $block
   word-break break-word
   em,
@@ -26,8 +18,6 @@ $subtitle-negative-margin ?= -1.25rem
     font-size $title-sup-size
   .tag
     vertical-align middle
-
-.title
   if $title-family
     font-family $title-family
   font-size $title-size
@@ -38,22 +28,6 @@ $subtitle-negative-margin ?= -1.25rem
   & + .highlight
     margin-top -0.75rem
   &:not(.is-spaced) + .subtitle
-    margin-top $subtitle-negative-margin
-  // Sizes
-  for $size in $sizes
-    $i = index($sizes, $size) + 1
-    &.is-{$i}
-      font-size $size
-
-.subtitle
-  if $subtitle-family
-    font-family $subtitle-family
-  font-size $subtitle-size
-  font-weight $subtitle-weight
-  line-height $subtitle-line-height
-  strong
-    font-weight $subtitle-strong-weight
-  &:not(.is-spaced) + .title
     margin-top $subtitle-negative-margin
   // Sizes
   for $size in $sizes
