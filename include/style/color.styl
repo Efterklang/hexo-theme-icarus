@@ -133,7 +133,6 @@ $mocha = {
     yellow_opacity_15: rgba(249, 226, 175, 0.15)
 };
 
-
 content-colors()
     h1.title
         color: var(--lavender)
@@ -215,13 +214,6 @@ button-colors()
         &:active, &.is-active
             color: var(--text);
             background-color: var(--mauve);
-    .button.is-link
-        background-color: var(--blue);
-    .button.is-link:hover, .button.is-link.is-hovered
-        background-color: var(--sapphire);
-
-    .button.is-link:active, .button.is-link.is-active
-        background-color: var(--sapphire);
 
 toc-colors()
     .floating-toc-button
@@ -365,10 +357,8 @@ ui-elements-colors()
     .gallery-item .caption
         color: var(--overlay1);
     .breadcrumb
-        a
-            color: var(--lavender);
         li.is-active a
-            color: var(--subtext1);
+            color: var(--mauve);
 
 cookie-consent-colors()
     .cc-window
