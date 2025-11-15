@@ -195,27 +195,18 @@ module.exports = class extends Component {
         {/* 预加载背景图 */}
         <link rel="preload" as="image" href={url_for("/img/background.webp")} fetchpriority="high" />
         {page.cover ? (
-          <link
-            rel="preload"
-            as="image"
-            href={url_for(page.cover)}
+          <link rel="preload" as="image" href={url_for(page.cover)}
             imagesrcset={`${url_for(page.cover)}?w=128 128w, ${url_for(page.cover)}?w=256 256w, ${url_for(page.cover)}?w=800 800w, ${url_for(page.cover)}?w=1500 1500w, ${url_for(page.cover)}?w=2000 2000w, ${url_for(page.cover)}?fmt=avif 6144w`}
             imagesizes="(max-width: 768px) 100vw, 50vw"
           />
         ) : null}
 
-        <link rel="stylesheet" href={url_for("/css/default.css")} />
+        <link rel="preload" as="style" href={url_for("/css/default.css")} onload="this.onload=null;this.rel='stylesheet'" />
         {/* Font Awesome */}
-        <link rel="stylesheet" href={iconcdn()} media="print" onLoad="this.media='all'"/>
+        <link rel="preload" as="style" href={iconcdn()} onload="this.onload=null;this.rel='stylesheet'" />
         {/* Maple Mono CN */}
-        <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" media="print" onLoad="this.media='all'" />
-        <Plugins
-          site={site}
-          config={config}
-          helper={helper}
-          page={page}
-          head={true}
-        />
+        <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" />
+        <Plugins site={site} config={config} helper={helper} page={page} head={true} />
         {adsenseClientId ? (
           <script
             data-ad-client={adsenseClientId}
@@ -223,12 +214,7 @@ module.exports = class extends Component {
             async
           ></script>
         ) : null}
-        {followItVerificationCode ? (
-          <meta
-            name="follow.it-verification-code"
-            content={followItVerificationCode}
-          />
-        ) : null}
+        {followItVerificationCode ? ( <meta name="follow.it-verification-code" content={followItVerificationCode} />) : null}
       </head>
     );
   }
