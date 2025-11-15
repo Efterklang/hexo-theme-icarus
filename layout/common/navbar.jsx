@@ -81,6 +81,9 @@ class Navbar extends Component {
                                 <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'mocha' })} href="javascript:;" data-theme-option="mocha">
                                     🌿 Mocha
                                 </a>
+                                <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'tokyo_night' })} href="javascript:;" data-theme-option="tokyo_night">
+                                    🌃 Tokyo Night
+                                </a>
                             </div>
                         </div>
                         {Object.keys(links).length ? <Fragment>

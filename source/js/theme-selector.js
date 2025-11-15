@@ -11,6 +11,7 @@
         'mocha': 'night',
         'macchiato': 'night',
         'frappe': 'night',
+        'tokyo_night': 'night',
         'latte': 'light'
     };
 
