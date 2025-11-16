@@ -1,7 +1,4 @@
 $card-shadow ?= 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02)
-$card-header-padding ?= 1rem 1.25rem
-$card-header-shadow ?= 0 0.125em 0.25em rgba($scheme-invert, 0.1)
-$card-header-weight ?= $weight-bold
 $card-content-padding ?= 1.25rem
 $card-radius ?= 24px
 
@@ -26,7 +23,6 @@ $card-radius ?= 24px
     // 响应式设计
     +mobile()
         margin: 0 0 1.5rem 0;
-        .card-header,
         .card-content,
         .card-footer
             padding: 1rem;
