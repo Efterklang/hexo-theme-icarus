@@ -17,7 +17,9 @@
     border-radius: var(--callout-radius);
     margin: 1em 0;
     padding: var(--callout-padding);
-    --callout-icon: lucide-pencil
+    --callout-icon: lucide-pencil;
+    border-color: hsl(from var(--blue) h s l / 0.5);
+    background-color: hsl(from var(--blue) h s l / 0.2);
 }
 
 .callout-title {
@@ -28,6 +30,7 @@
     line-height: var(--line-height-tight);
     align-items: center;
     cursor: pointer;
+    color: var(--blue);
 
     >.callout-icon {
         flex: 0 0 auto;
@@ -48,12 +51,13 @@
         -webkit-mask-size: 100%;
         height: 20px;
         width: 20px;
-        transition: .1s ease-in-out
+        transition: .1s ease-in-out;
+        background-color: var(--blue);
     }
 }
 
 .callout-content {
-    padding: var(--callout-content-padding)
+    padding: var(--callout-content-padding);
 }
 
 details[close].callout>.callout-title>.callout-fold {
@@ -67,53 +71,143 @@ details[open].callout>.callout-title>.callout-fold {
 
 .callout[data-callout=info],
 .callout[data-callout=todo] {
-    --callout-icon: lucide-check-circle-2
+    --callout-icon: lucide-check-circle-2;
+    border-color: hsl(from var(--sapphire) h s l / 0.5);
+    background-color: hsl(from var(--sapphire) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--sapphire);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--sapphire);
+    }
 }
 
+.callout[data-callout=success],
 .callout[data-callout=check],
-.callout[data-callout=done],
-.callout[data-callout=success] {
-    --callout-icon: lucide-check
+.callout[data-callout=done] {
+    --callout-icon: lucide-check;
+    border-color: hsl(from var(--green) h s l / 0.5);
+    background-color: hsl(from var(--green) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--green);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--green);
+    }
 }
 
-.callout[data-callout=attention],
+.callout[data-callout=warning],
 .callout[data-callout=caution],
-.callout[data-callout=warning] {
-    --callout-icon: lucide-alert-triangle
+.callout[data-callout=attention] {
+    --callout-icon: lucide-alert-triangle;
+    border-color: hsl(from var(--peach) h s l / 0.5);
+    background-color: hsl(from var(--peach) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--peach);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--peach);
+    }
 }
 
-.callout[data-callout=faq],
+.callout[data-callout=question],
 .callout[data-callout=help],
-.callout[data-callout=question] {
-    --callout-icon: lucide-alert-mark
+.callout[data-callout=faq] {
+    --callout-icon: lucide-alert-mark;
+    border-color: hsl(from var(--yellow) h s l / 0.5);
+    background-color: hsl(from var(--yellow) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--yellow);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--yellow);
+    }
 }
 
-.callout[data-callout=bug],
 .callout[data-callout=danger],
 .callout[data-callout=error],
-.callout[data-callout=fail],
+.callout[data-callout=bug],
 .callout[data-callout=failure],
+.callout[data-callout=fail],
 .callout[data-callout=missing] {
-    --callout-icon: lucide-zap
+    --callout-icon: lucide-zap;
+    border-color: hsl(from var(--red) h s l / 0.5);
+    background-color: hsl(from var(--red) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--red);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--red);
+    }
 }
 
+.callout[data-callout=tip],
 .callout[data-callout=hint],
-.callout[data-callout=important],
-.callout[data-callout=tip] {
-    --callout-icon: lucide-flame
+.callout[data-callout=important] {
+    --callout-icon: lucide-flame;
+    border-color: hsl(from var(--pink) h s l / 0.5);
+    background-color: hsl(from var(--pink) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--pink);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--pink);
+    }
 }
 
 .callout[data-callout=example] {
-    --callout-icon: lucide-list
+    --callout-icon: lucide-list;
+    border-color: hsl(from var(--mauve) h s l / 0.5);
+    background-color: hsl(from var(--mauve) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--mauve);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--mauve);
+    }
 }
 
 .callout[data-callout=abstract],
 .callout[data-callout=summary],
 .callout[data-callout=tldr] {
-    --callout-icon: lucide-clipboard-list
+    --callout-icon: lucide-clipboard-list;
+    border-color: hsl(from var(--teal) h s l / 0.5);
+    background-color: hsl(from var(--teal) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--teal);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--teal);
+    }
 }
 
-.callout[data-callout=cite],
-.callout[data-callout=quote] {
-    --callout-icon: quote-glyph
+.callout[data-callout=quote],
+.callout[data-callout=cite] {
+    --callout-icon: quote-glyph;
+    border-color: hsl(from var(--lavender) h s l / 0.5);
+    background-color: hsl(from var(--lavender) h s l / 0.2);
+
+    .callout-title {
+        --callout-title-color: var(--lavender);
+    }
+
+    .callout-title .callout-fold {
+        background-color: var(--lavender);
+    }
 }

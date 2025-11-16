@@ -498,7 +498,7 @@ timeline-colors()
                 background: var(--overlay1);
             &:last-child:after
                 background: var(--base);
-    .timeline a, .twikoo-new-container a, [data-type='recent-posts'] a
+    .timeline a, [data-type='recent-posts'] a
         color: var(--text);
         &:hover
             color: var(--text);
@@ -605,189 +605,6 @@ searchbox-colors()
         .searchbox-container .searchbox-result-section .searchbox-result-item:hover, .searchbox-container .searchbox-result-section .searchbox-result-item.active, .searchbox-container .searchbox-header .searchbox-close:hover
             color: var(--blue);
 
-callout-colors()
-    .callout
-        border-color: var(--blue_opacity_5)
-        background-color: var(--blue_opacity_2)
-        .callout-title
-            color: var(--blue)
-        .callout-title .callout-fold
-            background-color: var(--blue)
-    .callout .callout-content
-        background-color: transparent
-
-    .callout[data-callout="info"], .callout[data-callout="todo"]
-        border-color: var(--sapphire_opacity_5)
-        background-color: var(--sapphire_opacity_2)
-        .callout-title
-            color: var(--sapphire)
-        .callout-title .callout-fold
-            background-color: var(--sapphire)
-
-    .callout[data-callout="success"], .callout[data-callout="check"], .callout[data-callout="done"]
-        border-color: var(--green_opacity_5)
-        background-color: var(--green_opacity_2)
-        .callout-title
-            color: var(--green)
-        .callout-title .callout-fold
-            background-color: var(--green)
-
-    .callout[data-callout="warning"], .callout[data-callout="caution"], .callout[data-callout="attention"]
-        border-color: var(--peach_opacity_5)
-        background-color: var(--peach_opacity_2)
-        .callout-title
-            color: var(--peach)
-        .callout-title .callout-fold
-            background-color: var(--peach)
-
-    .callout[data-callout="question"], .callout[data-callout="help"], .callout[data-callout="faq"]
-        border-color: var(--yellow_opacity_5)
-        background-color: var(--yellow_opacity_2)
-        .callout-title
-            color: var(--yellow)
-        .callout-title .callout-fold
-            background-color: var(--yellow)
-
-    .callout[data-callout="danger"], .callout[data-callout="error"], .callout[data-callout="bug"], .callout[data-callout="failure"], .callout[data-callout="fail"], .callout[data-callout="missing"]
-        border-color: var(--red_opacity_5)
-        background-color: var(--red_opacity_2)
-        .callout-title
-            color: var(--red)
-        .callout-title .callout-fold
-            background-color: var(--red)
-
-    .callout[data-callout="tip"], .callout[data-callout="hint"], .callout[data-callout="important"]
-        border-color: var(--pink_opacity_5)
-        background-color: var(--pink_opacity_2)
-        .callout-title
-            color: var(--pink)
-        .callout-title .callout-fold
-            background-color: var(--pink)
-
-    .callout[data-callout="example"]
-        border-color: var(--mauve_opacity_5)
-        background-color: var(--mauve_opacity_2)
-        .callout-title
-            color: var(--mauve)
-        .callout-title .callout-fold
-            background-color: var(--mauve)
-
-    .callout[data-callout="abstract"], .callout[data-callout="summary"], .callout[data-callout="tldr"]
-        border-color: var(--teal_opacity_5)
-        background-color: var(--teal_opacity_2)
-        .callout-title
-            color: var(--teal)
-        .callout-title .callout-fold
-            background-color: var(--teal)
-
-    .callout[data-callout="quote"], .callout[data-callout="cite"]
-        border-color: var(--lavender_opacity_5)
-        background-color: var(--lavender_opacity_2)
-        .callout-title
-            color: var(--lavender)
-        .callout-title .callout-fold
-            background-color: var(--lavender)
-
-twikoo-colors()
-    .twikoo
-        color: var(--text)
-
-        svg
-            fill: var(--lavender) !important
-
-        // 展开按钮颜色
-        .tk-expand
-            color: var(--subtext1)
-            background-color: var(--surface0_opacity_5)
-            border: 1px solid var(--surface1_opacity_6)
-
-            &:hover
-                color: var(--text)
-                background-color: var(--surface1_opacity_8)
-                border-color: var(--surface2)
-
-            &:active
-                background-color: var(--surface2_opacity_9)
-
-        // Element UI 输入框颜色
-        .el-input__inner,
-        .el-textarea__inner
-            background-color: var(--surface0_opacity_3)
-            border-color: var(--surface1_opacity_6)
-            color: var(--text)
-
-            &::placeholder
-                color: var(--overlay1)
-
-            &:hover
-                border-color: var(--surface2_opacity_8)
-                background-color: var(--surface0_opacity_5)
-
-            &:focus
-                border-color: var(--blue)
-                background-color: var(--surface0_opacity_7)
-
-        // 输入框组合元素颜色
-        .el-input-group__append,
-        .el-input-group__prepend
-            background-color: var(--surface1_opacity_4)
-            border-color: var(--surface1_opacity_6)
-            color: var(--subtext1)
-
-        .el-button--text
-            color: var(--lavender)
-
-        // 按钮颜色
-        .el-button:not(.el-button--primary):not(.el-button--text)
-            color: var(--text)
-            background-color: var(--surface1_opacity_4)
-            border-color: var(--surface1_opacity_5)
-
-            &:hover,
-            &:focus,
-            &:active
-                color: var(--blue)
-                background-color: var(--blue_opacity_2)
-                border-color: var(--blue_opacity_6)
-
-        // 主要按钮
-        .el-button--primary
-            background-color: var(--blue)
-            border-color: var(--blue)
-            color: var(--base)
-
-            &:hover,
-            &:focus
-                background-color: var(--sapphire)
-                border-color: var(--sapphire)
-
-            &.is-disabled
-                &,
-                &:active,
-                &:focus,
-                &:hover
-                    color: var(--base_opacity_7)
-                    background-color: var(--blue_opacity_5)
-                    border-color: transparent
-
-        // 加载遮罩
-        .el-loading-mask
-            background-color: var(--base_opacity_1)
-
-        // 文本域字数统计
-        .el-textarea .el-input__count
-            color: var(--overlay1)
-
-    // 管理员警告框
-    .tk-admin-warn
-        // background-color: rgb(from var(--yellow) r g b / 0.15)
-        background-color: var(--yellow_opacity_15)
-        border-left-color: var(--yellow)
-        color: var(--text)
-
-        &::before
-            background: linear-gradient(90deg, var(--yellow), transparent)
-
 // Apply all styles using CSS variables
 content-colors()
 article-colors()
@@ -803,8 +620,6 @@ card-colors()
 searchbox-colors()
 toc-colors()
 tabs-colors()
-callout-colors()
-twikoo-colors()
 
 // Card shadows
 $card-shadow-light = 0 2px 4px rgba(0, 0, 0, 0.1)

@@ -192,8 +192,6 @@ module.exports = class extends Component {
           />
         ) : null}
         {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
-        {/* 预加载背景图 */}
-        <link rel="preload" as="image" href={url_for("/img/background.webp")} fetchpriority="high" />
         {page.cover ? (
           <link rel="preload" as="image" href={url_for(page.cover)}
             imagesrcset={`${url_for(page.cover)}?w=128 128w, ${url_for(page.cover)}?w=256 256w, ${url_for(page.cover)}?w=800 800w, ${url_for(page.cover)}?w=1500 1500w, ${url_for(page.cover)}?w=2000 2000w, ${url_for(page.cover)}?fmt=avif 6144w`}
@@ -202,6 +200,11 @@ module.exports = class extends Component {
         ) : null}
 
         <link rel="preload" as="style" href={url_for("/css/default.css")} onload="this.onload=null;this.rel='stylesheet'" />
+
+        {config.comment.type == "twikoo" ? (
+          <link rel="stylesheet" href={url_for("/css/twikoo.css")} media="print" onload="this.media='all'" />
+        ) : null}
+
         {/* Font Awesome */}
         <link rel="preload" as="style" href={iconcdn()} onload="this.onload=null;this.rel='stylesheet'" />
         {/* Maple Mono CN */}
