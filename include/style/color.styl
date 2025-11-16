@@ -1,71 +1,5 @@
 @charset "UTF-8";
 
-// 主题色彩定义 - data-theme 属性支持
-:where([data-theme=system]) {
-    color-scheme: light dark;
-    --rosewater: #dc8a78;
-    --flamingo: #dd7878;
-    --pink: #ea76cb;
-    --mauve: #8839ef;
-    --red: #d20f39;
-    --maroon: #e64553;
-    --peach: #fe640b;
-    --yellow: #df8e1d;
-    --green: #40a02b;
-    --teal: #179299;
-    --sky: #04a5e5;
-    --sapphire: #209fb5;
-    --blue: #1e66f5;
-    --lavender: #7287fd;
-    --text: #4c4f69;
-    --subtext1: #5c5f77;
-    --subtext0: #6c6f85;
-    --overlay2: #7c7f93;
-    --overlay1: #8c8fa1;
-    --overlay0: #9ca0b0;
-    --surface2: #acb0be;
-    --surface1: #bcc0cc;
-    --surface0: #ccd0da;
-    --base: #eff1f5;
-    --mantle: #e6e9ef;
-    --crust: #dce0e8;
-    --inverted-text: var(--base);
-    --selection-color: var(--blue);
-}
-
-@media (prefers-color-scheme: dark) {
-    :where([data-theme=system]) {
-        --rosewater: #f5e0dc;
-        --flamingo: #f2cdcd;
-        --pink: #f5c2e7;
-        --mauve: #cba6f7;
-        --red: #f38ba8;
-        --maroon: #eba0ac;
-        --peach: #fab387;
-        --yellow: #f9e2af;
-        --green: #a6e3a1;
-        --teal: #94e2d5;
-        --sky: #89dceb;
-        --sapphire: #74c7ec;
-        --blue: #89b4fa;
-        --lavender: #b4befe;
-        --text: #cdd6f4;
-        --subtext1: #bac2de;
-        --subtext0: #a6adc8;
-        --overlay2: #9399b2;
-        --overlay1: #7f849c;
-        --overlay0: #6c7086;
-        --surface2: #585b70;
-        --surface1: #45475a;
-        --surface0: #313244;
-        --base: #1e1e2e;
-        --mantle: #181825;
-        --crust: #11111b;
-        --inverted-text: var(--crust);
-        --selection-color: var(--mauve);
-    }
-}
-
 :where([data-theme=latte]) {
     color-scheme: light;
     --rosewater: #dc8a78;
@@ -226,89 +160,6 @@
     --selection-color: var(--blue);
 }
 
-$light-opacity = {
-    card_bg: rgba(239, 241, 245, 0.2),
-    card_bg_hover: rgba(220,218,245, 0.1),
-    card_content_bg: rgba(255, 255, 255, 0.9),
-    card_header_bg: rgba(239, 241, 245, 0.8),
-    // Callout colors with opacity
-    blue_opacity_2: rgba(30, 102, 245, 0.2),
-    blue_opacity_5: rgba(30, 102, 245, 0.5),
-    sapphire_opacity_2: rgba(32, 159, 181, 0.2),
-    sapphire_opacity_5: rgba(32, 159, 181, 0.5),
-    green_opacity_2: rgba(64, 160, 43, 0.2),
-    green_opacity_5: rgba(64, 160, 43, 0.5),
-    peach_opacity_2: rgba(254, 100, 11, 0.2),
-    peach_opacity_5: rgba(254, 100, 11, 0.5),
-    yellow_opacity_2: rgba(223, 142, 29, 0.2),
-    yellow_opacity_5: rgba(223, 142, 29, 0.5),
-    red_opacity_2: rgba(210, 15, 57, 0.2),
-    red_opacity_5: rgba(210, 15, 57, 0.5),
-    pink_opacity_2: rgba(234, 118, 203, 0.2),
-    pink_opacity_5: rgba(234, 118, 203, 0.5),
-    mauve_opacity_2: rgba(136, 57, 239, 0.2),
-    mauve_opacity_5: rgba(136, 57, 239, 0.5),
-    teal_opacity_2: rgba(23, 146, 153, 0.2),
-    teal_opacity_5: rgba(23, 146, 153, 0.5),
-    lavender_opacity_2: rgba(114, 135, 253, 0.2),
-    lavender_opacity_5: rgba(114, 135, 253, 0.5),
-    // Surface colors with opacity for twikoo
-    surface0_opacity_3: rgba(204, 208, 218, 0.3),
-    surface0_opacity_5: rgba(204, 208, 218, 0.5),
-    surface0_opacity_7: rgba(204, 208, 218, 0.7),
-    surface1_opacity_4: rgba(188, 192, 204, 0.4),
-    surface1_opacity_5: rgba(188, 192, 204, 0.5),
-    surface1_opacity_6: rgba(188, 192, 204, 0.6),
-    surface1_opacity_8: rgba(188, 192, 204, 0.8),
-    surface2_opacity_8: rgba(172, 176, 190, 0.8),
-    surface2_opacity_9: rgba(172, 176, 190, 0.9),
-    blue_opacity_6: rgba(30, 102, 245, 0.6),
-    base_opacity_1: rgba(239, 241, 245, 0.1),
-    base_opacity_7: rgba(239, 241, 245, 0.7),
-    yellow_opacity_15: rgba(223, 142, 29, 0.15)
-};
-$night-opacity = {
-    card_bg: rgba(24, 24, 37, 0.4),
-    card_bg_hover: rgba( 69, 69, 90, 0.1),
-    card_content_bg: rgba(30, 30, 46, 0.5),
-    card_header_bg: rgba(49, 50, 68, 0.6),
-    // Callout colors with opacity
-    blue_opacity_2: rgba(137, 180, 250, 0.2),
-    blue_opacity_5: rgba(137, 180, 250, 0.5),
-    sapphire_opacity_2: rgba(116, 199, 236, 0.2),
-    sapphire_opacity_5: rgba(116, 199, 236, 0.5),
-    green_opacity_2: rgba(166, 227, 161, 0.2),
-    green_opacity_5: rgba(166, 227, 161, 0.5),
-    peach_opacity_2: rgba(250, 179, 135, 0.2),
-    peach_opacity_5: rgba(250, 179, 135, 0.5),
-    yellow_opacity_2: rgba(249, 226, 175, 0.2),
-    yellow_opacity_5: rgba(249, 226, 175, 0.5),
-    red_opacity_2: rgba(243, 139, 168, 0.2),
-    red_opacity_5: rgba(243, 139, 168, 0.5),
-    pink_opacity_2: rgba(245, 194, 231, 0.2),
-    pink_opacity_5: rgba(245, 194, 231, 0.5),
-    mauve_opacity_2: rgba(203, 166, 247, 0.2),
-    mauve_opacity_5: rgba(203, 166, 247, 0.5),
-    teal_opacity_2: rgba(148, 226, 213, 0.2),
-    teal_opacity_5: rgba(148, 226, 213, 0.5),
-    lavender_opacity_2: rgba(180, 190, 254, 0.2),
-    lavender_opacity_5: rgba(180, 190, 254, 0.5),
-    // Surface colors with opacity for twikoo
-    surface0_opacity_3: rgba(49, 50, 68, 0.3),
-    surface0_opacity_5: rgba(49, 50, 68, 0.5),
-    surface0_opacity_7: rgba(49, 50, 68, 0.7),
-    surface1_opacity_4: rgba(69, 71, 90, 0.4),
-    surface1_opacity_5: rgba(69, 71, 90, 0.5),
-    surface1_opacity_6: rgba(69, 71, 90, 0.6),
-    surface1_opacity_8: rgba(69, 71, 90, 0.8),
-    surface2_opacity_8: rgba(88, 91, 112, 0.8),
-    surface2_opacity_9: rgba(88, 91, 112, 0.9),
-    blue_opacity_6: rgba(137, 180, 250, 0.6),
-    base_opacity_1: rgba(30, 30, 46, 0.1),
-    base_opacity_7: rgba(30, 30, 46, 0.7),
-    yellow_opacity_15: rgba(249, 226, 175, 0.15)
-};
-
 content-colors()
     h1.title
         color: var(--lavender)
@@ -397,7 +248,7 @@ toc-colors()
         color: var(--text)
         border: 2px solid var(--surface0)
     .floating-toc-container .widget
-        border: 1px solid var(--card_bg)
+        border: 1px solid var(--base)
         .menu-list a
             color: var(--text);
             &:hover
@@ -585,13 +436,12 @@ pagination-colors()
 
 card-colors()
     .card
-        background-color: var(--card_bg);
-        box-shadow: $card-shadow-light;
+        background-color: var(--base);
 
 searchbox-colors()
     .searchbox
         .searchbox-container
-            background-color: var(--card_bg);
+            background-color: var(--base);
             border: 2px solid var(--surface0);
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
         .searchbox-header, .searchbox-header .searchbox-input, .searchbox-header .searchbox-close, .searchbox-body, .searchbox-result-section, .searchbox-result-item, .searchbox-pinyin
@@ -616,20 +466,3 @@ card-colors()
 searchbox-colors()
 toc-colors()
 tabs-colors()
-
-// Card shadows
-$card-shadow-light = 0 2px 4px rgba(0, 0, 0, 0.1)
-$card-shadow-light-hover = 0 4px 8px rgba(0, 0, 0, 0.15)
-
-// Night mode specific styles (kept for backward compatibility)
-html.night
-    .card
-        border: 1px solid rgba(69, 71, 90, 0.3)
-
-:root
-    for $key, $value in $light-opacity
-        {unquote('--' + $key)}: $value
-
-html.night
-    for $key, $value in $night-opacity
-        {unquote('--' + $key)}: $value
