@@ -16,11 +16,6 @@ screen-onek = 1700px;
             width 56%;
 
 .navbar-main
-    @media screen and (min-width screen-desktop)
-        .navbar-menu
-            .navbar-start
-                margin-left 2em;
-
     @media screen and (max-width screen-tablet - 1)
         .navbar-menu
             flex-direction column;
@@ -45,51 +40,16 @@ screen-onek = 1700px;
         position sticky;
         top 0;
 
-
-// Article horizontal scroll bar
-.article
-    .content
-        overflow auto;
-
 // Section fixes
 .section .container .columns
     -webkit-justify-content center;
     justify-content center;
-
-article.article
-    .article-meta
-        overflow-y hidden;
-
-    .title
-        width fit-content;
-
-// Fix fontawsome icon 不等宽
-.navbar-main .navbar-menu .navbar-end .navbar-item
-    min-width 35px;
-    justify-content center;
-    -webkit-justify-content center;
 
 #busuanzi_container_page_pv
     display none !important;
 
 .card .v .vlist .vcard .vcontent
     text-align inherit;
-
-.searchbox
-    .searchbox-pinyin
-        display flex;
-        align-items center;
-        user-select none;
-
-        input
-            vertical-align middle;
-
-        span
-            position relative;
-            top 1px;
-
-.button.link-more
-    margin-top 0.75rem;
 
 .heimu
     color #1e1e2e;
@@ -116,25 +76,6 @@ article.article
         background-color rgba(210, 180, 140, 0.1);
         box-shadow 0 8px 16px rgba(0, 0, 0, 0.3);
         transform translateY(-2px);
-
-.article img, video
-    display block;
-    margin 0 auto;
-    margin-bottom: 1.5rem;
-    &:hover
-        cursor pointer
-
-.medium-zoom-overlay
-    backdrop-filter blur(8px); /* 添加 8px 模糊效果 */
-    -webkit-backdrop-filter blur(8px); /* 兼容 Safari */
-    z-index 9998 !important; /* 提升蒙层层级 */
-
-img.medium-zoom-image
-    border-radius 5px;
-
-.medium-zoom-image--opened
-    z-index 9999;
-    position fixed;
 
 ::-webkit-scrollbar
     display: none

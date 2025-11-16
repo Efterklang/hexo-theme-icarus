@@ -5,6 +5,7 @@ $content-pre-padding ?= 1.25em 1.5em
 
 .content
   @extend $block
+  overflow auto
   // Inline
   li + li
     margin-top 0.25em
@@ -18,11 +19,6 @@ $content-pre-padding ?= 1.25em 1.5em
   table
     &:not(:last-child)
       margin-bottom 1em
-  h1
-    font-size 2em
-    margin-bottom 0.5em
-    &:not(:first-child)
-      margin-top 1em
   h2
     font-size 1.75em
     margin-bottom 0.5714em
@@ -42,6 +38,35 @@ $content-pre-padding ?= 1.25em 1.5em
   h6
     font-size 1em
     margin-bottom 1em
+  h2,h3,h4,h5,h6
+    font-weight: bolder
+
+  word-wrap: break-word
+  font-size: 1.15rem
+  font-family: $family-sans-serif
+
+  img, video
+    display block;
+    margin 0 auto;
+    margin-bottom: 1.5rem;
+    border-radius 2px;
+    &:hover
+        cursor pointer
+
+  .medium-zoom-overlay
+      backdrop-filter blur(8px);
+      -webkit-backdrop-filter blur(8px);
+      z-index 9998 !important;
+
+  .medium-zoom-image--opened
+      z-index 9999;
+      position fixed;
+
+
+  code
+    font-family: $code-font
+    border-radius: 6px
+    padding: 1px 6px
 
   ol
     list-style-position outside
@@ -83,13 +108,6 @@ $content-pre-padding ?= 1.25em 1.5em
   .tabs
     li + li
       margin-top 0
-  // Sizes
-  &.is-small
-    font-size $size-small
-  &.is-medium
-    font-size $size-medium
-  &.is-large
-    font-size $size-large
 
   $link-icons = {
     "github": " ",
