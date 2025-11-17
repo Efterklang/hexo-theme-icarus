@@ -4,18 +4,31 @@
 
 [vluv's space](https://vluv.space/)
 
-### Light/Night Theme Support
+### Multiple Theme Support
 
-| ![image](https://github.com/user-attachments/assets/da9c8019-9a0d-4eb8-927a-3c970947c371) | ![image](https://github.com/user-attachments/assets/466eab7e-208c-4bc6-9003-799809bfd6f8) |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+Support multiple light and dark themes:
+
+- **System Theme**: Follow system theme automatically, use `Nord` for light mode and `Mocha` for dark mode by default
+- **Light Themes**: `Nord`, `Cattpuccin Latte`
+- **Dark Themes**: `Catppuccin Mocha`, `Catppuccin Macchiato`, `Tokyo Night`
+
+| ![](assets/README/nord.png) | ![](assets/README/mocha.png) |
+| --------------------------- | ---------------------------- |
 
 
 ### Shiki Highlight [^1]
 
-[^1]: See [Efterklang/hexo-shiki-highlight: shiki highlighter for hexo](https://github.com/Efterklang/hexo-shiki-highlight)
+Use `hexo-shiki-highlight` plugin for code block highlighting, support multiple themes as well;
+
+Set `syntax_highlighter` to `shiki` in your hexo `_config.yml`:
+
+```yaml _config.yml
+# Syntax Highlighter
+syntax_highlighter: shiki
+```
 
 | <img width="1386" height="720" alt="image" src="https://github.com/user-attachments/assets/f0435c12-5140-4ca4-86bb-e5237039cc2d" /> | <img width="1394" height="736" alt="image" src="https://github.com/user-attachments/assets/406a656f-9e99-4fb7-bb34-a2e1078451e4" /> |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 
 
 ### Mermaid Filter [^2]
@@ -25,39 +38,24 @@
 
 ![image](https://github.com/user-attachments/assets/3bd2d897-721d-4505-8194-6a592bbceb31)
 
-### Floating TOC
+### Components
 
-为更好的阅读体验(主要体现在移动端)，这里将 TOC 改成浮动组件
+#### Table
 
-```yaml _config.post.yml
-sidebar:
-  left:
-    sticky: false
-  right:
-    sticky: true
+| ![1763371106238](assets/README/table_nord.png) | ![1763371131768](assets/README/table_tokyo.png) |
+| ---------------------------------------------- | ----------------------------------------------- |
 
-widgets:
-  - position: right
-    type: toc
-    index: true
-    collapsed: false
-```
+#### Quote
 
-| ![image](https://github.com/user-attachments/assets/81145544-ed01-4886-a340-9fd4533fbeca) | ![image](https://github.com/user-attachments/assets/02d3e616-5b5b-4b32-b5d4-dbf5e23f0a3a) |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| ![1763371059037](assets/README/quote_light.png) |
+| ----------------------------------------------- |
+| ![1763371021736](assets/README/quote_dark.png)  |
 
+#### Footer
 
-### Table
-
-| ![image](https://github.com/user-attachments/assets/f06ea615-a4eb-4e5f-b1ed-65823120b08e) | ![image](https://github.com/user-attachments/assets/d9a1ac05-aed7-4b0e-880e-0d5455b54e16) |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-
-
-### Quote
-
-| ![image](https://github.com/user-attachments/assets/648d7463-70a9-47c7-b364-56c8a26cca37) |
-| ----------------------------------------------------------------------------------------- |
-| ![image](https://github.com/user-attachments/assets/bd1ac620-79b0-43da-aee9-a724cf40190e) |
+| ![1763371250167](assets/README/footer_nord.png) |
+| ----------------------------------------------- |
+| ![1763371215054](assets/README/footer_dark.png) |
 
 ## Installation
 
@@ -94,7 +92,6 @@ $ hexo config theme icarus
 +   "hexo-util": "^3.3.0",
 +   "inferno": "^9.0.3",
 +   "inferno-create-element": "^9.0.3",
-+   "markdown-it-merge-cells": "^2.0.0",
 +   "markdown-it-obsidian-callouts": "^0.3.1",
 +   "markdown-it-task-lists": "^2.1.1",
 +   "moment": "^2.30.1"
@@ -108,3 +105,5 @@ $ hexo config theme icarus
 $ bun add git+https://github.com/Efterklang/hexo-theme-icarus
 $ hexo config theme icarus
 ```
+
+[^1]: See [Efterklang/hexo-shiki-highlight: shiki highlighter for hexo](https://github.com/Efterklang/hexo-shiki-highlight)
