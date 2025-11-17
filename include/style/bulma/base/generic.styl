@@ -25,7 +25,13 @@ $pre-padding ?= 1.25rem 1.5rem
 $pre-code-font-size ?= 1em
 
 html
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   font-size $body-size
+  scroll-behavior: smooth
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
   min-width $body-min-width
@@ -33,6 +39,9 @@ html
   overflow-y $body-overflow-y
   text-rendering $body-rendering
   text-size-adjust 100%
+
+:target
+    scroll-margin-top: 20vh;
 
 article,
 aside,
