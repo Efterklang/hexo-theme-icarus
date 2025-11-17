@@ -74,7 +74,6 @@ const Widget = loadComponent(`widgets/${widget.type}`, fallback);
 
 - **Base**: Bulma framework imported first (`include/style/bulma/`)
 - **Variables**: Defined in `base.styl` (colors, sizes, gaps)
-- **Theme variants**: CSS custom properties override via `night.styl` and theme selector JS
 - **Responsive**: Bulma's breakpoints (tablet, desktop, widescreen)
 
 **Layout classes**:

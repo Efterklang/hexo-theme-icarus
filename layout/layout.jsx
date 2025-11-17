@@ -19,16 +19,6 @@ module.exports = class extends Component {
         <Head site={site} config={config} helper={helper} page={page} />
         <body class={`is-${columnCount}-column`}>
           <script type="text/javascript" src="/js/theme-selector.js"></script>
-          {config.plugins.universe && (
-            <>
-              <canvas id="universe"></canvas>
-              <script
-                type="text/javascript"
-                src="/js/imaegoo/universe.js"
-              ></script>
-            </>
-          )}
-
           <Navbar config={config} helper={helper} page={page} />
           <ThemeSelector />
           <section class="section">
