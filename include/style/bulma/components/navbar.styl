@@ -227,20 +227,3 @@ body
 @media screen and (min-width: $desktop)
   .navbar > .container .navbar-menu, .container > .navbar .navbar-menu
     margin-right: 0rem
-
-.has-dropdown
-  position relative
-  display inline-block
-
-  > .dropdown-content
-    display: none
-    position: fixed
-    top: $navbar-height
-    min-width: 150px
-    background-color: var(--crust)
-    border-radius: 5px
-    border: 2px solid var(--base)
-
-  &:hover .dropdown-content
-    display: block
-    z-index: $navbar-z + 1

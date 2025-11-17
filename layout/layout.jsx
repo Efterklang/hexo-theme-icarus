@@ -5,6 +5,7 @@ const Widgets = require('./common/widgets');
 const Footer = require('./common/footer');
 const Scripts = require('./common/scripts');
 const Search = require('./common/search');
+const ThemeSelector = require('./common/theme_selector');
 
 module.exports = class extends Component {
     render() {
@@ -26,6 +27,7 @@ module.exports = class extends Component {
 
 
                 <Navbar config={config} helper={helper} page={page} />
+                <ThemeSelector />
                 <section class="section">
                     <div class="container">
                         <div class="columns">

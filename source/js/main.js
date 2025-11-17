@@ -19,6 +19,8 @@
                 document.querySelector('.searchbox-input').focus();
             }, 100);
             e.preventDefault();
+        } else if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code == "KeyP") { // ctrl/cmd shift p
+            document.querySelector("a.navbar-item.theme-selector-trigger").click();
         }
     };
 

@@ -11,10 +11,15 @@
     const THEME_MAP = {
         mocha: "night",
         macchiato: "night",
-        frappe: "night",
+        nord: "light",
         tokyo_night: "night",
         latte: "light",
     };
+
+    let currentIndex = 0;
+    let previewTheme = null;
+    let originalTheme = null;
+    let isModalOpen = false;
 
     function getThemePreference() {
         const stored = localStorage.getItem(STORAGE_KEY);
@@ -27,11 +32,11 @@
             theme === "system"
                 ? colorSchemeMediaQuery.matches
                     ? "mocha"
-                    : "latte"
+                    : "nord"
                 : theme;
         if (animated) {
             html.style.transition =
-                "background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease";
+                "background-color 0.1s ease, color 0.1s ease, border-color 0.2s ease, box-shadow 0.2s ease";
         }
 
         html.setAttribute("data-theme", resolvedTheme);
@@ -48,6 +53,112 @@
         }
     }
 
+    function openModal() {
+        const modal = document.getElementById("theme-selector-modal");
+        if (!modal || isModalOpen) return;
+
+        isModalOpen = true;
+        originalTheme = getThemePreference();
+
+        // Find current theme index
+        const themeOptions = modal.querySelectorAll(".theme-option");
+        themeOptions.forEach((option, index) => {
+            const theme = option.getAttribute("data-theme-option");
+            if (theme === originalTheme) {
+                currentIndex = index;
+            }
+            // Update active state
+            if (theme === originalTheme) {
+                option.classList.add("is-active");
+            } else {
+                option.classList.remove("is-active");
+            }
+        });
+
+        // Set initial focus
+        updateFocus(themeOptions);
+
+        modal.classList.add("is-active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(apply = false) {
+        const modal = document.getElementById("theme-selector-modal");
+        if (!modal || !isModalOpen) return;
+
+        isModalOpen = false;
+
+        if (apply && previewTheme) {
+            // Apply the selected theme
+            applyTheme(previewTheme, true, true);
+        } else if (previewTheme && previewTheme !== originalTheme) {
+            // Restore original theme if cancelled
+            applyTheme(originalTheme, true, false);
+        }
+
+        modal.classList.remove("is-active");
+        document.body.style.overflow = "";
+        previewTheme = null;
+        originalTheme = null;
+
+        // Clear all focus states
+        const themeOptions = modal.querySelectorAll(".theme-option");
+        themeOptions.forEach(option => option.classList.remove("is-focused"));
+    }
+
+    function updateFocus(themeOptions) {
+        themeOptions.forEach((option, index) => {
+            if (index === currentIndex) {
+                option.classList.add("is-focused");
+                option.scrollIntoView({ block: "nearest", behavior: "smooth" });
+
+                // Preview theme on focus
+                const theme = option.getAttribute("data-theme-option");
+                if (theme !== previewTheme) {
+                    previewTheme = theme;
+                    applyTheme(theme, true, false);
+                }
+            } else {
+                option.classList.remove("is-focused");
+            }
+        });
+    }
+
+    function handleKeyboard(event) {
+        if (!isModalOpen) return;
+
+        const modal = document.getElementById("theme-selector-modal");
+        const themeOptions = modal.querySelectorAll(".theme-option");
+        const maxIndex = themeOptions.length - 1;
+
+        switch (event.key) {
+            case "ArrowDown":
+            case "Down":
+                event.preventDefault();
+                currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+                updateFocus(themeOptions);
+                break;
+
+            case "ArrowUp":
+            case "Up":
+                event.preventDefault();
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+                updateFocus(themeOptions);
+                break;
+
+            case "Enter":
+                event.preventDefault();
+                closeModal(true);
+                break;
+
+            case "Escape":
+            case "Esc":
+                event.preventDefault();
+                closeModal(false);
+                break;
+        }
+    }
+
     // 初始化主题
     applyTheme(getThemePreference(), false);
 
@@ -58,20 +169,46 @@
         }
     });
 
-    // 监听主题选择框变化
+    // 监听主题选择框变化 (legacy support)
     document.addEventListener("change", (event) => {
         if (event.target.id === THEME_SELECTOR_ID) {
             applyTheme(event.target.value, true, true);
         }
     });
 
-    // 监听主题菜单点击
+    // 监听点击事件
     document.addEventListener("click", (event) => {
-        const themeItem = event.target.closest("[data-theme-option]");
-        if (themeItem) {
+        // Open modal when theme selector is clicked
+        if (event.target.closest(".theme-selector-trigger")) {
             event.preventDefault();
-            applyTheme(themeItem.getAttribute("data-theme-option"), true, true);
+            openModal();
+            return;
+        }
+
+        // Close modal when backdrop is clicked
+        if (event.target.classList.contains("theme-selector-backdrop")) {
+            event.preventDefault();
+            closeModal(false);
+            return;
+        }
+
+        // Handle theme option click in modal
+        const themeOption = event.target.closest(".theme-option");
+        if (themeOption && isModalOpen) {
+            event.preventDefault();
+            const modal = document.getElementById("theme-selector-modal");
+            const themeOptions = modal.querySelectorAll(".theme-option");
+            currentIndex = parseInt(themeOption.getAttribute("data-index"));
+            updateFocus(themeOptions);
+            // Small delay before closing to show selection
+            setTimeout(() => closeModal(true), 150);
             return;
         }
     });
+
+    // 监听键盘事件
+    document.addEventListener("keydown", handleKeyboard);
+
+    // Export for navbar to get current theme
+    window.getThemePreference = getThemePreference;
 })(window, document, window.localStorage);

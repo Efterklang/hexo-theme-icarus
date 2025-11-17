@@ -27,7 +27,6 @@ class Navbar extends Component {
             tocTitle,
             showSearch,
             searchTitle,
-            currentTheme
         } = this.props;
 
         let navbarLogo = '';
@@ -63,29 +62,9 @@ class Navbar extends Component {
                             <i class="fas fa-list-ul"></i>
                             <span>&nbsp;&nbsp;目录</span>
                         </a> : null}
-                        <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-item theme-selector-trigger" href="javascript:;" title="Choose Theme">
                             <i class="fas fa-palette"></i>
-                            <div class="dropdown-content">
-                                <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'system' })} href="javascript:;" data-theme-option="system">
-                                    🖥️ System
-                                </a>
-                                <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'latte' })} href="javascript:;" data-theme-option="latte">
-                                    🌻 Latte
-                                </a>
-                                <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'frappe' })} href="javascript:;" data-theme-option="frappe">
-                                    🪴 Frappé
-                                </a>
-                                <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'macchiato' })} href="javascript:;" data-theme-option="macchiato">
-                                    🌺 Macchiato
-                                </a>
-                                <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'mocha' })} href="javascript:;" data-theme-option="mocha">
-                                    🌿 Mocha
-                                </a>
-                                <a class={classname({ 'level-item':true, 'is-active': currentTheme === 'tokyo_night' })} href="javascript:;" data-theme-option="tokyo_night">
-                                    🌃 Tokyo Night
-                                </a>
-                            </div>
-                        </div>
+                        </a>
                         {Object.keys(links).length ? <Fragment>
                             {Object.keys(links).map(name => {
                                 const link = links[name];
@@ -147,7 +126,6 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
         showToc,
         tocTitle: _p('widget.catalogue', Infinity),
         showSearch: search && search.type,
-        searchTitle: __('search.search'),
-        currentTheme: typeof window !== 'undefined' ? (window.getThemePreference ? window.getThemePreference() : 'system') : 'system'
+        searchTitle: __('search.search')
     };
 });
