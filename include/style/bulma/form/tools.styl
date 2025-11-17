@@ -73,55 +73,13 @@ $help-size ?= $size-small
     +tablet()
       display flex
 
-.field-label
-  .label
-    font-size inherit
-  +mobile()
-    margin-bottom 0.5rem
-  +tablet()
-    flex-basis 0
-    flex-grow 1
-    flex-shrink 0
-    margin-right 1.5rem
-    text-align right
-    &.is-small
-      font-size $size-small
-      padding-top 0.375em
-    &.is-normal
-      padding-top 0.375em
-    &.is-medium
-      font-size $size-medium
-      padding-top 0.375em
-    &.is-large
-      font-size $size-large
-      padding-top 0.375em
-
-.field-body
-  .field .field
-    margin-bottom 0
-  +tablet()
-    display flex
-    flex-basis 0
-    flex-grow 5
-    flex-shrink 1
-    .field
-      margin-bottom 0
-    & > .field
-      flex-shrink 1
-      &:not(.is-narrow)
-        flex-grow 1
-      &:not(:last-child)
-        margin-right 0.75rem
-
 .control
   box-sizing border-box
   clear both
   font-size $size-normal
   position relative
   text-align left
-  // Modifiers
   &.has-icons-left,
-  &.has-icons-right
     .input,
     .select
       &.is-small ~ .icon
@@ -143,22 +101,3 @@ $help-size ?= $size-small
       padding-left $input-height
     .icon.is-left
       left 0
-  &.has-icons-right
-    .input,
-    .select select
-      padding-right $input-height
-    .icon.is-right
-      right 0
-  &.is-loading
-    &::after
-      @extend $loader
-      position absolute !important
-      right 0.625em
-      top 0.625em
-      z-index 4
-    &.is-small:after
-      font-size $size-small
-    &.is-medium:after
-      font-size $size-medium
-    &.is-large:after
-      font-size $size-large
