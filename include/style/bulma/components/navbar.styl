@@ -6,11 +6,6 @@ $navbar-fixed-z ?= 30
 
 $navbar-item-img-max-height ?= 1.75rem
 
-$navbar-item-padding-v ?= 1.25rem
-$navbar-item-padding-h ?= .75rem
-$navbar-item-margin-v ?= 0
-$navbar-item-margin-h ?= 0
-
 $navbar-bottom-box-shadow-size ?= 0 -2px 0 0
 $navbar-breakpoint ?= $desktop
 
@@ -24,7 +19,7 @@ navbar-fixed()
   min-height $navbar-height
   position relative
   z-index $navbar-z
-  font-family: $family-sans-serif
+  font-family: $family-monospace
   font-weight: bold
   backdrop-filter: blur(10px)
   -webkit-backdrop-filter: blur(10px)
@@ -53,14 +48,13 @@ body
   display flex
   flex-shrink 0
   min-height $navbar-height
-//
+
 .navbar-menu
   display none
 
 .navbar-item,
 .navbar-link
   display block
-  line-height 1.5
   padding 0.5rem 0.75rem
   position relative
   .icon
@@ -69,7 +63,6 @@ body
       margin-right -0.25rem
 
 .navbar-item
-  display block
   flex-grow 0
   flex-shrink 0
   img
@@ -109,15 +102,6 @@ body
   .navbar-end
     justify-content: flex-end
     margin-left: auto
-
-  .navbar-item
-    display: flex
-    align-items: center
-    padding: $navbar-item-padding-v $navbar-item-padding-h
-    margin: $navbar-item-margin-v $navbar-item-margin-h
-    &.is-active
-      color: inherit
-      font-weight: bold
 
 +until($navbar-breakpoint)
   .navbar > .container
