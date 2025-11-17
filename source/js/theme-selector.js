@@ -26,7 +26,7 @@
         return stored && stored in THEME_MAP ? stored : DEFAULT_THEME;
     }
 
-    function applyTheme(theme, animated = false, persist = false) {
+    function applyTheme(theme, persist = false) {
         const html = document.documentElement;
         const resolvedTheme =
             theme === "system"
@@ -34,20 +34,10 @@
                     ? "mocha"
                     : "nord"
                 : theme;
-        if (animated) {
-            html.style.transition =
-                "background-color 0.1s ease, color 0.1s ease, border-color 0.2s ease, box-shadow 0.2s ease";
-        }
-
         html.setAttribute("data-theme", resolvedTheme);
         html.classList.remove("night", "light");
         html.classList.add(THEME_MAP[resolvedTheme]);
 
-        if (animated) {
-            setTimeout(() => {
-                html.style.transition = "";
-            }, 300);
-        }
         if (persist) {
             localStorage.setItem(STORAGE_KEY, theme);
         }
@@ -90,10 +80,10 @@
 
         if (apply && previewTheme) {
             // Apply the selected theme
-            applyTheme(previewTheme, true, true);
+            applyTheme(previewTheme, true);
         } else if (previewTheme && previewTheme !== originalTheme) {
             // Restore original theme if cancelled
-            applyTheme(originalTheme, true, false);
+            applyTheme(originalTheme);
         }
 
         modal.classList.remove("is-active");
@@ -116,7 +106,7 @@
                 const theme = option.getAttribute("data-theme-option");
                 if (theme !== previewTheme) {
                     previewTheme = theme;
-                    applyTheme(theme, true, false);
+                    applyTheme(theme);
                 }
             } else {
                 option.classList.remove("is-focused");
@@ -160,19 +150,19 @@
     }
 
     // 初始化主题
-    applyTheme(getThemePreference(), false);
+    applyTheme(getThemePreference());
 
     // 监听系统主题改变
     colorSchemeMediaQuery.addEventListener("change", () => {
         if (getThemePreference() === "system") {
-            applyTheme("system", true);
+            applyTheme("system");
         }
     });
 
     // 监听主题选择框变化 (legacy support)
     document.addEventListener("change", (event) => {
         if (event.target.id === THEME_SELECTOR_ID) {
-            applyTheme(event.target.value, true, true);
+            applyTheme(event.target.value, true);
         }
     });
 
