@@ -202,13 +202,13 @@ module.exports = class extends Component {
         <link rel="preload" as="style" href={url_for("/css/default.css")} onload="this.onload=null;this.rel='stylesheet'" />
 
         {config.comment.type == "twikoo" ? (
-          <link rel="stylesheet" href={url_for("/css/twikoo.css")} media="print" onload="this.media='all'" />
+          <link rel="preload" as="style" href={url_for("/css/twikoo.css")} onload="this.onload=null;this.rel='stylesheet'" />
         ) : null}
 
         {/* Font Awesome */}
         <link rel="preload" as="style" href={iconcdn()} onload="this.onload=null;this.rel='stylesheet'" />
         {/* Maple Mono CN */}
-        <link rel='stylesheet' href="https://fontsapi.zeoseven.com/442/main/result.css" />
+        <link rel='preload' as="style" href="https://fontsapi.zeoseven.com/442/main/result.css" onload="this.onload=null;this.rel='stylesheet'" />
         <Plugins site={site} config={config} helper={helper} page={page} head={true} />
         {adsenseClientId ? (
           <script
