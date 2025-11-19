@@ -18,7 +18,6 @@ module.exports = class extends Component {
       <html lang={language ? language : ""}>
         <Head site={site} config={config} helper={helper} page={page} />
         <body class={`is-${columnCount}-column`}>
-          <script type="text/javascript" src="/js/theme-selector.js"></script>
           <Navbar config={config} helper={helper} page={page} />
           <ThemeSelector />
           <section class="section">

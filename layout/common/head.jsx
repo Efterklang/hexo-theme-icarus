@@ -199,8 +199,8 @@ module.exports = class extends Component {
           />
         ) : null}
 
-        <link rel="preload" as="style" href={url_for("/css/default.css")} onload="this.onload=null;this.rel='stylesheet'" />
-
+        <link rel="stylesheet" href={url_for("/css/default.css")}/>
+        <script type="text/javascript" src="/js/theme-selector.js"></script>
         {config.comment.type == "twikoo" ? (
           <link rel="preload" as="style" href={url_for("/css/twikoo.css")} onload="this.onload=null;this.rel='stylesheet'" />
         ) : null}
