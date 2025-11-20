@@ -53,7 +53,7 @@ class Footer extends Component {
                                 const link = links[name];
                                 return <p class="control">
                                     <a class={`button ${link.icon ? 'is-large' : ''}`} target="_blank" rel="noopener" title={name} href={link.url}>
-                                        {link.icon ? <i class={link.icon}></i> : name}
+                                        {link.icon ? <iconify-icon icon={link.icon}></iconify-icon> : name}
                                     </a>
                                 </p>;
                             })}

@@ -11,7 +11,7 @@ class Profile extends Component {
             {links.filter(link => typeof link === 'object').map(link => {
                 return <a class="level-item button is-marginless"
                     target="_blank" rel="me noopener" title={link.name} href={link.url}>
-                    {'icon' in link ? <i class={link.icon}></i> : link.name}
+                    {'icon' in link ? <iconify-icon icon={link.icon}></iconify-icon> : link.name}
                 </a>;
             })}
         </div>;
@@ -38,7 +38,7 @@ class Profile extends Component {
                             {author ? <p class="title is-size-4" style={{'line-height': 'inherit', 'display': 'block'}}>{author}</p> : null}
                             {authorTitle ? <p class="is-size-6" style={{'display': 'block'}}>{authorTitle}</p> : null}
                             {location ? <p class="is-size-6" style={{'display': 'flex', 'justify-content': 'center'}}>
-                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <iconify-icon icon="fas:map-marker-alt" style={{'margin-right': '0.25rem'}}></iconify-icon>
                                 <span>{location}</span>
                             </p> : null}
                         </div>
