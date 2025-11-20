@@ -43,9 +43,6 @@
         "pjax": {
             "$ref": "/plugin/pjax.json"
         },
-        "progressbar": {
-            "$ref": "/plugin/progressbar.json"
-        },
         "statcounter": {
             "$ref": "/plugin/statcounter.json"
         },
