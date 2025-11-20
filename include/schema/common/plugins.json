@@ -37,12 +37,6 @@
         "hotjar": {
             "$ref": "/plugin/hotjar.json"
         },
-        "katex": {
-            "$ref": "/plugin/katex.json"
-        },
-        "mathjax": {
-            "$ref": "/plugin/mathjax.json"
-        },
         "outdated_browser": {
             "$ref": "/plugin/outdated_browser.json"
         },

@@ -39,15 +39,6 @@ const CDNJS_FIXTURES = {
     ver,
     fname.startsWith('outdatedbrowser/') ? fname.substr(16) : fname,
   ],
-  mathjax: (ver, fname) => [
-    'mathjax',
-    ver,
-    (() => {
-      fname = fname.startsWith('unpacked/') ? fname.substr(9) : fname;
-      return fname.indexOf('.min.') > -1 ? fname.replace(/\.min\./gi, '.') : fname;
-    })(),
-  ],
-  katex: (ver, fname) => ['KaTeX', ver, fname],
   'pace-js': (ver, fname) => ['pace', ver, fname],
   // disqusjs is not hosted on CDN.js
   disqusjs: (ver, fname) => [],
@@ -61,11 +52,6 @@ const CDNJS_FIXTURES = {
 };
 
 const UNPKG_FIXTURES = {
-  mathjax: (ver, fname) => [
-    'mathjax',
-    ver,
-    fname.indexOf('.min.') > -1 ? fname.replace(/\.min\./gi, '.') : fname,
-  ],
   disqusjs: (ver, fname) => [
     'disqusjs',
     ver,
