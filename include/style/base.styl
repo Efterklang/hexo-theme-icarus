@@ -1,14 +1,11 @@
-bulma-stylus-root = './bulma';
-@import (((bulma-stylus-root + '/utilities/_all')));
-@import (((bulma-stylus-root + '/base/_all')));
-@import bulma-stylus-root + '/components/_all'
-@import bulma-stylus-root + '/elements/_all'
-@import (((bulma-stylus-root + '/grid/_all')));
-@import (((bulma-stylus-root + '/layout/_all')));
-
-$body-size ?= 14px;
-
+@import './bulma/utilities/_all';
+@import './bulma/base/_all';
+@import './bulma/components/_all'
+@import './bulma/elements/_all'
+@import './bulma/grid/_all';
+@import './bulma/layout/_all';
 @import '../../source/css/font/font.css';
+
 $size-7 ?= 0.85rem;
 $size-small ?= 0.75rem;
 // gap 62px
