@@ -1,10 +1,14 @@
 :where([data-theme="tokyo_night"]) {
+
+  code span,
   .shiki span {
     color: var(--shiki-tokyo) !important;
   }
 }
 
 :where([data-theme="mocha"], [data-theme="macchiato"]) {
+
+  code span,
   .shiki span {
     color: var(--shiki-dark) !important;
   }
