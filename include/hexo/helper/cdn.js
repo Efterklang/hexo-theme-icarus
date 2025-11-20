@@ -7,7 +7,7 @@
 /**
  * @private
  */
- const PROVIDERS = {
+const PROVIDERS = {
   LIBRARY: {
     host: '/js/host/${ package }/${ version }/${ filename }',
     cdnjs: '[cdnjs]https://cdnjs.cloudflare.com/ajax/libs/${ package }/${ version }/${ filename }',
@@ -24,9 +24,7 @@
     ustc: 'https://fonts.lug.ustc.edu.cn/${ type }?family=${ fontname }',
   },
   ICON: {
-    host: '/css/font/fontawesome/css/all.min.css',
-    loli: 'https://cdnjs.loli.net/ajax/libs/font-awesome/7.0.0/css/all.min.css',
-    fontawesome: 'https://use.fontawesome.com/releases/v7.0.0/css/all.css',
+    host: '/css/font/iconify-icon/3.0.2/iconify-icon.min.js',
   },
 };
 

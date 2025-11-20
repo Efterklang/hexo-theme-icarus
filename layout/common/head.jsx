@@ -205,8 +205,8 @@ module.exports = class extends Component {
           <link rel="preload" as="style" href={url_for("/css/twikoo.css")} onload="this.onload=null;this.rel='stylesheet'" />
         ) : null}
 
-        {/* Font Awesome */}
-        <link rel="preload" as="style" href={iconcdn()} onload="this.onload=null;this.rel='stylesheet'" />
+        {/* Iconify Icons */}
+        <script async src={iconcdn()}></script>
         {/* Maple Mono CN */}
         <link rel='preload' as="style" href="https://fontsapi.zeoseven.com/442/main/result.css" onload="this.onload=null;this.rel='stylesheet'" />
         <Plugins site={site} config={config} helper={helper} page={page} head={true} />
