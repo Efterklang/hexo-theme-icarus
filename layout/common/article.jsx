@@ -3,7 +3,7 @@ const { Component, Fragment } = require('inferno');
 const { toMomentLocale } = require('hexo/dist/plugins/helper/date');
 const Share = require('./share');
 const Comment = require('./comment');
-const ArticleLicensing = require('hexo-component-inferno/lib/view/misc/article_licensing');
+const ArticleLicensing = require('../misc/article_licensing')
 
 /**
  * Get the word count of text.
@@ -40,7 +40,7 @@ module.exports = class extends Component {
             <div class="card">
                 {/* Cover image */}
                 {cover ? (() => {
-                    const imageSrcset = useResponsiveImages ? `${cover}?w=128 128w, ${cover}?w=256 256w, ${cover}?w=800 800w, ${cover}?w=1500 1500w, ${cover}?w=2000 2000w, ${cover}?fmt=avif 6144w` : null;
+                    const imageSrcset = useResponsiveImages ? `${cover}?w=256 256w, ${cover}?w=800 800w, ${cover}?w=1500 1500w, ${cover}?w=2000 2000w, ${cover} 6144w` : null;
                     const imageSizes = useResponsiveImages ? '(max-width: 768px) 100vw, 50vw' : null;
                     const coverLQIP = <img class="cover-lqip" alt="lqip" src={`${cover}?q=10&blur=25`} fetchpriority="high" />;
                     const CoverImage = <img class="fill" src={cover} alt={page.title || cover} onLoad={"this.classList.add('loaded')"} srcset={imageSrcset} sizes={imageSizes} referrerpolicy="no-referrer" />;
