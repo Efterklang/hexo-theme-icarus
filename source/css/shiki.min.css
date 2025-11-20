@@ -33,13 +33,13 @@ figure.shiki {
   background: var(--base);
   color: var(--subtext1);
 
-  > .left {
+  >.left {
     gap: 5px;
     display: flex;
     align-items: center;
   }
 
-  > .center {
+  >.center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,19 +48,17 @@ figure.shiki {
     min-width: 0;
   }
 
-  > .right {
+  >.right {
     gap: 10px;
     display: flex;
     align-items: center;
 
-    > i {
+    >iconify-icon {
       cursor: pointer;
-      transition:
-        color 0.3s,
-        transform 0.3s ease;
+      transition: color 0.3s, transform 0.3s ease;
     }
 
-    > i:hover {
+    >iconify-icon:hover {
       color: var(--blue);
     }
   }
@@ -76,7 +74,7 @@ figure.shiki {
 }
 
 /* ===== COPY NOTICE ===== */
-.shiki-tools > .right > .copy-notice {
+.shiki-tools>.right>.copy-notice {
   position: absolute;
   white-space: nowrap;
   opacity: 0;
@@ -124,6 +122,7 @@ figure.shiki {
 
 /* ===== EXPAND BUTTON ===== */
 @keyframes code-expand-pulse {
+
   0%,
   100% {
     opacity: 0.6;
@@ -136,7 +135,7 @@ figure.shiki {
 
 .code-expand-btn {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   width: 100%;
   z-index: 1000;
   display: flex;
@@ -145,13 +144,13 @@ figure.shiki {
   font-size: 1em;
   cursor: pointer;
 
-  > i {
+  >iconify-icon {
     padding: 6px 0;
     animation: code-expand-pulse 1.2s infinite;
     transition: transform 0.3s ease;
   }
 
-  &.expand-done > i {
+  &.expand-done>iconify-icon {
     transform: rotate(180deg);
   }
 }
@@ -161,13 +160,13 @@ figure.shiki[data-collapsible="true"] {
   position: relative;
 }
 
-figure.shiki[data-collapsible="true"] > pre.shiki {
+figure.shiki[data-collapsible="true"]>pre.shiki {
   position: relative;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-figure.shiki[data-collapsible="true"]:not(.expanded) > pre.shiki::after {
+figure.shiki[data-collapsible="true"]:not(.expanded)>pre.shiki::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -176,16 +175,14 @@ figure.shiki[data-collapsible="true"]:not(.expanded) > pre.shiki::after {
   height: 80px;
   pointer-events: none;
   z-index: 1;
-  background: linear-gradient(
-    transparent 0%,
-    hsl(from var(--base) h s l / 0.8),
-    30%,
-    var(--base) 100%
-  );
+  background: linear-gradient(transparent 0%,
+      hsl(from var(--base) h s l / 0.8),
+      30%,
+      var(--base) 100%);
   opacity: 1;
 }
 
-figure.shiki[data-collapsible="true"].expanded > .code-expand-btn {
+figure.shiki[data-collapsible="true"].expanded>.code-expand-btn {
   transform: translateY(0);
 }
 
@@ -193,7 +190,7 @@ figure.shiki[data-collapsible="true"].expanded > .code-expand-btn {
 pre.shiki {
   background: var(--base);
 
-  > code {
+  >code {
     text-align: left;
     counter-reset: step;
     counter-increment: step 0;
@@ -202,10 +199,9 @@ pre.shiki {
     border: none !important;
     width: 100%;
     font-family:
-      "Maple Mono CN", "Maple Mono NF CN", "SF Pro", "Fira Code",
-      "JetbrainsMono Nerd Font", Menlo, "DejaVu Sans Mono", monospace;
+      "Maple Mono NF CN", "SF Pro", "Fira Code", "JetbrainsMono Nerd Font", Menlo, "DejaVu Sans Mono", monospace;
 
-    > span.line {
+    >span.line {
       display: block;
       width: fit-content;
       min-width: 100%;
@@ -263,8 +259,8 @@ span.highlighted-word {
   padding: 1px 2px;
 }
 
-pre.shiki.has-focused > code {
-  > .line {
+pre.shiki.has-focused>code {
+  >.line {
     filter: blur(3px);
     opacity: 0.7;
     transition:
@@ -272,7 +268,7 @@ pre.shiki.has-focused > code {
       opacity 0.35s;
   }
 
-  > .line.focused,
+  >.line.focused,
   &:hover .line {
     filter: blur(0);
     opacity: 1;
@@ -280,4 +276,3 @@ pre.shiki.has-focused > code {
 }
 
 /* #endregion Transformer */
-
