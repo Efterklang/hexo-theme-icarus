@@ -178,8 +178,14 @@ content-colors()
             color: var(--blue);
         h6
             color: var(--mauve);
+        mark
+            background-color: var(--yellow);
+        .task-list-item-checkbox
+            accent-color: var(--lavender);
+        .task-list-item-checkbox:checked
+            accent-color: var(--mauve);
         strong
-            color: var(--pink);
+            color: var(--red);
         blockquote
             border-color: var(--red);
             &:before
@@ -359,6 +365,9 @@ ui-elements-colors()
     body
         background: var(--mantle);
         color: var(--text);
+    input.task-list-item-checkbox:checked
+        background-color: var(--green)
+        border-color: var(--green)
     time, .footer, .navbar-item, .navbar-link, .menu-label, .level-item, .v *
         color: var(--text);
     .media-content, .link-muted, .cc-window

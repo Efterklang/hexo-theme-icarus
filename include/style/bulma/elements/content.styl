@@ -186,6 +186,35 @@ blockquote
     strong + cite
         margin-left: .5em
 
+
+ul.contains-task-list
+  list-style-type: none
+
+li.task-list-item
+  display: flex
+  align-items: center
+  gap: 0.75rem
+  font-size: 1rem
+
+input.task-list-item-checkbox
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--surface1);
+  border-radius: 0.375rem;
+  position: relative;
+
+input.task-list-item-checkbox:checked::before
+  content: "✓";
+  color: var(--base);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  font-weight: bold;
+
 .heading
   display block
   font-size 11px
