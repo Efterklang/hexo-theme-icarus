@@ -75,6 +75,10 @@ details[open].callout>.callout-title>.callout-fold {
     border-color: hsl(from var(--sapphire) h s l / 0.5);
     background-color: hsl(from var(--sapphire) h s l / 0.2);
 
+    svg {
+        color: var(--sapphire);
+    }
+
     .callout-title {
         --callout-title-color: var(--sapphire);
     }
@@ -90,6 +94,10 @@ details[open].callout>.callout-title>.callout-fold {
     --callout-icon: lucide-check;
     border-color: hsl(from var(--green) h s l / 0.5);
     background-color: hsl(from var(--green) h s l / 0.2);
+
+    svg {
+        color: var(--green);
+    }
 
     .callout-title {
         --callout-title-color: var(--green);
@@ -107,6 +115,10 @@ details[open].callout>.callout-title>.callout-fold {
     border-color: hsl(from var(--peach) h s l / 0.5);
     background-color: hsl(from var(--peach) h s l / 0.2);
 
+    svg {
+        color: var(--peach);
+    }
+
     .callout-title {
         --callout-title-color: var(--peach);
     }
@@ -122,6 +134,10 @@ details[open].callout>.callout-title>.callout-fold {
     --callout-icon: lucide-alert-mark;
     border-color: hsl(from var(--yellow) h s l / 0.5);
     background-color: hsl(from var(--yellow) h s l / 0.2);
+
+    svg {
+        color: var(--yellow);
+    }
 
     .callout-title {
         --callout-title-color: var(--yellow);
@@ -142,6 +158,10 @@ details[open].callout>.callout-title>.callout-fold {
     border-color: hsl(from var(--red) h s l / 0.5);
     background-color: hsl(from var(--red) h s l / 0.2);
 
+    svg {
+        color: var(--red);
+    }
+
     .callout-title {
         --callout-title-color: var(--red);
     }
@@ -158,6 +178,10 @@ details[open].callout>.callout-title>.callout-fold {
     border-color: hsl(from var(--pink) h s l / 0.5);
     background-color: hsl(from var(--pink) h s l / 0.2);
 
+    svg {
+        color: var(--pink);
+    }
+
     .callout-title {
         --callout-title-color: var(--pink);
     }
@@ -171,6 +195,10 @@ details[open].callout>.callout-title>.callout-fold {
     --callout-icon: lucide-list;
     border-color: hsl(from var(--mauve) h s l / 0.5);
     background-color: hsl(from var(--mauve) h s l / 0.2);
+
+    svg {
+        color: var(--mauve);
+    }
 
     .callout-title {
         --callout-title-color: var(--mauve);
@@ -188,9 +216,14 @@ details[open].callout>.callout-title>.callout-fold {
     border-color: hsl(from var(--teal) h s l / 0.5);
     background-color: hsl(from var(--teal) h s l / 0.2);
 
+    svg {
+        color: var(--teal);
+    }
+
     .callout-title {
         --callout-title-color: var(--teal);
     }
+
 
     .callout-title .callout-fold {
         background-color: var(--teal);
@@ -202,6 +235,10 @@ details[open].callout>.callout-title>.callout-fold {
     --callout-icon: quote-glyph;
     border-color: hsl(from var(--lavender) h s l / 0.5);
     background-color: hsl(from var(--lavender) h s l / 0.2);
+
+    svg {
+        color: var(--lavender);
+    }
 
     .callout-title {
         --callout-title-color: var(--lavender);
