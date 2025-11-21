@@ -11,7 +11,6 @@ module.exports = hexo => {
     require('hexo-component-inferno/lib/hexo/generator/tags')(hexo);
     require('./hexo/helper/cdn')(hexo);
     require('hexo-component-inferno/lib/hexo/helper/page')(hexo);
-    require('hexo-component-inferno/lib/hexo/tag/message')(hexo);
-    require('hexo-component-inferno/lib/hexo/tag/tabs')(hexo);
+    require('./hexo/tag/tabs')(hexo);
     require('hexo-component-inferno/lib/core/view').init(hexo);
 };
