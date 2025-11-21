@@ -1,4 +1,11 @@
+code span {
+  font-style: var(--shiki-light-font-style);
+}
+
 :where([data-theme="tokyo_night"]) {
+  code span {
+    font-style: var(--shiki-tokyo-font-style);
+  }
 
   code span,
   .shiki span {
@@ -7,6 +14,9 @@
 }
 
 :where([data-theme="mocha"], [data-theme="macchiato"]) {
+  code span {
+    font-style: var(--shiki-dark-font-style);
+  }
 
   code span,
   .shiki span {
