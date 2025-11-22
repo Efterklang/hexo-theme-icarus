@@ -3,13 +3,10 @@ $card-content-padding ?= 1.25rem
 $card-radius ?= 24px
 
 .card
-    box-shadow $card-shadow
     max-width 100%
     position relative
     border-radius: $card-radius
     overflow: visible
-    &:hover
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     & + .card, & + .column-right-shadow
         margin-top: 1.5rem;
 
