@@ -2,7 +2,7 @@
  * Insight search plugin JSX component.
  * @module view/search/insight
  */
-const { Component, Fragment } = require('inferno');
+const { Component } = require('inferno');
 const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
 
 /**
@@ -30,28 +30,23 @@ class Insight extends Component {
         });`;
 
     return (
-      <Fragment>
+      <>
         <div class="searchbox">
           <div class="searchbox-container">
             <div class="searchbox-header">
               <div class="searchbox-input-container">
                 <input type="text" class="searchbox-input" placeholder={translation.hint} />
               </div>
-              <div class="searchbox-pinyin">
-                <label class="checkbox">
-                  <input id="search-by-pinyin" type="checkbox"/>
-                  <span>&nbsp;拼音检索</span>
-                </label>
-              </div>
-              <a class="searchbox-close" href="javascript:;">&times;</a>
+              <a class="searchbox-close" href="javascript:;">
+                &times;
+              </a>
             </div>
             <div class="searchbox-body"></div>
           </div>
         </div>
-        <script src="/js/imaegoo/pinyin.js" defer={true}></script>
-        <script src={jsUrl} defer={true}></script>
-        <script dangerouslySetInnerHTML={{ __html: js }}></script>
-      </Fragment>
+        <script data-pjax src={jsUrl} defer={true}></script>
+        <script data-pjax dangerouslySetInnerHTML={{ __html: js }}></script>
+      </>
     );
   }
 }
@@ -67,11 +62,12 @@ class Insight extends Component {
  * <Insight.Cacheable
  *     helper={{
  *         __: function() {...},
- *         cdn: function() {...}
+ *         cdn: function() {...},
+ *         url_for: function() {...}
  *     }} />
  */
 Insight.Cacheable = cacheComponent(Insight, 'search.insight', (props) => {
-  const { search, helper } = props;
+  const { helper } = props;
 
   return {
     translation: {
@@ -82,7 +78,7 @@ Insight.Cacheable = cacheComponent(Insight, 'search.insight', (props) => {
       categories: helper._p('common.category', Infinity),
       tags: helper._p('common.tag', Infinity),
     },
-    contentUrl: helper.url_for(search.json || '/content.json'),
+    contentUrl: helper.url_for('/content.json'),
     jsUrl: helper.url_for('/js/insight.js'),
   };
 });
