@@ -329,12 +329,11 @@ widget-colors()
                 border-color: var(--surface0);
 
 tag-colors()
-    .tag:not(body).is-primary, .widget .menu-list .tag
-        color: var(--text);
+    .tag:not(body).is-primary, .level-item.tag
         background-color: var(--surface1);
 
     // "tag" element in categories widget or arhive widget which looks like a button
-    .widget .menu-list .tag
+    .level-item.tag
         &:hover
             color: var(--base);
             background-color: var(--mauve);
