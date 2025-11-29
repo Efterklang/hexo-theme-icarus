@@ -2,29 +2,9 @@
 typography-size($target = '')
   for $size in $sizes
     $i = index($sizes, $size) + 1
-    $target-suffix = $target == '' ? '' : '-' + $target
-    .is-size-{$i}{$target-suffix}
+    .is-size-{$i}
       font-size $size !important
-
 typography-size()
-
-+mobile()
-  typography-size('mobile')
-
-+tablet()
-  typography-size('tablet')
-
-+touch()
-  typography-size('touch')
-
-+desktop()
-  typography-size('desktop')
-
-+widescreen()
-  typography-size('widescreen')
-
-+fullhd()
-  typography-size('fullhd')
 
 $alignments = {'centered': center, 'justified': justify, 'left': left, 'right': right}
 
