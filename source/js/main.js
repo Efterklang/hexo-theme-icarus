@@ -82,4 +82,18 @@
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
 
+    // Navbar burger
+    $('.navbar-burger').on('click', function () {
+        $(this).toggleClass('is-active');
+        $('.navbar-menu').toggleClass('is-active');
+    });
+
+    // Close navbar menu when a navbar item is clicked
+    $('.navbar-menu').on('click', 'a.navbar-item', function () {
+        if ($('.navbar-burger').hasClass('is-active')) {
+            $('.navbar-burger').removeClass('is-active');
+            $('.navbar-menu').removeClass('is-active');
+        }
+    });
+
 }(jQuery));

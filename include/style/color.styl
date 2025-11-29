@@ -301,20 +301,14 @@ tabs-colors()
                 color: var(--base)
 
 navbar-colors()
-    .navbar-main
-        .navbar-item.is-active
-            background-color: transparent;
-            color: var(--lavender);
-        .navbar-menu .navbar-item
+    .navbar
+        background-color: var(--mantle);
+        .navbar-item
+            &.is-active
+                color: var(--lavender);
             &:hover, &:focus
                 color: var(--lavender);
                 background-color: var(--surface0);
-    .navbar
-        background-color: var(--crust);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--crust);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 widget-colors()
     .widget

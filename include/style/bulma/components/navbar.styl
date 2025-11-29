@@ -8,7 +8,7 @@ $navbar-breakpoint ?= $desktop
 
 .navbar
   min-height $navbar-height
-  position fixed
+  position sticky
   top: 0
   left: 0
   right: 0
@@ -30,6 +30,39 @@ $navbar-breakpoint ?= $desktop
   flex-shrink 0
   padding: 0
 
+.navbar-burger
+  position relative
+  width $navbar-height
+  margin-left auto
+  span
+    background-color currentColor
+    height 2px
+    left calc(50% - 8px)
+    position absolute
+    transform-origin center
+    transition-duration $speed
+    transition-property background-color, opacity, transform
+    transition-timing-function $easing
+    width 16px
+    &:nth-child(1)
+      top calc(50% - 6px)
+    &:nth-child(2)
+      top calc(50% - 1px)
+    &:nth-child(3)
+      top calc(50% + 4px)
+  &.is-active
+    span
+      &:nth-child(1)
+        transform translateY(5px) rotate(45deg)
+      &:nth-child(2)
+        opacity 0
+      &:nth-child(3)
+        transform translateY(-5px) rotate(-45deg)
+
++desktop()
+  .navbar-burger
+    display none
+
 .navbar-menu
   display none
 
@@ -48,25 +81,44 @@ $navbar-breakpoint ?= $desktop
 
 // Navbar main container styles
 .navbar-main
-  .navbar-menu, .navbar-start, .navbar-end
-    align-items: stretch
-    display: flex
-    padding: 0
-    flex-shrink: 0
+  +desktop()
+    .navbar-menu, .navbar-start, .navbar-end
+      align-items: stretch
+      display: flex
+      padding: 0
+      flex-shrink: 0
 
-  .navbar-menu
-    flex-grow: 1
-    flex-shrink: 0
-    overflow-x: auto
-    background-color: transparent
+    .navbar-menu
+      flex-grow: 1
+      flex-shrink: 0
+      overflow-x: auto
+      background-color: transparent
 
-  .navbar-start
-    justify-content: flex-start
-    margin-right: auto
+    .navbar-start
+      justify-content: flex-start
+      margin-right: auto
 
-  .navbar-end
-    justify-content: flex-end
-    margin-left: auto
+    .navbar-end
+      justify-content: flex-end
+      margin-left: auto
+
+  +touch()
+    .navbar-menu
+      box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1)
+      padding: 0.5rem 0
+      &.is-active
+        display: block
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+      .navbar-item
+        display: block
+        padding: 0.5rem 1rem
+        text-align: center;
+      .navbar-end
+          display: flex
+          justify-content: center
 
 .navbar-menu
   flex-grow 1
