@@ -1,38 +1,43 @@
-$navbar-height ?= 3.25rem
+$navbar-height ?= 4rem
 $navbar-padding-vertical ?= 1rem
 $navbar-padding-horizontal ?= 2rem
-$navbar-z ?= 30
+$navbar-z ?= 100
 $navbar-item-img-max-height ?= 1.75rem
 $navbar-bottom-box-shadow-size ?= 0 -2px 0 0
 $navbar-breakpoint ?= $desktop
 
 .navbar
   min-height $navbar-height
-  position relative
+  position fixed
+  top: 0
+  left: 0
+  right: 0
+  transition: transform 0.3s ease-in-out
   z-index $navbar-z
-  font-family: $family-monospace
   font-weight: bold
-  backdrop-filter: blur(10px)
-  -webkit-backdrop-filter: blur(10px)
   & > .container
     align-items stretch
     display flex
     min-height $navbar-height
     width 100%
 
+.navbar-main.navbar--hidden
+  transform: translateY(-100%)
+
 .navbar-brand,
   align-items stretch
   display flex
   flex-shrink 0
-  min-height $navbar-height
+  padding: 0
 
 .navbar-menu
   display none
 
 .navbar-item,
 .navbar-link
-  display block
-  padding 0.5rem 0.75rem
+  align-items center
+  display flex
+  padding 0.5rem 0.5rem
   position relative
   svg
     width 15px
@@ -40,24 +45,9 @@ $navbar-breakpoint ?= $desktop
 .navbar-item
   flex-grow 0
   flex-shrink 0
-  img
-    max-height $navbar-item-img-max-height
-
-.navbar-content
-  flex-grow 1
-  flex-shrink 1
-
-.navbar-logo
-  img
-    max-height: $logo-height
 
 // Navbar main container styles
 .navbar-main
-  box-shadow: $shadow
-
-  // .navbar-container
-  //   overflow-x: auto
-
   .navbar-menu, .navbar-start, .navbar-end
     align-items: stretch
     display: flex
@@ -78,59 +68,12 @@ $navbar-breakpoint ?= $desktop
     justify-content: flex-end
     margin-left: auto
 
-+until($navbar-breakpoint)
-  .navbar > .container
-    display block
-  .navbar-brand,
-    .navbar-item
-      align-items center
-      display flex
-  .navbar-menu
-    padding 0.5rem 0
-    &.is-active
-      display block
-  .navbar-main
-    .navbar-menu
-      justify-content: center
-      box-shadow: none
-    .navbar-start
-      margin-right: 0
-    .navbar-end
-      margin-left: 0
-
-+from($navbar-breakpoint)
-  .navbar,
-  .navbar-menu,
-  .navbar-start,
-  .navbar-end
-    align-items stretch
-    display flex
-  .navbar
-    min-height $navbar-height
-  .navbar-item,
-  .navbar-link
-    align-items center
-    display flex
-  .navbar-item
-    display flex
-  .navbar-menu
-    flex-grow 1
-    flex-shrink 0
-  .navbar-start
-    justify-content flex-start
-    margin-right auto
-  .navbar-end
-    justify-content flex-end
-    margin-left auto
-  .navbar-divider
-    display block
-  .navbar > .container,
-  .container > .navbar
-    .navbar-brand
-      margin-left -.75rem
-    .navbar-menu
-      margin-right -.75rem
-
-@media screen and (min-width: $desktop)
-  .navbar > .container .navbar-menu, .container > .navbar .navbar-menu
-    margin-right: 0rem
+.navbar-menu
+  flex-grow 1
+  flex-shrink 0
+.navbar-start
+  justify-content flex-start
+  margin-right auto
+.navbar-end
+  justify-content flex-end
+  margin-left auto

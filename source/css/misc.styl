@@ -15,30 +15,10 @@ screen-onek = 1700px;
         .column.is-6-widescreen
             width 56%;
 
-.navbar-main
-    @media screen and (max-width screen-tablet - 1)
-        .navbar-menu
-            flex-direction column;
-
-            .navbar-start, .navbar-end
-                justify-content center;
-                flex-wrap wrap; // 移动端菜单自动换行
-
-                .navbar-item
-                    padding 0.5rem;
-
-            .navbar-end
-                padding-bottom 0.5rem;
-
 @media screen and (min-width screen-tablet)
     .column-main, .column-left, .column-right, .column-right-shadow
         &.is-sticky
             top 70px;
-
-    .navbar
-        z-index 100;
-        position sticky;
-        top 0;
 
 // Section fixes
 .section .container .columns
