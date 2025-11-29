@@ -20,7 +20,6 @@ class Profile extends Component {
     render() {
         const {
             avatar,
-            avatarRounded,
             author,
             authorTitle,
             location,
@@ -35,10 +34,9 @@ class Profile extends Component {
                     <div class="level-item has-text-centered flex-shrink-1">
                         <div>
                             <img class="avatar" style={"border-radius: 290486px; width: 128px; padding-bottom: 5px;"} src={avatar} alt={author} />
-                            {author ? <p class="title is-size-4" style={{'line-height': 'inherit', 'display': 'block'}}>{author}</p> : null}
-                            {authorTitle ? <p class="is-size-6" style={{'display': 'block'}}>{authorTitle}</p> : null}
-                            {location ? <p class="is-size-6" style={{'display': 'flex', 'justify-content': 'center'}}>
-                                <iconify-icon icon="fas:map-marker-alt" style={{'margin-right': '0.25rem'}}></iconify-icon>
+                            {author ? <p class="is-size-4" style={{ 'line-height': 'inherit', 'display': 'block' }}>{author}</p> : null}
+                            {authorTitle ? <p class="is-size-6" style={{ 'display': 'block' }}>{authorTitle}</p> : null}
+                            {location ? <p class="is-size-6" style={{ 'display': 'flex', 'justify-content': 'center' }}>
                                 <span>{location}</span>
                             </p> : null}
                         </div>
@@ -84,7 +82,6 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
     const {
         avatar,
         gravatar,
-        avatar_rounded = false,
         author = props.config.author,
         author_title,
         location,
@@ -124,7 +121,6 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
 
     return {
         avatar: getAvatar(),
-        avatarRounded: avatar_rounded,
         author,
         authorTitle: author_title,
         location,
