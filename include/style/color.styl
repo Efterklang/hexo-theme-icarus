@@ -161,7 +161,7 @@
 }
 
 content-colors()
-    h1.title
+    h1.title, a.title
         color: var(--lavender)
     a
         color: var(--lavender);
@@ -229,14 +229,11 @@ article-colors()
             background-color: var(--base);
     .article, article.media
         .title a
-            color: var(--text);
             &:hover
                 background: linear-gradient(to right, var(--pink), var(--blue), var(--lavender))
                 -webkit-background-clip: text
                 background-clip: text
                 -webkit-text-fill-color: transparent
-            &:after
-                background: linear-gradient(to right, var(--pink), var(--blue), var(--lavender))
 
 button-colors()
     .button.is-primary, .button.is-light, .button.is-small, .cc-window .cc-compliance > .cc-btn
@@ -384,13 +381,6 @@ ui-elements-colors()
     // Horizontal rule
     hr
         background-color: var(--surface0);
-    // Selection colors
-    ::selection
-        color: var(--base);
-        background-color: var(--lavender);
-    ::-moz-selection
-        color: var(--text);
-        background-color: var(--overlay0);
     // Form autofill
     input:-webkit-autofill
         -webkit-text-fill-color: var(--text);
