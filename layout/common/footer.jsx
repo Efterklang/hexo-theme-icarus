@@ -3,10 +3,6 @@ const { Component, cacheComponent } = require('../../include/util/common');
 class Footer extends Component {
     render() {
         const {
-            logo,
-            logoLightUrl,
-            logoDarkUrl,
-            siteUrl,
             siteTitle,
             siteYear,
             author,
@@ -15,28 +11,10 @@ class Footer extends Component {
             showVisitorCounter,
             visitorCounterTitle
         } = this.props;
-
-        let footerLogo = '';
-        if (logo) {
-            if (logo.text) {
-                footerLogo = logo.text;
-            } else {
-                footerLogo = [
-                    <img class="logo-img" src={logoLightUrl} alt={siteTitle} height="28" />,
-                    <img class="logo-img-dark" src={logoDarkUrl} alt={siteTitle} height="28" />
-                ];
-            }
-        } else {
-            footerLogo = siteTitle;
-        }
-
         return <footer class="footer">
             <div class="container">
                 <div class="level">
                     <div class="level-start">
-                        <a class="footer-logo mb-2" style={{ 'display': 'block' }}  href={siteUrl}>
-                            {footerLogo}
-                        </a>
                         <p class="is-size-7">
                             <span dangerouslySetInnerHTML={{ __html: `&copy; ${siteYear} ${author || siteTitle}` }}></span>
                             &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>&nbsp;&&nbsp;
@@ -68,10 +46,8 @@ class Footer extends Component {
 module.exports = cacheComponent(Footer, 'common.footer', props => {
     const { config, helper } = props;
     const { url_for, _p, date } = helper;
-    const { logo, title, author, footer, plugins } = config;
+    const { title, author, footer, plugins } = config;
 
-    const logoLight = logo instanceof String ? logo : logo.light;
-    const logoDark = logo instanceof String ? logo : logo.dark;
 
     const links = {};
     if (footer && footer.links) {
@@ -85,9 +61,6 @@ module.exports = cacheComponent(Footer, 'common.footer', props => {
     }
 
     return {
-        logo,
-        logoLightUrl: url_for(logoLight),
-        logoDarkUrl: url_for(logoDark),
         siteUrl: url_for('/'),
         siteTitle: title,
         siteYear: date(new Date(), 'YYYY'),
