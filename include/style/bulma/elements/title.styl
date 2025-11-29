@@ -29,8 +29,3 @@ $title-sup-size ?= 0.75em
     margin-top -0.75rem
   &:not(.is-spaced) + .subtitle
     margin-top $subtitle-negative-margin
-  // Sizes
-  for $size in $sizes
-    $i = index($sizes, $size) + 1
-    &.is-{$i}
-      font-size $size
