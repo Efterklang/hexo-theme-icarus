@@ -53,16 +53,6 @@ $content-pre-padding ?= 1.25em 1.5em
     &:hover
         cursor pointer
 
-  .medium-zoom-overlay
-      backdrop-filter blur(8px);
-      -webkit-backdrop-filter blur(8px);
-      z-index 9998 !important;
-
-  .medium-zoom-image--opened
-      z-index 9999;
-      position fixed;
-
-
   code
     font-family: $family-monospace
     border-radius: 6px
@@ -221,3 +211,12 @@ input.task-list-item-checkbox:checked::before
   letter-spacing 1px
   margin-bottom 5px
   text-transform uppercase
+
+.medium-zoom-overlay
+    backdrop-filter blur(8px);
+    -webkit-backdrop-filter blur(8px);
+    z-index 150 !important;
+
+.medium-zoom-image--opened
+    z-index 151;
+    position fixed;
