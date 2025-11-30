@@ -1,3 +1,5 @@
+@import "./shiki_token.min.css";
+
 code span {
   font-style: var(--shiki-light-font-style);
 }
@@ -13,6 +15,17 @@ code span {
   }
 }
 
+:where([data-theme="nord_night"]) {
+  code span {
+    font-style: var(--shiki-nord-font-style);
+  }
+
+  code span,
+  .shiki span {
+    color: var(--shiki-nord) !important;
+  }
+}
+
 :where([data-theme="mocha"], [data-theme="macchiato"]) {
   code span {
     font-style: var(--shiki-dark-font-style);
@@ -24,7 +37,6 @@ code span {
   }
 }
 
-/* ===== MAIN CODE BLOCK FIGURE ===== */
 figure.shiki {
   margin: 0 0 24px;
   border-radius: 8px !important;
@@ -39,7 +51,10 @@ figure.shiki {
   justify-content: space-between;
   min-height: 30px;
   padding: 0 15px;
-  font-family: "Maple Mono NF CN", "Maple Mono CN", monospace;
+  font-family:
+    Maple Mono NF CN,
+    Maple Mono CN,
+    monospace;
   font-weight: bolder;
   user-select: none;
   overflow: hidden;
@@ -47,13 +62,13 @@ figure.shiki {
   background: var(--base);
   color: var(--subtext1);
 
-  >.left {
+  > .left {
     gap: 5px;
     display: flex;
     align-items: center;
   }
 
-  >.center {
+  > .center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,17 +77,19 @@ figure.shiki {
     min-width: 0;
   }
 
-  >.right {
+  > .right {
     gap: 10px;
     display: flex;
     align-items: center;
 
-    >iconify-icon {
+    > iconify-icon {
       cursor: pointer;
-      transition: color 0.3s, transform 0.3s ease;
+      transition:
+        color 0.3s,
+        transform 0.3s ease;
     }
 
-    >iconify-icon:hover {
+    > iconify-icon:hover {
       color: var(--blue);
     }
   }
@@ -87,15 +104,14 @@ figure.shiki {
   transform: rotate(90deg);
 }
 
-/* ===== COPY NOTICE ===== */
-.shiki-tools>.right>.copy-notice {
+.shiki-tools > .right > .copy-notice {
   position: absolute;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
   z-index: 1000;
   padding: 0 5px 0 0;
-  transform: translateX(-110%);
+  transform: translate(-110%);
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease;
@@ -106,7 +122,6 @@ figure.shiki {
   }
 }
 
-/* ===== TRAFFIC LIGHTS ===== */
 .traffic-lights {
   display: flex;
   align-items: center;
@@ -134,11 +149,9 @@ figure.shiki {
   }
 }
 
-/* ===== EXPAND BUTTON ===== */
 @keyframes code-expand-pulse {
-
   0%,
-  100% {
+  to {
     opacity: 0.6;
   }
 
@@ -158,29 +171,28 @@ figure.shiki {
   font-size: 1em;
   cursor: pointer;
 
-  >iconify-icon {
+  > iconify-icon {
     padding: 6px 0;
     animation: code-expand-pulse 1.2s infinite;
     transition: transform 0.3s ease;
   }
 
-  &.expand-done>iconify-icon {
+  &.expand-done > iconify-icon {
     transform: rotate(180deg);
   }
 }
 
-/* ===== CODE COLLAPSE FUNCTIONALITY ===== */
 figure.shiki[data-collapsible="true"] {
   position: relative;
 }
 
-figure.shiki[data-collapsible="true"]>pre.shiki {
+figure.shiki[data-collapsible="true"] > pre.shiki {
   position: relative;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-figure.shiki[data-collapsible="true"]:not(.expanded)>pre.shiki::after {
+figure.shiki[data-collapsible="true"]:not(.expanded) > pre.shiki:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -189,22 +201,23 @@ figure.shiki[data-collapsible="true"]:not(.expanded)>pre.shiki::after {
   height: 80px;
   pointer-events: none;
   z-index: 1;
-  background: linear-gradient(transparent 0%,
-      hsl(from var(--base) h s l / 0.8),
-      30%,
-      var(--base) 100%);
+  background: linear-gradient(
+    transparent 0%,
+    hsl(from var(--base) h s l / 0.8),
+    30%,
+    var(--base) 100%
+  );
   opacity: 1;
 }
 
-figure.shiki[data-collapsible="true"].expanded>.code-expand-btn {
+figure.shiki[data-collapsible="true"].expanded > .code-expand-btn {
   transform: translateY(0);
 }
 
-/* ===== CODE BLOCK CONTENT ===== */
 pre.shiki {
   background: var(--base);
 
-  >code {
+  > code {
     text-align: left;
     counter-reset: step;
     counter-increment: step 0;
@@ -213,27 +226,32 @@ pre.shiki {
     border: none !important;
     width: 100%;
     font-family:
-      "Maple Mono NF CN", "SF Pro", "Fira Code", "JetbrainsMono Nerd Font", Menlo, "DejaVu Sans Mono", monospace;
+      Maple Mono NF CN,
+      SF Pro,
+      Fira Code,
+      JetbrainsMono Nerd Font,
+      Menlo,
+      DejaVu Sans Mono,
+      monospace;
 
-    >span.line {
+    > span.line {
       display: block;
       width: fit-content;
       min-width: 100%;
 
-      &::before {
+      &:before {
         content: counter(step);
         counter-increment: step;
         width: 1.2rem;
         margin-right: 1.2rem;
         display: inline-block;
         text-align: right;
-        color: rgba(115, 138, 148, 0.4);
+        color: #738a9466;
       }
     }
   }
 }
 
-/* #region Transformer */
 span.line.diff {
   &.remove {
     background-color: hsl(from var(--red) h s l / 0.2);
@@ -273,8 +291,8 @@ span.highlighted-word {
   padding: 1px 2px;
 }
 
-pre.shiki.has-focused>code {
-  >.line {
+pre.shiki.has-focused > code {
+  > .line {
     filter: blur(3px);
     opacity: 0.7;
     transition:
@@ -282,11 +300,9 @@ pre.shiki.has-focused>code {
       opacity 0.35s;
   }
 
-  >.line.focused,
+  > .line.focused,
   &:hover .line {
     filter: blur(0);
     opacity: 1;
   }
 }
-
-/* #endregion Transformer */
