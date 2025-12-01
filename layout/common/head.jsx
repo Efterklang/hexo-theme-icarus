@@ -1,8 +1,8 @@
 const { Component } = require("inferno");
-const MetaTags = require("hexo-component-inferno/lib/view/misc/meta");
-const WebApp = require("hexo-component-inferno/lib/view/misc/web_app");
-const OpenGraph = require("hexo-component-inferno/lib/view/misc/open_graph");
-const StructuredData = require("hexo-component-inferno/lib/view/misc/structured_data");
+const MetaTags = require("../../layout/misc/meta");
+const WebApp = require("../../layout/misc/web_app");
+const OpenGraph = require("../../layout/misc/open_graph");
+const StructuredData = require("../../layout/misc/structured_data");
 const Plugins = require("./plugins");
 
 function getPageTitle(page, siteTitle, helper) {
@@ -199,7 +199,7 @@ module.exports = class extends Component {
           />
         ) : null}
 
-        <link rel="stylesheet" href={url_for("/css/default.css")}/>
+        <link rel="stylesheet" href={url_for("/css/default.css")} />
         <script type="text/javascript" src="/js/theme-selector.js"></script>
         {config.comment.type == "twikoo" ? (
           <link rel="preload" as="style" href={url_for("/css/twikoo.css")} onload="this.onload=null;this.rel='stylesheet'" />
@@ -217,7 +217,7 @@ module.exports = class extends Component {
             async
           ></script>
         ) : null}
-        {followItVerificationCode ? ( <meta name="follow.it-verification-code" content={followItVerificationCode} />) : null}
+        {followItVerificationCode ? (<meta name="follow.it-verification-code" content={followItVerificationCode} />) : null}
       </head>
     );
   }

@@ -1,5 +1,5 @@
 const { Component, Fragment } = require('inferno');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const { cacheComponent } = require('../../util/cache');
 
 class BackToTop extends Component {
     render() {

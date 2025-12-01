@@ -1,5 +1,5 @@
 const { Component, Fragment } = require('inferno');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const { cacheComponent } = require('../../util/cache');
 
 const netlifyJs = `if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", function(user) {
@@ -12,21 +12,21 @@ const netlifyJs = `if (window.netlifyIdentity) {
 }`;
 
 class Netlify extends Component {
-    render() {
-        if (this.props.head) {
-            return null;
-        }
-        return <Fragment>
-            <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-            <script defer dangerouslySetInnerHTML={{ __html: netlifyJs }}></script>
-        </Fragment>;
-
+  render() {
+    if (this.props.head) {
+      return null;
     }
+    return <Fragment>
+      <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+      <script defer dangerouslySetInnerHTML={{ __html: netlifyJs }}></script>
+    </Fragment>;
+
+  }
 }
 
 Netlify.Cacheable = cacheComponent(Netlify, 'plugin.netlify', props => {
-    const { head } = props;
-    return { head };
+  const { head } = props;
+  return { head };
 });
 
 module.exports = Netlify;

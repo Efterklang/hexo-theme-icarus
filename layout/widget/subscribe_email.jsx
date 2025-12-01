@@ -3,7 +3,7 @@
  * @module view/widget/subscribe_email
  */
 const { Component } = require('inferno');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const { cacheComponent } = require('../../util/cache');
 
 /**
  * Google FeedBurner widget JSX component.

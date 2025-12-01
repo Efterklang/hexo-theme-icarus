@@ -3,7 +3,7 @@
  * @module view/plugin/baidu_analytics
  */
 const { Component } = require("inferno");
-const { cacheComponent } = require("hexo-component-inferno/lib/util/cache");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Busuanzi visitor counter plugin JSX component.

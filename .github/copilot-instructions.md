@@ -143,7 +143,6 @@ hexo server                               # Preview on localhost:4000
 
 ## External Dependencies
 
-- **hexo-component-inferno**: Provides JSX rendering, cache utilities, Hexo generators
 - **hexo-renderer-stylus**: Compiles `.styl` files
 - **deepmerge**: Config merging in validation
 - **moment**: Date formatting in templates

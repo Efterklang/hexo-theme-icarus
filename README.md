@@ -17,7 +17,8 @@ Support multiple light and dark themes:
 
 ### Mermaid Filter [^2]
 
-[^2]: Require [Efterklang/hexo-mermaid-diagram](https://github.com/Efterklang/hexo-mermaid-diagram)
+[^2]:
+    Require [Efterklang/hexo-mermaid-diagram](https://github.com/Efterklang/hexo-mermaid-diagram)
     🚧 Dark mode WIP...
 
 ![image](https://github.com/user-attachments/assets/3bd2d897-721d-4505-8194-6a592bbceb31)
@@ -58,26 +59,18 @@ $ hexo config theme icarus
 +   "deepmerge": "^4.3.1",
 +   "hexo": "^7.2.0",
 +   "hexo-cli": "^4.3.2",
-+   "hexo-component-inferno": "^3.1.2",
 +   "hexo-generator-archive": "^2.0.0",
 +   "hexo-generator-category": "^2.0.0",
-+   "hexo-generator-feed": "^3.0.0",
-+   "hexo-generator-index-custom": "^1.0.1",
-+   "hexo-generator-sitemap": "^3.0.1",
 +   "hexo-generator-tag": "^2.0.0",
 +   "hexo-log": "^4.1.0",
-+   "hexo-mermaid-diagram": "^1.0.0",
 +   "hexo-pagination": "^3.0.0",
 +   "hexo-renderer-inferno": "^1.0.2",
-+   "hexo-renderer-markdown-it-plus": "^1.0.6",
 +   "hexo-renderer-stylus": "^3.0.1",
 +   "hexo-server": "^3.0.0",
 +   "hexo-shiki-highlight": "2.1.2",
 +   "hexo-util": "^3.3.0",
 +   "inferno": "^9.0.3",
 +   "inferno-create-element": "^9.0.3",
-+   "markdown-it-obsidian-callouts": "^0.3.1",
-+   "markdown-it-task-lists": "^2.1.1",
 +   "moment": "^2.30.1"
   }
 }
@@ -98,8 +91,6 @@ $ hexo config theme icarus
 To enable math rendering with optimized performance, use [markdown-it-mathjax3-pro](https://github.com/NeoNexusX/markdown-it-mathjax3-pro), which supports both SSR and CSR modes
 
 </details>
-
-
 
 <details>
 <summary>Code Highlight Setup</summary>

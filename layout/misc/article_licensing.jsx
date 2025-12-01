@@ -3,7 +3,7 @@
  * @module view/misc/article_licensing
  */
 const { Component } = require("inferno");
-const { cacheComponent } = require("hexo-component-inferno/lib/util/cache");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * A JSX component that renders article licensing block.

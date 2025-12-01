@@ -4,7 +4,7 @@
  */
 const { URL } = require('url');
 const { Component } = require('inferno');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const { cacheComponent } = require('../../util/cache');
 
 /**
  * External links widget JSX component.
@@ -30,7 +30,7 @@ class Links extends Component {
                 let hostname = links[i];
                 try {
                   hostname = new URL(hostname).hostname;
-                } catch (e) {}
+                } catch (e) { }
                 return (
                   <li>
                     <a

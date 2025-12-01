@@ -2,10 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
-const crypto = require('crypto');
 const createLogger = require('hexo-log');
-const yaml = require('hexo-component-inferno/lib/util/yaml');
-const { SchemaLoader } = require('hexo-component-inferno/lib/core/schema');
+const yaml = require('../util/yaml');
+const { SchemaLoader } = require('./hexo/core/schema');
 const { yellow } = require('./util/console');
 
 const logger = createLogger.default();
@@ -21,11 +20,6 @@ function generateThemeConfigFile(schema, cfgPath) {
     fs.writeFileSync(cfgPath, defaultValue.toYaml());
 }
 
-function hashConfigFile(cfgPath) {
-    const content = fs.readFileSync(cfgPath);
-    return crypto.createHash('md5').update(content).digest('hex');
-}
-
 function checkConfig(hexo) {
     if (!process.argv.includes('--icarus-dont-check-config')) {
         logger.info('=== Checking theme configurations ===');
@@ -34,7 +28,6 @@ function checkConfig(hexo) {
         const themeSiteCfg = path.join(hexo.base_dir, '_config.icarus.yml');
         const themeDirCfg = path.join(hexo.theme_dir, '_config.yml');
         const themeCfgPaths = [themeDirCfg, themeSiteCfg].filter(cfgPath => fs.existsSync(cfgPath));
-        const themeSiteCfgExample = themeSiteCfg + '.example';
 
         const schemaDir = path.join(hexo.theme_dir, 'include/schema/');
         const loader = SchemaLoader.load(require(path.join(schemaDir, 'config.json')), schemaDir);
@@ -54,7 +47,6 @@ function checkConfig(hexo) {
         }
 
         let cfg = loadThemeConfig(hexo, themeCfgPaths);
-
 
         const validation = schema.validate(cfg);
         if (validation !== true) {

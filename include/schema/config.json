@@ -12,7 +12,7 @@
     "variant": {
       "type": "string",
       "description": "Icarus theme variant, can be \"default\" or \"cyberpunk\"",
-      "enum": ["default", "cyberpunk"],
+      "enum": [ "default", "cyberpunk" ],
       "default": "default"
     },
     "head": {
@@ -33,9 +33,6 @@
     "comment": {
       "$ref": "/common/comment.json"
     },
-    "share": {
-      "$ref": "/common/share.json"
-    },
     "sidebar": {
       "$ref": "/common/sidebar.json"
     },
@@ -49,6 +46,5 @@
       "$ref": "/common/providers.json"
     }
   },
-  "required": ["version"]
+  "required": [ "version" ]
 }
-

@@ -26,9 +26,6 @@
             "$ref": "/comment/gitment.json"
         },
         {
-            "$ref": "/comment/isso.json"
-        },
-        {
             "$ref": "/comment/livere.json"
         },
         {

@@ -1,16 +1,12 @@
-const { logger } = require('./util/common');
-
-module.exports = hexo => {
-    logger.info('=== Registering Hexo extensions ===');
-    require('hexo-component-inferno/lib/hexo/filter/locals')(hexo);
-    require('hexo-component-inferno/lib/hexo/generator/assets')(hexo);
-    require('hexo-component-inferno/lib/hexo/generator/insight')(hexo);
-    require('hexo-component-inferno/lib/hexo/generator/categories')(hexo);
-    require('hexo-component-inferno/lib/hexo/generator/category')(hexo);
-    require('hexo-component-inferno/lib/hexo/generator/manifest')(hexo);
-    require('hexo-component-inferno/lib/hexo/generator/tags')(hexo);
-    require('./hexo/helper/cdn')(hexo);
-    require('hexo-component-inferno/lib/hexo/helper/page')(hexo);
-    require('./hexo/tag/tabs')(hexo);
-    require('hexo-component-inferno/lib/core/view').init(hexo);
+module.exports = (hexo) => {
+  require("./hexo/filter/locals")(hexo);
+  require("./hexo/generator/insight")(hexo);
+  require("./hexo/generator/categories")(hexo);
+  require("./hexo/generator/category")(hexo);
+  require("./hexo/generator/manifest")(hexo);
+  require("./hexo/generator/tags")(hexo);
+  require("./hexo/helper/cdn")(hexo);
+  require("./hexo/helper/page")(hexo);
+  require("./hexo/tag/tabs")(hexo);
+  require("./hexo/core/view").init(hexo);
 };

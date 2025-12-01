@@ -3,7 +3,7 @@
  * @module view/widget/recent_posts
  */
 const { Component } = require('inferno');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const { cacheComponent } = require('../../util/cache');
 const ArticleMedia = require('../common/article_media');
 
 /**

@@ -3,7 +3,7 @@
  * @module view/plugin/cookie_consent
  */
 const { Component } = require('inferno');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const { cacheComponent } = require('../../util/cache');
 
 /**
  * A JSX component for alerting users about the use of cookies.
@@ -62,7 +62,7 @@ class CookieConsent extends Component {
     });`;
 
     if (head) {
-      return <link rel="preload" href={cssUrl} as="style" onload="this.onload=null;this.rel='stylesheet'"/>;
+      return <link rel="preload" href={cssUrl} as="style" onload="this.onload=null;this.rel='stylesheet'" />;
     }
     return (
       <>

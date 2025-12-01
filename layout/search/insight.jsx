@@ -3,7 +3,7 @@
  * @module view/search/insight
  */
 const { Component } = require('inferno');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const { cacheComponent } = require('../../util/cache');
 
 /**
  * Algolia search engine JSX component.

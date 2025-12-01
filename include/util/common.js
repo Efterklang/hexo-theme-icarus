@@ -3,9 +3,9 @@
  */
 const createLogger = require('hexo-log');
 const { Component, Fragment } = require('inferno');
-const view = require('hexo-component-inferno/lib/core/view');
-const classname = require('hexo-component-inferno/lib/util/classname');
-const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
+const view = require('../hexo/core/view');
+const classname = require('../../util/classname');
+const { cacheComponent } = require('../../util/cache');
 
 // 创建单例logger实例
 const logger = createLogger.default();
