@@ -16,6 +16,15 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("paris2024"),
+  src:
+    local("paris2024"),
     url(/css/font/woff2/Paris2024-Variable.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Futura";
+  font-weight: normal;
+  src:
+    local("Futura"),
+    url(/css/font/woff2/Futura-Book.woff2) format("woff2");
 }
