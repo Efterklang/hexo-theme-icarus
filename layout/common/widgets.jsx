@@ -1,4 +1,4 @@
-const { Component, view, classname, logger, loadComponent, handleWidgetError } = require('../../include/util/common');
+const { Component, classname, loadComponent, handleWidgetError } = require('../../include/util/common');
 
 class FloatingToc extends Component {
     render() {
@@ -66,7 +66,7 @@ function getColumnCount(widgets, config, page) {
 function getColumnSizeClass(columnCount) {
     switch (columnCount) {
         case 2:
-            return 'is-4-tablet is-3-desktop is-3-widescreen';
+            return 'is-4-tablet is-4-desktop is-4-widescreen';
         case 3:
             return 'is-4-tablet is-4-desktop is-3-widescreen';
     }
@@ -104,7 +104,7 @@ class Widgets extends Component {
         }
 
         return <>
-            {position === 'left' && showToc ? <FloatingToc {...this.props} /> : null}
+            {showToc ? <FloatingToc {...this.props} /> : null}
 
             {columnWidgets.length ? <div class={classname({
                 'column': true,
