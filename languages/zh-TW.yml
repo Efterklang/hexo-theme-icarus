@@ -30,7 +30,6 @@ article:
     updated_at: '%s更新'
     more: '繼續閱讀'
     comments: '評論'
-    read_time: '%s讀完'
     edited: '編輯于'
     word_count:
         one: '大約%d個字'

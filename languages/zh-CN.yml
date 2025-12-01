@@ -30,7 +30,6 @@ article:
   updated_at: "%s更新"
   more: "Read"
   comments: "评论"
-  read_time: "%s读完"
   edited: "编辑于"
   word_count:
     one: "约%d字"

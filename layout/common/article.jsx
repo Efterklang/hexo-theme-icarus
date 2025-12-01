@@ -83,14 +83,10 @@ module.exports = class extends Component {
                                     return categories;
                                 })()}
                             </span> : null}
-                            {/* Read time */}
-                            {article && article.readtime && article.readtime === true ? <span class="level-item">
-                                {(() => {
-                                    const words = getWordCount(page._content);
-                                    const time = moment.duration((words / 150.0) * 60, 'seconds');
-                                    return `${_p('article.read_time', time.locale(index ? indexLanguage : language).humanize())} (${_p('article.word_count', words)})`;
-                                })()}
-                            </span> : null}
+                            {/* Word Count */}
+                            <span class="level-item" dangerouslySetInnerHTML={{
+                                __html: _p('article.word_count', getWordCount(page._content))
+                            }}></span>
                             {/* Visitor counter */}
                             {!index ? <span id={url_for(page.link || page.path)} class="level-item leancloud_visitors" data-flag-title={page.title} dangerouslySetInnerHTML={{
                                 __html: _p('plugin.visit_count', '&nbsp;&nbsp;<span id="twikoo_visitors"><i class="fa fa-spinner fa-spin"></i></span>')

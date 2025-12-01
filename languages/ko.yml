@@ -30,7 +30,6 @@ article:
     updated_at: '%s&nbsp;업데이트 됨'
     more: '자세히 보기'
     comments: '댓글'
-    read_time: '%s안에 읽기'
     word_count:
         one: '약 %d 단어'
         other: '약 %d 단어'

@@ -30,7 +30,6 @@ article:
     updated_at: 'Diperbarui&nbsp;%s'
     more: 'Selengkapnya'
     comments: 'Komentar'
-    read_time: '%s membaca'
     word_count:
         one: 'Sekitar %d kata'
         other: 'Sekitar %d kata'
