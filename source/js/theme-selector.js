@@ -12,6 +12,7 @@
         mocha: "night",
         macchiato: "night",
         nord: "light",
+        nord_night: "night",
         tokyo_night: "night",
         latte: "light",
     };
