@@ -26,10 +26,6 @@ module.exports = class extends Component {
         const { article, plugins } = config;
         const { url_for, date, date_xml, __, _p } = helper;
 
-        const defaultLanguage = Array.isArray(config.language) && config.language.length ? config.language[0] : config.language;
-
-        const indexLanguage = toMomentLocale(defaultLanguage || 'en');
-        const language = toMomentLocale(page.lang || page.language || defaultLanguage || 'en');
         const cover = page.cover ? url_for(page.cover) : null;
         const updateTime = article && article.update_time !== undefined ? article.update_time : true;
         const isUpdated = page.updated && !moment(page.date).isSame(moment(page.updated));
