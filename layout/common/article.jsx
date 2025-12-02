@@ -2,6 +2,7 @@ const moment = require('moment');
 const { Component, Fragment } = require('inferno');
 const Comment = require('./comment');
 const ArticleLicensing = require('../misc/article_licensing')
+const ArticleCover = require('./article_cover');
 
 /**
  * Get the word count of text.
@@ -19,8 +20,7 @@ module.exports = class extends Component {
     render() {
         // index: true if in article list, false if in article page
         const { config, helper, page, index } = this.props;
-        // const useResponsiveImages = process.env.RESPONSIVE_IMAGES === 'true';
-        const useResponsiveImages = true;
+
         const { article } = config;
         const { url_for, date, date_xml, __, _p } = helper;
 
@@ -33,21 +33,7 @@ module.exports = class extends Component {
             {/* Main content */}
             <div class="card">
                 {/* Cover image */}
-                {cover ? (() => {
-                    const imageSrcset = useResponsiveImages ? `${cover}?w=256 256w, ${cover}?w=800 800w, ${cover}?w=1500 1500w, ${cover}?w=2000 2000w, ${cover} 6144w` : null;
-                    const imageSizes = useResponsiveImages ? '(max-width: 768px) 100vw, 50vw' : null;
-                    const coverLQIP = <img class="cover-lqip" alt="lqip" src={`${cover}?q=10&blur=25`} fetchpriority="high" />;
-                    const CoverImage = <img class="fill" src={cover} alt={page.title || cover} onLoad={"this.classList.add('loaded')"} srcset={imageSrcset} sizes={imageSizes} referrerpolicy="no-referrer" />;
-                    return <div class="card-image">
-                        {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
-                            {CoverImage}
-                            {coverLQIP}
-                        </a> : <span class="image is-7by3">
-                            {CoverImage}
-                            {coverLQIP}
-                        </span>}
-                    </div>;
-                })() : null}
+                {cover ? <ArticleCover page={page} cover={cover} index={index} helper={helper} /> : null}
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Metadata */}
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
