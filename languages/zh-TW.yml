@@ -27,7 +27,6 @@ widget:
     followit: 'follow.it'
 article:
     created_at: '%s發表'
-    updated_at: '%s更新'
     more: '繼續閱讀'
     comments: '評論'
     edited: '編輯于'

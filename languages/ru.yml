@@ -27,7 +27,6 @@ widget:
     followit: 'follow.it'
 article:
     created_at: 'Опубликовано&nbsp;%s'
-    updated_at: 'Обновлено&nbsp;%s'
     more: 'Читать дальше'
     comments: 'Комментарии'
     word_count:

@@ -27,7 +27,6 @@ widget:
     followit: 'follow.it'
 article:
     created_at: 'Opublikowano&nbsp;%s'
-    updated_at: 'Zaktualizowano&nbsp;%s'
     more: 'Czytaj dalej'
     comments: 'Komentarze'
     word_count:

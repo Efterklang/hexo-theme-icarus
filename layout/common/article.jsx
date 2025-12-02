@@ -25,9 +25,6 @@ module.exports = class extends Component {
         const { url_for, date, date_xml, __, _p } = helper;
 
         const cover = page.cover ? url_for(page.cover) : null;
-        const updateTime = article && article.update_time !== undefined ? article.update_time : true;
-        const isUpdated = page.updated && !moment(page.date).isSame(moment(page.updated));
-        const shouldShowUpdated = page.updated && ((updateTime === 'auto' && isUpdated) || updateTime === true);
 
         return <Fragment>
             {/* Main content */}
@@ -36,17 +33,11 @@ module.exports = class extends Component {
                 {cover ? <ArticleCover page={page} cover={cover} index={index} helper={helper} /> : null}
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Metadata */}
-                    {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
+                    {page.layout !== 'page' ? <div class="article-meta level is-mobile">
                         <div class="level-left">
-                            {/* PIN Icon */}
-                            {page.top ? <i class="fas fa-thumbtack level-item" title="Pinned"></i> : null}
                             {/* Creation Date */}
                             {page.date && <span class="level-item" dangerouslySetInnerHTML={{
                                 __html: _p('article.created_at', `<time dateTime="${date_xml(page.date)}" title="${new Date(page.date).toLocaleString()}">${date(page.date)}</time>`)
-                            }}></span>}
-                            {/* Last Update Date */}
-                            {shouldShowUpdated && <span class="level-item" dangerouslySetInnerHTML={{
-                                __html: _p('article.updated_at', `<time dateTime="${date_xml(page.updated)}" title="${new Date(page.updated).toLocaleString()}">${date(page.updated)}</time>`)
                             }}></span>}
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
@@ -57,7 +48,7 @@ module.exports = class extends Component {
                                     page.categories.forEach((category, i) => {
                                         categories.push(<a class="link-muted" href={url_for(category.path)}>{category.name}</a>);
                                         if (i < page.categories.length - 1) {
-                                            categories.push(<span>&nbsp;/&nbsp;</span>);
+                                            categories.push(<span>/</span>);
                                         }
                                     });
                                     return categories;
