@@ -1,7 +1,5 @@
 const moment = require('moment');
 const { Component, Fragment } = require('inferno');
-const { toMomentLocale } = require('hexo/dist/plugins/helper/date');
-const Share = require('./share');
 const Comment = require('./comment');
 const ArticleLicensing = require('../misc/article_licensing')
 
@@ -23,7 +21,7 @@ module.exports = class extends Component {
         const { config, helper, page, index } = this.props;
         // const useResponsiveImages = process.env.RESPONSIVE_IMAGES === 'true';
         const useResponsiveImages = true;
-        const { article, plugins } = config;
+        const { article } = config;
         const { url_for, date, date_xml, __, _p } = helper;
 
         const cover = page.cover ? url_for(page.cover) : null;
@@ -106,10 +104,6 @@ module.exports = class extends Component {
                             </a>;
                         })}
                     </div> : null}
-                    {/* "Read more" button */}
-                    {/* {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}>{__('article.more')}</a> : null} */}
-                    {/* Share button */}
-                    {!index ? <Share config={config} page={page} helper={helper} /> : null}
                 </article>
             </div>
             {/* Post navigation */}
