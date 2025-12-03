@@ -19,26 +19,9 @@ until($device)
   @media screen and (max-width $device - 1px)
     {block}
 
-tablet()
-  @media screen and (min-width $tablet), print
-    {block}
-
-tablet-only()
-  @media screen and (min-width $tablet) and (max-width $desktop - 1px)
-    {block}
-
 touch()
   @media screen and (max-width $desktop - 1px)
     {block}
-
-desktop()
-  @media screen and (min-width $desktop)
-    {block}
-
-desktop-only()
-  if $widescreen-enabled
-    @media screen and (min-width $desktop) and (max-width $widescreen - 1px)
-      {block}
 
 until-widescreen()
   if $widescreen-enabled

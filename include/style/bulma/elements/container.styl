@@ -5,8 +5,6 @@ $container-offset ?= (2 * $gap)
   margin 0 auto
   position relative
   width auto
-  +desktop()
-    max-width $desktop - $container-offset
   +until-widescreen()
     &.is-widescreen
       max-width $widescreen - $container-offset

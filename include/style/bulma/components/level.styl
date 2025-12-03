@@ -23,12 +23,6 @@ $level-item-spacing ?= ($block-spacing / 2)
         margin-right $level-item-spacing
       &:not(.is-narrow)
         flex-grow 1
-  // Responsiveness
-  +tablet()
-    display flex
-    & > .level-item
-      &:not(.is-narrow)
-        flex-grow 1
 
 .level-item
   align-items center
@@ -43,22 +37,11 @@ $level-item-spacing ?= ($block-spacing / 2)
   flex-basis auto
   flex-grow 0
   flex-shrink 0
-  .level-item
-    // Responsiveness
-    +tablet()
-      &:not(:last-child)
-        margin-right $level-item-spacing
 
 .level-left
   align-items center
   justify-content flex-start
-  // Responsiveness
-  +tablet()
-    display flex
 
 .level-right
   align-items center
   justify-content flex-end
-  // Responsiveness
-  +tablet()
-    display flex

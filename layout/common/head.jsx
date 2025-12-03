@@ -200,7 +200,9 @@ module.exports = class extends Component {
         ) : null}
 
         <link rel="stylesheet" href={url_for("/css/default.css")} />
-        <link rel="stylesheet" href={url_for("/css/mobile.css")} media="screen and (max-width:768px)" />
+        <link rel="stylesheet" href={url_for("/css/responsive/mobile.css")} media="screen and (max-width:768px)" />
+        <link rel="stylesheet" href={url_for("/css/responsive/tablet.css")} media="screen and (min-width:769px)" />
+        <link rel="stylesheet" href={url_for("/css/responsive/desktop.css")} media="screen and (min-width:1024px)" />
         <script type="text/javascript" src="/js/theme-selector.js"></script>
         {config.comment.type == "twikoo" ? (
           <link rel="preload" as="style" href={url_for("/css/twikoo.css")} onload="this.onload=null;this.rel='stylesheet'" />

@@ -2,7 +2,7 @@ const { Component, classname, loadComponent, handleWidgetError } = require('../.
 
 class FloatingToc extends Component {
     render() {
-        const { helper, page, config } = this.props;
+        const { helper, page } = this.props;
         const tocContent = helper.toc(page.content, {
             class: 'menu-list',
             list_number: false
@@ -66,9 +66,9 @@ function getColumnCount(widgets, config, page) {
 function getColumnSizeClass(columnCount) {
     switch (columnCount) {
         case 2:
-            return 'is-4-tablet is-4-desktop is-4-widescreen';
+            return 'is-4-tablet is-4-desktop';
         case 3:
-            return 'is-4-tablet is-4-desktop is-3-widescreen';
+            return 'is-4-tablet is-4-desktop';
     }
     return '';
 }
