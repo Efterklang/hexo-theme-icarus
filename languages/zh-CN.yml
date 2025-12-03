@@ -19,7 +19,7 @@ common:
 widget:
   follow: "Follow"
   recents: "POST"
-  links: "链接"
+  links: "LINK"
   catalogue: "目录"
   subscribe_email: "订阅更新"
   subscribe: "订阅"

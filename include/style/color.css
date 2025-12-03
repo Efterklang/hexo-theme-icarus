@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-:where([data-theme=latte]) {
+:where([data-theme="latte"]) {
   color-scheme: light;
   --rosewater: #dc8a78;
   --flamingo: #dd7878;
@@ -32,7 +32,7 @@
   --selection-color: var(--blue);
 }
 
-:where([data-theme=macchiato]) {
+:where([data-theme="macchiato"]) {
   color-scheme: dark;
   --rosewater: #f4dbd6;
   --flamingo: #f0c6c6;
@@ -64,7 +64,7 @@
   --selection-color: var(--mauve);
 }
 
-:where([data-theme=nord]) {
+:where([data-theme="nord"]) {
   color-scheme: light;
   --rosewater: #bf616a;
   --flamingo: #d08770;
@@ -96,7 +96,7 @@
   --selection-color: var(--sky);
 }
 
-:where([data-theme=mocha]) {
+:where([data-theme="mocha"]) {
   color-scheme: dark;
   --rosewater: #f5e0dc;
   --flamingo: #f2cdcd;
@@ -128,7 +128,7 @@
   --selection-color: var(--mauve);
 }
 
-:where([data-theme=tokyo_night]) {
+:where([data-theme="tokyo_night"]) {
   color-scheme: dark;
   --rosewater: #f7768e;
   --flamingo: #ff9e64;
@@ -160,7 +160,7 @@
   --selection-color: var(--blue);
 }
 
-:where([data-theme=nord_night]) {
+:where([data-theme="nord_night"]) {
   color-scheme: dark;
   /* --- Accents (Aurora & Frost) --- */
   /* Nord15 Purple */
@@ -237,7 +237,7 @@ a.title {
 }
 
 .title a:hover {
-  background: linear-gradient(to right, var(--pink), var(--blue), var(--lavender));
+  background: linear-gradient(to right, var(--blue), var(--mauve), var(--pink));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -319,12 +319,6 @@ code {
   border: 1px solid var(--surface0);
 }
 
-.level-left span,
-.level-left a,
-.level-left time {
-  color: var(--overlay1);
-}
-
 article.media {
   color: var(--subtext1);
 }
@@ -403,7 +397,7 @@ article .article-licensing {
 
 .tag:not(body).is-primary,
 .level-item.tag {
-  background-color: var(--surface1);
+  background-color: var(--base);
 }
 
 .level-item.tag:hover {
@@ -437,12 +431,12 @@ article .article-licensing {
 }
 
 .timeline a,
-[data-type='recent-posts'] a {
+[data-type="recent-posts"] a {
   color: var(--text);
 }
 
 .timeline a:hover,
-[data-type='recent-posts'] a:hover {
+[data-type="recent-posts"] a:hover {
   color: var(--text);
 }
 
@@ -615,8 +609,14 @@ input:-webkit-autofill {
   border-color: var(--surface0);
 }
 
-.searchbox .searchbox-container .searchbox-result-section .searchbox-result-item:hover,
-.searchbox .searchbox-container .searchbox-result-section .searchbox-result-item.active,
+.searchbox
+  .searchbox-container
+  .searchbox-result-section
+  .searchbox-result-item:hover,
+.searchbox
+  .searchbox-container
+  .searchbox-result-section
+  .searchbox-result-item.active,
 .searchbox .searchbox-container .searchbox-header .searchbox-close:hover {
   color: var(--flamingo);
 }

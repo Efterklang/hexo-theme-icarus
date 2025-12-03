@@ -50,7 +50,6 @@ class Links extends Component {
               })}
             </ul>
           </div>
-          <a class="link-more button is-small size-small" href="/friends/">查看更多</a>
         </div>
       </div>
     );
