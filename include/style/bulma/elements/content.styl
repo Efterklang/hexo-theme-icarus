@@ -1,6 +1,5 @@
 $content-heading-weight ?= $weight-semibold
 $content-heading-line-height ?= 1.125
-
 $content-pre-padding ?= 1.25em 1.5em
 
 .content
@@ -15,8 +14,7 @@ $content-pre-padding ?= 1.25em 1.5em
   ol,
   ul,
   blockquote,
-  pre,
-  table
+  pre
     &:not(:last-child)
       margin-bottom 1em
   h2
@@ -27,8 +25,6 @@ $content-pre-padding ?= 1.25em 1.5em
   h3
     font-size 1.5em
     margin-bottom 0.6666em
-    &:not(:first-child)
-      margin-top 1.3333em
   h4
     font-size 1.25em
     margin-bottom 0.8em
