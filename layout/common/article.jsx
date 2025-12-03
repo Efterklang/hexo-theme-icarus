@@ -1,4 +1,3 @@
-const moment = require('moment');
 const { Component, Fragment } = require('inferno');
 const Comment = require('./comment');
 const ArticleLicensing = require('../misc/article_licensing')
@@ -87,12 +86,12 @@ module.exports = class extends Component {
             {!index && (page.prev || page.next) ? <nav class="post-navigation level is-mobile card-content pl-0 pr-0 pb-0">
                 {page.prev ?
                     <a class={`article-nav-prev level level-item${!page.prev ? ' is-hidden-mobile' : ''} link-muted`} href={url_for(page.prev.path)}>
-                        <i class="fas fa-chevron-left pr-4"></i>{page.prev.title}
+                        <iconify-icon icon="mingcute:left-fill" class="pr-4"></iconify-icon>{page.prev.title}
                     </a>
                     : null}
                 {page.next ?
                     <a class={`article-nav-next level level-item${!page.next ? ' is-hidden-mobile' : ''} link-muted`} href={url_for(page.next.path)}>
-                        {page.next.title}<i class="fas fa-chevron-right pl-2"></i>
+                        {page.next.title}<iconify-icon icon="mingcute:right-fill" class="pl-2"></iconify-icon>
                     </a>
                     : null}
             </nav> : null}
