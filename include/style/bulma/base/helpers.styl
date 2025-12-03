@@ -18,16 +18,9 @@ for $alignment, $text-align in $alignments
 .is-hidden
   display none !important
 
-+mobile()
-  .is-hidden-mobile
-    display none !important
-  .column-left, .column-right
-    display: none !important
-
 +tablet()
   .is-hidden-tablet
     display none !important
-
 
 +touch()
   .is-hidden-touch
@@ -51,10 +44,6 @@ for $alignment, $text-align in $alignments
 
 .is-invisible
   visibility hidden !important
-
-+mobile()
-  .is-invisible-mobile
-    visibility hidden !important
 
 +tablet()
   .is-invisible-tablet

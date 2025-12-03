@@ -37,12 +37,6 @@ $level-item-spacing ?= ($block-spacing / 2)
   flex-grow 0
   flex-shrink 0
   justify-content center
-  .title,
-    margin-bottom 0
-  // Responsiveness
-  +mobile()
-    &:not(:last-child)
-      margin-bottom $level-item-spacing
 
 .level-left,
 .level-right
@@ -59,9 +53,6 @@ $level-item-spacing ?= ($block-spacing / 2)
   align-items center
   justify-content flex-start
   // Responsiveness
-  +mobile()
-    & + .level-right
-      margin-top 1.5rem
   +tablet()
     display flex
 

@@ -1,0 +1,140 @@
+/* max-width: 768px */
+/* Navbar Burger */
+.navbar-burger {
+  color: var(--flamingo);
+
+  &:hover {
+    color: var(--flamingo);
+  }
+}
+
+.navbar-burger {
+  position: relative;
+  width: 4rem;
+  margin-left: auto;
+}
+.navbar-burger span {
+  background-color: currentColor;
+  height: 2px;
+  left: calc(50% - 8px);
+  position: absolute;
+  transform-origin: center;
+  transition-duration: 86ms;
+  transition-property: background-color, opacity, transform;
+  transition-timing-function: ease-out;
+  width: 16px;
+}
+.navbar-burger span:nth-child(1) {
+  top: calc(50% - 6px);
+}
+.navbar-burger span:nth-child(2) {
+  top: calc(50% - 1px);
+}
+.navbar-burger span:nth-child(3) {
+  top: calc(50% + 4px);
+}
+.navbar-burger.is-active span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.navbar-burger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-burger.is-active span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* TOC */
+.widget.card#toc {
+  display: none;
+  position: fixed;
+  margin: 1rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+.widget.card#toc .card-content {
+  padding: 0;
+}
+.widget.card#toc .menu {
+  padding: 1.5rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+#toc-mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.7);
+}
+.widget.card#toc.is-active,
+#toc-mask.is-active {
+  display: block;
+}
+
+/* .article-licensing */
+.article-licensing {
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.is-hidden-mobile {
+  display: none !important;
+}
+.column-left,
+.column-right {
+  display: none !important;
+}
+.is-invisible-mobile {
+  visibility: hidden !important;
+}
+
+.level-left + .level-right {
+  margin-top: 1.5rem;
+}
+.media-content {
+  overflow-x: auto;
+}
+table {
+  font-size: 14px;
+}
+table th,
+table td {
+  padding: 8px 12px;
+}
+.section {
+  padding: 0.3rem;
+}
+.card {
+  margin: 0 0 1.5rem 0;
+}
+.card .card-content,
+.card .card-footer {
+  padding: 1rem;
+}
+.pagination {
+  flex-wrap: wrap;
+}
+.pagination-previous,
+.pagination-next {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.pagination-list li {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+footer.footer .level-start {
+  text-align: center;
+}
+footer.footer .level-end .field {
+  justify-content: center;
+  margin-top: 1rem;
+}

@@ -200,74 +200,66 @@ a.title {
   -webkit-text-fill-color: transparent;
 }
 
-.content h2 {
-  color: var(--peach);
+.content {
+  h2 {
+    color: var(--peach);
+  }
+
+  h3 {
+    color: var(--yellow);
+  }
+
+  h4 {
+    color: var(--green);
+  }
+
+  h5 {
+    color: var(--blue);
+  }
+
+  h6 {
+    color: var(--mauve);
+  }
+
+  mark {
+    background-color: var(--yellow);
+  }
+
+  .task-list-item-checkbox {
+    accent-color: var(--lavender);
+  }
+
+  .task-list-item-checkbox:checked {
+    accent-color: var(--mauve);
+  }
+
+  strong {
+    color: var(--red);
+  }
+
+  blockquote {
+    border-color: var(--red);
+  }
+  blockquote::before {
+    color: var(--red);
+  }
 }
 
-.content h3 {
-  color: var(--yellow);
-}
-
-.content h4 {
-  color: var(--green);
-}
-
-.content h5 {
-  color: var(--blue);
-}
-
-.content h6 {
-  color: var(--mauve);
-}
-
-.content mark {
-  background-color: var(--yellow);
-}
-
-.content .task-list-item-checkbox {
-  accent-color: var(--lavender);
-}
-
-.content .task-list-item-checkbox:checked {
-  accent-color: var(--mauve);
-}
-
-.content strong {
-  color: var(--red);
-}
-
-.content blockquote {
-  border-color: var(--red);
-}
-
-.content blockquote:before {
-  color: var(--red);
-}
-
-.content abbr[title]:hover::after {
-  border: 2px solid var(--rosewater);
-  background-color: var(--surface0);
-  color: var(--text);
-}
-
-.content table {
+table {
   background-color: var(--base);
   border: 1px solid var(--surface0);
-}
-
-.content table th {
-  background-color: var(--mantle);
-  color: var(--text);
-  border-bottom-color: var(--surface0) !important;
-}
-
-.content table td {
-  color: var(--text);
-  border-bottom-color: var(--surface0) !important;
-}
-
-.content table tbody tr:nth-child(even) {
-  background-color: var(--mantle);
+  th {
+    background-color: var(--mantle);
+    color: var(--text);
+    border-bottom-color: var(--surface0) !important;
+  }
+  td {
+    color: var(--text);
+    border-bottom-color: var(--surface0) !important;
+  }
+  tbody tr:nth-child(even) {
+    background-color: var(--mantle);
+  }
 }
 
 code {
@@ -333,14 +325,6 @@ article .article-licensing {
 .navbar .navbar-item:focus {
   color: var(--lavender);
   background-color: var(--surface0);
-}
-
-.navbar-burger {
-  color: var(--flamingo);
-
-  &:hover {
-    color: var(--flamingo);
-  }
 }
 
 .widget .menu-list a:hover,
@@ -504,38 +488,11 @@ input:-webkit-autofill {
 .pagination-previous,
 .pagination-link,
 .pagination-ellipsis {
-  background: var(--mantle);
   color: var(--text);
-}
-
-.pagination-next a,
-.pagination-previous a,
-.pagination-link a,
-.pagination-ellipsis a {
-  color: var(--text);
-}
-
-.pagination-next:hover,
-.pagination-previous:hover,
-.pagination-link:hover,
-.pagination-ellipsis:hover,
-.pagination-next.is-hovered,
-.pagination-previous.is-hovered,
-.pagination-link.is-hovered,
-.pagination-ellipsis.is-hovered {
-  background-color: var(--lavender);
-  color: var(--base);
-}
-
-.pagination-next:hover a,
-.pagination-previous:hover a,
-.pagination-link:hover a,
-.pagination-ellipsis:hover a,
-.pagination-next.is-hovered a,
-.pagination-previous.is-hovered a,
-.pagination-link.is-hovered a,
-.pagination-ellipsis.is-hovered a {
-  color: var(--base);
+  &:hover {
+    background-color: var(--lavender);
+    color: var(--base);
+  }
 }
 
 .pagination-link.is-current {

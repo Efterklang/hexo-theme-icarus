@@ -61,14 +61,6 @@ article
     box-shadow: none
     overflow: hidden
 
-    // Responsive: 移动端时 padding 为 1rem
-    +mobile()
-        width: calc(100% + 2rem)
-        margin-left: -1rem
-        margin-right: -1rem
-        padding-left: 1rem
-        padding-right: 1rem
-
     .article-licensing-bg-icon
         position: absolute
         z-index: -1
@@ -96,13 +88,9 @@ article
         .level-item
             @extend .mr-4
 
-        .icons
-            .icon
-                @extend .ml-1
-                width: 1.2em
-                height: 1.2em
-                font-size: 1.2em
-                vertical-align: bottom
+        .icon
+            font-size: 1.5em
+            vertical-align: bottom
 
         h6
             @extend .is-size-7
