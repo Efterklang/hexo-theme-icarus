@@ -73,3 +73,66 @@
       padding-left $input-height
     .icon.is-left
       left 0
+.section
+  padding 3rem 1.5rem
+
+$footer-padding ?= 3rem 1.5rem 6rem
+
+/* ---------------------------------
+ *            Page Footer
+ * --------------------------------- */
+.footer
+    backdrop-filter: blur(10px)
+    -webkit-backdrop-filter: blur(10px)
+    padding $footer-padding
+    position: relative
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+.footer a:not(.button)
+    color: inherit
+    &:hover
+        text-decoration: underline
+
+footer.footer
+    .level-end
+        .field
+            flex-wrap: wrap
+            align-items: center
+
+$column-gap ?= 0.75rem
+
+.column
+  display block
+  flex-basis 0
+  flex-grow 1
+  flex-shrink 1
+  padding $column-gap
+  +widescreen()
+    &.is-6-widescreen
+      flex none
+      width: 50%
+    &.is-8-widescreen
+      flex none
+      width: 66.66666666666666%
+
+.columns
+  margin-left ($column-gap * -1)
+  margin-right ($column-gap * -1)
+  margin-top ($column-gap * -1)
+  &:last-child
+    margin-bottom ($column-gap * -1)
+  &:not(:last-child)
+    margin-bottom "calc(1.5rem - %s)" % $column-gap
+  // Modifiers
+  &.is-centered
+    justify-content center
+  &.is-mobile
+    display flex
+  &.is-multiline
+    flex-wrap wrap

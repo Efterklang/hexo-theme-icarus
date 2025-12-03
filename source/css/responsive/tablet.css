@@ -1,0 +1,14 @@
+/* @media screen and (min-width $tablet), print */
+.is-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1.5rem;
+  z-index: 99;
+}
+.column-main.is-sticky,
+.column-left.is-sticky,
+.column-right.is-sticky,
+.column-right-shadow.is-sticky {
+  top: 0.75rem;
+  align-self: flex-start;
+}
