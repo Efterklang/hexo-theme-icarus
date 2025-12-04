@@ -59,7 +59,7 @@ class ArticleLicensing extends Component {
             {author ? (
               <div class="level-item is-narrow">
                 <div>
-                  <h6>{authorTitle}</h6>
+                  <p>{authorTitle}</p>
                   <p>{author}</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ class ArticleLicensing extends Component {
             {createdAt ? (
               <div class="level-item is-narrow">
                 <div>
-                  <h6>{createdTitle}</h6>
+                  <p>{createdTitle}</p>
                   <p>{createdAt}</p>
                 </div>
               </div>
@@ -75,7 +75,7 @@ class ArticleLicensing extends Component {
             {updatedAt ? (
               <div class="level-item is-narrow">
                 <div>
-                  <h6>{updatedTitle}</h6>
+                  <p>{updatedTitle}</p>
                   <p>{updatedAt}</p>
                 </div>
               </div>
@@ -83,7 +83,7 @@ class ArticleLicensing extends Component {
             {licenses && Object.keys(licenses).length ? (
               <div class="level-item is-narrow">
                 <div>
-                  <h6>{licensedTitle}</h6>
+                  <p>{licensedTitle}</p>
                   <p>
                     {Object.keys(licenses).map((name) => (
                       <a
