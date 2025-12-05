@@ -73,13 +73,6 @@ function getColumnSizeClass(columnCount) {
     return '';
 }
 
-function getColumnVisibilityClass(columnCount, position) {
-    if (columnCount === 3 && position === 'right') {
-        return 'is-hidden-touch is-hidden-desktop-only';
-    }
-    return '';
-}
-
 function getColumnOrderClass(position) {
     return position === 'left' ? 'order-1' : 'order-3';
 }
@@ -110,7 +103,6 @@ class Widgets extends Component {
                 'column': true,
                 ['column-' + position]: true,
                 [getColumnSizeClass(columnCount)]: true,
-                [getColumnVisibilityClass(columnCount, position)]: true,
                 [getColumnOrderClass(position)]: true,
                 'is-sticky': isColumnSticky(config, position)
             })}>
