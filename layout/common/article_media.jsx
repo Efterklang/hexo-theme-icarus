@@ -1,33 +1,19 @@
 /**
- * A simple article overview JSX component.
- * @module view/common/article_media
+ * Article media component, used in article lists such as archive page and recent posts widget
  */
 const { Component } = require('inferno');
+const moment = require('moment');
 
-/**
- * A simple article overview JSX component.
- *
- * @name ArticleMedia
- * @example
- * <ArticleMedia
- *     thumbnail="/path/to/thumbnail/image.png"
- *     url="/path/to/article"
- *     title="Article title"
- *     date="Article publish date"
- *     dateXml="Article publish date in XML format (see https://hexo.io/docs/helpers#date-xml)"
- *     categories={[
- *         { url: '/path/to/category', name: 'Category name' }
- *     ]} />
- */
 module.exports = class extends Component {
   render() {
     const { thumbnail, url, title, date, dateXml, categories } = this.props;
-
+    // Formatted like May.15
+    const formattedDate = moment(date).format('MMM.DD');
     const categoryTags = [];
     categories.forEach((category, i) => {
       categoryTags.push(<a href={category.url}>{category.name}</a>);
       if (i < categories.length - 1) {
-        categoryTags.push(' / ');
+        categoryTags.push('/');
       }
     });
 
@@ -40,14 +26,14 @@ module.exports = class extends Component {
             </a>
           </figure>
         ) : null}
-        <div class="media-content">
-          <p class="date">
-            <time dateTime={dateXml}>{date}</time>
+        <div>
+          <p class="article-meta">
+            <span>{formattedDate}</span>
+            {categoryTags.length ? <span>{categoryTags}</span> : null}
           </p>
           <p class="title">
             <a href={url}>{title}</a>
           </p>
-          {categoryTags.length ? <p class="categories">{categoryTags}</p> : null}
         </div>
       </article>
     );

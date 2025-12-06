@@ -188,15 +188,14 @@ a:hover {
   color: var(--blue);
 }
 
-h1.title,
-a.title {
+.title {
   color: var(--lavender);
 }
 
-.title a:hover {
+.article .title a:hover {
   background: linear-gradient(to right, var(--blue), var(--mauve), var(--pink));
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -267,16 +266,14 @@ code {
   border: 1px solid var(--surface0);
 }
 
-article.media {
-  color: var(--subtext1);
+.article-meta a,span{
+  color: hsl(from var(--text) h s l / 0.85);
 }
-
-article.media a {
-  color: inherit;
+.media a{
+  color: var(--text);
 }
-
-article.article .article-meta {
-  color: var(--subtext1);
+.media a:hover{
+  color: var(--flamingo);
 }
 
 article .article-licensing {
@@ -323,7 +320,6 @@ article .article-licensing {
 .navbar .navbar-item:hover,
 .navbar .navbar-item:focus {
   color: var(--lavender);
-  background-color: var(--surface0);
 }
 
 .widget .menu-list a:hover,
@@ -358,28 +354,6 @@ article .article-licensing {
   background: var(--mantle);
 }
 
-.timeline {
-  border-left: 1px solid var(--overlay1);
-}
-
-.timeline .media:before {
-  background: var(--overlay1);
-}
-
-.timeline .media:last-child:after {
-  background: var(--base);
-}
-
-.timeline a,
-[data-type="recent-posts"] a {
-  color: var(--text);
-}
-
-.timeline a:hover,
-[data-type="recent-posts"] a:hover {
-  color: var(--text);
-}
-
 body {
   background: var(--mantle);
   color: var(--text);
@@ -395,7 +369,6 @@ input.task-list-item-checkbox:checked {
   border-color: var(--green);
 }
 
-time,
 .footer,
 .navbar-item,
 .navbar-link,
@@ -405,7 +378,6 @@ time,
   color: var(--text);
 }
 
-.media-content,
 .link-muted,
 .cc-window {
   color: var(--text);

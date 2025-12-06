@@ -1914,32 +1914,20 @@
   cursor: not-allowed
 }
 
-.el-input.is-disabled .el-input__inner::-webkit-input-placeholder {
-  color: #C0C4CC
-}
-
-.el-input.is-disabled .el-input__inner:-ms-input-placeholder {
-  color: #C0C4CC
-}
-
-.el-input.is-disabled .el-input__inner::-ms-input-placeholder {
-  color: #C0C4CC
-}
-
+.el-input.is-disabled .el-input__inner::-webkit-input-placeholder,
+.el-input.is-disabled .el-input__inner:-ms-input-placeholder,
+.el-input.is-disabled .el-input__inner::-ms-input-placeholder,
 .el-input.is-disabled .el-input__inner::placeholder {
-  color: #C0C4CC
+  color: var(--subtext1)
 }
 
 .el-input.is-disabled .el-input__icon {
   cursor: not-allowed
 }
 
-.el-input.is-exceed .el-input__inner {
-  border-color: #F56C6C
-}
-
+.el-input.is-exceed .el-input__inner,
 .el-input.is-exceed .el-input__suffix .el-input__count {
-  color: #F56C6C
+  color: var(--red)
 }
 
 .el-input--suffix .el-input__inner {

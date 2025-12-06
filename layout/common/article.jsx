@@ -32,36 +32,30 @@ module.exports = class extends Component {
         {cover ? <ArticleCover page={page} cover={cover} index={index} helper={helper} /> : null}
         <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
           {/* Metadata */}
-          {page.layout !== 'page' ? <div class="article-meta level is-mobile">
-            <div class="level-left">
-              {/* Creation Date */}
-              {page.date && <span class="level-item" dangerouslySetInnerHTML={{
-                __html: _p('article.created_at', `<time dateTime="${date_xml(page.date)}" title="${new Date(page.date).toLocaleString()}">${date(page.date)}</time>`)
-              }}></span>}
-              {/* author */}
-              {page.author ? <span class="level-item"> {page.author} </span> : null}
+          {page.layout !== 'page' ? <div class="article-meta">
+            <p>
+              {page.date && <span>{date(page.date)}</span>}
               {/* Categories */}
-              {page.categories && page.categories.length ? <span class="level-item">
+              {page.categories && page.categories.length ? <span>
                 {(() => {
                   const categories = [];
                   page.categories.forEach((category, i) => {
                     categories.push(<a class="link-muted" href={url_for(category.path)}>{category.name}</a>);
                     if (i < page.categories.length - 1) {
-                      categories.push(<span>/</span>);
+                      categories.push("/");
                     }
                   });
                   return categories;
                 })()}
               </span> : null}
-              {/* Word Count */}
-              <span class="level-item" dangerouslySetInnerHTML={{
+              <span dangerouslySetInnerHTML={{
                 __html: _p('article.word_count', getWordCount(page._content))
               }}></span>
               {/* Visitor counter */}
-              {!index ? <span id={url_for(page.link || page.path)} class="level-item leancloud_visitors" data-flag-title={page.title} dangerouslySetInnerHTML={{
+              {!index ? <span id={url_for(page.link || page.path)} data-flag-title={page.title} dangerouslySetInnerHTML={{
                 __html: _p('plugin.visit_count', '<span id="twikoo_visitors"></span>')
               }}></span> : null}
-            </div>
+            </p>
           </div> : null}
           {/* Title */}
           {page.title !== '' && index ? <p class="title"><a href={url_for(page.link || page.path)}>{page.title}</a></p> : null}

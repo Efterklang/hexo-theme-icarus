@@ -1,31 +1,19 @@
-$title-family ?= false
-$title-size ?= $size-3
-$title-weight ?= $weight-semibold
-$title-line-height ?= 1.125
-$title-strong-weight ?= inherit
-$title-sub-size ?= 0.75em
-$title-sup-size ?= 0.75em
-
 .title
-  @extend $block
   word-break break-word
+  margin-bottom: .4em
+  text-decoration: none
+  position: relative
+  display: inline-block
+  transition: color .3s ease-out
+
   em,
   span
     font-weight inherit
   sub
-    font-size $title-sub-size
-  sup
-    font-size $title-sup-size
+  sup,
+    font-size 0.75em
   .tag
     vertical-align middle
-  if $title-family
-    font-family $title-family
-  font-size $title-size
-  font-weight $title-weight
-  line-height $title-line-height
-  strong
-    font-weight $title-strong-weight
-  & + .highlight
-    margin-top -0.75rem
-  &:not(.is-spaced) + .subtitle
-    margin-top $subtitle-negative-margin
+  font-size: 2em
+  font-weight bolder
+  line-height 1.2
