@@ -8,5 +8,5 @@ module.exports = (hexo) => {
   require("./hexo/helper/cdn")(hexo);
   require("./hexo/helper/page")(hexo);
   require("./hexo/tag/tabs")(hexo);
-  require("./hexo/core/view").init(hexo);
+  require("./hexo/view").init(hexo);
 };

@@ -1,4 +1,5 @@
-const { Component, classname } = require("../include/util/common");
+const { Component } = require("inferno");
+const classname = require("../util/classname");
 const Head = require("./common/head");
 const Navbar = require("./common/navbar");
 const Widgets = require("./common/widgets");
@@ -29,7 +30,7 @@ module.exports = class extends Component {
                     "order-2": true,
                     "column-main": true,
                     "is-12": columnCount === 1,
-                    'is-8-tablet is-8-desktop': columnCount === 2,
+                    "is-8-tablet is-8-desktop": columnCount === 2,
                     "is-8-tablet is-8-desktop": columnCount === 3,
                   })}
                   dangerouslySetInnerHTML={{ __html: body }}
@@ -130,11 +131,6 @@ module.exports = class extends Component {
               />
             </>
           )}
-          {/* tianli_gpt */}
-          {/* <link rel="stylesheet" href="https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.15.2/tianli_gpt.css"></link>
-                <script let tianliGPT_postSelector='.article>.content'></script>
-                <script let tianliGPT_key='5Q5mpqRK5DkwT1X9Gi5e'></script>
-                <script src={url_for('https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.15.2/tianli_gpt.min.js')} defer></script> */}
         </body>
       </html>
     );
