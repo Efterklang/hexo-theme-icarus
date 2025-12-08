@@ -266,13 +266,14 @@ code {
   border: 1px solid var(--surface0);
 }
 
-.article-meta a,span{
+.article-meta a,
+span {
   color: hsl(from var(--text) h s l / 0.85);
 }
-.media a{
+.media a {
   color: var(--text);
 }
-.media a:hover{
+.media a:hover {
   color: var(--flamingo);
 }
 
@@ -494,16 +495,11 @@ input:-webkit-autofill {
   border-color: var(--surface0);
 }
 
-.searchbox
-  .searchbox-container
-  .searchbox-result-section
-  .searchbox-result-item:hover,
-.searchbox
-  .searchbox-container
-  .searchbox-result-section
-  .searchbox-result-item.active,
-.searchbox .searchbox-container .searchbox-header .searchbox-close:hover {
-  color: var(--flamingo);
+.searchbox-result-item.active span {
+    color: var(--lavender);
+}
+.searchbox-result-item:hover span {
+    color: var(--mauve);
 }
 
 .floating-toc-button {
@@ -516,68 +512,6 @@ input:-webkit-autofill {
   border: 1px solid var(--base);
 }
 
-.floating-toc-container .widget .menu-list a {
-  color: var(--text);
-}
-
-.floating-toc-container .widget .menu-list a:hover {
-  color: var(--mauve);
-  background-color: inherit;
-}
-
-.tabs {
-  color: var(--text);
-}
-
-.tabs ul {
-  border-bottom-color: var(--surface0);
-}
-
-.tabs a {
-  border-bottom-color: var(--surface0);
-  color: var(--text);
-}
-
-.tabs a:hover {
-  border-bottom-color: var(--lavender);
-  color: var(--lavender);
-}
-
-.tabs li.is-active a {
-  border-bottom-color: var(--blue);
-  color: var(--blue);
-}
-
-.tabs.is-boxed a {
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-.tabs.is-boxed a:hover {
-  background-color: var(--surface1);
-  border-bottom-color: var(--surface0);
-}
-
-.tabs.is-boxed li.is-active a {
-  background-color: var(--base);
-  border-color: var(--surface0);
-  border-bottom-color: transparent !important;
-}
-
-.tabs.is-toggle a {
-  border: 1px solid var(--surface0);
-  background: transparent;
-  color: var(--text);
-}
-
-.tabs.is-toggle a:hover {
-  background-color: var(--surface1);
-  border-color: var(--overlay1);
-  color: var(--lavender);
-}
-
-.tabs.is-toggle li.is-active a {
-  background-color: var(--blue);
-  border-color: var(--blue);
-  color: var(--base);
+.menu-list-link:hover .menu-list-text {
+  color: var(--mauve) !important;
 }
