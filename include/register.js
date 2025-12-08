@@ -7,6 +7,5 @@ module.exports = (hexo) => {
   require("./hexo/generator/tags")(hexo);
   require("./hexo/helper/cdn")(hexo);
   require("./hexo/helper/page")(hexo);
-  require("./hexo/tag/tabs")(hexo);
   require("./hexo/view").init(hexo);
 };
