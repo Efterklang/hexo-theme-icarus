@@ -87,7 +87,7 @@ function loadInsight(config, translation) {
 
         return `<a class="searchbox-result-item" href="${url}">
             <span class="searchbox-result-icon">
-                <i class="fa fa-${icon}" />
+                <iconify-icon icon="${icon}" />
             </span>
             <span class="searchbox-result-content">
                 <span class="searchbox-result-title">
@@ -109,7 +109,7 @@ function loadInsight(config, translation) {
                 $searchItems = array.map((item) => {
                     const title = findAndHighlight(item.title, keywords);
                     const text = findAndHighlight(item.text, keywords, 100);
-                    return searchItem('file', title, null, text, item.link);
+                    return searchItem('mingcute:document-2-fill', title, null, text, item.link);
                 });
                 break;
             case 'CATEGORIES':
@@ -117,7 +117,7 @@ function loadInsight(config, translation) {
                 $searchItems = array.map((item) => {
                     const name = findAndHighlight(item.name, keywords);
                     const slug = findAndHighlight(item.slug, keywords);
-                    return searchItem(type === 'CATEGORIES' ? 'folder' : 'tag', name, slug, null, item.link);
+                    return searchItem(type === 'CATEGORIES' ? 'mingcute:folder-fill' : 'mingcute:tag-fill', name, slug, null, item.link);
                 });
                 break;
             default:
