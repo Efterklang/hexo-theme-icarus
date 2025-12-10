@@ -98,6 +98,7 @@ module.exports = class extends Component {
             src="/js/host/medium-zoom/dist/medium-zoom.min.js"
             defer
           ></script>
+          <script src="/js/instant-page.min.js" type="module"> </script>
           {config.plugins.live2d_Asoul && (
             <>
               <script src="/js/live2d_Asoul/TweenLite.js" defer></script>

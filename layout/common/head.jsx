@@ -214,15 +214,7 @@ module.exports = class extends Component {
           media="screen and (min-width:1024px)"
         />
         <script type="text/javascript" src="/js/theme-selector.js"></script>
-        {config.comment.type == "twikoo" ? (
-          <link
-            rel="preload"
-            as="style"
-            href={url_for("/css/twikoo.css")}
-            onload="this.onload=null;this.rel='stylesheet'"
-          />
-        ) : null}
-
+        <link rel="preload" as="style" href={url_for("/css/callout_blocks.css")} onload="this.onload=null;this.rel='stylesheet'" />
         {/* Iconify Icons */}
         <script async src={iconcdn()}></script>
         {/* Maple Mono CN */}

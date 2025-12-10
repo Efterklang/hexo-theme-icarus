@@ -4,6 +4,7 @@
  */
 const { Component, Fragment } = require('inferno');
 const { cacheComponent } = require('../../util/cache');
+const { lazy_load_css } = require("../../include/util/common");
 
 /**
  * Twikoo comment JSX component.
@@ -24,9 +25,11 @@ class Twikoo extends Component {
             ${region ? `region: ${JSON.stringify(region)},` : ''}
             ${lang ? `lang: ${JSON.stringify(lang)},` : ''}
         });`;
+    const lazy_load_css_script = lazy_load_css("/css/twikoo.css")
     return (
       <Fragment>
         <div id="twikoo" class="content twikoo"></div>
+        <script dangerouslySetInnerHTML={{ __html: lazy_load_css_script }}></script>
         <script defer src={jsUrl} onload={`${js};`}></script>
       </Fragment>
     );
