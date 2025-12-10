@@ -33,7 +33,6 @@ const PROVIDERS = {
  * @private
  */
 const CDNJS_FIXTURES = {
-  moment: (ver, fname) => ['moment.js', ver, fname.startsWith('min/') ? fname.substr(4) : fname],
   outdatedbrowser: (ver, fname) => [
     'outdated-browser',
     ver,
