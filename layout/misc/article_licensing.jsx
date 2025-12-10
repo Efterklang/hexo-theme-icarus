@@ -1,7 +1,3 @@
-/**
- * A JSX component that renders article licensing block.
- * @module view/misc/article_licensing
- */
 const { Component } = require("inferno");
 const { cacheComponent } = require("../../util/cache");
 
@@ -20,7 +16,7 @@ class ArticleLicensing extends Component {
       licensedTitle,
     } = this.props;
     return (
-      <div class="article-licensing box">
+      <div class="article-licensing">
         <div class="article-licensing-bg-icon">
           <iconify-icon icon="mdi:creative-commons" />
         </div>
