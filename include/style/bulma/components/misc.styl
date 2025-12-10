@@ -1,11 +1,12 @@
 .section
   padding 3rem 1.5rem
+  flex-grow: 1;
 
-$footer-padding ?= 3rem 1.5rem 6rem
 
 /* ---------------------------------
  *            Page Footer
  * --------------------------------- */
+$footer-padding ?= 3rem 1.5rem 6rem
 .footer
     backdrop-filter: blur(10px)
     -webkit-backdrop-filter: blur(10px)
@@ -31,8 +32,8 @@ $footer-padding ?= 3rem 1.5rem 6rem
             flex-wrap: wrap
             align-items: center
 
+// column
 $column-gap ?= 0.75rem
-
 .column
   display block
   flex-basis 0
@@ -56,6 +57,20 @@ $column-gap ?= 0.75rem
     display flex
   &.is-multiline
     flex-wrap wrap
+
+// button
+$button-border-width ?= $control-border-width
+$button-padding-vertical ?= "calc(0.5em - %s)" % $button-border-width
+$button-padding-horizontal ?= 1em
+
+.button
+  @extend $control
+  @extend $unselectable
+  cursor pointer
+  justify-content center
+  padding: $button-padding-vertical $button-padding-horizontal
+  text-align center
+  white-space nowrap
 
 // hide scroll-bar
 ::-webkit-scrollbar
