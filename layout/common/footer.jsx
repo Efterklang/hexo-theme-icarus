@@ -17,8 +17,7 @@ class Footer extends Component {
                     <div class="level-start">
                         <p class="is-size-7">
                             <span dangerouslySetInnerHTML={{ __html: `&copy; ${siteYear} ${author || siteTitle}` }}></span>
-                            &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>&nbsp;&&nbsp;
-                            <a href="https://github.com/Efterklang/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                            &nbsp;Powered by Hexo&nbsp;& <a href="https://github.com/Efterklang/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                             {showVisitorCounter ? <br /> : null}
                             {showVisitorCounter ? <span id="busuanzi_container_site_uv"
                                 dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span> : null}
@@ -26,14 +25,14 @@ class Footer extends Component {
                         {copyright ? <p class="is-size-7" dangerouslySetInnerHTML={{ __html: copyright }}></p> : null}
                     </div>
                     <div class="level-end">
-                        {Object.keys(links).length ? <div class="field has-addons">
+                        {Object.keys(links).length ? <>
                             {Object.keys(links).map(name => {
                                 const link = links[name];
                                 return <a target="_blank" rel="noopener" title={name} href={link.url}>
                                     {link.icon ? <iconify-icon icon={link.icon}></iconify-icon> : name}
                                 </a>;
                             })}
-                        </div> : null}
+                        </> : null}
                     </div>
                 </div>
             </div>
