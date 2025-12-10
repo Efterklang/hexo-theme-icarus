@@ -19,10 +19,6 @@ until($device)
   @media screen and (max-width $device - 1px)
     {block}
 
-touch()
-  @media screen and (max-width $desktop - 1px)
-    {block}
-
 until-widescreen()
   if $widescreen-enabled
     @media screen and (max-width $widescreen - 1px)

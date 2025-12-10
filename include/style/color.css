@@ -277,7 +277,7 @@ span {
   color: var(--flamingo);
 }
 
-article .article-licensing {
+.article-licensing {
   color: var(--subtext1);
   background-color: var(--base);
 }
@@ -287,12 +287,12 @@ article .article-licensing {
   background: hsl(from var(--mantle) h s l / 0.95);
 }
 
-.navbar .navbar-item.is-active {
+.navbar-item.is-active {
   color: var(--flamingo);
 }
 
-.navbar .navbar-item:hover,
-.navbar .navbar-item:focus {
+.navbar-item:hover,
+.navbar-item:focus {
   color: var(--lavender);
 }
 
@@ -385,40 +385,6 @@ input:-webkit-autofill {
   color: var(--mauve);
 }
 
-.cc-window {
-  color: var(--text);
-  background-color: var(--base);
-  border: 1px solid var(--surface0);
-}
-
-.cc-window.cc-banner {
-  background-color: var(--mantle);
-}
-
-.cc-window .cc-compliance > .cc-btn {
-  color: var(--base);
-  background-color: var(--lavender);
-  backdrop-filter: blur(10px);
-}
-
-.cc-window .cc-compliance > .cc-btn:hover,
-.cc-window .cc-compliance > .cc-btn:focus {
-  background-color: var(--mauve);
-}
-
-.cc-window .cc-compliance > .cc-btn.cc-deny:hover {
-  color: var(--lavender);
-}
-
-.cc-revoke {
-  color: var(--base);
-  background-color: var(--lavender);
-}
-
-.cc-revoke:hover {
-  background-color: var(--mauve);
-}
-
 .pagination-next,
 .pagination-previous,
 .pagination-link,
@@ -448,11 +414,11 @@ input:-webkit-autofill {
   border: 2px solid var(--surface0);
 }
 
-.searchbox .searchbox-header,
-.searchbox .searchbox-header .searchbox-input,
-.searchbox .searchbox-header .searchbox-close,
-.searchbox .searchbox-body,
-.searchbox .searchbox-result-item {
+.searchbox-header,
+.searchbox-input,
+.searchbox-close,
+.searchbox-body,
+.searchbox-result-item {
   color: var(--subtext1);
   background-color: var(--mantle);
   border-color: var(--surface0);

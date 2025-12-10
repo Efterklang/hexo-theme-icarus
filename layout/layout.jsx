@@ -35,13 +35,6 @@ module.exports = class extends Component {
                   })}
                   dangerouslySetInnerHTML={{ __html: body }}
                 ></div>
-                {/* imaegoo fix: 防止左边栏已加载，右边栏未加载时，内容区不居中的问题，注意禁止用 js 解决，用两组 style 来控制它们加载完成后再显示 */}
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      ".column.column-left,.column.column-right{display:none}",
-                  }}
-                ></style>
                 <Widgets
                   site={site}
                   config={config}
@@ -56,13 +49,6 @@ module.exports = class extends Component {
                   page={page}
                   position={"right"}
                 />
-                {/* imaegoo fix: 到这里时 widgets 已经加载完毕，显示 widgets */}
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      ".column.column-left,.column.column-right{display:block}",
-                  }}
-                ></style>
               </div>
             </div>
           </section>
