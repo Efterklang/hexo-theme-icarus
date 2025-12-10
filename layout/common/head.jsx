@@ -109,16 +109,6 @@ module.exports = class extends Component {
       structuredImages = page.photos;
     }
 
-    let followItVerificationCode = null;
-    if (Array.isArray(config.widgets)) {
-      const widget = config.widgets.find(
-        (widget) => widget.type === "followit"
-      );
-      if (widget) {
-        followItVerificationCode = widget.verification_code;
-      }
-    }
-
     return (
       <head>
         <meta charset="utf-8" />
@@ -193,27 +183,62 @@ module.exports = class extends Component {
         ) : null}
         {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
         {page.cover ? (
-          <link rel="preload" as="image" href={url_for(page.cover)}
+          <link
+            rel="preload"
+            as="image"
+            href={url_for(page.cover)}
             imagesrcset={`${url_for(page.cover)}?w=128 128w, ${url_for(page.cover)}?w=256 256w, ${url_for(page.cover)}?w=800 800w, ${url_for(page.cover)}?w=1500 1500w, ${url_for(page.cover)}?w=2000 2000w, ${url_for(page.cover)}?fmt=avif 6144w`}
             imagesizes="(max-width: 768px) 100vw, 50vw"
           />
         ) : null}
 
         <link rel="stylesheet" href={url_for("/css/default.css")} />
-        <link rel="stylesheet" href={url_for("/css/responsive/mobile.css")} media="screen and (max-width:768px)" />
-        <link rel="stylesheet" href={url_for("/css/responsive/tablet.css")} media="screen and (min-width:769px)" />
-        <link rel="stylesheet" href={url_for("/css/responsive/touch.css")} media="screen and (max-width:1023px)" />
-        <link rel="stylesheet" href={url_for("/css/responsive/desktop.css")} media="screen and (min-width:1024px)" />
+        <link
+          rel="stylesheet"
+          href={url_for("/css/responsive/mobile.css")}
+          media="screen and (max-width:768px)"
+        />
+        <link
+          rel="stylesheet"
+          href={url_for("/css/responsive/tablet.css")}
+          media="screen and (min-width:769px)"
+        />
+        <link
+          rel="stylesheet"
+          href={url_for("/css/responsive/touch.css")}
+          media="screen and (max-width:1023px)"
+        />
+        <link
+          rel="stylesheet"
+          href={url_for("/css/responsive/desktop.css")}
+          media="screen and (min-width:1024px)"
+        />
         <script type="text/javascript" src="/js/theme-selector.js"></script>
         {config.comment.type == "twikoo" ? (
-          <link rel="preload" as="style" href={url_for("/css/twikoo.css")} onload="this.onload=null;this.rel='stylesheet'" />
+          <link
+            rel="preload"
+            as="style"
+            href={url_for("/css/twikoo.css")}
+            onload="this.onload=null;this.rel='stylesheet'"
+          />
         ) : null}
 
         {/* Iconify Icons */}
         <script async src={iconcdn()}></script>
         {/* Maple Mono CN */}
-        <link rel='preload' as="style" href="https://fontsapi.zeoseven.com/442/main/result.css" onload="this.onload=null;this.rel='stylesheet'" />
-        <Plugins site={site} config={config} helper={helper} page={page} head={true} />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fontsapi.zeoseven.com/442/main/result.css"
+          onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <Plugins
+          site={site}
+          config={config}
+          helper={helper}
+          page={page}
+          head={true}
+        />
         {adsenseClientId ? (
           <script
             data-ad-client={adsenseClientId}
@@ -221,7 +246,6 @@ module.exports = class extends Component {
             async
           ></script>
         ) : null}
-        {followItVerificationCode ? (<meta name="follow.it-verification-code" content={followItVerificationCode} />) : null}
       </head>
     );
   }
