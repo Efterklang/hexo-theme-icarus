@@ -22,12 +22,6 @@
 .container {
   max-width: 960px;
 }
-.section.is-medium {
-  padding: 9rem 1.5rem;
-}
-.section.is-large {
-  padding: 18rem 1.5rem;
-}
 
 /* navbar */
 .navbar-main .navbar-menu,

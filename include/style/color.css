@@ -283,27 +283,22 @@ article .article-licensing {
 }
 
 .button.is-primary,
-.button.is-small,
 .cc-window .cc-compliance > .cc-btn {
   background-color: var(--lavender);
   color: var(--base);
 }
 
 .button.is-primary:hover,
-.button.is-small:hover,
 .cc-window .cc-compliance > .cc-btn:hover,
 .button.is-primary.is-hovered,
-.button.is-small.is-hovered,
 .cc-window .cc-compliance > .cc-btn.is-hovered {
   color: var(--base);
   background-color: var(--mauve);
 }
 
 .button.is-primary:active,
-.button.is-small:active,
 .cc-window .cc-compliance > .cc-btn:active,
 .button.is-primary.is-active,
-.button.is-small.is-active,
 .cc-window .cc-compliance > .cc-btn.is-active {
   color: var(--text);
   background-color: var(--mauve);

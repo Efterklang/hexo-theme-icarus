@@ -29,17 +29,15 @@ class Footer extends Component {
                         {Object.keys(links).length ? <div class="field has-addons">
                             {Object.keys(links).map(name => {
                                 const link = links[name];
-                                return <p class="control">
-                                    <a class={`button ${link.icon ? 'is-large' : ''}`} target="_blank" rel="noopener" title={name} href={link.url}>
-                                        {link.icon ? <iconify-icon icon={link.icon}></iconify-icon> : name}
-                                    </a>
-                                </p>;
+                                return <a target="_blank" rel="noopener" title={name} href={link.url}>
+                                    {link.icon ? <iconify-icon icon={link.icon}></iconify-icon> : name}
+                                </a>;
                             })}
                         </div> : null}
                     </div>
                 </div>
             </div>
-        </footer>;
+        </footer >;
     }
 }
 

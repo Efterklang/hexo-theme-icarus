@@ -2,20 +2,6 @@ $button-border-width ?= $control-border-width
 $button-padding-vertical ?= "calc(0.5em - %s)" % $button-border-width
 $button-padding-horizontal ?= 1em
 
-// The button sizes use mixins so they can be used at different breakpoints
-button-small()
-  border-radius: 48px
-  font-weight: bolder
-  transition: all .2s ease-in-out
-  padding-left: 1.2em
-  padding-right: 1.2em
-  &:hover
-    transform: translateY(-2px)
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1)
-
-button-large()
-  font-size $size-large
-
 .button
   @extend $control
   @extend $unselectable
@@ -24,10 +10,6 @@ button-large()
   padding: $button-padding-vertical $button-padding-horizontal
   text-align center
   white-space nowrap
-  &.is-small
-    button-small()
-  &.is-large
-    button-large()
   &.is-rounded
     border-radius $radius-rounded
     padding-left "calc(%s + 0.25em)" % $button-padding-horizontal
