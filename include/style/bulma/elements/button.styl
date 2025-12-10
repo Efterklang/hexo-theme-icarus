@@ -24,22 +24,6 @@ button-large()
   padding: $button-padding-vertical $button-padding-horizontal
   text-align center
   white-space nowrap
-  .icon
-    &,
-    &.is-small,
-    &.is-medium,
-    &.is-large
-      height 1.5em
-      width 1.5em
-    &:first-child:not(:last-child)
-      margin-left "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
-      margin-right ($button-padding-horizontal / 4)
-    &:last-child:not(:first-child)
-      margin-left ($button-padding-horizontal / 4)
-      margin-right "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
-    &:first-child:last-child
-      margin-left "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
-      margin-right "calc(%s - %s)" % (-1 / 2 * $button-padding-horizontal $button-border-width)
   &.is-small
     button-small()
   &.is-large

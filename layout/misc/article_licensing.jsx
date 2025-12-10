@@ -5,30 +5,6 @@
 const { Component } = require("inferno");
 const { cacheComponent } = require("../../util/cache");
 
-/**
- * A JSX component that renders article licensing block.
- *
- * @example
- * <ArticleLicensing
- *     title="article title"
- *     link="full article URL"
- *     author="author name"
- *     authorTitle="Author"
- *     createdAt={date}
- *     createdTitle="Posted on"
- *     updatedAt={date}
- *     updatedTitle="Updated on"
- *     licenses={{
- *         'Creative Commons': {
- *             url: 'https://creativecommons.org/'
- *         },
- *         'Attribution 4.0 International': {
- *             icon: ['fab fa-creative-commons-by', 'fab fa-creative-commons-nc'],
- *             url: 'https://creativecommons.org/licenses/by-nc/4.0/'
- *         },
- *     }}
- *     licensedTitle="Licensed under" />
- */
 class ArticleLicensing extends Component {
   render() {
     const {
@@ -90,23 +66,9 @@ class ArticleLicensing extends Component {
                         rel="noopener"
                         target="_blank"
                         title={name}
-                        class={licenses[name].icon ? "icons" : ""}
                         href={licenses[name].url}
                       >
-                        {licenses[name].icon ? ( // eslint-disable-line no-nested-ternary
-                          Array.isArray(licenses[name].icon) ? (
-                            licenses[name].icon.map((icon) => (
-                              <i class={`icon ${icon}`}></i>
-                            ))
-                          ) : (
-                            <iconify-icon
-                              class="icon"
-                              icon={licenses[name].icon}
-                            />
-                          )
-                        ) : (
-                          name
-                        )}
+                        <iconify-icon icon={licenses[name].icon} />
                       </a>
                     ))}
                   </p>
@@ -120,32 +82,6 @@ class ArticleLicensing extends Component {
   }
 }
 
-/**
- * A JSX component that renders article licensing block.
- * <p>
- * This class is supposed to be used in combination with the <code>locals</code> hexo filter
- * ({@link module:hexo/filter/locals}).
- *
- * @see module:util/cache.cacheComponent
- * @example
- * <ArticleLicensing.Cacheable
- *     config={{
- *         article: {
- *             licenses: {
- *                 'Creative Commons': 'https://creativecommons.org/',
- *                 'Attribution 4.0 International': {
- *                     icon: 'fab fa-creative-commons-by',
- *                     url: 'https://creativecommons.org/licenses/by/4.0/'
- *                 },
- *             }
- *         }
- *     }}
- *     page={page}
- *     helper={{
- *         __: function() {...},
- *         url_for: function() {...}
- *     }} />
- */
 ArticleLicensing.Cacheable = cacheComponent(
   ArticleLicensing,
   "misc.articlelicensing",
@@ -159,7 +95,7 @@ ArticleLicensing.Cacheable = cacheComponent(
         const license = licenses[name];
         links[name] = {
           url: helper.url_for(
-            typeof license === "string" ? license : license.url
+            typeof license === "string" ? license : license.url,
           ),
           icon: license.icon,
         };
@@ -178,7 +114,7 @@ ArticleLicensing.Cacheable = cacheComponent(
       licenses: links,
       licensedTitle: helper.__("article.licensing.licensed_under"),
     };
-  }
+  },
 );
 
 module.exports = ArticleLicensing;
