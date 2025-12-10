@@ -327,26 +327,16 @@ article .article-licensing {
   border-color: var(--surface0);
 }
 
-.tag:not(body).is-primary,
-.level-item.tag {
-  background-color: var(--base);
-}
-
-.level-item.tag:hover {
-  color: var(--base);
-  background-color: var(--mauve);
-}
-
-.tags.has-addons .tag {
+.tag {
   color: var(--text);
   border-color: var(--surface0);
 }
 
-.tags.has-addons .tag:first-child {
+.tag:first-child {
   background: var(--base);
 }
 
-.tags.has-addons .tag:last-child {
+.tag:last-child {
   background: var(--mantle);
 }
 

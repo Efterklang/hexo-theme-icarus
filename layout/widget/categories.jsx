@@ -36,7 +36,7 @@ class Categories extends Component {
           </span>
           {showCount ? (
             <span class="level-end">
-              <span class="level-item tag">{category.count}</span>
+              <span class="level-item">{category.count}</span>
             </span>
           ) : null}
         </a>

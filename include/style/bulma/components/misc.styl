@@ -1,37 +1,3 @@
-// footer, tag有使用.field class
-.field
-  &:not(:last-child)
-    margin-bottom 0.75rem
-  // Modifiers
-  &.has-addons
-    display flex
-    justify-content flex-start
-
-  &.is-grouped
-    display flex
-    justify-content flex-start
-    & > .control
-      flex-shrink 0
-      &:not(:last-child)
-        margin-bottom 0
-        margin-right 0.75rem
-    &.is-grouped-multiline
-      flex-wrap wrap
-      & > .control
-        &:last-child,
-        &:not(:last-child)
-          margin-bottom 0.75rem
-      &:last-child
-        margin-bottom -0.75rem
-      &:not(:last-child)
-        margin-bottom 0
-
-.control
-  box-sizing border-box
-  clear both
-  font-size $size-normal
-  position relative
-  text-align left
 .section
   padding 3rem 1.5rem
 

@@ -42,7 +42,7 @@ class Links extends Component {
                         <span class="level-item">{i}</span>
                       </span>
                       <span class="level-right">
-                        <span class="level-item tag">{hostname}</span>
+                        <span class="level-item">{hostname}</span>
                       </span>
                     </a>
                   </li>

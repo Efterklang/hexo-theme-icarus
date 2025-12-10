@@ -39,7 +39,7 @@ class Archives extends Component {
                     </span>
                     {showCount ? (
                       <span class="level-end">
-                        <span class="level-item tag">{archive.count}</span>
+                        <span class="level-item">{archive.count}</span>
                       </span>
                     ) : null}
                   </a>
