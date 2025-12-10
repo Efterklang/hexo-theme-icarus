@@ -282,28 +282,6 @@ article .article-licensing {
   background-color: var(--base);
 }
 
-.button.is-primary,
-.cc-window .cc-compliance > .cc-btn {
-  background-color: var(--lavender);
-  color: var(--base);
-}
-
-.button.is-primary:hover,
-.cc-window .cc-compliance > .cc-btn:hover,
-.button.is-primary.is-hovered,
-.cc-window .cc-compliance > .cc-btn.is-hovered {
-  color: var(--base);
-  background-color: var(--mauve);
-}
-
-.button.is-primary:active,
-.cc-window .cc-compliance > .cc-btn:active,
-.button.is-primary.is-active,
-.cc-window .cc-compliance > .cc-btn.is-active {
-  color: var(--text);
-  background-color: var(--mauve);
-}
-
 .navbar-main,
 .navbar-menu {
   background: hsl(from var(--mantle) h s l / 0.95);
@@ -481,10 +459,10 @@ input:-webkit-autofill {
 }
 
 .searchbox-result-item.active span {
-    color: var(--lavender);
+  color: var(--lavender);
 }
 .searchbox-result-item:hover span {
-    color: var(--mauve);
+  color: var(--mauve);
 }
 
 .floating-toc-button {

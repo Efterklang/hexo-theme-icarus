@@ -27,32 +27,6 @@ const localeMap = {
 };
 const localeRegex = new RegExp(Object.keys(localeMap).join('|'), 'i');
 
-/**
- * A JSX component that renders Open Graph tags.
- *
- * @name OpenGraph
- * @see https://hexo.io/docs/helpers#open-graph
- * @see https://github.com/hexojs/hexo/blob/4.2.0/lib/plugins/helper/open_graph.js
- * @example
- * <OpenGraph
- *     type="blog"
- *     title="Page title"
- *     language="Page language"
- *     description="Page description"
- *     date="Page publish date"
- *     updated="Page update date"
- *     author="Page author"
- *     keywords="keyword1,keyword2,..."
- *     images={[ '/path/to/image.png' ]}
- *     url="/path/to/page"
- *     siteName="Site name"
- *     twitterId="Twitter ID"
- *     twitterCard="summary"
- *     twitterSite="Twitter Site"
- *     googlePlus="/path/to/google/plus"
- *     facebookAdmins="Facebook admin ID"
- *     facebookAppId="Facebook APP ID" />
- */
 module.exports = class extends Component {
   render() {
     const {

@@ -24,8 +24,6 @@ class Profile extends Component {
             authorTitle,
             location,
             counter,
-            followLink,
-            followTitle,
             socialLinks
         } = this.props;
         return <div class="card widget" data-type="profile">
@@ -68,9 +66,6 @@ class Profile extends Component {
                         </div>
                     </div>
                 </nav>
-                {followLink ? <div class="level">
-                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="me noopener" id="widget-follow">{followTitle}</a>
-                </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>
         </div>;
@@ -85,7 +80,6 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         author = props.config.author,
         author_title,
         location,
-        follow_link,
         social_links
     } = widget;
     const { url_for, _p, __ } = helper;
@@ -141,8 +135,6 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
                 url: url_for('/tags/')
             }
         },
-        followLink: follow_link ? url_for(follow_link) : undefined,
-        followTitle: __('widget.follow'),
         socialLinks
     };
 });
