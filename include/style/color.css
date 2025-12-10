@@ -369,10 +369,6 @@ input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px var(--surface0) inset;
 }
 
-.gallery-item .caption {
-  color: var(--overlay1);
-}
-
 .breadcrumb {
   color: var(--blue);
 }

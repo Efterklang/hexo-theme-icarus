@@ -1,19 +1,6 @@
 /* eslint-disable node/no-unsupported-features/node-builtins */
 
 (function ($) {
-  // lightGallery initialization
-  if (typeof $.fn.lightGallery === "function") {
-    $(".article").lightGallery({ selector: ".gallery-item" });
-  }
-
-  // justifiedGallery initialization
-  if (typeof $.fn.justifiedGallery === "function") {
-    if ($(".justified-gallery > p > .gallery-item").length) {
-      $(".justified-gallery > p > .gallery-item").unwrap();
-    }
-    $(".justified-gallery").justifiedGallery();
-  }
-
   // Keyboard shortcuts handler
   document.onkeydown = function (e) {
     // https://javascript.info/keyboard-events
