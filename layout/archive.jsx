@@ -10,13 +10,42 @@ module.exports = class extends Component {
         const { url_for, __, date_xml, date } = helper;
 
         const language = toMomentLocale(page.lang || page.language || config.language);
-
+        const timelineCss = `
+            span.year {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                z-index: 0;
+                font-size: 7.5rem;
+                font-weight: bolder;
+                font-family: Paris2024;
+                color: hsl(from var(--mauve) h s l / 0.15);
+                line-height: 1;
+                user-select: none;
+            }
+            .timeline .archive-item {
+                display: flex;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .timeline .archive-item a {
+                color: var(--text);
+                transition: color 0.2s;
+            }
+            .timeline .archive-item a:hover {
+                color: var(--peach);
+            }
+            .archive-item + .archive-item {
+                border: none;
+                margin-top: 0;
+                padding-top: 1rem;
+            }
+        `;
         function renderArticleList(posts, year, month = null) {
             const time = moment([page.year, page.month ? page.month - 1 : null].filter(i => i !== null));
-            const year_css_style = "position: absolute; top: 1.5rem; right: 1.5rem; z-index: 0; font-size: 7.5rem; font-weight: bolder; font-family: Paris2024; color: hsl(from var(--mauve) h s l / 0.15); line-height: 1; user-select: none; "
             return <div class="card">
                 <div class="card-content">
-                    <span class="year" style={year_css_style}>{month === null ? year : time.locale(language).format('MMMM YYYY')}</span>
+                    <span class="year">{month === null ? year : time.locale(language).format('MMMM YYYY')}</span>
                     <div class="timeline">
                         {posts.map(post => {
                             const categories = post.categories.map(category => ({
@@ -49,6 +78,7 @@ module.exports = class extends Component {
         }
 
         return <Fragment>
+            <style dangerouslySetInnerHTML={{ __html: timelineCss }}></style>
             {articleList}
             {page.total > 1 ? <Paginator
                 current={page.current}

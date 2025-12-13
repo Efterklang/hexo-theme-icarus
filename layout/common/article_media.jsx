@@ -6,7 +6,7 @@ const moment = require('moment');
 
 module.exports = class extends Component {
   render() {
-    const { thumbnail, url, title, date, dateXml, categories } = this.props;
+    const { url, title, date, categories } = this.props;
     // Formatted like May.15
     const formattedDate = moment(date).format('MMM.DD');
     const categoryTags = [];
@@ -18,20 +18,13 @@ module.exports = class extends Component {
     });
 
     return (
-      <article class="media">
-        {thumbnail ? (
-          <figure class="media-left">
-            <a class="image" href={url}>
-              <img src={thumbnail} loading='lazy' decoding='async' alt={title} />
-            </a>
-          </figure>
-        ) : null}
+      <article class="archive-item">
         <div>
           <p class="article-meta">
             <span>{formattedDate}</span>
             {categoryTags.length ? <span>{categoryTags}</span> : null}
           </p>
-          <p class="title">
+          <p class="title" style="font-size: 1em;">
             <a href={url}>{title}</a>
           </p>
         </div>

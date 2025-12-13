@@ -270,14 +270,6 @@ span {
   color: hsl(from var(--text) h s l / 0.85);
 }
 
-.media a {
-  color: var(--text);
-}
-
-.media a:hover {
-  color: var(--flamingo);
-}
-
 .article-licensing {
   color: var(--subtext1);
   background-color: var(--base);
