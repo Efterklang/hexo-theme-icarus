@@ -23,7 +23,6 @@ $footer-padding ?= 3rem 1.5rem 6rem
 .footer
   padding $footer-padding
   position relative
-  color inherit
   .container
     max-width 1080px
   .footer-grid
@@ -38,18 +37,14 @@ $footer-padding ?= 3rem 1.5rem 6rem
   .footer-title
     font-weight bolder
     font-size 1.1rem
-    color inherit
     margin-bottom .25rem
   .footer-heading
-    color: var(--text)
     font-weight bolder
     font-size 1.1rem
-    color inherit
-    opacity .8
     margin-bottom .25rem
   .footer-meta
     font-size: 0.75rem
-    opacity .7
+    color: var(--subtext0)
     line-height 1.6
   .footer-links
     display flex
@@ -60,28 +55,12 @@ $footer-padding ?= 3rem 1.5rem 6rem
     display inline-flex
     align-items center
     gap .4rem
-    color inherit
-    opacity .85
+    color var(--subtext0)
     text-decoration none
     &:hover
-      opacity 1
       text-decoration underline
   iconify-icon
     font-size 1.2rem
-  .footer-archive-list
-    display flex
-    flex-wrap wrap
-    gap .35rem .75rem
-    margin 0
-    padding 0
-  .footer-archive-pill
-    display inline-flex
-    align-items center
-    padding 0
-
-  @media (max-width: 768px)
-    .footer-grid
-      grid-template-columns 1fr
 
 // button
 $button-border-width ?= $control-border-width

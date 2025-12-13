@@ -26,15 +26,14 @@ class Footer extends Component {
 
         const footer_brand = <div class="footer-column footer-brand">
             <p class="footer-title">{author || siteTitle}</p>
-            <p class="footer-meta is-size-7">
+            <p class="footer-meta">
                 <span dangerouslySetInnerHTML={{ __html: `&copy; ${siteYear} ${author || siteTitle}` }}></span>
-                &nbsp;Powered by Hexo&nbsp;& <a href="https://github.com/Efterklang/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                &nbsp;Powered by Hexo&nbsp;& Icarus
                 {showVisitorCounter ? <><br /><span id="busuanzi_container_site_uv" dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span></> : null}
-                {/* 备案 */}
-                {ICPRecord ? <><br /><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" dangerouslySetInnerHTML={{ __html: ICPRecord }}></a></> : null}
+                {ICPRecord ? <><br /><a href="https://beian.miit.gov.cn/" style={"color: inherit"} target="_blank" rel="noopener" dangerouslySetInnerHTML={{ __html: ICPRecord }}></a></> : null}
             </p>
             {copyright ? <p class="footer-meta" dangerouslySetInnerHTML={{ __html: copyright }}></p> : null}
-        </div>
+        </div >
 
         const footer_social = <div class="footer-column footer-social">
             <p class="footer-heading">Social Media</p>
@@ -60,11 +59,9 @@ class Footer extends Component {
 
         const footer_archives = <div class="footer-column footer-archives">
             <p class="footer-heading">Archives</p>
-            <div class="footer-archive-list">
+            <div class="footer-links">
                 {archives && archives.length ? archives.map(item => (
-                    <span class="footer-archive-pill">
-                        <a class="footer-link" href={item.url}>{item.year}</a>
-                    </span>
+                    <a class="footer-link" href={item.url}>{item.year}</a>
                 )) : null}
             </div>
         </div>
