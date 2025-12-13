@@ -2,8 +2,8 @@
  * Twitter conversion tracking plugin JSX component.
  * @module view/plugin/twitter_conversion_tracking
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Twitter conversion tracking plugin JSX component.
@@ -40,14 +40,18 @@ class TwiterCT extends Component {
  *     head={false}
  *     plugin={{ pixel_id: '******' }} />
  */
-TwiterCT.Cacheable = cacheComponent(TwiterCT, 'plugin.twitterconversiontracking', (props) => {
-  const { head, plugin } = props;
-  if (head || !plugin.pixel_id) {
-    return null;
-  }
-  return {
-    pixelId: plugin.pixel_id,
-  };
-});
+TwiterCT.Cacheable = cacheComponent(
+  TwiterCT,
+  "plugin.twitterconversiontracking",
+  (props) => {
+    const { head, plugin } = props;
+    if (head || !plugin.pixel_id) {
+      return null;
+    }
+    return {
+      pixelId: plugin.pixel_id,
+    };
+  },
+);
 
 module.exports = TwiterCT;

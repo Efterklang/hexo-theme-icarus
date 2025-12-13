@@ -2,14 +2,13 @@
  * View cache utility functions.
  * @module util/cache
  */
-const crypto = require('crypto');
-const { Component } = require('inferno'); // eslint-disable-line no-unused-vars
-const { createElement } = require('inferno-create-element');
+const crypto = require("crypto");
+const { createElement } = require("inferno-create-element");
 
 const cache = {};
 
 function computeHash(props) {
-  return crypto.createHash('md5').update(JSON.stringify(props)).digest('hex');
+  return crypto.createHash("md5").update(JSON.stringify(props)).digest("hex");
 }
 
 module.exports = {
@@ -35,10 +34,10 @@ module.exports = {
   cacheComponent(type, prefix, transform) {
     return (props) => {
       const targetProps = transform(props);
-      if (targetProps === null || typeof targetProps !== 'object') {
+      if (targetProps === null || typeof targetProps !== "object") {
         return null;
       }
-      const cacheId = prefix + '-' + computeHash(targetProps);
+      const cacheId = `${prefix}-${computeHash(targetProps)}`;
       if (!cache[cacheId]) {
         cache[cacheId] = createElement(type, targetProps);
       }

@@ -2,8 +2,8 @@
  * Utterances comment JSX component.
  * @module view/comment/utterances
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Utterances comment JSX component.
@@ -23,16 +23,17 @@ class Utterances extends Component {
     if (!repo || (!issueTerm && !issueNumber)) {
       return (
         <div class="notification is-danger">
-          You forgot to set the <code>repo</code>, <code>issue_term</code>, or{' '}
-          <code>issue_number</code> for Utterances. Please set it in <code>_config.yml</code>.
+          You forgot to set the <code>repo</code>, <code>issue_term</code>, or{" "}
+          <code>issue_number</code> for Utterances. Please set it in{" "}
+          <code>_config.yml</code>.
         </div>
       );
     }
     const config = { repo };
     if (issueTerm) {
-      config['issue-term'] = issueTerm;
+      config["issue-term"] = issueTerm;
     } else {
-      config['issue-number'] = issueNumber;
+      config["issue-number"] = issueNumber;
     }
     if (label) {
       config.label = label;
@@ -45,7 +46,8 @@ class Utterances extends Component {
         src="https://utteranc.es/client.js"
         {...config}
         crossorigin="anonymous"
-        async={true}></script>
+        async={true}
+      ></script>
     );
   }
 }
@@ -67,16 +69,20 @@ class Utterances extends Component {
  *         theme: "******"
  *     }} />
  */
-Utterances.Cacheable = cacheComponent(Utterances, 'comment.utterances', (props) => {
-  const { repo, issue_term, issue_number, label, theme } = props.comment;
+Utterances.Cacheable = cacheComponent(
+  Utterances,
+  "comment.utterances",
+  (props) => {
+    const { repo, issue_term, issue_number, label, theme } = props.comment;
 
-  return {
-    repo,
-    issueTerm: issue_term,
-    issueNumber: issue_number,
-    label,
-    theme,
-  };
-});
+    return {
+      repo,
+      issueTerm: issue_term,
+      issueNumber: issue_number,
+      label,
+      theme,
+    };
+  },
+);
 
 module.exports = Utterances;

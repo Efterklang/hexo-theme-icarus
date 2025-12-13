@@ -1,18 +1,20 @@
-const { Component, Fragment } = require('inferno');
+const { Component, Fragment } = require("inferno");
 
 class Pjax extends Component {
-    render() {
-        if (this.props.head) {
-            return null;
-        }
-        const { helper } = this.props;
-        const { url_for, cdn } = helper;
-
-        return <Fragment>
-            <script defer src={cdn('pjax', '0.2.8', 'pjax.min.js')}></script>
-            <script defer src={url_for('/js/pjax.js')}></script>
-        </Fragment>;
+  render() {
+    if (this.props.head) {
+      return null;
     }
+    const { helper } = this.props;
+    const { url_for, cdn } = helper;
+
+    return (
+      <Fragment>
+        <script defer src={cdn("pjax", "0.2.8", "pjax.min.js")}></script>
+        <script defer src={url_for("/js/pjax.js")}></script>
+      </Fragment>
+    );
+  }
 }
 
 module.exports = Pjax;

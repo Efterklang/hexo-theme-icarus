@@ -2,13 +2,13 @@
  * A JSX component that renders &lt;meta&gt; tags.
  * @module view/misc/meta
  */
-const { Component } = require('inferno');
+const { Component } = require("inferno");
 
 function trim(str) {
   return str
     .trim()
-    .replace(/^"(.*)"$/, '$1')
-    .replace(/^'(.*)'$/, '$1');
+    .replace(/^"(.*)"$/, "$1")
+    .replace(/^'(.*)'$/, "$1");
 }
 
 function split(str, sep) {
@@ -37,7 +37,7 @@ module.exports = class extends Component {
       meta = [meta];
     }
     const tags = meta
-      .filter((entry) => typeof entry === 'string')
+      .filter((entry) => typeof entry === "string")
       .map((entry) => {
         const props = split(entry, /(?:[^\\;]+|\\.)+/g)
           .map((property) => {

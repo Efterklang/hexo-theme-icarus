@@ -11,11 +11,11 @@
  *
  * @param {Hexo} hexo The Hexo instance.
  */
-module.exports = function (hexo) {
-  hexo.extend.generator.register('tags', (locals) => {
+module.exports = (hexo) => {
+  hexo.extend.generator.register("tags", (locals) => {
     return {
-      path: 'tags/',
-      layout: ['tags'],
+      path: "tags/",
+      layout: ["tags"],
       data: Object.assign({}, locals, {
         __tags: true,
       }),

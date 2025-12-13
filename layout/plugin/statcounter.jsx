@@ -2,8 +2,8 @@
  * Statcounter statistics plugin JSX component.
  * @module view/plugin/statcounter
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Statcounter statistics plugin JSX component.
@@ -25,7 +25,10 @@ class Statcounter extends Component {
     return (
       <>
         <script dangerouslySetInnerHTML={{ __html: js }}></script>
-        <script src="https://www.statcounter.com/counter/counter.js" async></script>
+        <script
+          src="https://www.statcounter.com/counter/counter.js"
+          async
+        ></script>
         <noscript>
           <div class="statcounter">
             <img
@@ -52,16 +55,20 @@ class Statcounter extends Component {
  *     head={false}
  *     plugin={{ project: '******', security: '******' }} />
  */
-Statcounter.Cacheable = cacheComponent(Statcounter, 'plugin.statcounter', (props) => {
-  const { head, plugin } = props;
-  const { project, security } = plugin;
-  if (head || !project || !security) {
-    return null;
-  }
-  return {
-    project,
-    security,
-  };
-});
+Statcounter.Cacheable = cacheComponent(
+  Statcounter,
+  "plugin.statcounter",
+  (props) => {
+    const { head, plugin } = props;
+    const { project, security } = plugin;
+    if (head || !project || !security) {
+      return null;
+    }
+    return {
+      project,
+      security,
+    };
+  },
+);
 
 module.exports = Statcounter.Cacheable;

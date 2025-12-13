@@ -2,16 +2,16 @@
  * Insight search content.json generator.
  * @module hexo/generator/insight
  */
-const util = require('hexo-util');
+const util = require("hexo-util");
 
 /**
  * Insight search content.json generator.
  *
  * @param {Hexo} hexo The Hexo instance.
  */
-module.exports = function (hexo) {
-  hexo.extend.generator.register('insight', function (locals) {
-    const url_for = hexo.extend.helper.get('url_for').bind(this);
+module.exports = (hexo) => {
+  hexo.extend.generator.register("insight", function (locals) {
+    const url_for = hexo.extend.helper.get("url_for").bind(this);
     function escape(str) {
       return util.escapeHTML(str).trim();
     }
@@ -19,8 +19,8 @@ module.exports = function (hexo) {
       return util
         .stripHTML(str)
         .trim()
-        .replace(/\n/g, ' ')
-        .replace(/\s+/g, ' ')
+        .replace(/\n/g, " ")
+        .replace(/\s+/g, " ")
         .replace(/&#x([\da-fA-F]+);/g, (match, hex) => {
           return String.fromCharCode(parseInt(hex, 16));
         })
@@ -55,7 +55,7 @@ module.exports = function (hexo) {
     }
 
     return {
-      path: '/content.json',
+      path: "/content.json",
       data: JSON.stringify(site),
     };
   });

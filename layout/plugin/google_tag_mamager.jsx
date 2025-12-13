@@ -2,8 +2,8 @@
  * Google Analytics plugin JSX component.
  * @module view/plugin/google_analytics
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Google Analytics plugin JSX component.
@@ -30,7 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <noscript
         dangerouslySetInnerHTML={{
           __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${trackingId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}></noscript>
+        }}
+      ></noscript>
     );
   }
 }
@@ -47,15 +48,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  *     head={true}
  *     plugin={{ tracking_id: '*******' }} />
  */
-GoogleAnalytics.Cacheable = cacheComponent(GoogleAnalytics, 'plugin.google_tag_manager', (props) => {
-  const { head, plugin } = props;
-  if (!plugin || !plugin.tracking_id) {
-    return null;
-  }
-  return {
-    trackingId: plugin.tracking_id,
-    head: Boolean(head),
-  };
-});
+GoogleAnalytics.Cacheable = cacheComponent(
+  GoogleAnalytics,
+  "plugin.google_tag_manager",
+  (props) => {
+    const { head, plugin } = props;
+    if (!plugin || !plugin.tracking_id) {
+      return null;
+    }
+    return {
+      trackingId: plugin.tracking_id,
+      head: Boolean(head),
+    };
+  },
+);
 
 module.exports = GoogleAnalytics;

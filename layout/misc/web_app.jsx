@@ -2,8 +2,8 @@
  * Web app meta tags.
  * @module view/misc/web_app
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Web app meta tags.
@@ -42,8 +42,12 @@ class WebApp extends Component {
         {themeColor ? <meta name="theme-color" content={themeColor} /> : null}
         {/* Windows Pinned Site */}
         <meta name="application-name" content={name} />
-        {tileIcon ? <meta name="msapplication-TileImage" content={tileIcon} /> : null}
-        {themeColor ? <meta name="msapplication-TileColor" content={themeColor} /> : null}
+        {tileIcon ? (
+          <meta name="msapplication-TileImage" content={tileIcon} />
+        ) : null}
+        {themeColor ? (
+          <meta name="msapplication-TileColor" content={themeColor} />
+        ) : null}
         {/* iOS home screen launcher */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content={name} />
@@ -74,12 +78,14 @@ class WebApp extends Component {
  *     ]}
  *     helper={{ url_for: function() {...} }} />
  */
-WebApp.Cacheable = cacheComponent(WebApp, 'misc.webapp', (props) => {
+WebApp.Cacheable = cacheComponent(WebApp, "misc.webapp", (props) => {
   const { name, themeColor, favicon, icons, helper } = props;
 
   let tileIcon = null;
   if (Array.isArray(icons)) {
-    tileIcon = icons.find((icon) => icon.sizes.toLowerCase().indexOf('144x144') > -1);
+    tileIcon = icons.find(
+      (icon) => icon.sizes.toLowerCase().indexOf("144x144") > -1,
+    );
     if (tileIcon) {
       tileIcon = tileIcon.src;
     } else if (icons.length) {
@@ -95,7 +101,7 @@ WebApp.Cacheable = cacheComponent(WebApp, 'misc.webapp', (props) => {
     icons,
     tileIcon,
     themeColor,
-    manifest: helper.url_for('/manifest.json'),
+    manifest: helper.url_for("/manifest.json"),
   };
 });
 

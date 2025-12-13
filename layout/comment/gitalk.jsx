@@ -2,9 +2,9 @@
  * Gitalk comment JSX component.
  * @module view/comment/gitalk
  */
-const crypto = require('crypto');
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const crypto = require("crypto");
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Gitalk comment JSX component.
@@ -40,7 +40,7 @@ class Gitalk extends Component {
       clientSecret,
       createIssueManually = false,
       distractionFreeMode = false,
-      pagerDirection = 'last',
+      pagerDirection = "last",
       perPage = 10,
       proxy,
       flipMoveOptions,
@@ -53,8 +53,9 @@ class Gitalk extends Component {
     if (!id || !repo || !owner || !admin || !clientId || !clientSecret) {
       return (
         <div class="notification is-danger">
-          You forgot to set the <code>owner</code>, <code>admin</code>, <code>repo</code>,
-          <code>client_id</code>, or <code>client_secret</code> for Gitalk. Please set it in{' '}
+          You forgot to set the <code>owner</code>, <code>admin</code>,{" "}
+          <code>repo</code>,<code>client_id</code>, or{" "}
+          <code>client_secret</code> for Gitalk. Please set it in{" "}
           <code>_config.yml</code>.
         </div>
       );
@@ -70,10 +71,10 @@ class Gitalk extends Component {
             distractionFreeMode: ${!!distractionFreeMode},
             perPage: ${JSON.stringify(perPage)},
             pagerDirection: ${JSON.stringify(pagerDirection)},
-            ${proxy ? `proxy: ${JSON.stringify(proxy)},` : ''}
-            ${flipMoveOptions ? `flipMoveOptions: ${JSON.stringify(flipMoveOptions)},` : ''}
+            ${proxy ? `proxy: ${JSON.stringify(proxy)},` : ""}
+            ${flipMoveOptions ? `flipMoveOptions: ${JSON.stringify(flipMoveOptions)},` : ""}
             enableHotKey: ${enableHotKey ? !!enableHotKey : true},
-            ${language ? `language: ${JSON.stringify(language)},` : ''}
+            ${language ? `language: ${JSON.stringify(language)},` : ""}
         })
         gitalk.render('comment-container')`;
     return (
@@ -114,11 +115,11 @@ class Gitalk extends Component {
  *     page={{ path: '/path/to/page' }}
  *     helper={{ cdn: function() {...} }} />
  */
-Gitalk.Cacheable = cacheComponent(Gitalk, 'comment.gitalk', (props) => {
+Gitalk.Cacheable = cacheComponent(Gitalk, "comment.gitalk", (props) => {
   const { helper, comment } = props;
 
   // FIXME: config name change
-  const id = crypto.createHash('md5').update(props.page.path).digest('hex');
+  const id = crypto.createHash("md5").update(props.page.path).digest("hex");
   return {
     id,
     repo: comment.repo,
@@ -134,8 +135,8 @@ Gitalk.Cacheable = cacheComponent(Gitalk, 'comment.gitalk', (props) => {
     flipMoveOptions: comment.flip_move_options,
     enableHotKey: comment.enable_hotkey,
     language: comment.language,
-    cssUrl: helper.cdn('gitalk', '1.7.2', 'dist/gitalk.css'),
-    jsUrl: helper.cdn('gitalk', '1.7.2', 'dist/gitalk.min.js'),
+    cssUrl: helper.cdn("gitalk", "1.7.2", "dist/gitalk.css"),
+    jsUrl: helper.cdn("gitalk", "1.7.2", "dist/gitalk.min.js"),
   };
 });
 

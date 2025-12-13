@@ -2,8 +2,8 @@
  * Twikoo comment JSX component.
  * @module view/comment/twikoo
  */
-const { Component, Fragment } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component, Fragment } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 const { lazy_load_css } = require("../../include/util/common");
 
 /**
@@ -22,14 +22,16 @@ class Twikoo extends Component {
     const { envId, region, lang, jsUrl } = this.props;
     const js = `twikoo.init({
             envId: '${envId}',
-            ${region ? `region: ${JSON.stringify(region)},` : ''}
-            ${lang ? `lang: ${JSON.stringify(lang)},` : ''}
+            ${region ? `region: ${JSON.stringify(region)},` : ""}
+            ${lang ? `lang: ${JSON.stringify(lang)},` : ""}
         });`;
-    const lazy_load_css_script = lazy_load_css("/css/twikoo.css")
+    const lazy_load_css_script = lazy_load_css("/css/twikoo.css");
     return (
       <Fragment>
         <div id="twikoo" class="content twikoo"></div>
-        <script dangerouslySetInnerHTML={{ __html: lazy_load_css_script }}></script>
+        <script
+          dangerouslySetInnerHTML={{ __html: lazy_load_css_script }}
+        ></script>
         <script defer src={jsUrl} onload={`${js};`}></script>
       </Fragment>
     );
@@ -51,14 +53,15 @@ class Twikoo extends Component {
  *         lang: "zh-CN",
  *     }} />
  */
-Twikoo.Cacheable = cacheComponent(Twikoo, 'comment.twikoo', (props) => {
+Twikoo.Cacheable = cacheComponent(Twikoo, "comment.twikoo", (props) => {
   const { comment, helper, page, config } = props;
 
   return {
     envId: comment.env_id,
     region: comment.region,
-    lang: comment.lang || page.lang || page.language || config.language || 'zh-CN',
-    jsUrl: helper.cdn('twikoo', '1.6.41', 'dist/twikoo.all.min.js'),
+    lang:
+      comment.lang || page.lang || page.language || config.language || "zh-CN",
+    jsUrl: helper.cdn("twikoo", "1.6.41", "dist/twikoo.all.min.js"),
   };
 });
 

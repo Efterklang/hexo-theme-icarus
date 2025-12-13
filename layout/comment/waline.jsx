@@ -2,8 +2,8 @@
  * Waline comment JSX component.
  * @module view/comment/waline
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Waline comment JSX component.
@@ -36,14 +36,14 @@ class Waline extends Component {
   render() {
     const {
       serverURL,
-      path = 'window.location.pathname',
-      lang = 'zh-CN',
+      path = "window.location.pathname",
+      lang = "zh-CN",
       locale,
-      emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo'],
-      dark = '',
-      meta = ['nick', 'mail', 'link'],
+      emoji = ["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],
+      dark = "",
+      meta = ["nick", "mail", "link"],
       requiredMeta = [],
-      login = 'enable',
+      login = "enable",
       wordLimit = 0,
       pageSize = 10,
       imageUploader = false,
@@ -59,8 +59,8 @@ class Waline extends Component {
     if (!serverURL) {
       return (
         <div class="notification is-danger">
-          You forgot to set the <code>server_url</code> for Waline. Please set it in{' '}
-          <code>_config.yml</code>.
+          You forgot to set the <code>server_url</code> for Waline. Please set
+          it in <code>_config.yml</code>.
         </div>
       );
     }
@@ -69,21 +69,21 @@ class Waline extends Component {
             el: '#waline-thread',
             serverURL: ${JSON.stringify(serverURL)},
             path: ${path},
-            ${lang ? `lang: ${JSON.stringify(lang)},` : ''}
-            ${locale ? `locale: ${JSON.stringify(locale)},` : ''}
-            ${emoji ? `emoji: ${JSON.stringify(emoji)},` : ''}
-            ${dark ? `dark: ${JSON.stringify(dark)},` : ''}
-            ${meta ? `meta: ${JSON.stringify(meta)},` : ''}
-            ${Array.isArray(requiredMeta) ? `requiredMeta: ${JSON.stringify(requiredMeta)},` : ''}
-            ${login ? `login: ${JSON.stringify(login)},` : ''}
-            ${wordLimit ? `wordLimit: ${JSON.stringify(wordLimit)},` : ''}
-            ${pageSize ? `pageSize: ${JSON.stringify(pageSize)},` : ''}
-            ${imageUploader === false ? `imageUploader: false,` : ''}
-            ${highlighter === false ? `highlighter: false,` : ''}
-            ${texRenderer === false ? `texRenderer: false,` : ''}
-            ${search === false ? `search: false,` : ''}
-            ${typeof pageview !== 'undefined' ? `pageview: ${JSON.stringify(pageview)},` : ''}
-            ${typeof comment !== 'undefined' ? `comment: ${JSON.stringify(comment)},` : ''}
+            ${lang ? `lang: ${JSON.stringify(lang)},` : ""}
+            ${locale ? `locale: ${JSON.stringify(locale)},` : ""}
+            ${emoji ? `emoji: ${JSON.stringify(emoji)},` : ""}
+            ${dark ? `dark: ${JSON.stringify(dark)},` : ""}
+            ${meta ? `meta: ${JSON.stringify(meta)},` : ""}
+            ${Array.isArray(requiredMeta) ? `requiredMeta: ${JSON.stringify(requiredMeta)},` : ""}
+            ${login ? `login: ${JSON.stringify(login)},` : ""}
+            ${wordLimit ? `wordLimit: ${JSON.stringify(wordLimit)},` : ""}
+            ${pageSize ? `pageSize: ${JSON.stringify(pageSize)},` : ""}
+            ${imageUploader === false ? `imageUploader: false,` : ""}
+            ${highlighter === false ? `highlighter: false,` : ""}
+            ${texRenderer === false ? `texRenderer: false,` : ""}
+            ${search === false ? `search: false,` : ""}
+            ${typeof pageview !== "undefined" ? `pageview: ${JSON.stringify(pageview)},` : ""}
+            ${typeof comment !== "undefined" ? `comment: ${JSON.stringify(comment)},` : ""}
             ${`copyright: ${JSON.stringify(copyright)},`}
         });`;
     return (
@@ -127,13 +127,14 @@ class Waline extends Component {
  *     }}
  *     helper={{ cdn: function() {...} }} />
  */
-Waline.Cacheable = cacheComponent(Waline, 'comment.waline', (props) => {
+Waline.Cacheable = cacheComponent(Waline, "comment.waline", (props) => {
   const { comment, helper, page, config } = props;
 
   return {
     serverURL: comment.server_url,
     path: comment.path,
-    lang: comment.lang || page.lang || page.language || config.language || 'zh-CN',
+    lang:
+      comment.lang || page.lang || page.language || config.language || "zh-CN",
     locale: comment.locale,
     emoji: comment.emoji,
     dark: comment.dark,
@@ -149,8 +150,8 @@ Waline.Cacheable = cacheComponent(Waline, 'comment.waline', (props) => {
     pageview: comment.pageview,
     comment: comment.comment,
     copyright: comment.copyright,
-    jsUrl: helper.cdn('@waline/client', '3.3.0', 'dist/waline.js'),
-    cssUrl: helper.cdn('@waline/client', '3.3.0', 'dist/waline.css'),
+    jsUrl: helper.cdn("@waline/client", "3.3.0", "dist/waline.js"),
+    cssUrl: helper.cdn("@waline/client", "3.3.0", "dist/waline.css"),
   };
 });
 

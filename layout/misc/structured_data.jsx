@@ -2,10 +2,10 @@
  * A JSX component that renders simple Google structured data.
  * @module view/misc/structured_data
  */
-const urlFn = require('url');
-const moment = require('moment');
-const { Component } = require('inferno');
-const { stripHTML, escapeHTML } = require('hexo-util');
+const urlFn = require("url");
+const moment = require("moment");
+const { Component } = require("inferno");
+const { stripHTML, escapeHTML } = require("hexo-util");
 
 /**
  * A JSX component that renders simple Google structured data.
@@ -29,7 +29,9 @@ module.exports = class extends Component {
     let { description, images, date, updated, publisherLogo } = this.props;
 
     if (description) {
-      description = escapeHTML(stripHTML(description).substring(0, 200).trim()).replace(/\n/g, ' ');
+      description = escapeHTML(
+        stripHTML(description).substring(0, 200).trim(),
+      ).replace(/\n/g, " ");
     }
 
     if (!Array.isArray(images)) {
@@ -46,17 +48,21 @@ module.exports = class extends Component {
       })
       .filter(
         (url) =>
-          url.endsWith('.jpg') ||
-          url.endsWith('.png') ||
-          url.endsWith('.gif') ||
-          url.endsWith('.webp'),
+          url.endsWith(".jpg") ||
+          url.endsWith(".png") ||
+          url.endsWith(".gif") ||
+          url.endsWith(".webp"),
       );
 
-    if (typeof publisherLogo === 'string' && !urlFn.parse(publisherLogo).host) {
+    if (typeof publisherLogo === "string" && !urlFn.parse(publisherLogo).host) {
       publisherLogo = urlFn.resolve(url, publisherLogo);
     }
 
-    if (date && (moment.isMoment(date) || moment.isDate(date)) && !isNaN(date.valueOf())) {
+    if (
+      date &&
+      (moment.isMoment(date) || moment.isDate(date)) &&
+      !isNaN(date.valueOf())
+    ) {
       date = date.toISOString();
     }
 
@@ -69,25 +75,25 @@ module.exports = class extends Component {
     }
 
     const data = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
       mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': url,
+        "@type": "WebPage",
+        "@id": url,
       },
       headline: title,
       image: images,
       datePublished: date,
       dateModified: updated,
       author: {
-        '@type': 'Person',
+        "@type": "Person",
         name: author,
       },
       publisher: {
-        '@type': 'Organization',
+        "@type": "Organization",
         name: publisher,
         logo: {
-          '@type': 'ImageObject',
+          "@type": "ImageObject",
           url: publisherLogo,
         },
       },
@@ -97,7 +103,8 @@ module.exports = class extends Component {
     return (
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}></script>
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      ></script>
     );
   }
 };

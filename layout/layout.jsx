@@ -19,7 +19,10 @@ module.exports = class extends Component {
           <Navbar config={config} helper={helper} page={page} />
           <ThemeSelector />
           <section class="section">
-            <div class="main-content" dangerouslySetInnerHTML={{ __html: body }}></div>
+            <div
+              class="main-content"
+              dangerouslySetInnerHTML={{ __html: body }}
+            ></div>
           </section>
           <Footer site={site} config={config} helper={helper} />
           <Scripts site={site} config={config} helper={helper} page={page} />

@@ -2,8 +2,8 @@
  * DisqusJS comment JSX component.
  * @module view/comment/disqusjs
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * DisqusJS comment JSX component.
@@ -45,8 +45,8 @@ class DisqusJs extends Component {
     if (!shortname) {
       return (
         <div class="notification is-danger">
-          You forgot to set the <code>shortname</code> or <code>api_key</code> for Disqus. Please
-          set it in <code>_config.yml</code>.
+          You forgot to set the <code>shortname</code> or <code>api_key</code>{" "}
+          for Disqus. Please set it in <code>_config.yml</code>.
         </div>
       );
     }
@@ -55,21 +55,21 @@ class DisqusJs extends Component {
     const js = `new DisqusJS({
             shortname: '${shortname}',
             apikey: ${JSON.stringify(apiKey)},
-            ${siteTitle ? `siteName: ${JSON.stringify(siteTitle)},` : ''}
-            ${identifier ? `identifier: ${JSON.stringify(identifier)},` : ''}
-            ${url ? `url: ${JSON.stringify(url)},` : ''}
-            ${pageTitle ? `title: ${JSON.stringify(pageTitle)},` : ''}
-            ${api ? `api: ${JSON.stringify(api)},` : ''}
-            ${admin ? `admin: ${JSON.stringify(admin)},` : ''}
-            ${adminLabel ? `adminLabel: ${JSON.stringify(adminLabel)},` : ''}
-            ${nesting ? `nesting: ${JSON.stringify(nesting)},` : ''}
+            ${siteTitle ? `siteName: ${JSON.stringify(siteTitle)},` : ""}
+            ${identifier ? `identifier: ${JSON.stringify(identifier)},` : ""}
+            ${url ? `url: ${JSON.stringify(url)},` : ""}
+            ${pageTitle ? `title: ${JSON.stringify(pageTitle)},` : ""}
+            ${api ? `api: ${JSON.stringify(api)},` : ""}
+            ${admin ? `admin: ${JSON.stringify(admin)},` : ""}
+            ${adminLabel ? `adminLabel: ${JSON.stringify(adminLabel)},` : ""}
+            ${nesting ? `nesting: ${JSON.stringify(nesting)},` : ""}
         });`;
     return (
       <>
         <link rel="stylesheet" href={cssUrl} />
         <div id="disqus_thread">
           <noscript>
-            Please enable JavaScript to view the{' '}
+            Please enable JavaScript to view the{" "}
             <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
           </noscript>
         </div>
@@ -106,7 +106,7 @@ class DisqusJs extends Component {
  *     config={{ title: '******' }}
  *     helper={{ cdn: function() { ... } }} />
  */
-DisqusJs.Cacheable = cacheComponent(DisqusJs, 'comment.disqusjs', (props) => {
+DisqusJs.Cacheable = cacheComponent(DisqusJs, "comment.disqusjs", (props) => {
   const { config, page, helper, comment } = props;
 
   return {
@@ -121,8 +121,8 @@ DisqusJs.Cacheable = cacheComponent(DisqusJs, 'comment.disqusjs', (props) => {
     permalink: page.permalink,
     pageTitle: page.title,
     siteTitle: config.title,
-    jsUrl: helper.cdn('disqusjs', '1.3.0', 'dist/disqus.js'),
-    cssUrl: helper.cdn('disqusjs', '1.3.0', 'dist/disqusjs.css'),
+    jsUrl: helper.cdn("disqusjs", "1.3.0", "dist/disqus.js"),
+    cssUrl: helper.cdn("disqusjs", "1.3.0", "dist/disqusjs.css"),
   };
 });
 

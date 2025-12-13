@@ -2,8 +2,8 @@
  * Bing Webmaster Tools plugin JSX component.
  * @module view/plugin/bing_webmaster
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Bing Webmaster Tools plugin JSX component.
@@ -32,14 +32,18 @@ class BingWebmaster extends Component {
  *     head={true}
  *     plugin={{ tracking_id: '*******' }} />
  */
-BingWebmaster.Cacheable = cacheComponent(BingWebmaster, 'plugin.bingwebmaster', (props) => {
-  const { head, plugin } = props;
-  if (!head || !plugin.tracking_id) {
-    return null;
-  }
-  return {
-    trackingId: plugin.tracking_id,
-  };
-});
+BingWebmaster.Cacheable = cacheComponent(
+  BingWebmaster,
+  "plugin.bingwebmaster",
+  (props) => {
+    const { head, plugin } = props;
+    if (!head || !plugin.tracking_id) {
+      return null;
+    }
+    return {
+      trackingId: plugin.tracking_id,
+    };
+  },
+);
 
 module.exports = BingWebmaster;

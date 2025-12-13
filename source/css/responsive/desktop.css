@@ -89,7 +89,7 @@
 
 /* The Abstract Bar */
 #icarus-toc-container .toc-link::after {
-  content: '';
+  content: "";
   display: block;
   height: 4px;
   border-radius: 2px;

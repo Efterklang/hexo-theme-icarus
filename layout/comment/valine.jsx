@@ -2,8 +2,8 @@
  * Valine comment JSX component.
  * @module view/comment/valine
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Valine comment JSX component.
@@ -35,16 +35,16 @@ class Valine extends Component {
       appId,
       appKey,
       placeholder,
-      avatar = 'mm',
+      avatar = "mm",
       avatarForce = false,
-      meta = ['nick', 'mail', 'link'],
+      meta = ["nick", "mail", "link"],
       pageSize = 10,
-      lang = 'zh-CN',
+      lang = "zh-CN",
       visitor = false,
       highlight = true,
       recordIP = false,
-      serverURLs = '',
-      emojiCDN = '',
+      serverURLs = "",
+      emojiCDN = "",
       emojiMaps = null,
       enableQQ = false,
       requiredFields: fields = [],
@@ -53,8 +53,8 @@ class Valine extends Component {
     if (!appId || !appKey) {
       return (
         <div class="notification is-danger">
-          You forgot to set the <code>app_id</code> or <code>app_key</code> for Valine. Please set
-          it in <code>_config.yml</code>.
+          You forgot to set the <code>app_id</code> or <code>app_key</code> for
+          Valine. Please set it in <code>_config.yml</code>.
         </div>
       );
     }
@@ -62,20 +62,20 @@ class Valine extends Component {
             el: '#valine-thread',
             appId: ${JSON.stringify(appId)},
             appKey: ${JSON.stringify(appKey)},
-            ${placeholder ? `placeholder: ${JSON.stringify(placeholder)},` : ''}
-            ${avatar ? `avatar: ${JSON.stringify(avatar)},` : ''}
+            ${placeholder ? `placeholder: ${JSON.stringify(placeholder)},` : ""}
+            ${avatar ? `avatar: ${JSON.stringify(avatar)},` : ""}
             ${`avatarForce: ${JSON.stringify(avatarForce)},`}
-            ${meta ? `meta: ${JSON.stringify(meta)},` : ''}
-            ${pageSize ? `pageSize: ${JSON.stringify(pageSize)},` : ''}
-            ${lang ? `lang: ${JSON.stringify(lang)},` : ''}
+            ${meta ? `meta: ${JSON.stringify(meta)},` : ""}
+            ${pageSize ? `pageSize: ${JSON.stringify(pageSize)},` : ""}
+            ${lang ? `lang: ${JSON.stringify(lang)},` : ""}
             ${`visitor: ${JSON.stringify(visitor)},`}
             ${`highlight: ${JSON.stringify(highlight)},`}
             ${`recordIP: ${JSON.stringify(recordIP)},`}
-            ${serverURLs ? `serverURLs: ${JSON.stringify(serverURLs)},` : ''}
-            ${emojiCDN ? `emojiCDN: ${JSON.stringify(emojiCDN)},` : ''}
-            ${emojiMaps ? `emojiMaps: ${JSON.stringify(emojiMaps)},` : ''}
+            ${serverURLs ? `serverURLs: ${JSON.stringify(serverURLs)},` : ""}
+            ${emojiCDN ? `emojiCDN: ${JSON.stringify(emojiCDN)},` : ""}
+            ${emojiMaps ? `emojiMaps: ${JSON.stringify(emojiMaps)},` : ""}
             ${`enableQQ: ${JSON.stringify(enableQQ)},`}
-            ${Array.isArray(fields) ? `requiredFields: ${JSON.stringify(fields)},` : ''}
+            ${Array.isArray(fields) ? `requiredFields: ${JSON.stringify(fields)},` : ""}
         });`;
     return (
       <>
@@ -117,7 +117,7 @@ class Valine extends Component {
  *     }}
  *     helper={{ cdn: function() {...} }} />
  */
-Valine.Cacheable = cacheComponent(Valine, 'comment.valine', (props) => {
+Valine.Cacheable = cacheComponent(Valine, "comment.valine", (props) => {
   const { comment, helper, page, config } = props;
 
   return {
@@ -128,7 +128,8 @@ Valine.Cacheable = cacheComponent(Valine, 'comment.valine', (props) => {
     avatarForce: comment.avatar_force,
     meta: comment.meta,
     pageSize: comment.page_size,
-    lang: comment.lang || page.lang || page.language || config.language || 'zh-CN',
+    lang:
+      comment.lang || page.lang || page.language || config.language || "zh-CN",
     visitor: comment.visitor,
     highlight: comment.highlight,
     recordIP: comment.record_ip,
@@ -137,7 +138,7 @@ Valine.Cacheable = cacheComponent(Valine, 'comment.valine', (props) => {
     emojiMaps: comment.emoji_maps,
     enableQQ: comment.enable_qq,
     requiredFields: comment.required_fields,
-    jsUrl: helper.cdn('valine', '1.4.16', 'dist/Valine.min.js'),
+    jsUrl: helper.cdn("valine", "1.4.16", "dist/Valine.min.js"),
   };
 });
 

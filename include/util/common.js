@@ -33,7 +33,7 @@ module.exports = {
   // 通用的组件加载函数
   loadComponent: (componentPath, fallback = null) => {
     try {
-      let Widget = view.require(componentPath);
+      const Widget = view.require(componentPath);
       return Widget.Cacheable ? Widget.Cacheable : Widget;
     } catch (e) {
       logger.w(`Cannot load component "${componentPath}"`);

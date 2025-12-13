@@ -2,7 +2,7 @@
  * Paginator JSX component.
  * @module view/misc/paginator
  */
-const { Component } = require('inferno');
+const { Component } = require("inferno");
 
 /**
  * Paginator JSX component.
@@ -20,10 +20,11 @@ const { Component } = require('inferno');
  */
 module.exports = class extends Component {
   render() {
-    const { current, total, baseUrl, path, urlFor, prevTitle, nextTitle } = this.props;
+    const { current, total, baseUrl, path, urlFor, prevTitle, nextTitle } =
+      this.props;
 
     function getPageUrl(i) {
-      return urlFor(i === 1 ? baseUrl : baseUrl + path + '/' + i + '/');
+      return urlFor(i === 1 ? baseUrl : baseUrl + path + "/" + i + "/");
     }
 
     function pagination(c, m) {
@@ -57,14 +58,18 @@ module.exports = class extends Component {
               <li>
                 <span
                   class="pagination-ellipsis"
-                  dangerouslySetInnerHTML={{ __html: '&hellip;' }}></span>
+                  dangerouslySetInnerHTML={{ __html: "&hellip;" }}
+                ></span>
               </li>,
             );
           }
         }
         elements.push(
           <li>
-            <a class={`pagination-link${c === i ? ' is-current' : ''}`} href={getPageUrl(i)}>
+            <a
+              class={`pagination-link${c === i ? " is-current" : ""}`}
+              href={getPageUrl(i)}
+            >
               {i}
             </a>
           </li>,
@@ -75,10 +80,28 @@ module.exports = class extends Component {
     }
 
     return (
-      <nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination">
-        <a href={getPageUrl(current - 1)} class={`pagination-previous${current > 1 ? '' : ' is-invisible is-hidden-mobile'}`}> {prevTitle} </a>
-        <a href={getPageUrl(current + 1)} class={`pagination-next${current < total ? '' : ' is-invisible is-hidden-mobile'}`}> {nextTitle} </a>
-        <ul class="pagination-list is-hidden-mobile">{pagination(current, total)}</ul>
+      <nav
+        class="pagination is-centered mt-4"
+        role="navigation"
+        aria-label="pagination"
+      >
+        <a
+          href={getPageUrl(current - 1)}
+          class={`pagination-previous${current > 1 ? "" : " is-invisible is-hidden-mobile"}`}
+        >
+          {" "}
+          {prevTitle}{" "}
+        </a>
+        <a
+          href={getPageUrl(current + 1)}
+          class={`pagination-next${current < total ? "" : " is-invisible is-hidden-mobile"}`}
+        >
+          {" "}
+          {nextTitle}{" "}
+        </a>
+        <ul class="pagination-list is-hidden-mobile">
+          {pagination(current, total)}
+        </ul>
       </nav>
     );
   }

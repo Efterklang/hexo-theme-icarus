@@ -25,9 +25,9 @@
  *               sizes: 128x128
  *               type: image/png
  */
-module.exports = function (hexo) {
-  hexo.extend.generator.register('manifest', function (locals) {
-    const url_for = hexo.extend.helper.get('url_for').bind(this);
+module.exports = (hexo) => {
+  hexo.extend.generator.register("manifest", function (locals) {
+    const url_for = hexo.extend.helper.get("url_for").bind(this);
     let { manifest = {} } = ((this.theme || {}).config || {}).head || {};
 
     manifest = Object.assign({}, manifest);
@@ -35,11 +35,11 @@ module.exports = function (hexo) {
       manifest.name = this.config.title;
     }
     if (!manifest.start_url) {
-      manifest.start_url = url_for('/index.html');
+      manifest.start_url = url_for("/index.html");
     }
 
     return {
-      path: '/manifest.json',
+      path: "/manifest.json",
       data: JSON.stringify(manifest),
     };
   });

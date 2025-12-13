@@ -18,8 +18,11 @@
   "engines": {
     "node": ">=14"
   },
+  "scripts": {
+    "lint": "bunx biome check --write ."
+  },
   "devDependencies": {
-    "biome": "^0.3.3"
+    "@biomejs/biome": "2.3.8"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",

@@ -5,27 +5,27 @@
  * @see https://hexo.io/docs/helpers#open-graph
  * @see https://github.com/hexojs/hexo/blob/4.2.0/lib/plugins/helper/open_graph.js
  */
-const urlFn = require('url');
-const moment = require('moment');
-const { Component } = require('inferno');
-const { encodeURL, stripHTML, escapeHTML } = require('hexo-util');
+const urlFn = require("url");
+const moment = require("moment");
+const { Component } = require("inferno");
+const { encodeURL, stripHTML, escapeHTML } = require("hexo-util");
 const localeMap = {
-  en: 'en_US',
-  de: 'de_DE',
-  es: 'es_ES',
-  fr: 'fr_FR',
-  hu: 'hu_HU',
-  id: 'id_ID',
-  it: 'it_IT',
-  ja: 'ja_JP',
-  ko: 'ko_KR',
-  nl: 'nl_NL',
-  ru: 'ru_RU',
-  th: 'th_TH',
-  tr: 'tr_TR',
-  vi: 'vi_VN',
+  en: "en_US",
+  de: "de_DE",
+  es: "es_ES",
+  fr: "fr_FR",
+  hu: "hu_HU",
+  id: "id_ID",
+  it: "it_IT",
+  ja: "ja_JP",
+  ko: "ko_KR",
+  nl: "nl_NL",
+  ru: "ru_RU",
+  th: "th_TH",
+  tr: "tr_TR",
+  vi: "vi_VN",
 };
-const localeRegex = new RegExp(Object.keys(localeMap).join('|'), 'i');
+const localeRegex = new RegExp(Object.keys(localeMap).join("|"), "i");
 
 module.exports = class extends Component {
   render() {
@@ -48,11 +48,13 @@ module.exports = class extends Component {
     const htmlTags = [];
 
     if (description) {
-      description = escapeHTML(stripHTML(description).substring(0, 200).trim()).replace(/\n/g, ' ');
+      description = escapeHTML(
+        stripHTML(description).substring(0, 200).trim(),
+      ).replace(/\n/g, " ");
       htmlTags.push(<meta name="description" content={description} />);
     }
 
-    htmlTags.push(<meta property="og:type" content={type || 'website'} />);
+    htmlTags.push(<meta property="og:type" content={type || "website"} />);
     htmlTags.push(<meta property="og:title" content={title} />);
     htmlTags.push(<meta property="og:url" content={encodeURL(url)} />);
     htmlTags.push(<meta property="og:site_name" content={siteName} />);
@@ -67,8 +69,10 @@ module.exports = class extends Component {
         htmlTags.push(<meta property="og:locale" content={language} />);
       } else if (language.length === 5) {
         const territory = language.slice(-2);
-        const territoryRegex = new RegExp(territory.concat('$'));
-        language = language.replace('-', '_').replace(territoryRegex, territory.toUpperCase());
+        const territoryRegex = new RegExp(territory.concat("$"));
+        language = language
+          .replace("-", "_")
+          .replace(territoryRegex, territory.toUpperCase());
         htmlTags.push(<meta property="og:locale" content={language} />);
       }
     }
@@ -89,8 +93,14 @@ module.exports = class extends Component {
         htmlTags.push(<meta property="og:image" content={path} />);
       });
 
-    if (date && (moment.isMoment(date) || moment.isDate(date)) && !isNaN(date.valueOf())) {
-      htmlTags.push(<meta property="article:published_time" content={date.toISOString()} />);
+    if (
+      date &&
+      (moment.isMoment(date) || moment.isDate(date)) &&
+      !isNaN(date.valueOf())
+    ) {
+      htmlTags.push(
+        <meta property="article:published_time" content={date.toISOString()} />,
+      );
     }
 
     if (
@@ -98,7 +108,12 @@ module.exports = class extends Component {
       (moment.isMoment(updated) || moment.isDate(updated)) &&
       !isNaN(updated.valueOf())
     ) {
-      htmlTags.push(<meta property="article:modified_time" content={updated.toISOString()} />);
+      htmlTags.push(
+        <meta
+          property="article:modified_time"
+          content={updated.toISOString()}
+        />,
+      );
     }
 
     if (author) {
@@ -106,7 +121,7 @@ module.exports = class extends Component {
     }
 
     if (keywords) {
-      if (typeof keywords === 'string') {
+      if (typeof keywords === "string") {
         keywords = [keywords];
       }
 
@@ -120,7 +135,9 @@ module.exports = class extends Component {
         });
     }
 
-    htmlTags.push(<meta property="twitter:card" content={twitterCard || 'summary'} />);
+    htmlTags.push(
+      <meta property="twitter:card" content={twitterCard || "summary"} />,
+    );
 
     if (twitterId) {
       htmlTags.push(<meta property="twitter:creator" content={twitterId} />);

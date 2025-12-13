@@ -2,8 +2,8 @@
  * Google Analytics plugin JSX component.
  * @module view/plugin/google_analytics
  */
-const { Component, Fragment } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component, Fragment } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Google Analytics plugin JSX component.
@@ -24,7 +24,10 @@ class GoogleAnalytics extends Component {
 
     return (
       <Fragment>
-        <script async={true} src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}></script>
+        <script
+          async={true}
+          src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
+        ></script>
         <script dangerouslySetInnerHTML={{ __html: js }}></script>
       </Fragment>
     );
@@ -43,14 +46,18 @@ class GoogleAnalytics extends Component {
  *     head={true}
  *     plugin={{ tracking_id: '*******' }} />
  */
-GoogleAnalytics.Cacheable = cacheComponent(GoogleAnalytics, 'plugin.googleanalytics', (props) => {
-  const { head, plugin } = props;
-  if (!head || !plugin.tracking_id) {
-    return null;
-  }
-  return {
-    trackingId: plugin.tracking_id,
-  };
-});
+GoogleAnalytics.Cacheable = cacheComponent(
+  GoogleAnalytics,
+  "plugin.googleanalytics",
+  (props) => {
+    const { head, plugin } = props;
+    if (!head || !plugin.tracking_id) {
+      return null;
+    }
+    return {
+      trackingId: plugin.tracking_id,
+    };
+  },
+);
 
 module.exports = GoogleAnalytics;

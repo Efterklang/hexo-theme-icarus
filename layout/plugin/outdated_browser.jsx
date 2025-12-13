@@ -2,8 +2,8 @@
  * Outdated browser detection plugin JSX component.
  * @module view/plugin/outdated_browser
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Outdated browser detection plugin JSX component.
@@ -37,7 +37,7 @@ class OutdatedBrowser extends Component {
           <p>
             Update your browser to view this website correctly.&npsb;
             <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">
-              Update my browser now{' '}
+              Update my browser now{" "}
             </a>
           </p>
           <p class="last">
@@ -65,13 +65,25 @@ class OutdatedBrowser extends Component {
  *     head={true}
  *     helper={{ cdn: function() {...} }} />
  */
-OutdatedBrowser.Cacheable = cacheComponent(OutdatedBrowser, 'plugin.outdatedbrowser', (props) => {
-  const { head, helper } = props;
-  return {
-    head,
-    cssUrl: helper.cdn('outdatedbrowser', '1.1.5', 'outdatedbrowser/outdatedbrowser.min.css'),
-    jsUrl: helper.cdn('outdatedbrowser', '1.1.5', 'outdatedbrowser/outdatedbrowser.min.js'),
-  };
-});
+OutdatedBrowser.Cacheable = cacheComponent(
+  OutdatedBrowser,
+  "plugin.outdatedbrowser",
+  (props) => {
+    const { head, helper } = props;
+    return {
+      head,
+      cssUrl: helper.cdn(
+        "outdatedbrowser",
+        "1.1.5",
+        "outdatedbrowser/outdatedbrowser.min.css",
+      ),
+      jsUrl: helper.cdn(
+        "outdatedbrowser",
+        "1.1.5",
+        "outdatedbrowser/outdatedbrowser.min.js",
+      ),
+    };
+  },
+);
 
 module.exports = OutdatedBrowser;

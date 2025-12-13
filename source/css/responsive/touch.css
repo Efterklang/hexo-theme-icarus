@@ -159,7 +159,7 @@
 #icarus-toc-container .toc-body {
   position: fixed;
   inset: 0;
-  background: hsl(from var(--mantle) h s l/ 0.1);
+  background: hsl(from var(--mantle) h s l / 0.1);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   display: flex;
@@ -172,7 +172,6 @@
   pointer-events: none;
   font-weight: 800;
 }
-
 
 #icarus-toc-container.is-open .toc-body {
   opacity: 1;
@@ -245,7 +244,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsl(from var(--mantle) h s l/ 0.9);
+  background-color: hsl(from var(--mantle) h s l / 0.9);
   color: var(--text);
   border: 2px solid var(--surface0);
 }

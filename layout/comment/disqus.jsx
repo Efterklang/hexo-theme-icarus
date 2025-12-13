@@ -2,8 +2,8 @@
  * Disqus comment JSX component.
  * @module view/comment/disqus
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Disqus comment JSX component.
@@ -22,8 +22,8 @@ class Disqus extends Component {
     if (!shortname) {
       return (
         <div class="notification is-danger">
-          You forgot to set the <code>shortname</code> for Disqus. Please set it in{' '}
-          <code>_config.yml</code>.
+          You forgot to set the <code>shortname</code> for Disqus. Please set it
+          in <code>_config.yml</code>.
         </div>
       );
     }
@@ -41,7 +41,7 @@ class Disqus extends Component {
       <>
         <div id="disqus_thread">
           <noscript>
-            Please enable JavaScript to view the{' '}
+            Please enable JavaScript to view the{" "}
             <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
           </noscript>
         </div>
@@ -67,7 +67,7 @@ class Disqus extends Component {
  *         permalink: '/page/permanent/link'
  *     }} />
  */
-Disqus.Cacheable = cacheComponent(Disqus, 'comment.disqus', (props) => {
+Disqus.Cacheable = cacheComponent(Disqus, "comment.disqus", (props) => {
   const { comment, page } = props;
 
   return {

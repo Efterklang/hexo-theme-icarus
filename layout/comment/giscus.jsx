@@ -2,8 +2,8 @@
  * Giscus comment JSX component.
  * @module view/comment/giscus
  */
-const { Component } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { Component } = require("inferno");
+const { cacheComponent } = require("../../util/cache");
 
 /**
  * Giscus comment JSX component.
@@ -45,86 +45,89 @@ class Giscus extends Component {
     if (!repo || !repoId || !categoryId) {
       return (
         <div class="notification is-danger">
-          You forgot to set the <code>repo</code>, <code>repoId</code>, or <code>categoryId</code>{' '}
-          for Giscus. Please set it in <code>_config.yml</code>.
+          You forgot to set the <code>repo</code>, <code>repoId</code>, or{" "}
+          <code>categoryId</code> for Giscus. Please set it in{" "}
+          <code>_config.yml</code>.
         </div>
       );
     }
-    if ((mapping === 'specific' || mapping === 'number') && !term) {
+    if ((mapping === "specific" || mapping === "number") && !term) {
       return (
         <div class="notification is-danger">
-          You set <code>mapping</code> to <code>specific</code> or <code>number</code>, but did not
-          set <code>term</code> for Giscus. Please set <code>term</code> in <code>_config.yml</code>
-          .
+          You set <code>mapping</code> to <code>specific</code> or{" "}
+          <code>number</code>, but did not set <code>term</code> for Giscus.
+          Please set <code>term</code> in <code>_config.yml</code>.
         </div>
       );
     }
     const config = { repo };
-    config['data-repo'] = repo;
-    config['data-repo-id'] = repoId;
-    config['data-category-id'] = categoryId;
+    config["data-repo"] = repo;
+    config["data-repo-id"] = repoId;
+    config["data-category-id"] = categoryId;
     if (category) {
-      config['data-category'] = category;
+      config["data-category"] = category;
     } else {
-      config['data-category'] = 'Announcements';
+      config["data-category"] = "Announcements";
     }
     if (mapping) {
-      config['data-mapping'] = mapping;
+      config["data-mapping"] = mapping;
     } else {
-      config['data-mapping'] = 'pathname';
+      config["data-mapping"] = "pathname";
     }
     if (strict) {
-      config['data-strict'] = 1;
+      config["data-strict"] = 1;
     } else {
-      config['data-strict'] = 0;
+      config["data-strict"] = 0;
     }
     if (reactionsEnabled) {
-      config['data-reactions-enabled'] = 1;
+      config["data-reactions-enabled"] = 1;
     } else {
-      config['data-reactions-enabled'] = 0;
+      config["data-reactions-enabled"] = 0;
     }
     if (emitMetadata) {
-      config['data-emit-metadata'] = 1;
+      config["data-emit-metadata"] = 1;
     } else {
-      config['data-emit-metadata'] = 0;
+      config["data-emit-metadata"] = 0;
     }
     if (inputPosition) {
-      config['data-input-position'] = inputPosition;
+      config["data-input-position"] = inputPosition;
     } else {
-      config['data-input-position'] = 'top';
+      config["data-input-position"] = "top";
     }
     if (theme) {
-      if (theme === 'custom') {
+      if (theme === "custom") {
         if (customThemeCss) {
-          config['data-theme'] = customThemeCss;
+          config["data-theme"] = customThemeCss;
         } else {
           return (
             <div class="notification is-danger">
-              You set <code>theme</code> to <code>custom</code>, but did not apply a{' '}
-              <code>customThemeCss</code> for Giscus. Please set it in <code>_config.yml</code>.
+              You set <code>theme</code> to <code>custom</code>, but did not
+              apply a <code>customThemeCss</code> for Giscus. Please set it in{" "}
+              <code>_config.yml</code>.
             </div>
           );
         }
       } else {
-        config['data-theme'] = theme;
+        config["data-theme"] = theme;
       }
     } else {
-      config['data-theme'] = 'noborder_light';
+      config["data-theme"] = "noborder_light";
     }
     if (lang) {
-      config['data-lang'] = lang;
+      config["data-lang"] = lang;
     } else {
-      config['data-lang'] = 'en';
+      config["data-lang"] = "en";
     }
     if (lazy) {
-      config['data-loading'] = 'lazy';
+      config["data-loading"] = "lazy";
     }
     return (
       <script
         src="https://giscus.app/client.js"
         {...config}
         crossorigin="anonymous"
-        async={true}></script>
+        async={true}
+      ></script>
     );
   }
 }
@@ -153,7 +156,7 @@ class Giscus extends Component {
  *         lazy: "******"
  *     }} />
  */
-Giscus.Cacheable = cacheComponent(Giscus, 'comment.giscus', (props) => {
+Giscus.Cacheable = cacheComponent(Giscus, "comment.giscus", (props) => {
   const {
     repo,
     repoId,
