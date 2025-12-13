@@ -1,7 +1,6 @@
 const { Component } = require("inferno");
 const Head = require("./common/head");
 const Navbar = require("./common/navbar");
-const Toc = require("./common/widgets");
 const Footer = require("./common/footer");
 const Scripts = require("./common/scripts");
 const Search = require("./common/search");
@@ -21,7 +20,6 @@ module.exports = class extends Component {
           <ThemeSelector />
           <section class="section">
             <div class="main-content" dangerouslySetInnerHTML={{ __html: body }}></div>
-            <Toc site={site} config={config} helper={helper} page={page} />
           </section>
           <Footer site={site} config={config} helper={helper} />
           <Scripts site={site} config={config} helper={helper} page={page} />

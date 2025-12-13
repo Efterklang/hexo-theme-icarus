@@ -128,4 +128,78 @@
     });
   });
 
+  // New TOC Logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocContainer = document.getElementById('icarus-toc-container');
+    if (!tocContainer) return;
+    const tocButton = tocContainer.querySelector('.toc-button');
+    const tocBody = tocContainer.querySelector('.toc-body');
+    const tocLinks = tocContainer.querySelectorAll('.toc-link');
+
+    // Mobile Toggle
+    if (tocButton) {
+      tocButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tocContainer.classList.add('is-open');
+      });
+    }
+
+    // Close when clicking a link
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        tocContainer.classList.remove('is-open');
+      });
+    });
+
+    // Close when clicking the backdrop (tocBody)
+    if (tocBody) {
+      tocBody.addEventListener('click', (e) => {
+        if (e.target === tocBody) {
+          tocContainer.classList.remove('is-open');
+        }
+      });
+    }
+
+    // Desktop Scroll Spy
+    const headers = [];
+    tocLinks.forEach(link => {
+      const href = link.getAttribute('href') || '';
+      const id = decodeURIComponent(href.replace(/^#/, ''));
+      const header = document.getElementById(id);
+      if (header) {
+        headers.push({ header, link });
+      }
+    });
+
+    if (headers.length > 0) {
+      function onScroll() {
+        const viewportHeight = window.innerHeight;
+        let currentHeader = null;
+
+        // Find the last header that is above the middle of the screen
+        for (const h of headers) {
+          const rect = h.header.getBoundingClientRect();
+          if (rect.top < viewportHeight / 2) {
+            currentHeader = h;
+          } else {
+            break;
+          }
+        }
+
+        // If no header is above middle, maybe we are at the top?
+        if (!currentHeader && headers.length > 0 && window.scrollY < 100) {
+          currentHeader = headers[0];
+        }
+
+        tocLinks.forEach(l => l.closest('.toc-item').classList.remove('is-active'));
+        if (currentHeader) {
+          currentHeader.link.closest('.toc-item').classList.add('is-active');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll);
+      onScroll(); // Initial check
+    }
+  });
+
 })(jQuery);
