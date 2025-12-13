@@ -18,13 +18,8 @@
   "engines": {
     "node": ">=14"
   },
-  "scripts": {
-    "lint": "eslint --ext .js --ext .jsx --ext .json ."
-  },
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-react": "^7.33.2"
+    "biome": "^0.3.3"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",

@@ -29,7 +29,6 @@ article:
     created_at: "Published at"
     licensed_under: "License under"
 plugin:
-  backtotop: "回到顶端"
   visit_count: "%sViews" # post页面显示的page view次数
   visitor_count: 'PV: &nbsp;<span id="busuanzi_site_pv">-</span>&nbsp;UV: &nbsp;<span id="busuanzi_site_uv">-</span>&nbsp;'
   cookie_consent:
