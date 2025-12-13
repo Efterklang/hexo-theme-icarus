@@ -238,6 +238,7 @@ strong {
 blockquote {
   border-color: var(--red);
 }
+
 blockquote::before {
   color: var(--red);
 }
@@ -252,10 +253,12 @@ th {
   color: var(--text);
   border-bottom-color: var(--surface0) !important;
 }
+
 td {
   color: var(--text);
   border-bottom-color: var(--surface0) !important;
 }
+
 tbody tr:nth-child(even) {
   background-color: var(--mantle);
 }
@@ -270,9 +273,11 @@ code {
 span {
   color: hsl(from var(--text) h s l / 0.85);
 }
+
 .media a {
   color: var(--text);
 }
+
 .media a:hover {
   color: var(--flamingo);
 }
@@ -386,6 +391,7 @@ input:-webkit-autofill {
 .pagination-link,
 .pagination-ellipsis {
   color: var(--text);
+
   &:hover {
     background-color: var(--lavender);
     color: var(--base);
@@ -423,6 +429,7 @@ input:-webkit-autofill {
 .searchbox-result-item.active span {
   color: var(--lavender);
 }
+
 .searchbox-result-item:hover span {
   color: var(--mauve);
 }

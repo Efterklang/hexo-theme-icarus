@@ -1,4 +1,4 @@
-const { Component, classname, loadComponent, handleWidgetError } = require('../../include/util/common');
+const { Component } = require('../../include/util/common');
 
 class FloatingToc extends Component {
     render() {
@@ -20,7 +20,7 @@ class FloatingToc extends Component {
                 <div class="card widget">
                     <div class="card-content">
                         <div class="menu">
-                            <h3 class="menu-label">{helper.__('widget.catalogue')}</h3>
+                            <h3 class="menu-label">TOC</h3>
                             <div dangerouslySetInnerHTML={{ __html: tocContent }} />
                         </div>
                     </div>
@@ -30,103 +30,15 @@ class FloatingToc extends Component {
     }
 }
 
-function formatWidgets(widgets) {
-    const result = {};
-    if (Array.isArray(widgets)) {
-        widgets.filter(widget => typeof widget === 'object').forEach(widget => {
-            if ('position' in widget && (widget.position === 'left' || widget.position === 'right')) {
-                if (!(widget.position in result)) {
-                    result[widget.position] = [widget];
-                } else {
-                    result[widget.position].push(widget);
-                }
-            }
-        });
-    }
-    return result;
-}
-
-function hasColumn(widgets, position, config, page) {
-    if (Array.isArray(widgets)) {
-        return typeof widgets.find(widget => {
-            // Exclude TOC from column calculation
-            if (widget.type === 'toc') {
-                return false;
-            }
-            return widget.position === position;
-        }) !== 'undefined';
-    }
-    return false;
-}
-
-function getColumnCount(widgets, config, page) {
-    return [hasColumn(widgets, 'left', config, page), hasColumn(widgets, 'right', config, page)].filter(v => !!v).length + 1;
-}
-
-function getColumnSizeClass(columnCount) {
-    switch (columnCount) {
-        case 2:
-            return 'is-4-tablet is-4-desktop';
-        case 3:
-            return 'is-4-tablet is-4-desktop';
-    }
-    return '';
-}
-
-function getColumnOrderClass(position) {
-    return position === 'left' ? 'order-1' : 'order-3';
-}
-
-function isColumnSticky(config, position) {
-    return typeof config.sidebar === 'object'
-        && position in config.sidebar
-        && config.sidebar[position].sticky === true;
-}
-
 class Widgets extends Component {
     render() {
-        const { site, config, helper, page, position } = this.props;
-        const widgets = formatWidgets(config.widgets)[position] || [];
-        const columnCount = getColumnCount(config.widgets, config, page);
+        const { site, config, helper, page } = this.props;
         const showToc = (page.toc !== false && config.toc !== false) && ['page', 'post'].includes(page.layout) && helper.toc(page.content);
-
-        const columnWidgets = widgets.filter(widget => widget.type !== 'toc');
-
-        if (!columnWidgets.length && !(position === 'left' && showToc)) {
-            return null;
-        }
 
         return <>
             {showToc ? <FloatingToc {...this.props} /> : null}
-
-            {columnWidgets.length ? <div class={classname({
-                'column': true,
-                ['column-' + position]: true,
-                [getColumnSizeClass(columnCount)]: true,
-                [getColumnOrderClass(position)]: true,
-                'is-sticky': isColumnSticky(config, position)
-            })}>
-                {columnWidgets.map(widget => {
-                    if (!widget.type) {
-                        return null;
-                    }
-                    const Widget = loadComponent('widget/' + widget.type);
-                    if (!Widget) {
-                        handleWidgetError(widget.type);
-                        return null;
-                    }
-                    return <Widget site={site} helper={helper} config={config} page={page} widget={widget} />;
-                })}
-                {position === 'left' && hasColumn(config.widgets, 'right', config, page) ? <div class={classname({
-                    'column-right-shadow': true,
-                    'is-hidden-widescreen': true,
-                    'is-sticky': isColumnSticky(config, 'right')
-                })}></div> : null}
-            </div> : null}
         </>;
     }
 }
-
-Widgets.getColumnCount = getColumnCount;
 
 module.exports = Widgets;

@@ -16,15 +16,6 @@ common:
     other: "PAGE"
   prev: "Previous"
   next: "Next"
-widget:
-  follow: "Follow"
-  recents: "POST"
-  links: "LINK"
-  catalogue: "目录"
-  subscribe_email: "订阅更新"
-  subscribe: "订阅"
-  adsense: "广告"
-  followit: "follow.it"
 article:
   created_at: "%s"
   more: "Read"
