@@ -4,7 +4,6 @@
 const createLogger = require("hexo-log");
 const { Component, Fragment } = require("inferno");
 const view = require("../hexo/view");
-const classname = require("../../util/classname");
 const { cacheComponent } = require("../../util/cache");
 
 // 创建单例logger实例
@@ -24,7 +23,6 @@ module.exports = {
   Fragment,
   view,
   lazy_load_css,
-  classname,
   cacheComponent,
   logger,
 
@@ -35,7 +33,7 @@ module.exports = {
     try {
       const Widget = view.require(componentPath);
       return Widget.Cacheable ? Widget.Cacheable : Widget;
-    } catch (e) {
+    } catch (_) {
       logger.w(`Cannot load component "${componentPath}"`);
       return fallback;
     }

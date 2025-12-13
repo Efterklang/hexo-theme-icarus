@@ -1,6 +1,5 @@
 const { Component, Fragment } = require("inferno");
 const { cacheComponent } = require("../../util/cache");
-const classname = require("../../util/classname");
 
 function isSameLink(a, b) {
   function santize(url) {
@@ -20,7 +19,7 @@ function isSameLink(a, b) {
 const renderLinkIcon = (link) => {
   if (!link.icon) return null;
   // start with '<' means svg icon
-  if (link.icon == "travellings") {
+  if (link.icon === "travellings") {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
         <path
@@ -64,14 +63,9 @@ class Navbar extends Component {
               <div class="navbar-start">
                 {Object.keys(menu).map((name) => {
                   const item = menu[name];
+                  const navbar_item_class = `navbar-item ${item.active ? "is-active" : ""}`;
                   return (
-                    <a
-                      class={classname({
-                        "navbar-item": true,
-                        "is-active": item.active,
-                      })}
-                      href={item.url}
-                    >
+                    <a class={navbar_item_class} href={item.url}>
                       {name}
                     </a>
                   );
@@ -186,7 +180,7 @@ module.exports = cacheComponent(Navbar, "common.navbar", (props) => {
     ["page", "post"].includes(page.layout);
 
   const menu = {};
-  if (navbar && navbar.menu) {
+  if (navbar?.menu) {
     const pageUrl = typeof page.path !== "undefined" ? url_for(page.path) : "";
     Object.keys(navbar.menu).forEach((name) => {
       const url = url_for(navbar.menu[name]);
@@ -196,7 +190,7 @@ module.exports = cacheComponent(Navbar, "common.navbar", (props) => {
   }
 
   const links = {};
-  if (navbar && navbar.links) {
+  if (navbar?.links) {
     Object.keys(navbar.links).forEach((name) => {
       const link = navbar.links[name];
       links[name] = {
@@ -214,7 +208,7 @@ module.exports = cacheComponent(Navbar, "common.navbar", (props) => {
     links,
     showToc,
     tocTitle: _p("widget.catalogue", Infinity),
-    showSearch: search && search.type,
+    showSearch: search?.type,
     searchTitle: __("search.search"),
   };
 });
