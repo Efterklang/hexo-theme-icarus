@@ -10,7 +10,7 @@
 					'[data-pjax]',
 					'.pjax-reload',
 					'head title',
-					'.columns',
+					'.main-content',
 					'.navbar-start',
 					'.navbar-end',
 					'.searchbox link',
@@ -27,22 +27,6 @@
 	}
 
 	document.addEventListener('pjax:complete', () => {
-		// Fix column layout after pjax loaded
-		document.body.className = document.body.className.replace(/is-\d-column/g, '');
-		const left = document.querySelector('.column-left');
-		const right = document.querySelector('.column-right');
-		let count = 1;
-		if (left && right) {
-			count = 3;
-		} else if (left || right) {
-			count = 2;
-		}
-		document.body.classList.add('is-' + count + '-column');
-
-		if (typeof Icarus_column_resize === 'function') {
-			Icarus_column_resize();
-		}
-
 		// Plugin [Busuanzi] reload logic
 		if (window.bszCaller && window.bszTag) {
 			window.bszCaller.fetch('//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback', a => {
@@ -51,9 +35,8 @@
 			});
 		}
 		mediumZoom('.article img', {
-			background: 'rgba(30, 30, 46, 0.5)',
+			background: 'hsla(from var(--mantle) / 0.9)',
 		});
-		// TODO pace stop loading animation
 	});
 
 	document.addEventListener('DOMContentLoaded', () => initPjax());

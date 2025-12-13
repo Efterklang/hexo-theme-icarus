@@ -9,14 +9,17 @@
   bottom: 0;
   z-index: 100;
 }
+
 .widget.card#toc .card-content {
   padding: 0;
 }
+
 .widget.card#toc .menu {
   padding: 1.5rem;
   max-height: calc(100vh - 2rem);
   overflow-y: auto;
 }
+
 #toc-mask {
   display: none;
   position: fixed;
@@ -27,6 +30,7 @@
   z-index: 99;
   background: rgba(0, 0, 0, 0.7);
 }
+
 .widget.card#toc.is-active,
 #toc-mask.is-active {
   display: block;
@@ -44,10 +48,7 @@
 .is-hidden-mobile {
   display: none !important;
 }
-.column-left,
-.column-right {
-  display: none !important;
-}
+
 .is-invisible-mobile {
   visibility: hidden !important;
 }
@@ -55,41 +56,52 @@
 .level-left + .level-right {
   margin-top: 1.5rem;
 }
+
 .media-content {
   overflow-x: auto;
 }
+
 table {
   font-size: 14px;
 }
+
 table th,
 table td {
   padding: 8px 12px;
 }
+
 .section {
   padding: 0.3rem;
 }
+
 .card {
   margin: 0 0 1.5rem 0;
 }
+
 .card .card-content,
 .card .card-footer {
   padding: 1rem;
 }
+
 .pagination {
   flex-wrap: wrap;
 }
+
 .pagination-previous,
 .pagination-next {
   flex-grow: 1;
   flex-shrink: 1;
 }
+
 .pagination-list li {
   flex-grow: 1;
   flex-shrink: 1;
 }
+
 footer.footer .level-start {
   text-align: center;
 }
+
 footer.footer .level-end .field {
   justify-content: center;
   margin-top: 1rem;

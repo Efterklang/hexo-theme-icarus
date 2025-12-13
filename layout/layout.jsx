@@ -1,8 +1,7 @@
 const { Component } = require("inferno");
-const classname = require("../util/classname");
 const Head = require("./common/head");
 const Navbar = require("./common/navbar");
-const Widgets = require("./common/widgets");
+const Toc = require("./common/widgets");
 const Footer = require("./common/footer");
 const Scripts = require("./common/scripts");
 const Search = require("./common/search");
@@ -13,44 +12,19 @@ module.exports = class extends Component {
     const { site, config, page, helper, body } = this.props;
 
     const language = page.lang || page.language || config.language || "en";
-    const columnCount = Widgets.getColumnCount(config.widgets, config, page);
 
     return (
       <html lang={language ? language : ""}>
         <Head site={site} config={config} helper={helper} page={page} />
-        <body class={`is-${columnCount}-column`}>
+        <body>
           <Navbar config={config} helper={helper} page={page} />
           <ThemeSelector />
           <section class="section">
-            <div class="container">
-              <div class="columns">
-                <div
-                  class={classname({
-                    column: true,
-                    "order-2": true,
-                    "column-main": true,
-                    "is-12": columnCount === 1,
-                    "is-8-tablet is-8-desktop": columnCount === 2,
-                    "is-8-tablet is-8-desktop": columnCount === 3,
-                  })}
-                  dangerouslySetInnerHTML={{ __html: body }}
-                ></div>
-                <Widgets
-                  site={site}
-                  config={config}
-                  helper={helper}
-                  page={page}
-                  position={"left"}
-                />
-                <Widgets
-                  site={site}
-                  config={config}
-                  helper={helper}
-                  page={page}
-                  position={"right"}
-                />
-              </div>
-            </div>
+            <div
+              class="main-content"
+              dangerouslySetInnerHTML={{ __html: body }}
+            ></div>
+            <Toc site={site} config={config} helper={helper} page={page} />
           </section>
           <div _ngcontent-gid-c24="" class="squiggle">
             <svg _ngcontent-gid-c24="" aria-hidden="true" width="100%" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" >

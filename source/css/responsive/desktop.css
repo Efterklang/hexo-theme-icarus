@@ -1,24 +1,16 @@
 /* min-width: 1024px */
-.column.is-4-desktop {
-  flex: none;
-  width: 33%;
-}
-.column.is-8-desktop {
-  flex: none;
-  width: 80%;
-}
-.columns.is-desktop {
-  display: flex;
-}
 .is-hidden-desktop {
   display: none !important;
 }
+
 .is-invisible-desktop {
   visibility: hidden !important;
 }
+
 .navbar-burger {
   display: none;
 }
+
 .container {
   max-width: 960px;
 }
@@ -32,16 +24,19 @@
   padding: 0;
   flex-shrink: 0;
 }
+
 .navbar-main .navbar-menu {
   flex-grow: 1;
   flex-shrink: 0;
   overflow-x: auto;
   background-color: transparent;
 }
+
 .navbar-main .navbar-start {
   justify-content: flex-start;
   margin-right: auto;
 }
+
 .navbar-main .navbar-end {
   justify-content: flex-end;
   margin-left: auto;

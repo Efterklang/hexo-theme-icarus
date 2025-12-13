@@ -1,24 +1,3 @@
-screen-tablet = 769px;
-screen-desktop = 1088px;
-screen-widescreen = 1280px;
-screen-fullhd = 1472px;
-screen-onek = 1700px;
-
-@media screen and (min-width screen-onek)
-    .container
-        max-width 1600px;
-        width 1600px;
-
-@media screen and (min-width screen-tablet)
-    .column-main, .column-left, .column-right, .column-right-shadow
-        &.is-sticky
-            top 70px;
-
-// Section fixes
-.section .container .columns
-    -webkit-justify-content center;
-    justify-content center;
-
 .heimu
     color var(--text);
     background-color var(--text);
