@@ -34,13 +34,13 @@ article:
     one: "约%d字"
     other: "约%d字"
   licensing:
-    author: "作者"
-    created_at: "发布于"
-    licensed_under: "许可协议"
+    author: "Author"
+    created_at: "Published at"
+    licensed_under: "License under"
 plugin:
   backtotop: "回到顶端"
   visit_count: "%sViews" # post页面显示的page view次数
-  visitor_count: 'Page Views: &nbsp;<span id="busuanzi_site_pv">-</span>&nbsp;&nbsp;&nbsp;Unique Visitors: &nbsp;<span id="busuanzi_site_uv">-</span>&nbsp;'
+  visitor_count: 'PV: &nbsp;<span id="busuanzi_site_pv">-</span>&nbsp;UV: &nbsp;<span id="busuanzi_site_uv">-</span>&nbsp;'
   cookie_consent:
     message: 此网站使用 Cookie，以启用评论系统和分析功能。
     dismiss: 知道了

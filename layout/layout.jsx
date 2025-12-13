@@ -85,7 +85,7 @@ module.exports = class extends Component {
               ></rect>
             </svg>
           </div>
-          <Footer config={config} helper={helper} />
+          <Footer site={site} config={config} helper={helper} />
           <Scripts site={site} config={config} helper={helper} page={page} />
           <Search config={config} helper={helper} />
 
