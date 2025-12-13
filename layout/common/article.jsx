@@ -62,18 +62,18 @@ module.exports = class extends Component {
           {page.title !== '' && !index ? <h1 class="title">{page.title}</h1> : null}
           {/* Content/Excerpt */}
           <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
-          {/* Licensing block */}
-          {!index && article && article.licenses && Object.keys(article.licenses)
-            ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
           {/* Tags */}
           {!index && page.tags && page.tags.length ? <div class="article-tags">
             {page.tags.map(tag => {
-              return <a class="tags has-addons mr-2" rel="tag" href={url_for(tag.path)}>
+              return <a class="tags mr-2" rel="tag" href={url_for(tag.path)}>
                 <span class="tag">{tag.name}</span>
                 <span class="tag">{tag.length}</span>
               </a>;
             })}
           </div> : null}
+          {/* Licensing block */}
+          {!index && article && article.licenses && Object.keys(article.licenses)
+            ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
         </article>
       </div>
       {/* Post navigation */}
