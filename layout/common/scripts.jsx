@@ -9,7 +9,6 @@ module.exports = class extends Component {
         return <Fragment>
             <script defer src={cdn('jquery', '3.3.1', 'dist/jquery.min.js')}></script>
             {config.comment?.js_url && <script defer src={config.comment.js_url}></script>}
-            <script async data-pjax src={url_for('/js/column.js')}></script>
             <Plugins site={site} config={config} page={page} helper={helper} head={false} />
             <script defer data-pjax src={url_for('/js/main.js')} ></script>
         </Fragment>;
