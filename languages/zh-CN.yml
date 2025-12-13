@@ -29,8 +29,8 @@ article:
     created_at: "Published at"
     licensed_under: "License under"
 plugin:
-  visit_count: "%sViews" # post页面显示的page view次数
-  visitor_count: 'PV: &nbsp;<span id="busuanzi_site_pv">-</span>&nbsp;UV: &nbsp;<span id="busuanzi_site_uv">-</span>&nbsp;'
+  visit_count: "%sPV" # post页面显示的page view次数
+  visitor_count: 'PV&nbsp;<span id="busuanzi_site_pv">-</span>&nbsp;UV&nbsp;<span id="busuanzi_site_uv">-</span>&nbsp;'
   cookie_consent:
     message: 此网站使用 Cookie，以启用评论系统和分析功能。
     dismiss: 知道了

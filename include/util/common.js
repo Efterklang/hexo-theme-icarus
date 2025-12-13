@@ -1,13 +1,9 @@
 /**
  * 共享的工具函数和常量
  */
-const createLogger = require("hexo-log");
 const { Component, Fragment } = require("inferno");
 const view = require("../hexo/view");
 const { cacheComponent } = require("../../util/cache");
-
-// 创建单例logger实例
-const logger = createLogger.default();
 
 function lazy_load_css(href) {
   script_str = `var link = document.createElement('link');
@@ -24,17 +20,13 @@ module.exports = {
   view,
   lazy_load_css,
   cacheComponent,
-  logger,
 
-  // 常用的工具函数
-  createLogger: () => logger, // 返回单例logger
   // 通用的组件加载函数
   loadComponent: (componentPath, fallback = null) => {
     try {
       const Widget = view.require(componentPath);
       return Widget.Cacheable ? Widget.Cacheable : Widget;
     } catch (_) {
-      logger.w(`Cannot load component "${componentPath}"`);
       return fallback;
     }
   },

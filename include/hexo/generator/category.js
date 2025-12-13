@@ -39,7 +39,7 @@ module.exports = (hexo) => {
       const data = pagination(category.path, posts, {
         perPage: perPage,
         layout: ["category", "archive", "index"],
-        format: paginationDir + "/%d/",
+        format: `${paginationDir}/%d/`,
         data: {
           category: category.name,
           parents: findParent(category),

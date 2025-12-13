@@ -11,14 +11,14 @@ function getPageTitle(page, siteTitle, helper) {
   if (helper.is_archive()) {
     title = helper._p("common.archive", Infinity);
     if (helper.is_month()) {
-      title += ": " + page.year + "/" + page.month;
+      title += `: ${page.year}/${page.month}`;
     } else if (helper.is_year()) {
-      title += ": " + page.year;
+      title += `: ${page.year}`;
     }
   } else if (helper.is_category()) {
-    title = helper._p("common.category", 1) + ": " + page.category;
+    title = `${helper._p("common.category", 1)}: ${page.category}`;
   } else if (helper.is_tag()) {
-    title = helper._p("common.tag", 1) + ": " + page.tag;
+    title = `${helper._p("common.tag", 1)}: ${page.tag}`;
   } else if (helper.is_categories()) {
     title = helper._p("common.category", Infinity);
   } else if (helper.is_tags()) {
@@ -33,7 +33,7 @@ function getPageTitle(page, siteTitle, helper) {
 module.exports = class extends Component {
   render() {
     const { site, config, helper, page } = this.props;
-    const { url_for, iconcdn, is_post } = helper;
+    const { url_for, is_post } = helper;
     const { url, head = {}, article } = config;
     const {
       meta = [],
@@ -59,7 +59,7 @@ module.exports = class extends Component {
       images = [url_for(page.thumbnail)];
     } else if (article && typeof article.og_image === "string") {
       images = [article.og_image];
-    } else if (page.content && page.content.includes("<img")) {
+    } else if (page.content?.includes("<img")) {
       let img;
       images = [];
       const imgPattern = /<img [^>]*src=['"]([^'"]+)([^>]*>)/gi;
@@ -114,7 +114,7 @@ module.exports = class extends Component {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {noIndex ? <meta name="robots" content="noindex" /> : null}
-        {meta && meta.length ? <MetaTags meta={meta} /> : null}
+        {meta?.length ? <MetaTags meta={meta} /> : null}
         <title>{getPageTitle(page, config.title, helper)}</title>
         <WebApp.Cacheable
           helper={helper}
@@ -138,8 +138,7 @@ module.exports = class extends Component {
               config.description
             }
             keywords={
-              (page.tags && page.tags.length ? page.tags : undefined) ||
-              config.keywords
+              (page.tags?.length ? page.tags : undefined) || config.keywords
             }
             url={open_graph.url || page.permalink || url}
             images={openGraphImages}
@@ -221,7 +220,10 @@ module.exports = class extends Component {
           onload="this.onload=null;this.rel='stylesheet'"
         />
         {/* Iconify Icons */}
-        <script async src="/css/font/iconify-icon/3.0.2/iconify-icon.min.js"></script>
+        <script
+          async
+          src="/css/font/iconify-icon/3.0.2/iconify-icon.min.js"
+        ></script>
         {/* Maple Mono CN */}
         <link
           rel="preload"

@@ -42,7 +42,7 @@ function loadAlgolia(config, translation) {
         emptyRoot: ["searchbox-result-item", "disabled"],
       },
       templates: {
-        empty: (results) => translation.no_result + ": " + results.query,
+        empty: (results) => `${translation.no_result}: ${results.query}`,
         item: (hit) => {
           let title = instantsearch.highlight({ attribute: "title", hit });
           let excerpt = instantsearch.highlight({

@@ -23,7 +23,7 @@ module.exports = class extends Component {
     const { config, helper, page, index } = this.props;
 
     const { article } = config;
-    const { url_for, date, date_xml, __, _p } = helper;
+    const { url_for, date, _p } = helper;
 
     const cover = page.cover ? url_for(page.cover) : null;
 
@@ -41,8 +41,7 @@ module.exports = class extends Component {
             />
           ) : null}
           <article
-            class={`card-content article${"direction" in page ? " " + page.direction : ""}`}
-            role="article"
+            class={`card-content article${"direction" in page ? ` ${page.direction}` : ""}`}
           >
             {/* Metadata */}
             {page.layout !== "page" ? (
@@ -50,7 +49,7 @@ module.exports = class extends Component {
                 <p>
                   {page.date && <span>{date(page.date)}</span>}
                   {/* Categories */}
-                  {page.categories && page.categories.length ? (
+                  {page.categories?.length ? (
                     <span>
                       {(() => {
                         const categories = [];

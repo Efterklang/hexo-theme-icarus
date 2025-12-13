@@ -66,9 +66,9 @@ class Algolia extends Component {
                 id="algolia-poweredby"
                 style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"
               ></div>
-              <a class="searchbox-close" href="javascript:;">
+              <button class="searchbox-close" type="button">
                 &times;
-              </a>
+              </button>
             </div>
             <div class="searchbox-body"></div>
             <div class="searchbox-footer"></div>

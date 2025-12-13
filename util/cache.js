@@ -2,7 +2,7 @@
  * View cache utility functions.
  * @module util/cache
  */
-const crypto = require("crypto");
+const crypto = require("node:crypto");
 const { createElement } = require("inferno-create-element");
 
 const cache = {};

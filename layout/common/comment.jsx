@@ -17,7 +17,7 @@ module.exports = class extends Component {
       <div class="card" id="comments">
         <div class="card-content">
           {(() => {
-            const Comment = loadComponent("comment/" + comment.type);
+            const Comment = loadComponent(`comment/${comment.type}`);
             if (!Comment) {
               handleWidgetError(`comment "${comment.type}"`);
               return null;

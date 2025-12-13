@@ -1,10 +1,6 @@
 /* min-width: 1024px */
 .is-hidden-desktop {
-  display: none !important;
-}
-
-.is-invisible-desktop {
-  visibility: hidden !important;
+  display: none;
 }
 
 .navbar-burger {
@@ -73,7 +69,6 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   flex-direction: column;
   align-items: flex-end;
 }
@@ -149,7 +144,7 @@
 #icarus-toc-container .toc-item.is-active > .toc-link::after {
   background-color: var(--lavender);
   opacity: 1;
-  width: 40px !important;
+  width: 40px;
   /* Highlighted length */
   box-shadow: 0 0 8px var(--lavender);
 }

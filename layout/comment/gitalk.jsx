@@ -2,7 +2,7 @@
  * Gitalk comment JSX component.
  * @module view/comment/gitalk
  */
-const crypto = require("crypto");
+const crypto = require("node:crypto");
 const { Component } = require("inferno");
 const { cacheComponent } = require("../../util/cache");
 

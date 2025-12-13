@@ -247,12 +247,12 @@ table {
 th {
   background-color: var(--mantle);
   color: var(--text);
-  border-bottom-color: var(--surface0) !important;
+  border-bottom-color: var(--surface0);
 }
 
 td {
   color: var(--text);
-  border-bottom-color: var(--surface0) !important;
+  border-bottom-color: var(--surface0);
 }
 
 tbody tr:nth-child(even) {
@@ -400,11 +400,10 @@ input:-webkit-autofill {
 .searchbox-header,
 .searchbox-input,
 .searchbox-close,
-.searchbox-body,
-.searchbox-result-item {
-  color: var(--subtext1);
+.searchbox-body {
+  color: var(--text);
   background-color: var(--mantle);
-  border-color: var(--surface0);
+  border: none;
 }
 
 .searchbox-result-item.active span {

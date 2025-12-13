@@ -10,10 +10,6 @@
   z-index: 100;
 }
 
-.widget.card#toc .card-content {
-  padding: 0;
-}
-
 .widget.card#toc .menu {
   padding: 1.5rem;
   max-height: calc(100vh - 2rem);
@@ -28,7 +24,6 @@
   right: 0;
   bottom: 0;
   z-index: 99;
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .widget.card#toc.is-active,
@@ -46,11 +41,7 @@
 }
 
 .is-hidden-mobile {
-  display: none !important;
-}
-
-.is-invisible-mobile {
-  visibility: hidden !important;
+  display: none;
 }
 
 .level-left + .level-right {

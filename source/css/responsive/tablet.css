@@ -1,17 +1,6 @@
 /* @media screen and (min-width $tablet), print */
-.is-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1.5rem;
-  z-index: 99;
-}
-
 .is-hidden-tablet {
-  display: none !important;
-}
-
-.is-invisible-tablet {
-  visibility: hidden !important;
+  display: none;
 }
 
 /* level item */

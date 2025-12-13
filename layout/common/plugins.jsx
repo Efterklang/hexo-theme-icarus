@@ -1,8 +1,6 @@
 const {
   Component,
   Fragment,
-  view,
-  logger,
   loadComponent,
   handleWidgetError,
 } = require("../../include/util/common");
@@ -19,7 +17,7 @@ module.exports = class extends Component {
           if (!plugins[name]) {
             return null;
           }
-          const Plugin = loadComponent("plugin/" + name);
+          const Plugin = loadComponent(`plugin/${name}`);
           if (!Plugin) {
             handleWidgetError(`plugin "${name}"`);
             return null;

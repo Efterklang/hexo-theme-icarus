@@ -2,7 +2,7 @@
  * Insight search plugin
  * @author PPOffice { @link https://github.com/ppoffice }
  */
-// eslint-disable-next-line no-unused-vars
+// biome-ignore lint/correctness/noUnusedVariables: 在其它文件中会调用此函数
 function loadInsight(config, translation) {
   const $main = $(".searchbox");
   const $input = $main.find(".searchbox-input");
@@ -67,7 +67,7 @@ function loadInsight(config, translation) {
       if (maxlen && range[0] >= sumRange[0] + maxlen) {
         break;
       }
-      result += "<em>" + text.slice(range[0], range[1]) + "</em>";
+      result += `<em>${text.slice(range[0], range[1])}</em>`;
       last = range[1];
       if (i === ranges.length - 1) {
         if (maxlen) {
@@ -87,7 +87,7 @@ function loadInsight(config, translation) {
   function searchItem(icon, title, slug, preview, url) {
     title = title != null && title !== "" ? title : translation.untitled;
     const subtitle = slug
-      ? '<span class="searchbox-result-title-secondary">(' + slug + ")</span>"
+      ? `<span class="searchbox-result-title-secondary">(${slug})</span>`
       : "";
 
     return `<a class="searchbox-result-item" href="${url}">
@@ -99,7 +99,7 @@ function loadInsight(config, translation) {
                     ${title}
                     ${subtitle}
                 </span>
-                ${preview ? '<span class="searchbox-result-preview">' + preview + "</span>" : ""}
+                ${preview ? `<span class="searchbox-result-preview">${preview}</span>` : ""}
             </span>
         </a>`;
   }
@@ -295,7 +295,7 @@ function loadInsight(config, translation) {
   }
 
   function gotoLink($item) {
-    if ($item && $item.length) {
+    if ($item?.length) {
       location.href = $item.attr("href");
     }
   }
@@ -352,10 +352,10 @@ function loadInsight(config, translation) {
           break;
       }
     })
-    .on("touchstart", (e) => {
+    .on("touchstart", (_e) => {
       touch = true;
     })
-    .on("touchmove", (e) => {
+    .on("touchmove", (_e) => {
       touch = false;
     });
 }

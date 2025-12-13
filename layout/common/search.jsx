@@ -1,7 +1,5 @@
 const {
   Component,
-  view,
-  logger,
   loadComponent,
   handleWidgetError,
 } = require("../../include/util/common");
@@ -14,7 +12,7 @@ module.exports = class extends Component {
       return null;
     }
 
-    const Search = loadComponent("search/" + search.type);
+    const Search = loadComponent(`search/${search.type}`);
     if (!Search) {
       handleWidgetError(`search "${search.type}"`);
       return null;

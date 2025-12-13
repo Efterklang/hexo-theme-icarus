@@ -22,7 +22,7 @@
         cacheBust: false,
       });
     } catch (e) {
-      console.warn("PJAX error: " + e);
+      console.warn(`PJAX error: ${e}`);
     }
   }
 

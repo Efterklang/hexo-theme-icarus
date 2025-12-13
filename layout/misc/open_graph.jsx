@@ -5,7 +5,7 @@
  * @see https://hexo.io/docs/helpers#open-graph
  * @see https://github.com/hexojs/hexo/blob/4.2.0/lib/plugins/helper/open_graph.js
  */
-const urlFn = require("url");
+const urlFn = require("node:url");
 const moment = require("moment");
 const { Component } = require("inferno");
 const { encodeURL, stripHTML, escapeHTML } = require("hexo-util");
@@ -96,7 +96,7 @@ module.exports = class extends Component {
     if (
       date &&
       (moment.isMoment(date) || moment.isDate(date)) &&
-      !isNaN(date.valueOf())
+      !Number.isNaN(date.valueOf())
     ) {
       htmlTags.push(
         <meta property="article:published_time" content={date.toISOString()} />,
@@ -106,7 +106,7 @@ module.exports = class extends Component {
     if (
       updated &&
       (moment.isMoment(updated) || moment.isDate(updated)) &&
-      !isNaN(updated.valueOf())
+      !Number.isNaN(updated.valueOf())
     ) {
       htmlTags.push(
         <meta

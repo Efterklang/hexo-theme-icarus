@@ -133,7 +133,7 @@ class Footer extends Component {
       <div class="footer-column footer-archives">
         <p class="footer-heading">Archives</p>
         <div class="footer-links">
-          {archives && archives.length
+          {archives?.length
             ? archives.map((item) => (
                 <a class="footer-link" href={item.url}>
                   {item.year}
@@ -169,7 +169,7 @@ module.exports = cacheComponent(Footer, "common.footer", (props) => {
   const { title, author, footer, plugins } = config;
 
   const links = {};
-  if (footer && footer.links) {
+  if (footer?.links) {
     Object.keys(footer.links).forEach((name) => {
       const link = footer.links[name];
       links[name] = {
@@ -180,7 +180,7 @@ module.exports = cacheComponent(Footer, "common.footer", (props) => {
   }
 
   const subdomains = {};
-  if (footer && footer.subdomains) {
+  if (footer?.subdomains) {
     Object.keys(footer.subdomains).forEach((name) => {
       const link = footer.subdomains[name];
       const targetUrl = typeof link === "string" ? link : link.url;
@@ -192,7 +192,7 @@ module.exports = cacheComponent(Footer, "common.footer", (props) => {
 
   // Build archives grouped by year from site posts
   let archives = [];
-  if (site && site.posts && site.posts.length) {
+  if (site?.posts?.length) {
     const archiveDir = config.archive_dir || "archives";
     const byYear = {};
     const posts = site.posts.sort("date", -1);

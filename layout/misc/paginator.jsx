@@ -1,30 +1,12 @@
-/**
- * Paginator JSX component.
- * @module view/misc/paginator
- */
 const { Component } = require("inferno");
 
-/**
- * Paginator JSX component.
- *
- * @name Paginator
- * @example
- * <Paginator
- *     current={1}
- *     total={10}
- *     baseUrl="/page/base/url"
- *     path="/config/pagination/dir"
- *     urlFor={ function () {...} }
- *     prevTitle="Prev"
- *     nextTitle="Next" />
- */
 module.exports = class extends Component {
   render() {
     const { current, total, baseUrl, path, urlFor, prevTitle, nextTitle } =
       this.props;
 
     function getPageUrl(i) {
-      return urlFor(i === 1 ? baseUrl : baseUrl + path + "/" + i + "/");
+      return urlFor(i === 1 ? baseUrl : `${baseUrl + path}/${i}/`);
     }
 
     function pagination(c, m) {
@@ -80,24 +62,18 @@ module.exports = class extends Component {
     }
 
     return (
-      <nav
-        class="pagination is-centered mt-4"
-        role="navigation"
-        aria-label="pagination"
-      >
+      <nav class="pagination is-centered mt-4" aria-label="pagination">
         <a
           href={getPageUrl(current - 1)}
-          class={`pagination-previous${current > 1 ? "" : " is-invisible is-hidden-mobile"}`}
+          class={`pagination-previous${current > 1 ? "" : " is-invisible"}`}
         >
-          {" "}
-          {prevTitle}{" "}
+          {prevTitle}
         </a>
         <a
           href={getPageUrl(current + 1)}
-          class={`pagination-next${current < total ? "" : " is-invisible is-hidden-mobile"}`}
+          class={`pagination-next${current < total ? "" : " is-invisible"}`}
         >
-          {" "}
-          {nextTitle}{" "}
+          {nextTitle}
         </a>
         <ul class="pagination-list is-hidden-mobile">
           {pagination(current, total)}

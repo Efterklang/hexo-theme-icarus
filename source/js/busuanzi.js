@@ -15,7 +15,7 @@
       const e = new XMLHttpRequest();
       e.open("POST", n, !0);
       const a = localStorage.getItem(o);
-      null != a && e.setRequestHeader("Authorization", "Bearer " + a),
+      null != a && e.setRequestHeader("Authorization", `Bearer ${a}`),
         e.setRequestHeader("x-bsz-referer", window.location.href),
         (e.onreadystatechange = () => {
           if (4 === e.readyState && 200 === e.status) {
@@ -32,11 +32,11 @@
                 null != n && (n.style.display = "inline");
               });
               const n = e.getResponseHeader("Set-Bsz-Identity");
-              null != n && "" != n && localStorage.setItem(o, n);
+              null != n && "" !== n && localStorage.setItem(o, n);
             }
           }
-        }),
-        e.send();
+        });
+      e.send();
     };
   if ((s(), a)) {
     const t = window.history.pushState;
@@ -45,7 +45,7 @@
     }),
       window.addEventListener(
         "popstate",
-        (t) => {
+        (_t) => {
           s();
         },
         !1,

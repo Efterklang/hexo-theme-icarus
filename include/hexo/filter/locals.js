@@ -3,8 +3,8 @@
  * dedicated property (<code>helper</code>) in the locals.
  * @module hexo/filter/locals
  */
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const yaml = require("js-yaml");
 
 /**
@@ -42,14 +42,8 @@ module.exports = (hexo) => {
 
   function loadLayoutConfig(layout) {
     let config = {};
-    const configInSiteDir = path.join(
-      hexo.base_dir,
-      "_config." + layout + ".yml",
-    );
-    const configInThemeDir = path.join(
-      hexo.theme_dir,
-      "_config." + layout + ".yml",
-    );
+    const configInSiteDir = path.join(hexo.base_dir, `_config.${layout}.yml`);
+    const configInThemeDir = path.join(hexo.theme_dir, `_config.${layout}.yml`);
     [configInSiteDir, configInThemeDir].forEach((configPath) => {
       if (fs.existsSync(configPath)) {
         config = Object.assign(config, yaml.load(fs.readFileSync(configPath)));

@@ -1,14 +1,8 @@
-const path = require("path");
+const path = require("node:path");
 
 let themeDir = null;
 
 function _resolve(filename) {
-  if (typeof themeDir !== "string") {
-    throw new Error(
-      "Hexo theme directory is not defined. Please use init(hexo) first.",
-    );
-  }
-
   if (path.isAbsolute(filename)) {
     return require.resolve(filename);
   }
@@ -17,7 +11,7 @@ function _resolve(filename) {
       try {
         require.resolve(filepath);
         return true;
-      } catch (e) {
+      } catch (_e) {
         return false;
       }
     },
@@ -34,11 +28,7 @@ _require.resolve = _resolve;
 
 /**
  * Initialize module global variables, including the theme directory variable.
- * <p>
  * Must be used before {@link module:core/view.require} or {@link module:core/view.resolve}.
- *
- * @static
- * @param {string} hexo Hexo instance.
  */
 function init(hexo) {
   themeDir = hexo.theme_dir;

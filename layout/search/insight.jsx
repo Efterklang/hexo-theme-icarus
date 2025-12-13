@@ -41,9 +41,9 @@ class Insight extends Component {
                   placeholder={translation.hint}
                 />
               </div>
-              <a class="searchbox-close" href="javascript:;">
+              <button class="searchbox-close" type="button">
                 &times;
-              </a>
+              </button>
             </div>
             <div class="searchbox-body"></div>
           </div>

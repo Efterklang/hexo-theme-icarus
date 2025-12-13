@@ -2,7 +2,7 @@
  * A JSX component that renders simple Google structured data.
  * @module view/misc/structured_data
  */
-const urlFn = require("url");
+const urlFn = require("node:url");
 const moment = require("moment");
 const { Component } = require("inferno");
 const { stripHTML, escapeHTML } = require("hexo-util");
@@ -61,7 +61,7 @@ module.exports = class extends Component {
     if (
       date &&
       (moment.isMoment(date) || moment.isDate(date)) &&
-      !isNaN(date.valueOf())
+      !Number.isNaN(date.valueOf())
     ) {
       date = date.toISOString();
     }
@@ -69,7 +69,7 @@ module.exports = class extends Component {
     if (
       updated &&
       (moment.isMoment(updated) || moment.isDate(updated)) &&
-      !isNaN(updated.valueOf())
+      !Number.isNaN(updated.valueOf())
     ) {
       updated = updated.toISOString();
     }

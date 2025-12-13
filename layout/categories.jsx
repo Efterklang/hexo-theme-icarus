@@ -6,7 +6,7 @@ class Categories extends Component {
     return categories.map((category) => (
       <li>
         <a
-          class={"level is-mobile" + (category.isCurrent ? " is-active" : "")}
+          class={`level is-mobile${category.isCurrent ? " is-active" : ""}`}
           href={category.url}
         >
           <span class="level-start">
@@ -62,7 +62,7 @@ Categories.Cacheable = cacheComponent(
     let depth = 0;
     try {
       depth = parseInt(props.depth, 10);
-    } catch (e) {}
+    } catch (_e) {}
 
     function prepareQuery(parent) {
       const query = {};
@@ -80,7 +80,7 @@ Categories.Cacheable = cacheComponent(
     }
 
     function hierarchicalList(level, parent) {
-      return prepareQuery(parent).map((cat, i) => {
+      return prepareQuery(parent).map((cat, _) => {
         let children = [];
         if (!depth || level + 1 < depth) {
           children = hierarchicalList(level + 1, cat._id);
@@ -96,8 +96,7 @@ Categories.Cacheable = cacheComponent(
             }
           }
           // special case: category page
-          isCurrent =
-            isCurrent || (page.base && page.base.startsWith(cat.path));
+          isCurrent = isCurrent || page.base?.startsWith(cat.path);
         }
 
         return {
