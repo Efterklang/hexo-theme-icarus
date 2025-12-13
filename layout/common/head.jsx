@@ -221,7 +221,7 @@ module.exports = class extends Component {
           onload="this.onload=null;this.rel='stylesheet'"
         />
         {/* Iconify Icons */}
-        <script async src={iconcdn()}></script>
+        <script async src="/css/font/iconify-icon/3.0.2/iconify-icon.min.js"></script>
         {/* Maple Mono CN */}
         <link
           rel="preload"
