@@ -13,10 +13,10 @@ module.exports = class extends Component {
 
         function renderArticleList(posts, year, month = null) {
             const time = moment([page.year, page.month ? page.month - 1 : null].filter(i => i !== null));
-
+            const year_css_style = "position: absolute; top: 1.5rem; right: 1.5rem; z-index: 0; font-size: 7.5rem; font-weight: bolder; font-family: Paris2024; color: hsl(from var(--mauve) h s l / 0.15); line-height: 1; user-select: none; "
             return <div class="card">
                 <div class="card-content">
-                    <span class="year">{month === null ? year : time.locale(language).format('MMMM YYYY')}</span>
+                    <span class="year" style={year_css_style}>{month === null ? year : time.locale(language).format('MMMM YYYY')}</span>
                     <div class="timeline">
                         {posts.map(post => {
                             const categories = post.categories.map(category => ({
