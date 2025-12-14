@@ -1,139 +1,120 @@
 /* eslint-disable node/no-unsupported-features/node-builtins */
 
-(($) => {
-  // Keyboard shortcuts handler
-  document.onkeydown = (e) => {
-    // https://javascript.info/keyboard-events
+document.addEventListener("DOMContentLoaded", () => {
+  // ==========================================================================
+  // 1. Keyboard shortcuts handler
+  // ==========================================================================
+  document.addEventListener("keydown", (e) => {
     // ctrl/cmd + k for search
     if ((e.ctrlKey || e.metaKey) && e.code === "KeyK") {
-      document.querySelector("a.navbar-item.search").click();
-      setTimeout(() => {
-        document.querySelector(".searchbox-input").focus();
-      }, 100);
-      e.preventDefault();
-    } else if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === "KeyP") {
-      // ctrl/cmd + shift + p for theme selector
-      document.querySelector("a.navbar-item.theme-selector-trigger").click();
+      const searchBtn = document.querySelector("a.navbar-item.search");
+      if (searchBtn) {
+        searchBtn.click();
+        setTimeout(() => {
+          const input = document.querySelector(".searchbox-input");
+          if (input) input.focus();
+        }, 100);
+        e.preventDefault();
+      }
     }
-  };
-
-  // Table overflow wrapper for wide tables
-  $(".article > .content > table").each(function () {
-    if ($(this).width() > $(this).parent().width()) {
-      $(this).wrap('<div class="table-overflow"></div>');
+    // ctrl/cmd + shift + p for theme selector
+    else if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === "KeyP") {
+      const themeBtn = document.querySelector("a.navbar-item.theme-selector-trigger");
+      if (themeBtn) themeBtn.click();
     }
   });
 
-  // DOM ready initializations
-  document.addEventListener("DOMContentLoaded", () => {
-    // Initialize medium-zoom
+  // ==========================================================================
+  // 2. Table overflow wrapper for wide tables
+  // ==========================================================================
+  const tables = document.querySelectorAll(".article > .content > table");
+  tables.forEach((table) => {
+    // 如果表格宽度大于父容器宽度
+    if (table.offsetWidth > table.parentElement.offsetWidth) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "table-overflow";
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
+
+  // ==========================================================================
+  // 3. Initialize medium-zoom
+  // ==========================================================================
+  if (typeof mediumZoom === "function") {
     mediumZoom(".article img", {
-      background: "rgba(30, 30, 46, 0.5)",
+      background: "hsla(from var(--mantle) / 0.9)"
     });
-
-    // ========== 新增：向上滚动时显示/隐藏导航栏 ==========
-    // const navbar = document.querySelector('.navbar-main');
-    // if (!navbar) return; // 如果没有导航栏，则不执行
-
-    // let lastScrollTop = 0; // 记录上一次滚动的位置
-
-    // window.addEventListener("scroll", function() {
-    //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    //     // 向下滚动时，隐藏导航栏
-    //     if (scrollTop > lastScrollTop) {
-    //         navbar.classList.add('navbar--hidden');
-    //     } else { // 向上滚动时，显示导航栏
-    //         navbar.classList.remove('navbar--hidden');
-    //     }
-
-    //     // 更新滚动位置 (处理 iOS 弹性滚动)
-    //     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    // }, false);
-  });
-
-  // TOC (Table of Contents) toggle logic
-  const $toc = $("#toc");
-  if ($toc.length > 0) {
-    const $mask = $("<div>");
-    $mask.attr("id", "toc-mask");
-    $("body").append($mask);
-
-    function toggleToc() {
-      // eslint-disable-line no-inner-declarations
-      $toc.toggleClass("is-active");
-      $mask.toggleClass("is-active");
-    }
-
-    $toc.on("click", toggleToc);
-    $mask.on("click", toggleToc);
-    $(".navbar-main .catalogue").on("click", toggleToc);
   }
 
-  // Navbar burger - use event delegation on document for PJAX compatibility
-  $(document)
-    .off("click.navburger")
-    .on("click.navburger", ".navbar-burger", function () {
-      $(this).toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-    });
+  // ==========================================================================
+  // 5. Navbar Burger & Menu Logic
+  // ==========================================================================
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    const navbarBurger = document.querySelector(".navbar-burger");
+    const navbarMenu = document.querySelector(".navbar-menu");
 
-  // Close navbar menu when a navbar item is clicked - use event delegation
-  $(document)
-    .off("click.navmenu")
-    .on("click.navmenu", ".navbar-menu a.navbar-item", () => {
-      if ($(".navbar-burger").hasClass("is-active")) {
-        $(".navbar-burger").removeClass("is-active");
-        $(".navbar-menu").removeClass("is-active");
+    if (!navbarBurger || !navbarMenu) return;
+
+    // Handle Burger Click
+    if (target.closest(".navbar-burger")) {
+      navbarBurger.classList.toggle("is-active");
+      navbarMenu.classList.toggle("is-active");
+      return; // 阻止后续逻辑
+    }
+
+    // Handle Menu Item Click (Auto close menu)
+    if (target.closest(".navbar-menu a.navbar-item")) {
+      if (navbarBurger.classList.contains("is-active")) {
+        navbarBurger.classList.remove("is-active");
+        navbarMenu.classList.remove("is-active");
       }
-    });
-  // Set it up for all my homies (multiple tabs)
-  document.addEventListener("DOMContentLoaded", () => {
-    // 获取所有 Tab 组件的包裹容器，支持页面存在多个组件
-    const tabWrappers = document.querySelectorAll(".tabs-tabs-wrapper");
+    }
+  });
 
-    tabWrappers.forEach((wrapper) => {
-      // 在当前组件范围内查找元素
-      const buttons = wrapper.querySelectorAll(".tabs-tab-button");
-      const contents = wrapper.querySelectorAll(".tabs-tab-content");
+  // ==========================================================================
+  // 6. Tabs Logic
+  // ==========================================================================
+  const tabWrappers = document.querySelectorAll(".tabs-tabs-wrapper");
+  tabWrappers.forEach((wrapper) => {
+    const buttons = wrapper.querySelectorAll(".tabs-tab-button");
+    const contents = wrapper.querySelectorAll(".tabs-tab-content");
 
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          // 1. 获取当前点击按钮的目标索引
-          const targetIndex = btn.getAttribute("data-tab");
-          // 2. 重置所有按钮和内容的状态
-          // 移除 active 类和 data-active 属性
-          buttons.forEach((b) => {
-            b.classList.remove("active");
-            b.removeAttribute("data-active");
-          });
-          contents.forEach((c) => {
-            c.classList.remove("active");
-            c.removeAttribute("data-active");
-          });
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetIndex = btn.getAttribute("data-tab");
 
-          // 3. 激活当前点击的按钮
-          btn.classList.add("active");
-          btn.setAttribute("data-active", "");
-
-          // 4. 激活对应的内容区域
-          // 根据 data-index 属性查找匹配的内容 div
-          const targetContent = wrapper.querySelector(
-            `.tabs-tab-content[data-index="${targetIndex}"]`,
-          );
-          if (targetContent) {
-            targetContent.classList.add("active");
-            targetContent.setAttribute("data-active", "");
-          }
+        // Reset states
+        buttons.forEach((b) => {
+          b.classList.remove("active");
+          b.removeAttribute("data-active");
         });
+        contents.forEach((c) => {
+          c.classList.remove("active");
+          c.removeAttribute("data-active");
+        });
+
+        // Activate current
+        btn.classList.add("active");
+        btn.setAttribute("data-active", "");
+
+        const targetContent = wrapper.querySelector(
+          `.tabs-tab-content[data-index="${targetIndex}"]`
+        );
+        if (targetContent) {
+          targetContent.classList.add("active");
+          targetContent.setAttribute("data-active", "");
+        }
       });
     });
   });
 
-  // New TOC Logic
-  document.addEventListener("DOMContentLoaded", () => {
-    const tocContainer = document.getElementById("icarus-toc-container");
-    if (!tocContainer) return;
+  // ==========================================================================
+  // 7. New TOC Logic
+  // ==========================================================================
+  const tocContainer = document.getElementById("icarus-toc-container");
+  if (tocContainer) {
     const tocButton = tocContainer.querySelector(".toc-button");
     const tocBody = tocContainer.querySelector(".toc-body");
     const tocLinks = tocContainer.querySelectorAll(".toc-link");
@@ -153,7 +134,7 @@
       });
     });
 
-    // Close when clicking the backdrop (tocBody)
+    // Close when clicking the backdrop
     if (tocBody) {
       tocBody.addEventListener("click", (e) => {
         if (e.target === tocBody) {
@@ -162,23 +143,27 @@
       });
     }
 
-    // Desktop Scroll Spy
+    // Scroll Spy
     const headers = [];
     tocLinks.forEach((link) => {
       const href = link.getAttribute("href") || "";
+      // 解码并移除 #
       const id = decodeURIComponent(href.replace(/^#/, ""));
-      const header = document.getElementById(id);
-      if (header) {
-        headers.push({ header, link });
+      // 避免无效 ID 导致报错
+      if (id) {
+        const header = document.getElementById(id);
+        if (header) {
+          headers.push({ header, link });
+        }
       }
     });
 
     if (headers.length > 0) {
-      function onScroll() {
+      const onScroll = () => {
         const viewportHeight = window.innerHeight;
         let currentHeader = null;
 
-        // Find the last header that is above the middle of the screen
+        // 查找当前视口中最后一个位于屏幕中线上方的标题
         for (const h of headers) {
           const rect = h.header.getBoundingClientRect();
           if (rect.top < viewportHeight / 2) {
@@ -188,22 +173,25 @@
           }
         }
 
-        // If no header is above middle, maybe we are at the top?
-        if (!currentHeader && headers.length > 0 && window.scrollY < 100) {
+        // 如果在页面顶部，高亮第一个
+        if (!currentHeader && window.scrollY < 100) {
           currentHeader = headers[0];
         }
 
+        // 清除旧的高亮
         for (const l of tocLinks) {
           l.closest(".toc-item").classList.remove("is-active");
         }
 
+        // 设置新的高亮
         if (currentHeader) {
           currentHeader.link.closest(".toc-item").classList.add("is-active");
         }
-      }
+      };
 
-      window.addEventListener("scroll", onScroll);
+      // 使用 passive: true 提高滚动性能
+      window.addEventListener("scroll", onScroll, { passive: true });
       onScroll(); // Initial check
     }
-  });
-})(jQuery);
+  }
+});
