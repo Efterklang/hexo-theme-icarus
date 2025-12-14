@@ -1,11 +1,6 @@
 /* ---------------------------------
  *           Search Box
  * --------------------------------- */
-// container sizes
-$searchbox-container-width ?= 640px
-$searchbox-container-margin ?= 100px
-$searchbox-breakpoint-width ?= 559px
-$searchbox-breakpoint-height ?= 479px
 
 .searchbox
     position: fixed
@@ -15,7 +10,7 @@ $searchbox-breakpoint-height ?= 479px
     height: 100%
     z-index: 100
     font-size: 1rem
-    font-family: $family-modern
+    font-family: Maple Mono NF CN, monospace;
     line-height: 0
     opacity: 0
     visibility: hidden
@@ -46,9 +41,9 @@ $searchbox-breakpoint-height ?= 479px
         display: flex
         overflow: hidden
         border-radius: $card-radius
-        width: $searchbox-container-width
-        top: $searchbox-container-margin
-        bottom: $searchbox-container-margin
+        width: 640px
+        top: 100px
+        bottom: 100px
 
     .searchbox-header, .searchbox-body, .searchbox-footer
         width: 100%
@@ -78,13 +73,13 @@ $searchbox-breakpoint-height ?= 479px
     .searchbox-body
         flex-grow: 1
         overflow-y: auto
-        border-top: 1px solid var(--ctp-surface0)
+        border-top: 1px solid var(--surface0)
 
     .searchbox-result-section header, .searchbox-result-item
         padding: .75em 1em
 
     .searchbox-result-section
-        border-bottom: 1px solid var(--ctp-surface0)
+        border-bottom: 1px solid var(--surface0)
 
     .searchbox-result-item
         display: flex
@@ -130,7 +125,7 @@ $searchbox-breakpoint-height ?= 479px
             .searchbox-pagination-link
                 cursor: not-allowed
 
-@media screen and (max-width: $searchbox-breakpoint-width), screen and (max-height: $searchbox-breakpoint-height)
+@media screen and (max-width: 559px)
     .searchbox .searchbox-container
         top: 0
         left: 0
