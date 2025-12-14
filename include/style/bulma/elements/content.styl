@@ -142,6 +142,33 @@ $content-pre-padding ?= 1.25em 1.5em
   font-family serif
   font-size 0.9em
 
+table
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+
+  td, th
+    vertical-align center
+    padding: .5em 1em;
+    &:not([align])
+      text-align left
+
+  th
+      font-weight: bold;
+      border-bottom: 1px solid var(--surface0);
+      position: relative;
+
+  td
+      border-bottom: 1px solid var(--surface0);
+      transition: background-color 0.2s ease;
+
+  tbody tr
+      &:last-child td
+          border-bottom: none;
+
 blockquote
   position: relative
   padding: 1.5rem 2rem 1.5rem 3rem

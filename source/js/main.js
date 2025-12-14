@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
-  // 1. Keyboard shortcuts handler
+  // Keyboard shortcuts handler
   // ==========================================================================
   document.addEventListener("keydown", (e) => {
     // ctrl/cmd + k for search
@@ -25,21 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
-  // 2. Table overflow wrapper for wide tables
-  // ==========================================================================
-  const tables = document.querySelectorAll(".article > .content > table");
-  tables.forEach((table) => {
-    // 如果表格宽度大于父容器宽度
-    if (table.offsetWidth > table.parentElement.offsetWidth) {
-      const wrapper = document.createElement("div");
-      wrapper.className = "table-overflow";
-      table.parentNode.insertBefore(wrapper, table);
-      wrapper.appendChild(table);
-    }
-  });
-
-  // ==========================================================================
-  // 3. Initialize medium-zoom
+  // Initialize medium-zoom
   // ==========================================================================
   if (typeof mediumZoom === "function") {
     mediumZoom(".article img", {
@@ -48,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
-  // 5. Navbar Burger & Menu Logic
+  // Navbar Burger & Menu Logic
   // ==========================================================================
   document.addEventListener("click", (e) => {
     const target = e.target;
@@ -74,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
-  // 6. Tabs Logic
+  // Tabs Logic
   // ==========================================================================
   const tabWrappers = document.querySelectorAll(".tabs-tabs-wrapper");
   tabWrappers.forEach((wrapper) => {
@@ -111,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
-  // 7. New TOC Logic
+  // TOC Logic
   // ==========================================================================
   const tocContainer = document.getElementById("icarus-toc-container");
   if (tocContainer) {

@@ -244,17 +244,6 @@ table {
   border: 1px solid var(--surface0);
 }
 
-th {
-  background-color: var(--mantle);
-  color: var(--text);
-  border-bottom-color: var(--surface0);
-}
-
-td {
-  color: var(--text);
-  border-bottom-color: var(--surface0);
-}
-
 tbody tr:nth-child(even) {
   background-color: var(--mantle);
 }
