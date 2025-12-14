@@ -3,12 +3,15 @@
 .poem {
   font-family: "Huiwen-mincho", sans-serif;
   font-weight: normal;
+  color: var(--red);
   font-size: 30px;
   text-align: center;
-  background-color: rgba(210,180,140,0.05);
-  border: 3px solid rgba(0,0,0,0.1); /* 更改边框颜色和透明度 */
   padding: 20px;
   margin: 10px;
   width: auto;
   border-radius: 10px;
+}
+
+.content {
+  font-family: "Huiwen-mincho";
 }
