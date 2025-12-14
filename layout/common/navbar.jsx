@@ -21,7 +21,12 @@ const renderLinkIcon = (link) => {
   // start with '<' means svg icon
   if (link.icon === "travellings") {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-label="Travellings Icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        role="img"
+        aria-label="Travellings Icon"
+      >
         <path
           fill="var(--text)"
           d="M96 0C43 0 0 43 0 96v256c0 48 35.2 87.7 81.1 94.9l-46 46c-7 7-2 19.1 7.9 19.1h39.7c8.5 0 16.6-3.4 22.6-9.4L160 448h128l54.6 54.6c6 6 14.1 9.4 22.6 9.4h39.7c10 0 15-12.1 7.9-19.1l-46-46c46-7.1 81.1-46.9 81.1-94.9V96c0-53-43-96-96-96zM64 128c0-17.7 14.3-32 32-32h80c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zm208-32h80c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32h-80c-17.7 0-32-14.3-32-32v-96c0-17.7 14.3-32 32-32M64 352a32 32 0 1 1 64 0a32 32 0 1 1-64 0m288-32a32 32 0 1 1 0 64a32 32 0 1 1 0-64"
@@ -34,8 +39,7 @@ const renderLinkIcon = (link) => {
 
 class Navbar extends Component {
   render() {
-    const { siteUrl, menu, links, showSearch, searchTitle } =
-      this.props;
+    const { siteUrl, menu, links, showSearch, searchTitle } = this.props;
 
     return (
       <nav class="navbar navbar-main">
@@ -79,7 +83,12 @@ class Navbar extends Component {
                 class="navbar-item theme-selector-trigger"
                 title="Choose Theme"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" role="img" aria-label="Theme Selector">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 14 14"
+                  role="img"
+                  aria-label="Theme Selector"
+                >
                   <g fill="none">
                     <path
                       fill="var(--red)"
@@ -153,7 +162,7 @@ class Navbar extends Component {
             <span aria-hidden="true"></span>
           </button>
         </div>
-      </nav >
+      </nav>
     );
   }
 }

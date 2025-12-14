@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ctrl/cmd + shift + p for theme selector
     else if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === "KeyP") {
       const themeBtn = document.querySelector(
-        "a.navbar-item.theme-selector-trigger",
+        "button.navbar-item.theme-selector-trigger",
       );
       if (themeBtn) themeBtn.click();
     }

@@ -75,7 +75,7 @@ function loadInsight(config, translation) {
         if (maxlen) {
           result += text.slice(
             range[1],
-            Math.min(text.length, sumRange[0] + maxlen + 1)
+            Math.min(text.length, sumRange[0] + maxlen + 1),
           );
         } else {
           result += text.slice(range[1]);
@@ -122,7 +122,7 @@ function loadInsight(config, translation) {
             title,
             null,
             text,
-            item.link
+            item.link,
           );
         });
         break;
@@ -138,7 +138,7 @@ function loadInsight(config, translation) {
             name,
             slug,
             null,
-            item.link
+            item.link,
           );
         });
         break;
@@ -148,7 +148,7 @@ function loadInsight(config, translation) {
 
     const sectionEl = section(sectionTitle);
     // 使用 innerHTML 插入生成的字符串数组
-    sectionEl.insertAdjacentHTML('beforeend', searchItemsHTML.join(''));
+    sectionEl.insertAdjacentHTML("beforeend", searchItemsHTML.join(""));
     return sectionEl;
   }
 
@@ -242,7 +242,7 @@ function loadInsight(config, translation) {
       const sectionNode = sectionFactory(
         parseKeywords(keywords),
         key.toUpperCase(),
-        searchResult[key]
+        searchResult[key],
       );
       if (sectionNode) {
         container.appendChild(sectionNode);
@@ -271,7 +271,9 @@ function loadInsight(config, translation) {
   }
 
   function selectItemByDiff(value) {
-    const items = Array.from(container.querySelectorAll(".searchbox-result-item"));
+    const items = Array.from(
+      container.querySelectorAll(".searchbox-result-item"),
+    );
     if (items.length === 0) return;
 
     let prevPosition = -1;
@@ -284,7 +286,8 @@ function loadInsight(config, translation) {
     // 计算新位置（处理负数取模的情况）
     const nextPosition = (items.length + prevPosition + value) % items.length;
     // 修正 JavaScript 负数取模 bug: -1 % 5 = -1 (应为 4)
-    const finalPosition = nextPosition < 0 ? nextPosition + items.length : nextPosition;
+    const finalPosition =
+      nextPosition < 0 ? nextPosition + items.length : nextPosition;
 
     if (prevPosition !== -1) {
       items[prevPosition].classList.remove("active");
@@ -308,10 +311,12 @@ function loadInsight(config, translation) {
       });
 
       // Trigger initial input event logic if needed (usually empty initially)
-      const event = new Event('input');
+      const event = new Event("input");
       input.dispatchEvent(event);
     })
-    .catch((err) => console.error("Insight Search: Failed to load content.json", err));
+    .catch((err) =>
+      console.error("Insight Search: Failed to load content.json", err),
+    );
 
   let touch = false;
 
@@ -369,9 +374,11 @@ function loadInsight(config, translation) {
         selectItemByDiff(1);
         break;
       case "Enter": {
-        const activeItem = container.querySelector(".searchbox-result-item.active");
+        const activeItem = container.querySelector(
+          ".searchbox-result-item.active",
+        );
         if (activeItem) {
-          location.href = activeItem?.getAttribute("href")
+          location.href = activeItem?.getAttribute("href");
         }
         break;
       }
