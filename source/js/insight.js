@@ -1,23 +1,29 @@
-/**
- * Insight search plugin
- * @author PPOffice { @link https://github.com/ppoffice }
- */
-// biome-ignore lint/correctness/noUnusedVariables: 在其它文件中会调用此函数
+// biome-ignore lint/correctness/noUnusedVariables: Called in other files
 function loadInsight(config, translation) {
-  const $main = $(".searchbox");
-  const $input = $main.find(".searchbox-input");
-  const $container = $main.find(".searchbox-body");
+  const main = document.querySelector(".searchbox");
+  if (!main) return; // 安全检查
+
+  const input = main.querySelector(".searchbox-input");
+  const container = main.querySelector(".searchbox-body");
+
+  // Helper: Create element with class and text
+  function createElement(tag, className, text) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text) el.textContent = text;
+    return el;
+  }
 
   function section(title) {
-    return $("<section>")
-      .addClass("searchbox-result-section")
-      .append($("<header>").text(title));
+    const sectionEl = createElement("section", "searchbox-result-section");
+    const header = createElement("header", "", title);
+    sectionEl.appendChild(header);
+    return sectionEl;
   }
 
   function merge(ranges) {
     let last;
     const result = [];
-
     ranges.forEach((r) => {
       if (!last || r[0] > last[1]) {
         result.push((last = r));
@@ -25,7 +31,6 @@ function loadInsight(config, translation) {
         last[1] = r[1];
       }
     });
-
     return result;
   }
 
@@ -42,12 +47,8 @@ function loadInsight(config, translation) {
         }
         return [index, index + match.length];
       })
-      .filter((match) => {
-        return match !== null;
-      })
-      .sort((a, b) => {
-        return a[0] - b[0] || a[1] - b[1];
-      });
+      .filter((match) => match !== null)
+      .sort((a, b) => a[0] - b[0] || a[1] - b[1]);
 
     if (!indices.length) {
       return text;
@@ -57,6 +58,7 @@ function loadInsight(config, translation) {
     let last = 0;
     const ranges = merge(indices);
     const sumRange = [ranges[0][0], ranges[ranges.length - 1][1]];
+
     if (maxlen && maxlen < sumRange[1]) {
       last = sumRange[0];
     }
@@ -73,14 +75,13 @@ function loadInsight(config, translation) {
         if (maxlen) {
           result += text.slice(
             range[1],
-            Math.min(text.length, sumRange[0] + maxlen + 1),
+            Math.min(text.length, sumRange[0] + maxlen + 1)
           );
         } else {
           result += text.slice(range[1]);
         }
       }
     }
-
     return result;
   }
 
@@ -90,6 +91,7 @@ function loadInsight(config, translation) {
       ? `<span class="searchbox-result-title-secondary">(${slug})</span>`
       : "";
 
+    // 依然返回 HTML 字符串，因为里面包含了高亮标签 <em>
     return `<a class="searchbox-result-item" href="${url}">
             <span class="searchbox-result-icon">
                 <iconify-icon icon="${icon}" />
@@ -105,13 +107,14 @@ function loadInsight(config, translation) {
   }
 
   function sectionFactory(keywords, type, array) {
-    let $searchItems;
     if (array.length === 0) return null;
     const sectionTitle = translation[type.toLowerCase()];
+    let searchItemsHTML = [];
+
     switch (type) {
       case "POSTS":
       case "PAGES":
-        $searchItems = array.map((item) => {
+        searchItemsHTML = array.map((item) => {
           const title = findAndHighlight(item.title, keywords);
           const text = findAndHighlight(item.text, keywords, 100);
           return searchItem(
@@ -119,13 +122,13 @@ function loadInsight(config, translation) {
             title,
             null,
             text,
-            item.link,
+            item.link
           );
         });
         break;
       case "CATEGORIES":
       case "TAGS":
-        $searchItems = array.map((item) => {
+        searchItemsHTML = array.map((item) => {
           const name = findAndHighlight(item.name, keywords);
           const slug = findAndHighlight(item.slug, keywords);
           return searchItem(
@@ -135,32 +138,27 @@ function loadInsight(config, translation) {
             name,
             slug,
             null,
-            item.link,
+            item.link
           );
         });
         break;
       default:
         return null;
     }
-    return section(sectionTitle).append($searchItems);
+
+    const sectionEl = section(sectionTitle);
+    // 使用 innerHTML 插入生成的字符串数组
+    sectionEl.insertAdjacentHTML('beforeend', searchItemsHTML.join(''));
+    return sectionEl;
   }
 
   function parseKeywords(keywords) {
     return keywords
       .split(" ")
-      .filter((keyword) => {
-        return !!keyword;
-      })
-      .map((keyword) => {
-        return keyword.toLowerCase();
-      });
+      .filter((keyword) => !!keyword)
+      .map((keyword) => keyword.toLowerCase());
   }
 
-  /**
-   * Judge if a given post/page/category/tag contains all of the keywords.
-   * @param Object            obj     Object to be weighted
-   * @param Array<String>     fields  Object's fields to find matches
-   */
   function filter(keywords, obj, fields) {
     const keywordArray = parseKeywords(keywords);
     const containKeywords = keywordArray.filter((keyword) => {
@@ -173,10 +171,7 @@ function loadInsight(config, translation) {
         }
         return false;
       });
-      if (containFields.length > 0) {
-        return true;
-      }
-      return false;
+      return containFields.length > 0;
     });
     return containKeywords.length === keywordArray.length;
   }
@@ -190,16 +185,10 @@ function loadInsight(config, translation) {
     };
   }
 
-  /**
-   * Calculate the weight of a matched post/page/category/tag.
-   * @param Object            obj     Object to be weighted
-   * @param Array<String>     fields  Object's fields to find matches
-   * @param Array<Integer>    weights Weight of every field
-   */
   function weight(keywords, obj, fields, weights) {
     let value = 0;
     parseKeywords(keywords).forEach((keyword) => {
-      const pattern = new RegExp(keyword, "img"); // Global, Multi-line, Case-insensitive
+      const pattern = new RegExp(keyword, "img");
       fields.forEach((field, index) => {
         if (Object.hasOwn(obj, field)) {
           const matches = obj[field].match(pattern);
@@ -226,136 +215,174 @@ function loadInsight(config, translation) {
     const pages = json.pages;
     const tags = json.tags;
     const categories = json.categories;
+
     return {
       posts: posts
         .filter(filters.post)
-        .sort((a, b) => {
-          return weights.post(b) - weights.post(a);
-        })
+        .sort((a, b) => weights.post(b) - weights.post(a))
         .slice(0, 5),
       pages: pages
         .filter(filters.page)
-        .sort((a, b) => {
-          return weights.page(b) - weights.page(a);
-        })
+        .sort((a, b) => weights.page(b) - weights.page(a))
         .slice(0, 5),
       categories: categories
         .filter(filters.category)
-        .sort((a, b) => {
-          return weights.category(b) - weights.category(a);
-        })
+        .sort((a, b) => weights.category(b) - weights.category(a))
         .slice(0, 5),
       tags: tags
         .filter(filters.tag)
-        .sort((a, b) => {
-          return weights.tag(b) - weights.tag(a);
-        })
+        .sort((a, b) => weights.tag(b) - weights.tag(a))
         .slice(0, 5),
     };
   }
 
   function searchResultToDOM(keywords, searchResult) {
-    $container.empty();
+    container.innerHTML = ""; // Empty container
     for (const key in searchResult) {
-      $container.append(
-        sectionFactory(
-          parseKeywords(keywords),
-          key.toUpperCase(),
-          searchResult[key],
-        ),
+      const sectionNode = sectionFactory(
+        parseKeywords(keywords),
+        key.toUpperCase(),
+        searchResult[key]
       );
+      if (sectionNode) {
+        container.appendChild(sectionNode);
+      }
     }
   }
 
-  function scrollTo($item) {
-    if ($item.length === 0) return;
-    const wrapperHeight = $container[0].clientHeight;
-    const itemTop = $item.position().top - $container.scrollTop();
-    const itemBottom = $item[0].clientHeight + $item.position().top;
-    if (itemBottom > wrapperHeight + $container.scrollTop()) {
-      $container.scrollTop(itemBottom - $container[0].clientHeight);
+  function scrollTo(item) {
+    if (!item) return;
+    const wrapperHeight = container.clientHeight;
+    // 计算相对位置：item.offsetTop 是相对于 offsetParent 的，
+    // 这里假设 container 是 positioning context (relative/absolute)
+    // 如果不是，可能需要 getBoundingClientRect 计算
+    const itemTop = item.offsetTop;
+    const itemHeight = item.clientHeight;
+    const scrollTop = container.scrollTop;
+
+    // 到底部了？
+    if (itemTop + itemHeight > scrollTop + wrapperHeight) {
+      container.scrollTop = itemTop + itemHeight - wrapperHeight;
     }
-    if (itemTop < 0) {
-      $container.scrollTop($item.position().top);
+    // 到顶部了？
+    if (itemTop < scrollTop) {
+      container.scrollTop = itemTop;
     }
   }
 
   function selectItemByDiff(value) {
-    const $items = $.makeArray($container.find(".searchbox-result-item"));
+    const items = Array.from(container.querySelectorAll(".searchbox-result-item"));
+    if (items.length === 0) return;
+
     let prevPosition = -1;
-    $items.forEach((item, index) => {
-      if ($(item).hasClass("active")) {
+    items.forEach((item, index) => {
+      if (item.classList.contains("active")) {
         prevPosition = index;
       }
     });
-    const nextPosition = ($items.length + prevPosition + value) % $items.length;
-    $($items[prevPosition]).removeClass("active");
-    $($items[nextPosition]).addClass("active");
-    scrollTo($($items[nextPosition]));
+
+    // 计算新位置（处理负数取模的情况）
+    const nextPosition = (items.length + prevPosition + value) % items.length;
+    // 修正 JavaScript 负数取模 bug: -1 % 5 = -1 (应为 4)
+    const finalPosition = nextPosition < 0 ? nextPosition + items.length : nextPosition;
+
+    if (prevPosition !== -1) {
+      items[prevPosition].classList.remove("active");
+    }
+    const nextItem = items[finalPosition];
+    nextItem.classList.add("active");
+    scrollTo(nextItem);
   }
 
-  function gotoLink($item) {
-    if ($item?.length) {
-      location.href = $item.attr("href");
-    }
-  }
+  // Fetch JSON replacement
+  fetch(config.contentUrl)
+    .then((response) => response.json())
+    .then((json) => {
+      if (location.hash.trim() === "#insight-search") {
+        main.classList.add("show");
+      }
 
-  $.getJSON(config.contentUrl, (json) => {
-    if (location.hash.trim() === "#insight-search") {
-      $main.addClass("show");
-    }
-    $input.on("input", function () {
-      const keywords = $(this).val();
-      searchResultToDOM(keywords, search(json, keywords));
-    });
-    $input.trigger("input");
-  });
+      input.addEventListener("input", function () {
+        const keywords = this.value;
+        searchResultToDOM(keywords, search(json, keywords));
+      });
+
+      // Trigger initial input event logic if needed (usually empty initially)
+      const event = new Event('input');
+      input.dispatchEvent(event);
+    })
+    .catch((err) => console.error("Insight Search: Failed to load content.json", err));
 
   let touch = false;
-  $(document)
-    .on("click focus", ".navbar-main .search", () => {
-      $main.addClass("show");
-      $main.find(".searchbox-input").focus();
-    })
-    .on("click touchend", ".searchbox-result-item", function (e) {
-      if (e.type !== "click" && !touch) {
-        return;
+
+  // Event Delegation for Opening Search
+  document.addEventListener("click", (e) => {
+    // Click on search button
+    if (e.target.closest(".navbar-main .search")) {
+      main.classList.add("show");
+      const inp = main.querySelector(".searchbox-input");
+      if (inp) inp.focus();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    handleSearchClicks(e);
+  });
+
+  document.addEventListener("touchend", (e) => {
+    handleSearchClicks(e);
+  });
+
+  function handleSearchClicks(e) {
+    const target = e.target;
+
+    // Click Close Button
+    const closeBtn = target.closest(".searchbox-close");
+    if (closeBtn) {
+      if (e.type === "click" || touch) {
+        // Re-enable pointer events on navbar (original logic)
+        const navbar = document.querySelector(".navbar-main");
+        if (navbar) {
+          navbar.style.pointerEvents = "none";
+          setTimeout(() => {
+            navbar.style.pointerEvents = "auto";
+          }, 400);
+        }
+        main.classList.remove("show");
+        touch = false;
       }
-      gotoLink($(this));
-      touch = false;
-    })
-    .on("click touchend", ".searchbox-close", (e) => {
-      if (e.type !== "click" && !touch) {
-        return;
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (!main.classList.contains("show")) return;
+
+    switch (e.key) {
+      case "Escape":
+        e.preventDefault();
+        main.classList.remove("show");
+        break;
+      case "ArrowUp":
+        selectItemByDiff(-1);
+        break;
+      case "ArrowDown":
+        selectItemByDiff(1);
+        break;
+      case "Enter": {
+        const activeItem = container.querySelector(".searchbox-result-item.active");
+        if (activeItem) {
+          location.href = activeItem?.getAttribute("href")
+        }
+        break;
       }
-      $(".navbar-main").css("pointer-events", "none");
-      setTimeout(() => {
-        $(".navbar-main").css("pointer-events", "auto");
-      }, 400);
-      $main.removeClass("show");
-      touch = false;
-    })
-    .on("keydown", (e) => {
-      if (!$main.hasClass("show")) return;
-      switch (e.keyCode) {
-        case 27: // ESC
-          $main.removeClass("show");
-          break;
-        case 38: // UP
-          selectItemByDiff(-1);
-          break;
-        case 40: // DOWN
-          selectItemByDiff(1);
-          break;
-        case 13: // ENTER
-          gotoLink($container.find(".searchbox-result-item.active").eq(0));
-          break;
-      }
-    })
-    .on("touchstart", (_e) => {
-      touch = true;
-    })
-    .on("touchmove", (_e) => {
-      touch = false;
-    });
+    }
+  });
+
+  // Touch Tracking
+  document.addEventListener("touchstart", () => {
+    touch = true;
+  });
+  document.addEventListener("touchmove", () => {
+    touch = false;
+  });
 }

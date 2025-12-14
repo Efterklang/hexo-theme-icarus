@@ -5,7 +5,7 @@
   padding: 0.5rem 0;
 }
 
-.navbar-main .navbar-menu.is-active {
+.navbar-menu.is-active {
   display: block;
   position: absolute;
   top: 100%;
@@ -13,13 +13,13 @@
   width: 100%;
 }
 
-.navbar-main .navbar-menu .navbar-item {
+.navbar-menu .navbar-item {
   display: block;
   padding: 0.5rem 1rem;
   text-align: center;
 }
 
-.navbar-main .navbar-menu .navbar-end {
+.navbar-menu .navbar-end {
   display: flex;
   justify-content: center;
 }
@@ -193,7 +193,7 @@
 
 #icarus-toc-container .toc-link {
   font-size: 1.2rem;
-  font-family: Futura;
+  font-family: "Futura", sans-serif;
   font-weight: 800;
   text-decoration: none;
   display: block;

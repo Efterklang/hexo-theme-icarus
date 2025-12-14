@@ -7,19 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     // ctrl/cmd + k for search
     if ((e.ctrlKey || e.metaKey) && e.code === "KeyK") {
-      const searchBtn = document.querySelector("a.navbar-item.search");
-      if (searchBtn) {
-        searchBtn.click();
-        setTimeout(() => {
-          const input = document.querySelector(".searchbox-input");
-          if (input) input.focus();
-        }, 100);
-        e.preventDefault();
-      }
+      const searchBtn = document.querySelector(".navbar-main .search");
+      if (searchBtn) searchBtn.click();
     }
     // ctrl/cmd + shift + p for theme selector
     else if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === "KeyP") {
-      const themeBtn = document.querySelector("a.navbar-item.theme-selector-trigger");
+      const themeBtn = document.querySelector(
+        "a.navbar-item.theme-selector-trigger",
+      );
       if (themeBtn) themeBtn.click();
     }
   });
@@ -29,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
   if (typeof mediumZoom === "function") {
     mediumZoom(".article img", {
-      background: "hsla(from var(--mantle) / 0.9)"
+      background: "hsla(from var(--mantle) / 0.9)",
     });
   }
 
@@ -86,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.setAttribute("data-active", "");
 
         const targetContent = wrapper.querySelector(
-          `.tabs-tab-content[data-index="${targetIndex}"]`
+          `.tabs-tab-content[data-index="${targetIndex}"]`,
         );
         if (targetContent) {
           targetContent.classList.add("active");
