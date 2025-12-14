@@ -1,0 +1,24 @@
+/* ---------------------------------
+ *         Cookie Consent
+ * --------------------------------- */
+.cc-window,
+.cc-revoke {
+  font-size: 1.1rem !important;
+}
+.cc-window.cc-floating {
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+}
+.cc-window .cc-compliance > .cc-btn {
+  font-weight: 400;
+  border: none;
+}
+.cc-window .cc-compliance > .cc-btn.cc-deny:hover {
+  text-decoration: none;
+}
+.cc-revoke {
+  padding: 0.5rem 1rem !important;
+}
+.cc-revoke:hover {
+  text-decoration: none !important;
+}

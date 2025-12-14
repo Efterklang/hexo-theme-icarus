@@ -1,0 +1,60 @@
+/* ---------------------------------
+ *    Article Summary and Content
+ * --------------------------------- */
+.article:has(.article-licensing) {
+  padding-bottom: 0;
+}
+.article-meta {
+  font-size: 0.8rem;
+  overflow-x: auto;
+  margin-bottom: 0.1rem !important;
+}
+.article-meta span {
+  padding-right: 0.5rem;
+}
+.article-licensing {
+  display: block;
+  position: relative;
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  padding: 1.25rem;
+  z-index: 0;
+  border-radius: 0 0 24px 24px;
+  box-shadow: none;
+  overflow: hidden;
+}
+.article-licensing .level-left {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.article-licensing-bg-icon {
+  position: absolute;
+  z-index: -1;
+  right: -50px;
+  top: -88px;
+  font-size: 200px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.licensing-title {
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.licensing-title p:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+.licensing-title a {
+  font-size: 0.75rem;
+}
+.licensing-meta .level-item {
+  margin-right: 1.5rem;
+  font-size: 0.75rem;
+}
+.licensing-meta iconify-icon {
+  font-size: 1.5em;
+  vertical-align: bottom;
+}
+.licensing-meta a {
+  color: inherit;
+}
