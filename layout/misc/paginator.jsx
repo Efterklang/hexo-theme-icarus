@@ -62,7 +62,7 @@ module.exports = class extends Component {
     }
 
     return (
-      <nav class="pagination is-centered mt-4" aria-label="pagination">
+      <nav class="pagination is-centered" aria-label="pagination">
         <a
           href={getPageUrl(current - 1)}
           class={`pagination-previous`}

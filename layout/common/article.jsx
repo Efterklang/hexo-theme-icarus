@@ -112,7 +112,7 @@ module.exports = class extends Component {
               <div class="article-tags">
                 {page.tags.map((tag) => {
                   return (
-                    <a class="tags mr-2" rel="tag" href={url_for(tag.path)}>
+                    <a class="tags" rel="tag" href={url_for(tag.path)}>
                       <span class="tag">{tag.name}</span>
                       <span class="tag">{tag.length}</span>
                     </a>
@@ -135,7 +135,7 @@ module.exports = class extends Component {
         </div>
         {/* Post navigation */}
         {!index && (page.prev || page.next) ? (
-          <nav class="post-navigation level is-mobile card-content pl-0 pr-0 pb-0">
+          <nav class="post-navigation level is-mobile card-content">
             {page.prev ? (
               <a
                 class={`article-nav-prev level level-item${!page.prev ? " is-hidden-mobile" : ""} link-muted`}
@@ -143,7 +143,7 @@ module.exports = class extends Component {
               >
                 <iconify-icon
                   icon="mingcute:left-fill"
-                  class="pr-4"
+                  style="padding-right: .3rem"
                 ></iconify-icon>
                 {page.prev.title}
               </a>
@@ -156,7 +156,7 @@ module.exports = class extends Component {
                 {page.next.title}
                 <iconify-icon
                   icon="mingcute:right-fill"
-                  class="pl-2"
+                  style="padding-left: .3rem"
                 ></iconify-icon>
               </a>
             ) : null}
