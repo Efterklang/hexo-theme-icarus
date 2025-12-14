@@ -42,28 +42,15 @@
   justify-content: space-between;
 }
 
-.pagination.is-centered .pagination-previous {
+.pagination-previous {
   order: 1;
 }
 
-.pagination.is-centered .pagination-list {
+.pagination-list {
   justify-content: center;
   order: 2;
 }
 
-.pagination.is-centered .pagination-next {
-  order: 3;
-}
-
-.pagination.is-right .pagination-previous {
-  order: 1;
-}
-
-.pagination.is-right .pagination-next {
-  order: 2;
-}
-
-.pagination.is-right .pagination-list {
-  justify-content: flex-end;
+.pagination-next {
   order: 3;
 }

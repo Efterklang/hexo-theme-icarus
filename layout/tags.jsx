@@ -3,13 +3,12 @@ const { cacheComponent } = require("../util/cache");
 
 class Tags extends Component {
   render() {
-    const { tags, title, showCount } = this.props;
+    const { tags, showCount } = this.props;
 
     return (
       <div class="card widget" data-type="tags">
         <div class="card-content">
           <div class="menu">
-            <h3 class="menu-label">{title}</h3>
             {tags.map((tag) => (
               <a class="tags" href={tag.url}>
                 <span class="tag">{tag.name}</span>

@@ -1,19 +1,74 @@
-@import './bulma/utilities/_all';
 @import './bulma/base/_all';
 @import './bulma/components/_all'
 @import './bulma/elements/_all'
 @import '../../source/css/font/font.css';
 
-$size-7 ?= 0.85rem;
-$size-small ?= 0.75rem;
-$gap ?= 12px;
-$desktop ?= 1088px;
-$widescreen ?= 1280px;
-$fullhd ?= 1472px;
-$control-height ?= 2.25em;
-
 body {
     min-height: 100%;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
     display: flex;
     flex-direction: column;
 }
+
+code
+  font-size 0.875em
+  font-weight normal
+  padding 0.25em 0.5em 0.25em
+
+strong
+  font-weight 700
+
+hr
+  border none
+  display block
+  height 2px
+  margin 1.5rem 0
+
+:target
+    scroll-margin-top: 20vh;
+
+html
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size 16px
+  scroll-behavior: smooth
+  min-width 300px
+  overflow-x hidden
+  overflow-y scroll
+  text-size-adjust 100%
+
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section
+  display block
+
+a
+  cursor pointer
+  text-decoration none
+  strong
+    color currentColor
+
+img
+  height auto
+  max-width 100%
+
+input[type="checkbox"],
+input[type="radio"]
+  vertical-align baseline
+
+small
+  font-size 0.875em
+
+span
+  font-style inherit
+  font-weight inherit

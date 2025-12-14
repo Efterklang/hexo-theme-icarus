@@ -65,13 +65,15 @@ module.exports = class extends Component {
       <nav class="pagination is-centered mt-4" aria-label="pagination">
         <a
           href={getPageUrl(current - 1)}
-          class={`pagination-previous${current > 1 ? "" : " is-invisible"}`}
+          class={`pagination-previous`}
+          style={current > 1 ? {} : { visibility: "hidden" }}
         >
           {prevTitle}
         </a>
         <a
           href={getPageUrl(current + 1)}
-          class={`pagination-next${current < total ? "" : " is-invisible"}`}
+          class={`pagination-next`}
+          style={current < total ? {} : { visibility: "hidden" }}
         >
           {nextTitle}
         </a>

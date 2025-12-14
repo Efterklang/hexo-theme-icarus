@@ -62,20 +62,6 @@ $footer-padding ?= 3rem 1.5rem 6rem
   iconify-icon
     font-size 1.2rem
 
-// button
-$button-border-width ?= $control-border-width
-$button-padding-vertical ?= "calc(0.5em - %s)" % $button-border-width
-$button-padding-horizontal ?= 1em
-
-.button
-  @extend $control
-  @extend $unselectable
-  cursor pointer
-  justify-content center
-  padding: $button-padding-vertical $button-padding-horizontal
-  text-align center
-  white-space nowrap
-
 // hide scroll-bar
 ::-webkit-scrollbar
     display: none

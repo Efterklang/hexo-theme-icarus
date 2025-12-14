@@ -6,8 +6,6 @@ $searchbox-container-width ?= 640px
 $searchbox-container-margin ?= 100px
 $searchbox-breakpoint-width ?= 559px
 $searchbox-breakpoint-height ?= 479px
-// overlay and container styles
-$searchbox-box-shadow ?= $card-shadow
 
 .searchbox
     position: fixed
@@ -17,7 +15,7 @@ $searchbox-box-shadow ?= $card-shadow
     height: 100%
     z-index: 100
     font-size: 1rem
-    font-family: $family-sans-serif
+    font-family: $family-modern
     line-height: 0
     opacity: 0
     visibility: hidden
@@ -47,13 +45,10 @@ $searchbox-box-shadow ?= $card-shadow
         z-index: 101
         display: flex
         overflow: hidden
-        box-shadow: $searchbox-box-shadow
         border-radius: $card-radius
         width: $searchbox-container-width
         top: $searchbox-container-margin
         bottom: $searchbox-container-margin
-        transform: scale(0.95)
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out
 
     .searchbox-header, .searchbox-body, .searchbox-footer
         width: 100%

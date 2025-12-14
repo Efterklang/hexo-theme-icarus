@@ -1,24 +1,16 @@
-$navbar-height ?= 4rem
-$navbar-padding-vertical ?= 1rem
-$navbar-padding-horizontal ?= 2rem
-$navbar-z ?= 100
-$navbar-item-img-max-height ?= 1.75rem
-$navbar-bottom-box-shadow-size ?= 0 -2px 0 0
-$navbar-breakpoint ?= $desktop
-
 .navbar
-  min-height $navbar-height
+  min-height 4rem
   position sticky
   top: 0
   left: 0
   right: 0
   transition: transform 0.3s ease-in-out
-  z-index $navbar-z
-  font-family: $family-morden
+  z-index 100
+  font-family: $family-modern
   & > .container
     align-items stretch
     display flex
-    min-height $navbar-height
+    min-height 4rem
     width 100%
 
 .navbar button

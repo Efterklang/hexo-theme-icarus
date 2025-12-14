@@ -135,7 +135,12 @@ class Navbar extends Component {
                   class="navbar-item search"
                   title={searchTitle}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 14 14"
+                    role="img"
+                    aria-label="Search Icon"
+                  >
                     <g fill="none" fill-rule="evenodd" clip-rule="evenodd">
                       <path
                         fill="var(--lavender)"

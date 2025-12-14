@@ -56,7 +56,6 @@ $ hexo config theme icarus
 ```diff package.json
 {
   "dependencies": {
-+   "deepmerge": "^4.3.1",
 +   "hexo": "^7.2.0",
 +   "hexo-cli": "^4.3.2",
 +   "hexo-generator-archive": "^2.0.0",
