@@ -18,6 +18,8 @@ $content-pre-padding ?= 1.25em 1.5em
     &:not(:last-child)
       margin-bottom 1em
   h2
+    // center
+    text-align center
     font-size 1.75em
     margin-bottom 0.5714em
     &:not(:first-child)
@@ -143,31 +145,34 @@ $content-pre-padding ?= 1.25em 1.5em
   font-size 0.9em
 
 table
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 1.5rem 0;
-  border-radius: 8px;
-  overflow: hidden;
+  width: 100%
+  border-collapse: separate
+  border-spacing: 0
+  border-radius: 8px
+  overflow: hidden
+  margin: 2em 0
+  font-size: .875em
+  border: 1px solid var(--surface0);
+
+  thead
+    th
+      font-weight: 700
+      border-bottom: 1px solid var(--surface0)
+      padding: 1em
 
   td, th
-    vertical-align center
-    padding: .5em 1em;
+    vertical-align: middle
+    padding: .75em 1em
+
     &:not([align])
-      text-align left
+      text-align: left
 
-  th
-      font-weight: bold;
-      border-bottom: 1px solid var(--surface0);
-      position: relative;
-
-  td
-      border-bottom: 1px solid var(--surface0);
-      transition: background-color 0.2s ease;
-
-  tbody tr
+  tbody
+    tr
+      td
+        border-bottom: 1px solid var(--surface0)
       &:last-child td
-          border-bottom: none;
+        border-bottom: none
 
 blockquote
   position: relative
@@ -211,7 +216,7 @@ input.task-list-item-checkbox
 
 input.task-list-item-checkbox:checked::before
   content: "✓";
-  color: var(--base);
+  color: var(--surface0);
   position: absolute;
   top: 50%;
   left: 50%;

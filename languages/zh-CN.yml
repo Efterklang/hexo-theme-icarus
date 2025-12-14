@@ -26,7 +26,8 @@ article:
     other: "约%d字"
   licensing:
     author: "Author"
-    created_at: "Published at"
+    created_at: "Posted on"
+    updated_at: "Updated on"
     licensed_under: "License under"
 plugin:
   visit_count: "%sPV" # post页面显示的page view次数

@@ -239,15 +239,6 @@ blockquote::before {
   color: var(--red);
 }
 
-table {
-  background-color: var(--base);
-  border: 1px solid var(--surface0);
-}
-
-tbody tr:nth-child(even) {
-  background-color: var(--mantle);
-}
-
 code {
   background-color: var(--base);
   color: var(--subtext1);
