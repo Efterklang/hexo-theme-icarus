@@ -1,54 +1,46 @@
 !(() => {
-  const t = ["site_pv", "site_uv", "page_pv", "page_uv"],
-    e = document.currentScript,
-    a = e.hasAttribute("pjax"),
-    n = e.getAttribute("data-api") || "https://bsz.dusays.com:9001/api",
-    o = "bsz-id",
-    // 原始值设置
-    originalValues = {
-      site_pv: 12801, // page view
-      site_uv: 2450, // unique visitor
-      page_pv: 0,
-      page_uv: 0,
-    },
-    s = () => {
-      const e = new XMLHttpRequest();
-      e.open("POST", n, !0);
-      const a = localStorage.getItem(o);
-      null != a && e.setRequestHeader("Authorization", `Bearer ${a}`),
-        e.setRequestHeader("x-bsz-referer", window.location.href),
-        (e.onreadystatechange = () => {
-          if (4 === e.readyState && 200 === e.status) {
-            const a = JSON.parse(e.responseText);
-            if (!0 === a.success) {
-              t.map((t) => {
-                const e = document.getElementById(`busuanzi_${t}`);
-                if (null != e) {
-                  const finalValue =
-                    (originalValues[t] || 0) + (a.data[t] || 0);
-                  e.innerHTML = finalValue;
-                }
-                const n = document.getElementById(`busuanzi_container_${t}`);
-                null != n && (n.style.display = "inline");
-              });
-              const n = e.getResponseHeader("Set-Bsz-Identity");
-              null != n && "" !== n && localStorage.setItem(o, n);
-            }
-          }
-        });
-      e.send();
+  const TYPES = ["site_pv", "site_uv", "page_pv", "page_uv"];
+  const script = document.currentScript;
+  const api =
+    script.getAttribute("data-api") || "https://bsz.dusays.com:9001/api";
+  const STORAGE_KEY = "bsz-id";
+  const BASE = { site_pv: 12801, site_uv: 2450 };
+
+  const update = () => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", api, true);
+
+    const token = localStorage.getItem(STORAGE_KEY);
+    token && xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+    xhr.setRequestHeader("x-bsz-referer", location.href);
+
+    xhr.onload = () => {
+      if (xhr.status !== 200) return;
+      const { success, data } = JSON.parse(xhr.responseText);
+      if (!success) return;
+
+      TYPES.forEach((type) => {
+        const el = document.getElementById(`busuanzi_${type}`);
+        if (el) el.innerHTML = (BASE[type] || 0) + (data[type] || 0);
+
+        const container = document.getElementById(`busuanzi_container_${type}`);
+        if (container) container.style.display = "inline";
+      });
+
+      const newToken = xhr.getResponseHeader("Set-Bsz-Identity");
+      if (newToken) localStorage.setItem(STORAGE_KEY, newToken);
     };
-  if ((s(), a)) {
-    const t = window.history.pushState;
-    (window.history.pushState = function () {
-      t.apply(this, arguments), s();
-    }),
-      window.addEventListener(
-        "popstate",
-        (_t) => {
-          s();
-        },
-        !1,
-      );
+    xhr.send();
+  };
+
+  update();
+
+  if (script.hasAttribute("pjax")) {
+    const pushState = history.pushState;
+    history.pushState = function (...args) {
+      pushState.apply(this, ...args);
+      update();
+    };
+    addEventListener("popstate", update);
   }
 })();
