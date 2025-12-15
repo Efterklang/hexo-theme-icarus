@@ -219,6 +219,7 @@ module.exports = class extends Component {
           href={url_for("/css/callout_blocks.css")}
           onload="this.onload=null;this.rel='stylesheet'"
         />
+        <link rel="stylesheet" href="/css/shiki/shiki.min.css" />
         {/* Iconify Icons */}
         <script
           async

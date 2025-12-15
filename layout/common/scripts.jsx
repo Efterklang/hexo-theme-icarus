@@ -22,6 +22,7 @@ module.exports = class extends Component {
           defer
           src="/js/host/medium-zoom/dist/medium-zoom.min.js"
         ></script>
+        <script async src="/js/shiki/shiki.js"></script>
         <script async src="/js/instant-page.min.js" type="module"></script>
         {config.plugins.live2d_Asoul && (
           <>
