@@ -31,9 +31,7 @@
   display: block;
 }
 
-/* .article-licensing */
 .article-licensing {
-  width: calc(100% + 2rem);
   margin-left: -1rem;
   margin-right: -1rem;
   padding-left: 1rem;
@@ -42,10 +40,6 @@
 
 .is-hidden-mobile {
   display: none;
-}
-
-.level-left + .level-right {
-  margin-top: 1.5rem;
 }
 
 table {

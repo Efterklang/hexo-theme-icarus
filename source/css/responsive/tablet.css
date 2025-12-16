@@ -12,16 +12,6 @@
   flex-grow: 1;
 }
 
-.level-left .level-item:not(:last-child),
-.level-right .level-item:not(:last-child) {
-  margin-right: 0.75rem;
-}
-
-.level-left,
-.level-right {
-  display: flex;
-}
-
 /* pagination */
 .pagination-list {
   flex-grow: 1;

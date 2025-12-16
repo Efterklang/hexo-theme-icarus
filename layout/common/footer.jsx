@@ -83,23 +83,23 @@ class Footer extends Component {
         <div class="footer-links">
           {Object.keys(links).length
             ? Object.keys(links).map((name) => {
-                const link = links[name];
-                return (
-                  <a
-                    class="footer-link"
-                    target="_blank"
-                    rel="noopener"
-                    title={name}
-                    href={link.url}
-                  >
-                    {link.icon ? (
-                      <iconify-icon icon={link.icon}></iconify-icon>
-                    ) : (
-                      name
-                    )}
-                  </a>
-                );
-              })
+              const link = links[name];
+              return (
+                <a
+                  class="footer-link"
+                  target="_blank"
+                  rel="noopener"
+                  title={name}
+                  href={link.url}
+                >
+                  {link.icon ? (
+                    <iconify-icon icon={link.icon}></iconify-icon>
+                  ) : (
+                    name
+                  )}
+                </a>
+              );
+            })
             : null}
         </div>
       </div>
@@ -111,19 +111,19 @@ class Footer extends Component {
         <div class="footer-links">
           {Object.keys(subdomains).length
             ? Object.keys(subdomains).map((name) => {
-                const link = subdomains[name];
-                return (
-                  <a
-                    class="footer-link"
-                    target="_blank"
-                    rel="noopener"
-                    title={name}
-                    href={link.url}
-                  >
-                    {name}
-                  </a>
-                );
-              })
+              const link = subdomains[name];
+              return (
+                <a
+                  class="footer-link"
+                  target="_blank"
+                  rel="noopener"
+                  title={name}
+                  href={link.url}
+                >
+                  {name}
+                </a>
+              );
+            })
             : null}
         </div>
       </div>
@@ -135,10 +135,10 @@ class Footer extends Component {
         <div class="footer-links">
           {archives?.length
             ? archives.map((item) => (
-                <a class="footer-link" href={item.url}>
-                  {item.year}
-                </a>
-              ))
+              <a class="footer-link" href={item.url}>
+                {item.year}
+              </a>
+            ))
             : null}
         </div>
       </div>
@@ -149,13 +149,11 @@ class Footer extends Component {
         {" "}
         {svg_line}
         <footer class="footer">
-          <div class="container">
-            <div class="footer-grid">
-              {footer_brand}
-              {footer_subdomains}
-              {footer_archives}
-              {footer_social}
-            </div>
+          <div class="footer-grid">
+            {footer_brand}
+            {footer_subdomains}
+            {footer_archives}
+            {footer_social}
           </div>
         </footer>
       </>

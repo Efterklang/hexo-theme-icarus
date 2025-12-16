@@ -43,7 +43,7 @@ class Navbar extends Component {
 
     return (
       <nav class="navbar navbar-main">
-        <div class="container navbar-container">
+        <div class="navbar-container">
           <a href={siteUrl} class="navbar-brand">
             <svg
               version="1.0"

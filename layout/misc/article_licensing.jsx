@@ -27,7 +27,7 @@ class ArticleLicensing extends Component {
           </p>
         </div>
         <div class="licensing-meta level is-mobile">
-          <div class="level-left">
+          <div style="display: flex">
             {author ? (
               <div class="level-item is-narrow">
                 <div>
