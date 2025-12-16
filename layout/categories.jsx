@@ -14,12 +14,14 @@ class Categories extends Component {
           </span>
           {showCount ? (
             <span class="level-end">
-              <span class="level-item">{category.count}</span>
+              <span class="level-item" style="font-family: monospace">
+                {category.count}
+              </span>
             </span>
           ) : null}
         </a>
         {category.children.length ? (
-          <ul>{this.renderList(category.children, showCount)}</ul>
+          <ul>{this.renderList(category.children, false)}</ul>
         ) : null}
       </li>
     ));
@@ -27,13 +29,23 @@ class Categories extends Component {
 
   render() {
     const { showCount, categories } = this.props;
-
+    const categoriesListCSS = `
+    a {
+      padding: 0.5em 0.75em;
+    }
+    a.level:hover {
+      background-color: var(--base);
+    }
+    li ul {
+      border-left: 1px solid var(--surface0);
+      margin: 0.75em;
+      padding-left: 0.75em;
+    }`;
     return (
       <div class="card widget" data-type="categories">
+        <style>{categoriesListCSS}</style>
         <div class="card-content">
-          <div class="menu">
-            <ul class="menu-list">{this.renderList(categories, showCount)}</ul>
-          </div>
+          <ul>{this.renderList(categories, showCount)}</ul>
         </div>
       </div>
     );

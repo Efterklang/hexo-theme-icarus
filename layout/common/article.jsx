@@ -83,7 +83,7 @@ module.exports = class extends Component {
                       dangerouslySetInnerHTML={{
                         __html: _p(
                           "plugin.visit_count",
-                          '<span id="twikoo_visitors"></span>',
+                          '<span id="busuanzi_page_pv" style="padding-right: 0"></span>',
                         ),
                       }}
                     ></span>
@@ -122,9 +122,9 @@ module.exports = class extends Component {
             ) : null}
             {/* Licensing block */}
             {!index &&
-            article &&
-            article.licenses &&
-            Object.keys(article.licenses) ? (
+              article &&
+              article.licenses &&
+              Object.keys(article.licenses) ? (
               <ArticleLicensing.Cacheable
                 page={page}
                 config={config}

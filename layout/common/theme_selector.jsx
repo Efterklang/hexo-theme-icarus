@@ -11,26 +11,26 @@ class ThemeSelector extends Component {
             <h3 class="theme-selector-title">Choose Theme</h3>
             <div class="theme-selector-hint">Shortcuts: ⌘ ⇧ P</div>
             <div class="theme-selector-hint">
-              ↑↓ Navigate • Enter Confirm • Esc Close
+              ↑↓ Navigate • 󰌑 Confirm • 󱊷 Close
             </div>
           </div>
           <div class="theme-selector-list">
             <div class="theme-option" data-theme-option="system" data-index="0">
               <span class="theme-name">🖥️ System</span>
               <span class="theme-check">
-                <i class="fas fa-check"></i>
+                <iconify-icon icon="mingcute:check-fill"></iconify-icon>
               </span>
             </div>
             <div class="theme-option" data-theme-option="latte" data-index="1">
               <span class="theme-name">🌻 Latte</span>
               <span class="theme-check">
-                <i class="fas fa-check"></i>
+                <iconify-icon icon="mingcute:check-fill"></iconify-icon>
               </span>
             </div>
             <div class="theme-option" data-theme-option="nord" data-index="2">
               <span class="theme-name">🦭 Nord</span>
               <span class="theme-check">
-                <i class="fas fa-check"></i>
+                <iconify-icon icon="mingcute:check-fill"></iconify-icon>
               </span>
             </div>
             <div
@@ -40,7 +40,7 @@ class ThemeSelector extends Component {
             >
               <span class="theme-name">🐻‍❄️ Nord Night</span>
               <span class="theme-check">
-                <i class="fas fa-check"></i>
+                <iconify-icon icon="mingcute:check-fill"></iconify-icon>
               </span>
             </div>
             <div
@@ -50,13 +50,13 @@ class ThemeSelector extends Component {
             >
               <span class="theme-name">🌺 Macchiato</span>
               <span class="theme-check">
-                <i class="fas fa-check"></i>
+                <iconify-icon icon="mingcute:check-fill"></iconify-icon>
               </span>
             </div>
             <div class="theme-option" data-theme-option="mocha" data-index="5">
               <span class="theme-name">🌿 Mocha</span>
               <span class="theme-check">
-                <i class="fas fa-check"></i>
+                <iconify-icon icon="mingcute:check-fill"></iconify-icon>
               </span>
             </div>
             <div
@@ -66,7 +66,7 @@ class ThemeSelector extends Component {
             >
               <span class="theme-name">🏙 Tokyo Night</span>
               <span class="theme-check">
-                <i class="fas fa-check"></i>
+                <iconify-icon icon="mingcute:check-fill"></iconify-icon>
               </span>
             </div>
           </div>

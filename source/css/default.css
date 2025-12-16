@@ -269,15 +269,6 @@ span {
   color: var(--lavender);
 }
 
-.menu-list a.is-active,
-.menu-list a:hover {
-  background-color: var(--surface0);
-}
-
-.menu-list li ul {
-  border-color: var(--surface0);
-}
-
 .tag {
   color: var(--text);
   border-color: var(--surface0);
@@ -306,9 +297,7 @@ input.task-list-item-checkbox:checked {
   border-color: var(--green);
 }
 
-.level-item,
-.navbar-item,
-.v * {
+.navbar-item {
   color: var(--text);
 }
 
@@ -609,16 +598,6 @@ video {
   justify-content: center;
 }
 
-.menu-list a {
-  padding: 0.5em 0.75em;
-}
-
-.menu-list li ul {
-  border-left: 1px solid var(--surface0);
-  margin: 0.75em;
-  padding-left: 0.75em;
-}
-
 /* #region Navbar */
 
 .navbar {
@@ -779,13 +758,6 @@ video {
   background-color: var(--surface1);
   box-shadow: 0 4px 12px rgba(137, 180, 250, 0.2);
   transform: translateX(8px);
-}
-
-.theme-option .theme-emoji {
-  font-size: 1.75rem;
-  line-height: 1;
-  min-width: 2rem;
-  text-align: center;
 }
 
 .theme-option .theme-name {
@@ -1531,6 +1503,7 @@ section {
 }
 
 .article-meta {
+  font-family: "Maple Mono NF CN", monospace;
   font-size: 0.8rem;
   overflow-x: auto;
   margin-bottom: 0.1rem;
