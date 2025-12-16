@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* #region Color */
 :where([data-theme="latte"]) {
   color-scheme: light;
@@ -1226,12 +1227,8 @@ video {
 
 .content a[href*="apple"]::before,
 .content a[href*="github"]::before,
-.content a[href*="man7"]::before,
-.content a[href*="mozilla"]::before,
-.content a[href*="vluv"]::before,
 .content a[href*="wikipedia"]::before,
-.content a[href*="youtube"]::before,
-.content a[href^="/"]::before {
+.content a[href*="youtube"]::before {
   font-family: "Maple Mono NF CN", monospace;
   font-size: 1em;
   padding-left: 0.5em;
@@ -1239,35 +1236,19 @@ video {
 }
 
 .content a[href*="github"]::before {
-  content: "ï‚› ";
+  content: "󰊤 ";
 }
 
 .content a[href*="wikipedia"]::before {
-  content: "ó°–¬ ";
+  content: "󰖬 ";
 }
 
 .content a[href*="youtube"]::before {
-  content: "ï…ª ";
+  content: " ";
 }
 
 .content a[href*="apple"]::before {
-  content: "ï…¹ ";
-}
-
-.content a[href*="mozilla"]::before {
-  content: "ó°¬” ";
-}
-
-.content a[href*="man7"]::before {
-  content: "ï…¼ ";
-}
-
-.content a[href^="/"]::before {
-  content: "î¼¶ ";
-}
-
-.content a[href*="vluv"]::before {
-  content: "î¼¶ ";
+  content: " ";
 }
 
 .footnotes {
@@ -1357,13 +1338,14 @@ input.task-list-item-checkbox {
 }
 
 input.task-list-item-checkbox:checked::before {
-  content: "âœ“";
-  color: var(--surface0);
+  content: "";
+  font-family: "Maple Mono NF CN", monospace;
+  color: var(--base);
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 40%;
   transform: translate(-50%, -50%);
-  font-size: 0.8rem;
+  font-size: .9rem;
   font-weight: 700;
 }
 
