@@ -1,10 +1,10 @@
 (() => {
-  // eslint-disable-next-line no-unused-vars
+  // biome-ignore lint/correctness/noUnusedVariables: will be used
   let pjax;
 
   function initPjax() {
     try {
-      const Pjax = window.Pjax || (() => {});
+      const Pjax = window.Pjax || (() => { });
       pjax = new Pjax({
         selectors: [
           "[data-pjax]",
@@ -15,7 +15,6 @@
           ".navbar-end",
           ".searchbox link",
           ".searchbox script",
-          "#back-to-top",
           "#comments link",
           "#comments script",
         ],
@@ -25,22 +24,6 @@
       console.warn(`PJAX error: ${e}`);
     }
   }
-
-  document.addEventListener("pjax:complete", () => {
-    // Plugin [Busuanzi] reload logic
-    if (window.bszCaller && window.bszTag) {
-      window.bszCaller.fetch(
-        "//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback",
-        (a) => {
-          window.bszTag.texts(a);
-          window.bszTag.shows();
-        },
-      );
-    }
-    mediumZoom(".article img", {
-      background: "hsla(from var(--mantle) / 0.9)",
-    });
-  });
 
   document.addEventListener("DOMContentLoaded", () => initPjax());
 })();

@@ -212,7 +212,7 @@ function handleNavbarToggle() {
 }
 // #endregion
 
-document.addEventListener("DOMContentLoaded", () => {
+function initLogic() {
   initKeyboardShortcuts();
   initializeTableOfContents();
   initializeTabs();
@@ -222,4 +222,10 @@ document.addEventListener("DOMContentLoaded", () => {
       background: "hsla(from var(--mantle) / 0.9)",
     });
   }
+}
+
+document.addEventListener("pjax:complete", () => {
+  initLogic();
 });
+
+document.addEventListener("DOMContentLoaded", () => initLogic());
