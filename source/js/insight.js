@@ -85,21 +85,14 @@ function loadInsight(config, translation) {
     return result;
   }
 
-  function searchItem(icon, title, slug, preview, url) {
+  function searchItem(title, preview, url) {
     title = title != null && title !== "" ? title : translation.untitled;
-    const subtitle = slug
-      ? `<span class="searchbox-result-title-secondary">(${slug})</span>`
-      : "";
 
     // 依然返回 HTML 字符串，因为里面包含了高亮标签 <em>
     return `<a class="searchbox-result-item" href="${url}">
-            <span class="searchbox-result-icon">
-                <iconify-icon icon="${icon}" />
-            </span>
             <span class="searchbox-result-content">
                 <span class="searchbox-result-title">
                     ${title}
-                    ${subtitle}
                 </span>
                 ${preview ? `<span class="searchbox-result-preview">${preview}</span>` : ""}
             </span>
@@ -118,9 +111,7 @@ function loadInsight(config, translation) {
           const title = findAndHighlight(item.title, keywords);
           const text = findAndHighlight(item.text, keywords, 100);
           return searchItem(
-            "mingcute:document-2-fill",
             title,
-            null,
             text,
             item.link,
           );
@@ -130,13 +121,8 @@ function loadInsight(config, translation) {
       case "TAGS":
         searchItemsHTML = array.map((item) => {
           const name = findAndHighlight(item.name, keywords);
-          const slug = findAndHighlight(item.slug, keywords);
           return searchItem(
-            type === "CATEGORIES"
-              ? "mingcute:folder-fill"
-              : "mingcute:tag-fill",
             name,
-            slug,
             null,
             item.link,
           );
