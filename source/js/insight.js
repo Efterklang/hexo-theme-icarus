@@ -283,8 +283,12 @@ function loadInsight(config, translation) {
       searchResultToDOM(keywords, search(dataset, keywords));
     }, 200);
   });
-  // 失去焦点时关闭搜索框
-  input.addEventListener('blur', () => {
+
+  main.addEventListener("focusout", (e) => {
+    if (main.contains(e.relatedTarget)) {
+      return;
+    }
+    // 当焦点移出 searchbox 时，关闭搜索框
     main.classList.remove("show");
   });
   let touch = false;
