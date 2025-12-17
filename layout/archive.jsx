@@ -70,7 +70,6 @@ module.exports = class extends Component {
                     date={date(post.date)}
                     dateXml={date_xml(post.date)}
                     categories={categories}
-                    thumbnail={post.thumbnail ? url_for(post.thumbnail) : null}
                   />
                 );
               })}

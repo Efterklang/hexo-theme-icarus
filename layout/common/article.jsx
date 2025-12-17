@@ -48,23 +48,11 @@ module.exports = class extends Component {
               <div class="article-meta">
                 <p>
                   {page.date && <span>{date(page.date)}</span>}
-                  {/* Categories */}
                   {page.categories?.length ? (
                     <span>
-                      {(() => {
-                        const categories = [];
-                        page.categories.forEach((category, i) => {
-                          categories.push(
-                            <a class="link-muted" href={url_for(category.path)}>
-                              {category.name}
-                            </a>,
-                          );
-                          if (i < page.categories.length - 1) {
-                            categories.push("/");
-                          }
-                        });
-                        return categories;
-                      })()}
+                      {page.categories.map((category)=>(
+                        <a href={url_for(category.path)}>/{category.name}</a>
+                      )) }
                     </span>
                   ) : null}
                   <span
@@ -122,9 +110,9 @@ module.exports = class extends Component {
             ) : null}
             {/* Licensing block */}
             {!index &&
-              article &&
-              article.licenses &&
-              Object.keys(article.licenses) ? (
+            article &&
+            article.licenses &&
+            Object.keys(article.licenses) ? (
               <ArticleLicensing.Cacheable
                 page={page}
                 config={config}
@@ -138,7 +126,7 @@ module.exports = class extends Component {
           <nav class="post-navigation level is-mobile card-content">
             {page.prev ? (
               <a
-                class={`article-nav-prev level level-item${!page.prev ? " is-hidden-mobile" : ""} link-muted`}
+                class={`article-nav-prev level level-item${!page.prev ? " is-hidden-mobile" : ""} `}
                 href={url_for(page.prev.path)}
               >
                 <iconify-icon
@@ -150,7 +138,7 @@ module.exports = class extends Component {
             ) : null}
             {page.next ? (
               <a
-                class={`article-nav-next level level-item${!page.next ? " is-hidden-mobile" : ""} link-muted`}
+                class={`article-nav-next level level-item${!page.next ? " is-hidden-mobile" : ""} `}
                 href={url_for(page.next.path)}
               >
                 {page.next.title}
