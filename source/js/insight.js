@@ -283,7 +283,10 @@ function loadInsight(config, translation) {
       searchResultToDOM(keywords, search(dataset, keywords));
     }, 200);
   });
-
+  // 失去焦点时关闭搜索框
+  input.addEventListener('blur', () => {
+    main.classList.remove("show");
+  });
   let touch = false;
 
   // 监听打开搜索框的点击事件
@@ -324,12 +327,7 @@ function loadInsight(config, translation) {
 
   document.addEventListener("keydown", (e) => {
     if (!main.classList.contains("show")) return;
-    // ... 快捷键逻辑保持不变，除了 active 查找优化
     switch (e.key) {
-      case "Escape":
-        e.preventDefault();
-        main.classList.remove("show");
-        break;
       case "ArrowUp":
         selectItemByDiff(-1);
         break;

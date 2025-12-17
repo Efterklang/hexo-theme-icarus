@@ -1633,7 +1633,7 @@ input.searchbox-input {
 .searchbox .searchbox-body {
   flex-grow: 1;
   overflow-y: auto;
-  border-top: 1px solid var(--surface0);
+  border-top: 1px solid var(--base);
 }
 
 .searchbox-result-item,
@@ -1642,7 +1642,7 @@ input.searchbox-input {
 }
 
 .searchbox-result-section {
-  border-bottom: 2px dotted var(--surface0);
+  border-bottom: 1px dotted var(--base);
 }
 
 .searchbox-result-item {

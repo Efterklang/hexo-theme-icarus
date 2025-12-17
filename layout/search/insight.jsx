@@ -5,22 +5,6 @@
 const { Component } = require("inferno");
 const { cacheComponent } = require("../../util/cache");
 
-/**
- * Algolia search engine JSX component.
- *
- * @example
- * <Insight
- *     translation={{
- *         hint: '******',
- *         untitled: '******',
- *         posts: '******',
- *         pages: '******',
- *         categories: '******',
- *         tags: '******'
- *     }}
- *     contentUrl="/path/to/content.json"
- *     jsUrl="/path/to/insight.js" />
- */
 class Insight extends Component {
   render() {
     const { translation, contentUrl, jsUrl } = this.props;
@@ -37,6 +21,7 @@ class Insight extends Component {
               <div class="searchbox-input-container">
                 <input
                   type="text"
+                  name="search-input"
                   class="searchbox-input"
                   placeholder={translation.hint}
                 />
@@ -55,21 +40,6 @@ class Insight extends Component {
   }
 }
 
-/**
- * Cacheable Insight search plugin JSX component.
- * <p>
- * This class is supposed to be used in combination with the <code>locals</code> hexo filter
- * ({@link module:hexo/filter/locals}).
- *
- * @see module:util/cache.cacheComponent
- * @example
- * <Insight.Cacheable
- *     helper={{
- *         __: function() {...},
- *         cdn: function() {...},
- *         url_for: function() {...}
- *     }} />
- */
 Insight.Cacheable = cacheComponent(Insight, "search.insight", (props) => {
   const { helper } = props;
 
