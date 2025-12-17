@@ -1595,14 +1595,13 @@ input.searchbox-input {
   line-height: 1.25em;
 }
 
-.searchbox .searchbox-container {
+.searchbox-container {
   z-index: 101;
   display: flex;
   overflow: hidden;
   border-radius: 24px;
   width: 640px;
   top: 100px;
-  bottom: 100px;
 }
 
 .searchbox-body,
@@ -1705,16 +1704,6 @@ input.searchbox-input {
   .searchbox-pagination-item.disabled
   .searchbox-pagination-link {
   cursor: not-allowed;
-}
-
-@media screen and (max-width: 559px) {
-  .searchbox-container {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
 }
 
 /* #endregion Search */
