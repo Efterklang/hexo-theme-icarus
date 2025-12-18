@@ -17,18 +17,13 @@ class Insight extends Component {
       <>
         <div class="searchbox">
           <div class="searchbox-container">
-            <div class="searchbox-header">
-              <div class="searchbox-input-container">
-                <input
-                  type="text"
-                  name="search-input"
-                  class="searchbox-input"
-                  placeholder={translation.hint}
-                />
-              </div>
-              <button class="searchbox-close" type="button">
-                &times;
-              </button>
+            <div class="searchbox-input-container">
+              <input
+                type="text"
+                name="search-input"
+                class="searchbox-input"
+                placeholder={translation.hint}
+              />
             </div>
             <div class="searchbox-body"></div>
           </div>

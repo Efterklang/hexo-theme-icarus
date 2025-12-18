@@ -60,16 +60,7 @@ class Algolia extends Component {
             style="position:absolute;bottom:0px;left:0px;right:0px;top:0px;"
           ></div>
           <div class="searchbox-container">
-            <div class="searchbox-header">
-              <div class="searchbox-input-container" id="algolia-input"></div>
-              <div
-                id="algolia-poweredby"
-                style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"
-              ></div>
-              <button class="searchbox-close" type="button">
-                &times;
-              </button>
-            </div>
+            <div class="searchbox-input-container" id="algolia-input"></div>
             <div class="searchbox-body"></div>
             <div class="searchbox-footer"></div>
           </div>

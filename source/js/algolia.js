@@ -97,7 +97,4 @@ function loadAlgolia(config, translation) {
     .on("click", ".searchbox .searchbox-mask", () => {
       $(".searchbox").removeClass("show");
     })
-    .on("click", ".searchbox-close", () => {
-      $(".searchbox").removeClass("show");
-    });
 }

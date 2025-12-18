@@ -129,19 +129,16 @@ function loadInsight(config, translation) {
     return keywords.split(" ").filter((k) => !!k).map((k) => k.toLowerCase());
   }
 
-  // 优化点：不再使用 filterFactory 和 weightFactory 这种闭包工厂
-  // 而是直接在 search 函数中进行一次性遍历计算，大幅减少函数调用开销
   function search(json, keywordsStr) {
     const keywords = parseKeywords(keywordsStr);
     if (keywords.length === 0) return {};
 
-    // 优化点：预编译正则，避免在循环中重复 new RegExp
-    // 转义正则特殊字符防止报错
+    // 把keywords中的特殊字符转义, 将转移后的关键词编译为正则表达式(忽略大小写，全局，多行)
+    // 后续在文章内容匹配时使用
     const keywordRegexes = keywords.map(k => new RegExp(k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), "img"));
 
     const calculateWeight = (obj, fields, weights) => {
       let value = 0;
-      let matched = false;
 
       // 检查所有关键词
       for (let i = 0; i < keywords.length; i++) {
@@ -291,7 +288,6 @@ function loadInsight(config, translation) {
     // 当焦点移出 searchbox 时，关闭搜索框
     main.classList.remove("show");
   });
-  let touch = false;
 
   // 监听打开搜索框的点击事件
   document.addEventListener("click", (e) => {
@@ -305,29 +301,6 @@ function loadInsight(config, translation) {
     }
   });
 
-  // 处理关闭逻辑（保持原有逻辑）
-  document.addEventListener("click", (e) => {
-    const target = e.target;
-    const closeBtn = target.closest(".searchbox-close");
-    if (closeBtn) {
-      if (e.type === "click" || touch) {
-        const navbar = document.querySelector(".navbar-main");
-        if (navbar) {
-          navbar.style.pointerEvents = "none";
-          setTimeout(() => { navbar.style.pointerEvents = "auto"; }, 400);
-        }
-        main.classList.remove("show");
-        touch = false;
-      }
-    }
-  });
-
-  document.addEventListener("touchend", (e) => {
-    // 保持原逻辑，这里省略 handleSearchClicks 复用部分
-    // 实际代码中应保留 handleSearchClicks 调用
-    const closeBtn = e.target.closest(".searchbox-close");
-    if (closeBtn) main.classList.remove("show");
-  });
 
   document.addEventListener("keydown", (e) => {
     if (!main.classList.contains("show")) return;
