@@ -201,8 +201,8 @@ function handleNavbarToggle() {
       return; // 阻止后续逻辑
     }
 
-    // Handle Menu Item Click (Auto close menu)
-    if (target.closest(".navbar-menu a.navbar-item")) {
+    // After click navbar item, close the menu
+    if (target.closest(".navbar-item")) {
       if (navbarBurger.classList.contains("is-active")) {
         navbarBurger.classList.remove("is-active");
         navbarMenu.classList.remove("is-active");
@@ -224,8 +224,5 @@ function initLogic() {
   }
 }
 
-document.addEventListener("pjax:complete", () => {
-  initLogic();
-});
-
+document.addEventListener("pjax:complete", () => initLogic());
 document.addEventListener("DOMContentLoaded", () => initLogic());
