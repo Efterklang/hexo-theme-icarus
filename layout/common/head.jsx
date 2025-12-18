@@ -223,7 +223,7 @@ module.exports = class extends Component {
         {/* Iconify Icons */}
         <script
           async
-          src="/css/font/iconify-icon/3.0.2/iconify-icon.min.js"
+          src="/js/host/iconify-icon/3.0.2/iconify-icon.min.js"
         ></script>
         {/* Maple Mono CN */}
         <link
