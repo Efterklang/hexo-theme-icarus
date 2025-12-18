@@ -50,9 +50,9 @@ module.exports = class extends Component {
                   {page.date && <span>{date(page.date)}</span>}
                   {page.categories?.length ? (
                     <span>
-                      {page.categories.map((category)=>(
+                      {page.categories.map((category) => (
                         <a href={url_for(category.path)}>/{category.name}</a>
-                      )) }
+                      ))}
                     </span>
                   ) : null}
                   <span
@@ -121,35 +121,6 @@ module.exports = class extends Component {
             ) : null}
           </article>
         </div>
-        {/* Post navigation */}
-        {!index && (page.prev || page.next) ? (
-          <nav class="post-navigation level is-mobile card-content">
-            {page.prev ? (
-              <a
-                class={`article-nav-prev level level-item${!page.prev ? " is-hidden-mobile" : ""} `}
-                href={url_for(page.prev.path)}
-              >
-                <iconify-icon
-                  icon="mingcute:left-fill"
-                  style="padding-right: .3rem"
-                ></iconify-icon>
-                {page.prev.title}
-              </a>
-            ) : null}
-            {page.next ? (
-              <a
-                class={`article-nav-next level level-item${!page.next ? " is-hidden-mobile" : ""} `}
-                href={url_for(page.next.path)}
-              >
-                {page.next.title}
-                <iconify-icon
-                  icon="mingcute:right-fill"
-                  style="padding-left: .3rem"
-                ></iconify-icon>
-              </a>
-            ) : null}
-          </nav>
-        ) : null}
         {/* Comment */}
         {!index ? (
           <Comment config={config} page={page} helper={helper} />
