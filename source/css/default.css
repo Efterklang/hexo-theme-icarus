@@ -449,6 +449,7 @@ video {
   user-select: none;
 }
 
+p:not(:last-child),
 .breadcrumb:not(:last-child),
 .content:not(:last-child),
 .level:not(:last-child),
