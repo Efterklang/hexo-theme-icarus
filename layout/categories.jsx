@@ -30,13 +30,14 @@ class Categories extends Component {
   render() {
     const { showCount, categories } = this.props;
     const categoriesListCSS = `
-    a {
+    .card-content a {
       padding: 0.5em 0.75em;
+      color: var(--text);
     }
-    a.level:hover {
+    .card-content a.level:hover {
       background-color: var(--base);
     }
-    li ul {
+    .card-content li ul {
       border-left: 1px solid var(--surface0);
       margin: 0.75em;
       padding-left: 0.75em;
