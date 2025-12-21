@@ -181,16 +181,6 @@ module.exports = class extends Component {
           />
         ) : null}
         {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
-        {page.cover ? (
-          <link
-            rel="preload"
-            as="image"
-            href={url_for(page.cover)}
-            imagesrcset={`${url_for(page.cover)}?w=128 128w, ${url_for(page.cover)}?w=256 256w, ${url_for(page.cover)}?w=800 800w, ${url_for(page.cover)}?w=1500 1500w, ${url_for(page.cover)}?w=2000 2000w, ${url_for(page.cover)}?fmt=avif 6144w`}
-            imagesizes="(max-width: 768px) 100vw, 50vw"
-          />
-        ) : null}
-
         <link rel="stylesheet" href={url_for("/css/default.css")} />
         <link
           rel="stylesheet"
