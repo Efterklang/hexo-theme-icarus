@@ -1,16 +1,4 @@
-/**
- * Register the Hexo generator for generating the <code>/categories/</code> page.
- * @module hexo/generator/categories
- */
-
-/**
- * Register the Hexo generator for generating the <code>/categories/</code> page.
- * <p>
- * A <code>__categories: true</code> property will be attached to the page local
- * variables.
- *
- * @param {Hexo} hexo The Hexo instance.
- */
+// Generates the <root>/categories page
 module.exports = (hexo) => {
   hexo.extend.generator.register("categories", (locals) => {
     return {
