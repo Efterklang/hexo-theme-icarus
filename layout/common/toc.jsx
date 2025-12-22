@@ -14,7 +14,7 @@ class FloatingToc extends Component {
 
     return (
       <div class="toc-container" id="icarus-toc-container">
-        <div class="toc-button">
+        <button class="toc-button" onclick="document.getElementById('icarus-toc-container').classList.toggle('is-open')">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -35,8 +35,8 @@ class FloatingToc extends Component {
             <line x1="3" y1="12" x2="3.01" y2="12"></line>
             <line x1="3" y1="18" x2="3.01" y2="18"></line>
           </svg>
-        </div>
-        <div class="toc-body">
+        </button>
+        <div class="toc-body" onclick="if(event.target === this || event.target.closest('.toc-link')) { document.getElementById('icarus-toc-container').classList.remove('is-open'); }">
           <div dangerouslySetInnerHTML={{ __html: tocContent }} />
         </div>
       </div>

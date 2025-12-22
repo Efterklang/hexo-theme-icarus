@@ -42,7 +42,7 @@ class Navbar extends Component {
     const { siteUrl, menu, links, showSearch, searchTitle } = this.props;
 
     return (
-      <nav class="navbar navbar-main">
+      <nav class="navbar navbar-main" onclick="handleNavbarClick(event);">
         <div class="navbar-container">
           <a href={siteUrl} class="navbar-brand">
             <svg

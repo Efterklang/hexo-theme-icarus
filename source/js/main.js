@@ -114,42 +114,11 @@ function handleKeyDown(e) {
 // #endregion
 
 // #region TOC
-
 function initializeTableOfContents() {
     const tocContainer = document.getElementById("icarus-toc-container");
     if (!tocContainer) return;
 
-    const tocButton = tocContainer.querySelector(".toc-button");
-    const tocBody = tocContainer.querySelector(".toc-body");
     const tocLinks = tocContainer.querySelectorAll(".toc-link");
-
-    // 移除旧事件（防止PJAX重复绑定）
-    tocButton?.removeEventListener("click", handleTocButtonClick);
-    tocBody?.removeEventListener("click", handleTocBodyClick);
-    tocLinks.forEach(link => link.removeEventListener("click", handleTocLinkClick));
-
-    // Mobile Toggle
-    if (tocButton) {
-        tocButton.addEventListener("click", handleTocButtonClick);
-    }
-
-    // Close when clicking a link
-    function handleTocLinkClick() {
-        tocContainer.classList.remove("is-open");
-    }
-    tocLinks.forEach((link) => {
-        link.addEventListener("click", handleTocLinkClick);
-    });
-
-    // Close when clicking the backdrop
-    function handleTocBodyClick(e) {
-        if (e.target === tocBody) {
-            tocContainer.classList.remove("is-open");
-        }
-    }
-    if (tocBody) {
-        tocBody.addEventListener("click", handleTocBodyClick);
-    }
 
     // Scroll Spy
     const headers = [];
@@ -206,58 +175,12 @@ function initializeTableOfContents() {
     }
 }
 
-// 抽离TOC按钮点击处理函数
-function handleTocButtonClick(e) {
-    e.stopPropagation();
-    tocContainer.classList.add("is-open");
-}
-
-// #endregion
-
-// #region Navbar
-
-// 只绑定一次navbar事件（使用标志位防止重复绑定）
-let navbarEventBound = false;
-function handleNavbarToggle() {
-    if (navbarEventBound) return;
-
-    document.addEventListener("click", handleNavbarClick);
-    navbarEventBound = true;
-}
-
-// 抽离Navbar点击处理函数
-function handleNavbarClick(e) {
-    const target = e.target;
-    // 每次触发事件时实时获取最新的元素
-    const navbarBurger = document.querySelector(".navbar-burger");
-    const navbarMenu = document.querySelector(".navbar-menu");
-
-    if (!navbarBurger || !navbarMenu) return;
-
-    // Handle Burger Click
-    if (target.closest(".navbar-burger")) {
-        navbarBurger.classList.toggle("is-active");
-        navbarMenu.classList.toggle("is-active");
-        return; // 阻止后续逻辑
-    }
-
-    // After click navbar item, close the menu
-    if (target.closest(".navbar-item")) {
-        if (navbarBurger.classList.contains("is-active")) {
-            navbarBurger.classList.remove("is-active");
-            navbarMenu.classList.remove("is-active");
-        }
-    }
-}
-
 // #endregion
 
 function initLogic() {
     initKeyboardShortcuts();
     initializeTableOfContents();
     initializeTabs();
-    handleNavbarToggle(); // 只绑定一次事件
-
     if (typeof mediumZoom === "function") {
         mediumZoom(".article img", {
             background: "hsla(from var(--mantle) / 0.9)",
@@ -269,3 +192,27 @@ function initLogic() {
 document.addEventListener("DOMContentLoaded", () => initLogic());
 // PJAX完成后执行（注意：这里的函数内已经做了事件去重）
 document.addEventListener("pjax:complete", () => initLogic());
+
+// Global functions
+function handleNavbarClick(e) {
+    const target = e.target;
+    const navbarBurger = document.querySelector(".navbar-burger");
+    const navbarMenu = document.querySelector(".navbar-menu");
+
+    if (!navbarBurger || !navbarMenu) return;
+
+    // 处理 burger 点击
+    if (target.closest(".navbar-burger")) {
+        navbarBurger.classList.toggle("is-active");
+        navbarMenu.classList.toggle("is-active");
+        return;
+    }
+
+    // 处理 item 点击
+    if (target.closest(".navbar-item")) {
+        if (navbarBurger.classList.contains("is-active")) {
+            navbarBurger.classList.remove("is-active");
+            navbarMenu.classList.remove("is-active");
+        }
+    }
+}
