@@ -1,4 +1,4 @@
-const { Component } = require("inferno");
+const { Component } = require("../include/util/common");
 const Article = require("./common/article");
 
 module.exports = class extends Component {

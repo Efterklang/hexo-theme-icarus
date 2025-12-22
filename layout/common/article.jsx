@@ -1,4 +1,4 @@
-const { Component, Fragment } = require("inferno");
+const { Component, Fragment } = require("../../include/util/common");
 const Comment = require("./comment");
 const ArticleLicensing = require("../misc/article_licensing");
 const ArticleCover = require("./article_cover");

@@ -1,4 +1,4 @@
-const { Component } = require("inferno");
+const { Component } = require("../include/util/common");
 const Head = require("./common/head");
 const Navbar = require("./common/navbar");
 const Footer = require("./common/footer");

@@ -2,9 +2,7 @@
  * Web app meta tags.
  * @module view/misc/web_app
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * Web app meta tags.
  *

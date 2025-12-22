@@ -1,9 +1,4 @@
-/**
- * Statcounter statistics plugin JSX component.
- * @module view/plugin/statcounter
- */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
+const { Component, cacheComponent } = require("../../include/util/common");
 
 /**
  * Statcounter statistics plugin JSX component.

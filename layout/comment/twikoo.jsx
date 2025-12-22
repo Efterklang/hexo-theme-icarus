@@ -1,10 +1,9 @@
-/**
- * Twikoo comment JSX component.
- * @module view/comment/twikoo
- */
-const { Component, Fragment } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-const { lazy_load_css } = require("../../include/util/common");
+const {
+  Component,
+  Fragment,
+  cacheComponent,
+  lazy_load_css,
+} = require("../../include/util/common");
 
 /**
  * Twikoo comment JSX component.

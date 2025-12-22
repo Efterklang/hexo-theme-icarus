@@ -2,9 +2,7 @@
  * Disqus comment JSX component.
  * @module view/comment/disqus
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * Disqus comment JSX component.
  *
@@ -32,7 +30,7 @@ class Disqus extends Component {
             this.page.identifier = '${disqusId || path}';
         };
         (function() {
-            var d = document, s = d.createElement('script');  
+            var d = document, s = d.createElement('script');
             s.src = '//' + '${shortname}' + '.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);

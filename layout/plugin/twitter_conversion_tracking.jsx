@@ -1,10 +1,4 @@
-/**
- * Twitter conversion tracking plugin JSX component.
- * @module view/plugin/twitter_conversion_tracking
- */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * Twitter conversion tracking plugin JSX component.
  *

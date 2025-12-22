@@ -2,9 +2,7 @@
  * Bing Webmaster Tools plugin JSX component.
  * @module view/plugin/bing_webmaster
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * Bing Webmaster Tools plugin JSX component.
  *

@@ -2,9 +2,7 @@
  * Utterances comment JSX component.
  * @module view/comment/utterances
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * Utterances comment JSX component.
  *

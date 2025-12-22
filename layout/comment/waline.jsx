@@ -2,9 +2,7 @@
  * Waline comment JSX component.
  * @module view/comment/waline
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * Waline comment JSX component.
  *

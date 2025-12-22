@@ -1,5 +1,4 @@
-const { Component } = require("inferno");
-const { cacheComponent } = require("../util/cache");
+const { Component, cacheComponent } = require("../include/util/common");
 
 class Categories extends Component {
   renderList(categories, showCount) {

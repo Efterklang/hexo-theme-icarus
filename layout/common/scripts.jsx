@@ -1,4 +1,4 @@
-const { Component, Fragment } = require("inferno");
+const { Component, Fragment } = require("../../include/util/common");
 const Plugins = require("./plugins");
 
 module.exports = class extends Component {

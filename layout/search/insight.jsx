@@ -2,9 +2,7 @@
  * Insight search plugin JSX component.
  * @module view/search/insight
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 class Insight extends Component {
   render() {
     const { translation, contentUrl, jsUrl } = this.props;

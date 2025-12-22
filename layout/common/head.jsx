@@ -1,4 +1,4 @@
-const { Component } = require("inferno");
+const { Component } = require("../../include/util/common");
 const MetaTags = require("../../layout/misc/meta");
 const WebApp = require("../../layout/misc/web_app");
 const OpenGraph = require("../../layout/misc/open_graph");

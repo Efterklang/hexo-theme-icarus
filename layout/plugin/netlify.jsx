@@ -1,5 +1,8 @@
-const { Component, Fragment } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
+const {
+  Component,
+  Fragment,
+  cacheComponent,
+} = require("../../include/util/common");
 
 const netlifyJs = `if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", function(user) {

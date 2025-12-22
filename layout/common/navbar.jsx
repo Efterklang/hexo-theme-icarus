@@ -1,4 +1,4 @@
-const { Component, Fragment } = require("inferno");
+const { Component, Fragment } = require("../../include/util/common");
 const { cacheComponent } = require("../../util/cache");
 
 function isSameLink(a, b) {

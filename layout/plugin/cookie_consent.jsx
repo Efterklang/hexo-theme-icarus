@@ -1,10 +1,4 @@
-/**
- * A JSX component for alerting users about the use of cookies.
- * @module view/plugin/cookie_consent
- */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * A JSX component for alerting users about the use of cookies.
  *

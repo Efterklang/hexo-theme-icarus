@@ -2,9 +2,7 @@
  * Busuanzi visitor counter plugin JSX component.
  * @module view/plugin/baidu_analytics
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * Busuanzi visitor counter plugin JSX component.
  *

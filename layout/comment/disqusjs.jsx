@@ -2,9 +2,7 @@
  * DisqusJS comment JSX component.
  * @module view/comment/disqusjs
  */
-const { Component } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
-
+const { Component, cacheComponent } = require("../../include/util/common");
 /**
  * DisqusJS comment JSX component.
  *

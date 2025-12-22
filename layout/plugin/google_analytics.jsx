@@ -2,8 +2,11 @@
  * Google Analytics plugin JSX component.
  * @module view/plugin/google_analytics
  */
-const { Component, Fragment } = require("inferno");
-const { cacheComponent } = require("../../util/cache");
+const {
+  Component,
+  Fragment,
+  cacheComponent,
+} = require("../../include/util/common");
 
 /**
  * Google Analytics plugin JSX component.
